@@ -53,12 +53,38 @@ export default function BlogPage() {
       {/* CONTROLS BAR                                                  */}
       {/* ============================================================ */}
      <Navbar/>
-      <section className="mt-24 max-w-[1500px] px-6 pt-10 sm:px-10 lg:px-16">
-  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] p-8 sm:p-10">
-    {/* Decorative elements */}
-    <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
-    <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-purple-500/10 blur-3xl" />
-    <div className="absolute right-20 top-10 h-32 w-32 rounded-full bg-amber-500/5 blur-2xl" />
+      <section className="mt-10 max-w-[1500px] px-6 pt-10 sm:px-10 lg:px-16">
+  <motion.section 
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+  className="mx-auto max-w-[1500px] px-6 pt-10 sm:px-10 lg:px-16"
+>
+  <motion.div 
+    initial={{ opacity: 0, scale: 0.98 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+    className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] p-8 sm:p-10"
+  >
+    {/* Decorative elements with fade in */}
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, delay: 0.2 }}
+      className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" 
+    />
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-purple-500/10 blur-3xl" 
+    />
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.4 }}
+      className="absolute right-20 top-10 h-32 w-32 rounded-full bg-amber-500/5 blur-2xl" 
+    />
     
     {/* Grid pattern overlay */}
     <div 
@@ -71,40 +97,80 @@ export default function BlogPage() {
 
     <div className="relative z-10 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
       {/* Left side - Title with icon */}
-      <div className="flex items-center gap-4">
-        <div className="hidden sm:flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        className="flex items-center gap-4"
+      >
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="hidden sm:flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm"
+        >
           <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6m4 8h6m-6-4h6" />
           </svg>
-        </div>
+        </motion.div>
         <div>
-          <h2 className="flex items-center gap-3 text-2xl font-extrabold text-white sm:text-3xl">
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="flex items-center gap-3 text-2xl font-extrabold text-white sm:text-3xl"
+          >
             Blog
-            <span className="rounded-full bg-white/10 px-3 py-0.5 text-xs font-medium text-white/60 backdrop-blur-sm">
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+              className="rounded-full bg-white/10 px-3 py-0.5 text-xs font-medium text-white/60 backdrop-blur-sm"
+            >
               {filtered.length}
-            </span>
-          </h2>
-          <p className="mt-1 text-sm text-white/60">
+            </motion.span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.35 }}
+            className="mt-1 text-sm text-white/60"
+          >
             {filtered.length} article{filtered.length !== 1 ? "s" : ""}
             {activeCategory !== "All" ? ` in ${activeCategory}` : ""}
             {search && ` matching "${search}"`}
-          </p>
+          </motion.p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Right side - Controls */}
-      <div className="flex w-full items-center gap-3 sm:w-auto">
+      <motion.div 
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="flex w-full items-center gap-3 sm:w-auto"
+      >
         {/* Mobile filter button */}
-        <button 
+        <motion.button 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
           onClick={() => setMobileFiltersOpen(true)} 
-          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:scale-105 lg:hidden"
+          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 lg:hidden"
         >
           <SlidersHorizontal className="h-4 w-4" />
           Filters
-        </button>
+        </motion.button>
 
         {/* Show count selector */}
-        <div className="relative">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.45 }}
+          className="relative"
+        >
           <select
             value={visibleCount}
             onChange={(e) => setVisibleCount(Number(e.target.value))}
@@ -115,8 +181,8 @@ export default function BlogPage() {
             <option value={99} className="text-gray-900">Show All</option>
           </select>
           <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/60" />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
 
     {/* Filter chips */}
@@ -129,7 +195,14 @@ export default function BlogPage() {
           transition={{ duration: 0.3 }}
           className="relative z-10 mt-4 flex flex-wrap items-center gap-2 overflow-hidden border-t border-white/10 pt-4"
         >
-          <span className="text-xs font-medium text-white/40 mr-1">Active filters:</span>
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="text-xs font-medium text-white/40 mr-1"
+          >
+            Active filters:
+          </motion.span>
           {search && (
             <FilterChip 
               label={`"${search}"`} 
@@ -144,15 +217,25 @@ export default function BlogPage() {
               variant="primary"
             />
           )}
-          {activeTags.map((t) => (
-            <FilterChip 
-              key={t} 
-              label={`#${t}`} 
-              onClear={() => toggleTag(t)} 
-              variant="tag"
-            />
+          {activeTags.map((t, index) => (
+            <motion.div
+              key={t}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+            >
+              <FilterChip 
+                label={`#${t}`} 
+                onClear={() => toggleTag(t)} 
+                variant="tag"
+              />
+            </motion.div>
           ))}
-          <button
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             onClick={() => {
               setSearch("");
               setActiveCategory("All");
@@ -161,11 +244,12 @@ export default function BlogPage() {
             className="text-xs font-medium text-white/40 hover:text-white/80 transition-colors ml-2"
           >
             Clear all
-          </button>
+          </motion.button>
         </motion.div>
       )}
     </AnimatePresence>
-  </div>
+  </motion.div>
+</motion.section>
 </section>
 
       {/* ============================================================ */}

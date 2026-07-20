@@ -69,7 +69,7 @@ export default function PricingSection() {
         {/* ambient glow blobs — premium depth, purely decorative */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-24 -top-28 h-72 w-72 rounded-full opacity-[0.07] blur-3xl"
+          className="pointer-events-none absolute -top-28 h-72 w-72 rounded-full opacity-[0.07] blur-3xl"
           style={{ backgroundColor: theme.primary }}
         />
         <div

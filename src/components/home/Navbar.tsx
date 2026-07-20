@@ -22,6 +22,8 @@ const NAV_LINKS: NavLink[] = [
   },
   { label: "Resources", href: "#blog" },
   {label:"Plans", href:"/plans"},
+  {label:"Blogs", href:"/blog"},
+
 ];
 
 export default function Navbar() {
@@ -112,9 +114,9 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button size="sm" className="group">
+          {/* <Button size="sm" className="group">
             Sign Up
-          </Button>
+          </Button> */}
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">

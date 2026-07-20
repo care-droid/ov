@@ -20,7 +20,7 @@ const fadeUp = {
 
 export default function DemoPage() {
   return (
-    <div className="bg-gradient-to-b from-[#12407b] via-[var(--background)] to-[var(--background)]">
+    <div className="bg-gradient-to-b from-[var(--background)] via-[var(--background)] to-[var(--background)]">
     <section className="relative w-full overflow-hidden py-12 px-4 sm:py-16 md:py-20 lg:py-24">
       <div className="mx-auto max-w-[1250px] px-4 sm:px-6">
         <div className="relative min-h-[350px] w-full overflow-hidden rounded-[30px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[520px]">

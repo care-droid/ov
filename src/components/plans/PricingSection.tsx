@@ -1,23 +1,34 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ChevronDown } from "lucide-react";
-import { theme, easeOut, plans, featureMatrix, customizationFeatures, redirectToWhatsApp } from "./data";
+import { Check, ChevronDown, Sparkles } from "lucide-react";
+import {
+  theme,
+  easeOut,
+  fadeUp,
+  zoomFade,
+  staggerContainer,
+  staggerFast,
+  plans,
+  featureMatrix,
+  customizationFeatures,
+  redirectToWhatsApp,
+} from "./data";
 
-// Money Back Badge Component
+/* ------------------------------------------------------------------ */
+/*  MONEY BACK BADGE                                                    */
+/* ------------------------------------------------------------------ */
 function MoneyBackBadge() {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.85 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, ease: easeOut, delay: 0.15 }}
+      variants={zoomFade}
       className="relative h-[110px] w-[110px] shrink-0 sm:h-[130px] sm:w-[130px]"
     >
       <motion.div
-        animate={{ y: [0, -4, 0] }}
+        animate={{ y: [0, -6, 0] }}
         transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
         className="relative h-full w-full"
       >
-        <svg viewBox="0 0 200 200" className="h-full w-full drop-shadow-[0_10px_20px_rgba(109,16,37,0.25)]">
+        <svg viewBox="0 0 200 200" className="h-full w-full drop-shadow-[0_14px_28px_rgba(109,16,37,0.28)]">
           <defs>
             <linearGradient id="goldRing" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#F3D98B" />
@@ -51,16 +62,39 @@ export default function PricingSection() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="pt-20 pb-8 sm:pt-24">
-        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: easeOut }}
-          >
+      {/* ================================================================ */}
+      {/* HERO                                                              */}
+      {/* ================================================================ */}
+      <section className="relative overflow-hidden pt-20 pb-10 sm:pt-24">
+        {/* ambient glow blobs — premium depth, purely decorative */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-24 -top-28 h-72 w-72 rounded-full opacity-[0.07] blur-3xl"
+          style={{ backgroundColor: theme.primary }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-16 top-0 h-64 w-64 rounded-full opacity-[0.06] blur-3xl"
+          style={{ backgroundColor: theme.accentBlue }}
+        />
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.4 }}
+          variants={staggerContainer}
+          className="relative flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center"
+        >
+          <motion.div variants={fadeUp}>
+            <span
+              className="mb-4 inline-flex items-center gap-1.5 rounded-full py-1.5 text-xs font-bold uppercase tracking-wider"
+              style={{ backgroundColor: theme.lightMaroon, color: theme.primary }}
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              Simple, Transparent Pricing
+            </span>
             <h1
-              className="text-[2.25rem] font-extrabold leading-[1.1] tracking-tight sm:text-[3rem] lg:text-[3.4rem]"
+              className="text-[2.1rem] font-extrabold leading-[1.1] tracking-tight sm:text-[3rem] lg:text-[3.4rem]"
               style={{ color: theme.heading }}
             >
               Pick The Plan That&apos;s Right For You
@@ -69,33 +103,48 @@ export default function PricingSection() {
               Find your perfect subscription tier match that navigates your success story.
             </p>
           </motion.div>
+
           <MoneyBackBadge />
-        </div>
+        </motion.div>
       </section>
 
-      {/* Pricing Cards */}
+      {/* ================================================================ */}
+      {/* PRICING CARDS                                                     */}
+      {/* ================================================================ */}
       <section className="pb-20 sm:pb-28">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {plans.map((plan, i) => (
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {plans.map((plan) => (
             <motion.div
               key={plan.key}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, ease: easeOut, delay: i * 0.08 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative flex flex-col rounded-[28px] border bg-white p-7"
+              variants={fadeUp}
+              whileHover={{ y: -12, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              className="group relative flex flex-col rounded-[28px] border bg-white p-7 transition-shadow duration-500"
               style={{
                 borderColor: plan.popular ? theme.primary : theme.border,
                 borderWidth: plan.popular ? 2 : 1,
                 backgroundColor: plan.popular ? theme.lightMaroon : "#FFFFFF",
-                boxShadow: "0 20px 60px rgba(0,0,0,.08)",
-                transition: "box-shadow 0.5s ease, border-color 0.5s ease",
+                boxShadow: plan.popular
+                  ? "0 24px 70px rgba(109,16,37,.16)"
+                  : "0 20px 60px rgba(0,0,0,.08)",
               }}
             >
+              {/* hover glow ring */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-[28px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                style={{ boxShadow: `0 30px 90px ${plan.popular ? "rgba(109,16,37,.24)" : "rgba(109,16,37,.14)"}` }}
+              />
+
               {plan.popular && (
                 <motion.div
-                  animate={{ opacity: [1, 0.75, 1] }}
+                  animate={{ opacity: [1, 0.7, 1] }}
                   transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute -top-[2px] right-6 origin-top-right rounded-b-md px-4 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-md"
                   style={{ backgroundColor: theme.success }}
@@ -104,40 +153,45 @@ export default function PricingSection() {
                 </motion.div>
               )}
 
-              <div className="flex items-center justify-between">
+              <div className="relative flex items-center justify-between">
                 <h3 className="text-lg font-bold tracking-wide" style={{ color: theme.heading }}>
                   {plan.name}
                 </h3>
-                <span style={{ color: plan.popular ? theme.primary : theme.accentBlue }}>{plan.icon}</span>
+                <motion.span
+                  whileHover={{ rotate: 12, scale: 1.15 }}
+                  style={{ color: plan.popular ? theme.primary : theme.accentBlue }}
+                >
+                  {plan.icon}
+                </motion.span>
               </div>
 
-              <p className="mt-3 min-h-[48px] text-sm" style={{ color: theme.paragraph }}>
+              <p className="relative mt-3 min-h-[48px] text-sm" style={{ color: theme.paragraph }}>
                 {plan.tagline}
               </p>
 
-              <div className="my-5 h-px w-full" style={{ backgroundColor: theme.border }} />
+              <div className="relative my-5 h-px w-full" style={{ backgroundColor: theme.border }} />
 
-              <div className="mb-2">
+              <div className="relative mb-2">
                 <span className="text-4xl font-extrabold tracking-tight sm:text-[2.6rem]" style={{ color: theme.heading }}>
                   {plan.price}
                 </span>
               </div>
               {plan.priceSuffix && (
-                <p className="text-sm" style={{ color: theme.paragraph }}>
+                <p className="relative text-sm" style={{ color: theme.paragraph }}>
                   {plan.priceSuffix}
                 </p>
               )}
               {plan.billing && (
-                <p className="text-sm" style={{ color: theme.paragraph }}>
+                <p className="relative text-sm" style={{ color: theme.paragraph }}>
                   {plan.billing}
                 </p>
               )}
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
+                whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.2 }}
-                className="mt-6 w-full rounded-full py-3.5 text-sm font-bold text-white shadow-md transition-colors"
+                className="relative mt-6 w-full rounded-full py-3.5 text-sm font-bold text-white shadow-md transition-colors"
                 style={{ backgroundColor: theme.primary }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = theme.secondary)}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = theme.primary)}
@@ -146,29 +200,42 @@ export default function PricingSection() {
                 {plan.cta}
               </motion.button>
 
-              <p className="mt-6 text-sm font-semibold" style={{ color: theme.primary }}>
+              <p className="relative mt-6 text-sm font-semibold" style={{ color: theme.primary }}>
                 Includes
               </p>
-              <ul className="mt-3 flex flex-1 flex-col gap-2.5">
+              <motion.ul
+                variants={staggerFast}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.4 }}
+                className="relative mt-3 flex flex-1 flex-col gap-2.5"
+              >
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm" style={{ color: theme.paragraph }}>
+                  <motion.li
+                    key={f}
+                    variants={{ hidden: { opacity: 0, x: -8 }, visible: { opacity: 1, x: 0 } }}
+                    className="flex items-start gap-2.5 text-sm"
+                    style={{ color: theme.paragraph }}
+                  >
                     <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: theme.success }} strokeWidth={2.5} />
                     <span>{f}</span>
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
-      {/* Customization Card */}
+      {/* ================================================================ */}
+      {/* CUSTOMIZATION CARD                                                */}
+      {/* ================================================================ */}
       <section className="py-16 sm:py-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: easeOut }}
+          initial={{ opacity: 0, y: 40, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: easeOut }}
           className="flex flex-col overflow-hidden rounded-[28px] border md:flex-row"
           style={{ borderColor: theme.border, boxShadow: "0 20px 60px rgba(0,0,0,.08)" }}
         >
@@ -191,18 +258,29 @@ export default function PricingSection() {
           </div>
 
           <div className="flex flex-1 flex-col justify-center gap-8 px-8 py-10 sm:flex-row sm:items-center sm:justify-between">
-            <div className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+            <motion.div
+              variants={staggerFast}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.4 }}
+              className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2"
+            >
               {customizationFeatures.map((f) => (
-                <div key={f} className="flex items-center gap-2.5 text-sm sm:text-base" style={{ color: theme.paragraph }}>
+                <motion.div
+                  key={f}
+                  variants={{ hidden: { opacity: 0, x: -8 }, visible: { opacity: 1, x: 0 } }}
+                  className="flex items-center gap-2.5 text-sm sm:text-base"
+                  style={{ color: theme.paragraph }}
+                >
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: theme.primary }} />
                   {f}
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             <motion.button
-              whileHover={{ y: -3, scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ y: -4, scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
               className="shrink-0 rounded-full px-8 py-4 text-sm font-bold text-white shadow-lg"
               style={{ backgroundColor: theme.success }}
               onClick={redirectToWhatsApp}
@@ -213,20 +291,28 @@ export default function PricingSection() {
         </motion.div>
       </section>
 
-      {/* Feature Matrix */}
+      {/* ================================================================ */}
+      {/* FEATURE MATRIX                                                    */}
+      {/* ================================================================ */}
       <section className="pb-16 sm:pb-20">
         <div className="flex flex-col items-center">
-          <button
+          <motion.button
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: easeOut }}
             onClick={() => setShowAllFeatures((v) => !v)}
             aria-expanded={showAllFeatures}
-            className="inline-flex items-center gap-2 rounded-full border bg-white px-6 py-3 text-sm font-bold shadow-sm transition-transform hover:scale-105"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-2 rounded-full border bg-white px-6 py-3 text-sm font-bold shadow-sm"
             style={{ borderColor: theme.primary, color: theme.primary }}
           >
             {showAllFeatures ? "Hide All Features" : "Show All Features"}
             <motion.span animate={{ rotate: showAllFeatures ? 180 : 0 }} transition={{ duration: 0.3 }}>
               <ChevronDown className="h-4 w-4" />
             </motion.span>
-          </button>
+          </motion.button>
         </div>
 
         <AnimatePresence initial={false}>
@@ -256,8 +342,14 @@ export default function PricingSection() {
                     </tr>
                   </thead>
                   <tbody>
-                    {featureMatrix.map((row) => (
-                      <tr key={row.label} style={{ borderTop: `1px solid ${theme.border}` }}>
+                    {featureMatrix.map((row, idx) => (
+                      <motion.tr
+                        key={row.label}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.35, delay: idx * 0.04, ease: easeOut }}
+                        style={{ borderTop: `1px solid ${theme.border}` }}
+                      >
                         <td className="px-6 py-4 font-medium" style={{ color: theme.heading }}>
                           {row.label}
                         </td>
@@ -270,7 +362,7 @@ export default function PricingSection() {
                             )}
                           </td>
                         ))}
-                      </tr>
+                      </motion.tr>
                     ))}
                   </tbody>
                 </table>

@@ -75,7 +75,7 @@ export default function Footer() {
             {SOCIALS.map((s) => (
               <a
                 key={s.label}
-                href="#"
+                href="/blog"
                 className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white/70 transition-all duration-300 hover:border-[#a52a2a]/60 hover:bg-[#a52a2a]/20 hover:text-white focus-ring"
               >
                 <s.icon className="h-4 w-4" />

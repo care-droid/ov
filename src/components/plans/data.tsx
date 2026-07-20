@@ -1,4 +1,5 @@
 import { Star, Building2, Landmark, Infinity as InfinityIcon } from "lucide-react";
+import type { Variants } from "framer-motion";
 
 export const theme = {
   bg: "#FFFFFF",
@@ -12,7 +13,69 @@ export const theme = {
   success: "#22C55E",
 };
 
-export const easeOut = [0.16, 1, 0.3, 1];
+export const easeOut = [0.16, 1, 0.3, 1] as const;
+
+/* ------------------------------------------------------------------ */
+/*  SHARED PREMIUM ANIMATION VARIANTS                                  */
+/*  Import these into every section for a consistent scroll language.  */
+/* ------------------------------------------------------------------ */
+
+// Fade + rise + slight zoom-in — the default "chunk" entrance
+export const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 46, scale: 0.94 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.7, ease: easeOut },
+  },
+};
+
+// Pure zoom fade — good for badges, images, seals
+export const zoomFade: Variants = {
+  hidden: { opacity: 0, scale: 0.82 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: easeOut },
+  },
+};
+
+// Slide + fade from the side — good for two-column layouts
+export const fadeLeft: Variants = {
+  hidden: { opacity: 0, x: -40, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: { duration: 0.7, ease: easeOut },
+  },
+};
+
+export const fadeRight: Variants = {
+  hidden: { opacity: 0, x: 40, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: { duration: 0.7, ease: easeOut },
+  },
+};
+
+// Orchestrator — put on a parent, children with variants stagger automatically
+export const staggerContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.08 },
+  },
+};
+
+export const staggerFast: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.06, delayChildren: 0.04 },
+  },
+};
 
 export const plans = [
   {
@@ -122,12 +185,12 @@ export const faqs = [
   "What kind of support do you provide?",
 ];
 
-export const faqAnswers = {
+export const faqAnswers: Record<number, string> = {
   0: "The normal setup takes around 7 business days. It includes online product training & assistance in setting up your products.",
   1: "Yes, online training is provided before launch. However, your team can also take it later.",
   2: "Absolutely. We use encrypted servers, daily backups, and cloud security protocols.",
   3: "Yes, custom integrations can be developed for enterprise clients as an add on feature.",
-  4: "Dedicated online/telephonic support, 10 am–6 pm, 365 days a year.",
+  4: "Dedicated online/telephonic support, 10 am\u20136 pm, 365 days a year.",
 };
 
 export const redirectToWhatsApp = () => {

@@ -38,7 +38,7 @@ const drawerContainer = {
 
 const drawerItem = {
   hidden: { opacity: 0, x: 24 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.35, ease: "easeOut" } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.35, ease: "easeOut" as const } },
 };
 
 export default function Navbar() {

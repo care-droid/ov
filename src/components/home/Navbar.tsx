@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import type { NavLink } from "@/types";
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Home", href: "#top" },
+  { label: "Home", href: "/" },
   {
     label: "Product",
     href: "#features",
@@ -20,8 +20,8 @@ const NAV_LINKS: NavLink[] = [
       { label: "How it works", href: "#process", description: "Setup to launch in three steps" },
     ],
   },
-  { label: "Pricing", href: "#cta" },
   { label: "Resources", href: "#blog" },
+  {label:"Plans", href:"/plans"},
 ];
 
 export default function Navbar() {

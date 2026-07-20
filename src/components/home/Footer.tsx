@@ -17,9 +17,9 @@ import { Button } from "@/components/ui/Button";
 
 const QUICK_LINKS = [
   { label: "About Us", href: "#" },
-  { label: "FAQs", href: "#" },
+  { label: "FAQs", href: "#cta" },
   { label: "Community", href: "#" },
-  { label: "Pricing & Plans", href: "#cta" },
+  { label: "Pricing & Plans", href: "/plans" },
   { label: "Careers", href: "#" },
 ];
 
@@ -63,7 +63,7 @@ export default function Footer() {
             className="flex shrink-0 items-center gap-2 font-display text-2xl font-semibold text-white"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#a52a2a] to-[#7a1a1a] text-white shadow-lg shadow-[#a52a2a]/30">
-              <Layers className="h-5 w-5" />
+              <img src="logo1.png" alt="Oventra Logo" className="rounded-xl" />
             </span>
             Oventra
           </Link>
@@ -96,7 +96,7 @@ export default function Footer() {
               the tools you already use so decisions move faster and busywork
               disappears.
             </p>
-            <motion.form
+            {/* <motion.form
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -119,7 +119,7 @@ export default function Footer() {
               >
                 <Send className="h-4 w-4" />
               </Button>
-            </motion.form>
+            </motion.form> */}
           </div>
 
           <div>
@@ -147,15 +147,17 @@ export default function Footer() {
             <ul className="mt-5 space-y-4 text-sm text-white/60">
               <li className="flex items-start gap-3 transition-colors duration-300 hover:text-white/80">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#a52a2a]" />
-                140 Meridian Ave, Suite 300, Austin, TX
+                DCG1-1105, DLF Corporate Greens,
+Tower-1, Sec-74A, Gurugram,
+Haryana-122004, India
               </li>
               <li className="flex items-start gap-3 transition-colors duration-300 hover:text-white/80">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#a52a2a]" />
-                hello@oventra.io
+                care@gigasoft.in
               </li>
               <li className="flex items-start gap-3 transition-colors duration-300 hover:text-white/80">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#a52a2a]" />
-                +1 (512) 555-0148
+                +91 97160 16012
               </li>
             </ul>
           </div>

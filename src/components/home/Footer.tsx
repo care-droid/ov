@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
@@ -63,7 +63,13 @@ export default function Footer() {
             className="flex shrink-0 items-center gap-2 font-display text-2xl font-semibold text-white"
           >
             <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#a52a2a] to-[#7a1a1a] text-white shadow-lg shadow-[#a52a2a]/30">
-              <img src="logo1.png" alt="Oventra Logo" className="rounded-xl" />
+              <Image
+  src="/logo1.png"
+  alt="Oventra Logo"
+  width={36}
+  height={36}
+  className="rounded-xl"
+/>
             </span>
             Oventra
           </Link>

@@ -21,9 +21,10 @@ type NavItem =
 
 /* ---------------- Data ---------------- */
 const NAV_ITEMS: NavItem[] = [
-  { type: "link", label: "Home", href: "/" },
   { type: "link", label: "About Us", href: "/about" },
   // { type: "link", label: "Plans", href: "/plans" },
+  
+  { type: "link", label: "FAQ", href: "/faq" },
   {
     type: "mega",
     label: "Our Solutions",

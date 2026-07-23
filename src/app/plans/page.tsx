@@ -15,6 +15,7 @@ export default function PricingPage() {
         <PricingSection />
         <CTASection />
         <FAQSection />
+        
       </div>
       <Footer />
     </main>

@@ -23,7 +23,7 @@ type NavItem =
 const NAV_ITEMS: NavItem[] = [
   { type: "link", label: "About Us", href: "/about" },
   // { type: "link", label: "Plans", href: "/plans" },
-  
+
   {
     type: "mega",
     label: "Our Solutions",
@@ -205,12 +205,17 @@ export default function Navbar() {
           y: 0,
           opacity: 1,
           boxShadow: scrolled
-            ? "0 12px 32px -12px rgba(21,64,124,0.35)"
-            : "0 6px 20px -14px rgba(21,64,124,0.18)",
+            ? "0 16px 40px -14px rgba(21,64,124,0.4)"
+            : "0 8px 24px -16px rgba(21,64,124,0.2)",
         }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative flex h-[72px] w-full max-w-7xl items-center justify-between rounded-full border bg-white/90 px-4 backdrop-blur-xl transition-colors duration-300 sm:px-6"
-        style={{ borderColor: scrolled ? `${ACCENT}33` : "rgba(21,64,124,0.12)" }}
+        className="relative flex h-[72px] w-full max-w-7xl items-center justify-between rounded-full border bg-white/85 px-4 backdrop-blur-2xl transition-colors duration-300 sm:px-6"
+        style={{
+          borderColor: scrolled ? `${ACCENT}40` : "rgba(21,64,124,0.12)",
+          background: scrolled
+            ? "linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.9))"
+            : "linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8))",
+        }}
         aria-label="Primary"
       >
         {/* Logo */}
@@ -247,7 +252,7 @@ export default function Navbar() {
                 )}
                 <motion.span
                   className="absolute bottom-1 left-3.5 right-3.5 h-[2px] origin-left rounded-full"
-                  style={{ backgroundColor: ACCENT }}
+                  style={{ background: `linear-gradient(90deg, ${ACCENT}, ${ACCENT_LIGHT})` }}
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
@@ -330,20 +335,6 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-
-        {/* CTA */}
-        <div className="hidden shrink-0 xl:flex">
-          <motion.a
-            href="/brochure"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.96 }}
-            className="flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[#15407c]/25"
-            style={{ background: `linear-gradient(135deg, ${ACCENT}, ${ACCENT_LIGHT})` }}
-          >
-            Download Brochure
-            <ArrowRight className="h-4 w-4" />
-          </motion.a>
-        </div>
 
         {/* Mobile toggle */}
         <div className="flex items-center xl:hidden">
@@ -461,19 +452,6 @@ export default function Navbar() {
                   </motion.div>
                 ))}
               </motion.div>
-
-              <motion.a
-                variants={drawerItem}
-                initial="hidden"
-                animate="show"
-                whileTap={{ scale: 0.97 }}
-                href="/brochure"
-                className="mt-5 flex items-center justify-center gap-1.5 rounded-full px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#15407c]/25"
-                style={{ background: `linear-gradient(135deg, ${ACCENT}, ${ACCENT_LIGHT})` }}
-              >
-                Download Brochure
-                <ArrowRight className="h-4 w-4" />
-              </motion.a>
 
               <div className="mt-6 flex items-center gap-4 border-t border-slate-100 pt-4">
                 {LEGAL_LINKS.map((l) => (

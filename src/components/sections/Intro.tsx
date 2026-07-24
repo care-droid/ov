@@ -14,29 +14,13 @@ import Lightfall from "@/components/ui/Lightfall";
  * word-by-word headline reveal and three glass pillar cards.
  */
 
-const pillars = [
-  {
-    icon: Layers,
-    title: "Fully Digital",
-    body: "Product display to order submission — every step of the process lives on one screen.",
-  },
-  {
-    icon: FileX2,
-    title: "Paperless",
-    body: "No handwritten forms, no scattered spreadsheets. Distributors order directly, accurately.",
-  },
-  {
-    icon: BarChart3,
-    title: "Data-Driven",
-    body: "Management gets complete, real-time visibility into event performance as it happens.",
-  },
-];
+
 
 const headlineWords = ["Introducing", "OVENTRA", "Partner", "Meet", "Ordering"];
 
 export default function Intro() {
   return (
-    <section className="relative isolate w-full overflow-hidden bg-[#080808] py-24 sm:py-28 lg:py-36">
+    <section className="relative isolate h-screen w-full overflow-hidden bg-[#080808] py-24 sm:py-28 lg:py-36">
       {/* Lightfall background effect - positioned absolutely behind content */}
       <div className="absolute inset-0 z-0">
         <Lightfall
@@ -143,47 +127,7 @@ export default function Intro() {
         </motion.p>
       </div>
 
-      {/* Pillars */}
-      <div className="relative z-10 mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-5 px-6 sm:mt-20 sm:grid-cols-3 sm:px-10">
-        {pillars.map((p, i) => {
-          const Icon = p.icon;
-          return (
-            <motion.div
-              key={p.title}
-              initial={{ opacity: 0, y: 40, scale: 0.92 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: false, amount: 0.35 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.55 + i * 0.12,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              whileHover={{ y: -6, borderColor: "rgba(255,255,255,0.28)" }}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-md transition-colors"
-            >
-              {/* hover glow */}
-              <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-[#A82242]/0 via-transparent to-[#113F7C]/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-hover:from-[#A82242]/15 group-hover:to-[#113F7C]/15" />
-
-              <motion.div
-                initial={{ scale: 0.7, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: false, amount: 0.35 }}
-                transition={{ duration: 0.5, delay: 0.65 + i * 0.12, ease: "backOut" }}
-                className="mb-5 inline-grid h-12 w-12 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-[#A82242]/20 to-[#113F7C]/20"
-              >
-                <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
-              </motion.div>
-
-              <h3 className="text-left text-lg font-semibold text-white">
-                {p.title}
-              </h3>
-              <p className="mt-2 text-left text-[13.5px] leading-relaxed text-white/55">
-                {p.body}
-              </p>
-            </motion.div>
-          );
-        })}
-      </div>
+      
     </section>
   );
 }

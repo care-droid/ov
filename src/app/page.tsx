@@ -30,7 +30,6 @@ export default function Home() {
         
       </main>
       <DemoPage/>
-      <ScrollToTop />
       <Whatsapp />
     </>
   );

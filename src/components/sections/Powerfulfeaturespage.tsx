@@ -3,7 +3,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import {
-  Images, QrCode, Grid3x3, Gauge, Plug, Globe2, ArrowUpRight,
+  Images,
+  QrCode,
+  Grid3x3,
+  Gauge,
+  Plug,
+  Globe2,
+  ArrowUpRight,
 } from "lucide-react";
 
 /**
@@ -110,15 +116,15 @@ export default function PowerfulFeatures() {
             </div>
             <p className="font-body text-[#2A1216]/60 max-w-sm md:text-right leading-relaxed font-medium">
               Oventra ties every touchpoint of a partner meet — the table, the
-              tablet, the ledger — into one system that never slows the sale down.
+              tablet, the ledger — into one system that never slows the sale
+              down.
             </p>
           </div>
 
-          {/* LEDGER SPINE + SWATCH TAG */}
-          <div className="grid lg:grid-cols-12 gap-10 items-start">
+          <div className="grid lg:grid-cols-12 gap-10 items-stretch">
             {/* LEFT — ledger tab spine */}
             <div className="lg:col-span-5">
-              <div className="border-t border-[#6E1423]/30 bg-white/30 backdrop-blur-sm rounded-t-xl overflow-hidden">
+              <div className="border border-[#6E1423]/30 bg-white/30 backdrop-blur-sm rounded-xl overflow-hidden h-full">
                 {features.map((f) => {
                   const active = activeTab.id === f.id;
                   return (
@@ -126,8 +132,8 @@ export default function PowerfulFeatures() {
                       key={f.id}
                       onClick={() => setActiveTab(f)}
                       className={`w-full group flex items-center gap-5 py-5 pr-4 pl-5 border-b border-[#6E1423]/20 text-left transition-all duration-300 ${
-                        active 
-                          ? "bg-white/60 shadow-[inset_0_0_30px_rgba(110,20,35,0.05)]" 
+                        active
+                          ? "bg-white/60 shadow-[inset_0_0_30px_rgba(110,20,35,0.05)]"
                           : "hover:bg-white/40"
                       }`}
                       style={{
@@ -181,7 +187,7 @@ export default function PowerfulFeatures() {
                   exit={{ opacity: 0, rotateY: 8, x: -16 }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   style={{ transformPerspective: 1200 }}
-                  className="relative border border-[#6E1423]/30 bg-white p-10 md:p-14 min-h-[460px] flex flex-col shadow-2xl"
+                  className="relative border border-[#6E1423]/30 bg-white p-10 md:p-14 min-h-[460px] h-full flex flex-col shadow-2xl"
                 >
                   {/* punched hole + thread loop — the signature detail */}
                   <div className="absolute top-8 left-8 w-6 h-6 rounded-full border border-[#6E1423]/50">
@@ -197,7 +203,10 @@ export default function PowerfulFeatures() {
                       {activeTab.spec}
                     </span>
                     <span className="font-mono text-[11px] tracking-[0.2em] text-[#2A1216]/40 font-semibold">
-                      {String(index + 1).padStart(2, "0")} / {String(features.length).padStart(2, "0")}
+                      {String(
+                        features.findIndex((f) => f.id === activeTab.id) + 1,
+                      ).padStart(2, "0")}{" "}
+                      / {String(features.length).padStart(2, "0")}
                     </span>
                   </div>
 
@@ -223,25 +232,6 @@ export default function PowerfulFeatures() {
                 </motion.div>
               </AnimatePresence>
             </div>
-          </div>
-
-          {/* LEDGER FOOTER — dotted rule, real numbers, no mock telemetry */}
-          <div className="mt-20 pt-8 border-t border-dashed border-[#6E1423]/30 flex flex-wrap justify-between gap-8">
-            {[
-              { label: "Go live", val: "Same day" },
-              { label: "Uptime", val: "99.99%" },
-              { label: "Security", val: "Bank-grade encryption" },
-              { label: "Catalogue capacity", val: "Unlimited SKUs" },
-            ].map((stat, i) => (
-              <div key={i} className="flex flex-col">
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#fff]/40 mb-2 font-semibold">
-                  {stat.label}
-                </span>
-                <span className="font-display text-lg text-[#fff] font-bold">
-                  {stat.val}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </section>

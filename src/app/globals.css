@@ -17,7 +17,7 @@
 
 :root {
   /* --- Core Colors (premium maroon) --- */
-  --primary: oklch(0.205 0 0);
+  --primary: #45000C;
   --primary-rgb: 92, 0, 17;
   --primary-light: #7A1F3D;
   --primary-light-rgb: 122, 31, 61;

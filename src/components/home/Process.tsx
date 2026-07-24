@@ -185,12 +185,12 @@ export default function Process() {
               Our Process
             </span>
 
-            <h2 className="mt-4 text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            <h2 className="mt-4 text-4xl font-bold leading-[1.08] tracking-tight text-[#581924] sm:text-5xl lg:text-6xl">
               Simple Setup. <br />
               Powerful Results.
             </h2>
 
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-black/50 sm:text-lg">
               Set up your workspace in minutes with an intuitive onboarding process designed to help you launch
               faster, streamline operations, and achieve real results from day one.
             </p>
@@ -260,11 +260,11 @@ export default function Process() {
                       </div>
                     </div>
 
-                    <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">{step.description}</p>
+                    <p className="mt-4 text-sm leading-relaxed text-foreground sm:text-base">{step.description}</p>
 
                     <ul className="mt-4 space-y-1.5">
                       {step.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-xs text-muted sm:text-sm">
+                        <li key={f} className="flex items-center gap-2 text-xs text-black sm:text-sm">
                           <span className="h-1 w-1 shrink-0 rounded-full bg-[var(--primary)]" />
                           {f}
                         </li>

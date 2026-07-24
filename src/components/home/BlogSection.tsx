@@ -10,8 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 const HEADING_LINE_1 = "Accelerating business";
 const HEADING_LINE_2 = "growth model applications";
 
-const COLOR_INACTIVE = "var(--primary-light)";
-const COLOR_ACTIVE = "var(--primary)";
+// Updated colors to match OVENTRA branding
+const COLOR_INACTIVE = "#d4a0a0"; // Lighter maroon for inactive state
+const COLOR_ACTIVE = "#800000"; // Primary maroon color
 
 export default function PremiumHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -119,7 +120,7 @@ export default function PremiumHero() {
         0
       );
 
-      // Background glows
+      // Background glows - updated to maroon colors
       tl.fromTo(
         glowOne,
         { x: 0, y: 0, opacity: 0.3 },
@@ -166,46 +167,46 @@ export default function PremiumHero() {
       ref={sectionRef}
       className="relative flex min-h-screen w-full flex-col items-center justify-start overflow-hidden bg-[var(--background)] px-2 py-12"
     >
-      {/* Soft radial glows */}
+      {/* Soft radial glows - updated to maroon */}
       <div
         ref={glowOneRef}
         aria-hidden
         className="pointer-events-none absolute -left-32 -top-32 h-[600px] w-[600px] rounded-full blur-[120px]"
-          style={{
-            background: "radial-gradient(circle, rgba(var(--primary-rgb),0.22) 0%, rgba(var(--primary-rgb),0) 70%)",
+        style={{
+          background: "radial-gradient(circle, rgba(128, 0, 0, 0.22) 0%, rgba(128, 0, 0, 0) 70%)",
         }}
       />
       <div
         ref={glowTwoRef}
         aria-hidden
         className="pointer-events-none absolute -bottom-60 -right-32 h-[640px] w-[640px] rounded-full blur-[130px]"
-          style={{
-            background: "radial-gradient(circle, rgba(var(--primary-light-rgb),0.22) 0%, rgba(var(--primary-light-rgb),0) 70%)",
+        style={{
+          background: "radial-gradient(circle, rgba(204, 51, 51, 0.22) 0%, rgba(204, 51, 51, 0) 70%)",
         }}
       />
 
       {/* Content - auto height, flows naturally */}
       <div className="relative z-10 flex w-full max-w-[98vw] flex-col items-center justify-center gap-6 pb-12">
-        {/* Customer badge */}
+        {/* Customer badge - updated with maroon colors */}
         <div
           ref={badgeRef}
-          className="flex items-center gap-3 rounded-full border border-[var(--brand-ink)]/10 bg-[var(--background)] px-4 py-2 shadow-[0_4px_20px_rgba(var(--brand-ink-rgb),0.08)]"
+          className="flex items-center gap-3 rounded-full border border-[#800000]/10 bg-[var(--background)] px-4 py-2 shadow-[0_4px_20px_rgba(128,0,0,0.08)]"
         >
-            <div className="flex -space-x-3">
-              <span className="h-8 w-8 rounded-full border-2 border-[var(--background)] bg-[var(--background)]" />
-            <span className="h-8 w-8 rounded-full border-2 border-[var(--background)] bg-[var(--primary-light)]" />
-            <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--background)] bg-[var(--primary)] text-[11px] font-bold text-[var(--button-text)]">
-                4M
+          <div className="flex -space-x-3">
+            <span className="h-8 w-8 rounded-full border-2 border-[var(--background)] bg-[var(--background)]" />
+            <span className="h-8 w-8 rounded-full border-2 border-[var(--background)] bg-[#d4a0a0]" />
+            <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--background)] bg-[#800000] text-[11px] font-bold text-white">
+              4M
             </span>
           </div>
-            <span className="text-sm font-semibold leading-tight text-[var(--text-primary)]">
+          <span className="text-sm font-semibold leading-tight text-[var(--text-primary)]">
             Satisfied
             <br />
             Customers
           </span>
         </div>
 
-        {/* Animated heading */}
+        {/* Animated heading - now using maroon colors */}
         <h1 className="max-w-5xl text-center text-[2.5rem] font-extrabold leading-[1.05] tracking-tight sm:text-3xl md:text-5xl lg:text-6xl">
           <span className="block">{renderWords(HEADING_LINE_1)}</span>
           <span className="block">{renderWords(HEADING_LINE_2)}</span>
@@ -217,13 +218,13 @@ export default function PremiumHero() {
           demand polish at every step.
         </p>
 
-        {/* CTA */}
+        {/* CTA - updated with maroon colors */}
         <button
           ref={ctaRef}
           type="button"
-          className="group relative inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-7 py-3.5 text-sm font-bold text-[var(--button-text)] shadow-lg shadow-[var(--shadow-glow)] transition-transform duration-300 ease-out hover:scale-105"
-          >
-            Start Free Trial
+          className="group relative inline-flex items-center gap-2 rounded-full bg-[#800000] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[rgba(128,0,0,0.3)] transition-transform duration-300 ease-out hover:scale-105"
+        >
+          Start Free Trial
           <svg
             width="14"
             height="14"
@@ -233,7 +234,7 @@ export default function PremiumHero() {
           >
             <path
               d="M3 11L11 3M11 3H4M11 3V10"
-              stroke="var(--background)"
+              stroke="white"
               strokeWidth="1.6"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -241,17 +242,17 @@ export default function PremiumHero() {
           </svg>
         </button>
 
-        {/* Dashboard image - with smooth animation */}
+        {/* Dashboard image - with maroon accent */}
         <div className="relative mt-8 h-[90vh] w-[60vw]">
           <div
             ref={dashboardRef}
-            className="relative h-full w-full overflow-hidden rounded-[32px] border border-[var(--brand-ink)]/10 bg-[var(--background)] shadow-[0_40px_100px_rgba(var(--brand-ink-rgb),0.18)]"
-              style={{ filter: "blur(0px)" }}
+            className="relative h-full w-full overflow-hidden rounded-[32px] border border-[#800000]/10 bg-[var(--background)] shadow-[0_40px_100px_rgba(128,0,0,0.18)]"
+            style={{ filter: "blur(0px)" }}
           >
             <div
               aria-hidden
               className="pointer-events-none absolute -bottom-12 left-1/2 h-24 w-4/5 -translate-x-1/2 rounded-full opacity-30 blur-[50px]"
-                style={{ background: "var(--primary)" }}
+              style={{ background: "#800000" }}
             />
             <div 
               ref={imageContainerRef}

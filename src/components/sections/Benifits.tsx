@@ -17,6 +17,7 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
+import LightPillar from "@/components/ui/LightPillar";
 
 /**
  * SECTION — BUSINESS BENEFITS
@@ -34,6 +35,21 @@ import {
  *   --maroon #6E1423   accent — stamp, active icons, CTA
  *   --ink    #2A1216   primary text
  *   --ink-60 #8C6E71   secondary / voided text
+ *
+ * FIX (LightPillar wasn't rendering):
+ * 1. `LightPillar`'s root is `absolute w-full h-full`. `h-full` needs the
+ *    nearest positioned ancestor (this `<section>`) to have a *definite*
+ *    height. The section's height was purely content-driven (`auto`) —
+ *    ledger rows + CTA determine it — so the percentage height on the
+ *    absolutely-positioned canvas resolved to 0. WebGL was rendering into
+ *    a 0×0 canvas the whole time, independent of any color/intensity prop.
+ *    Fix: give the section an explicit `min-h`, so there's a real height
+ *    for that percentage to resolve against, and wrap the pillar in its
+ *    own absolutely-positioned layer sized to that.
+ * 2. `mixBlendMode="screen"` brightens toward white — correct for a glow
+ *    over a dark background, but on this near-white `#FBF8F5` paper it
+ *    screens out to "barely-less-white," i.e. invisible. Switched to
+ *    `multiply`, which is the right blend mode for color-on-light-paper.
  */
 
 const comparisons = [
@@ -75,8 +91,6 @@ const comparisons = [
   },
 ];
 
-
-
 const container = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
@@ -90,15 +104,27 @@ const row = {
 const BusinessBenefits = () => {
   return (
     <MotionConfig reducedMotion="user">
-      <section className="relative bg-[#FBF8F5] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* ground texture, matches Powerful Features — no floating blur blobs */}
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(#2A1216 0.5px, transparent 0.5px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
+      <section className="relative min-h-[760px] bg-[#FBF8F5] py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* LightPillar Background Effect — now sits in an inset-0 layer inside
+            a section with a real min-height, so its h-full has something to
+            resolve against */}
+        <div className="absolute inset-0 z-0">
+          <LightPillar
+            topColor="#6E1423"
+            bottomColor="#8C6E71"
+            intensity={0.9}
+            rotationSpeed={0.15}
+            interactive={false}
+            glowAmount={0.02}
+            pillarWidth={3.5}
+            pillarHeight={0.5}
+            noiseIntensity={0.3}
+            mixBlendMode="multiply"
+            pillarRotation={-15}
+            quality="medium"
+          />
+        </div>
+
 
         <div className="max-w-5xl mx-auto relative z-10">
           {/* HEADER */}
@@ -106,10 +132,10 @@ const BusinessBenefits = () => {
             <div className="font-mono text-[11px] tracking-[0.3em] text-[#6E1423] mb-5">
               THE LEDGER, LINE BY LINE
             </div>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#2A1216] leading-[1.05] font-medium mb-4">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#fff] leading-[1.05] font-medium mb-4">
               What changes on the floor.
             </h2>
-            <p className="font-body text-[#8C6E71] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-[#6e1423] text-lg max-w-2xl mx-auto leading-relaxed">
               Six frictions the trade has lived with for decades, and what
               replaces each one once the meet runs on Oventra.
             </p>
@@ -137,7 +163,7 @@ const BusinessBenefits = () => {
                 className="grid grid-cols-1 md:grid-cols-11 items-stretch gap-2 md:gap-4 group"
               >
                 {/* WAS — voided entry */}
-                <div className="col-span-1 md:col-span-5 border border-[#8C6E71]/25 bg-[#FBF8F5] p-4 rounded-none flex items-center gap-4">
+                <div className="col-span-1 md:col-span-5 border border-[#8C6E71]/25 bg-[#FBF8F5]/80 backdrop-blur-sm p-4 rounded-none flex items-center gap-4">
                   <div className="w-9 h-9 shrink-0 flex items-center justify-center border border-[#8C6E71]/30 text-[#8C6E71]">
                     <item.wasIcon size={16} strokeWidth={1.5} />
                   </div>
@@ -154,7 +180,7 @@ const BusinessBenefits = () => {
                 </div>
 
                 {/* NOW — live entry */}
-                <div className="col-span-1 md:col-span-5 border border-[#6E1423]/30 bg-white p-4 flex items-center gap-4 shadow-[0_1px_0_#6E1423] transition-shadow duration-300 group-hover:shadow-[0_2px_0_#6E1423]">
+                <div className="col-span-1 md:col-span-5 border border-[#6E1423]/30 bg-white/80 backdrop-blur-sm p-4 flex items-center gap-4 shadow-[0_1px_0_#6E1423] transition-shadow duration-300 group-hover:shadow-[0_2px_0_#6E1423]">
                   <div className="w-9 h-9 shrink-0 flex items-center justify-center bg-[#6E1423] text-white">
                     <item.nowIcon size={16} strokeWidth={1.5} />
                   </div>
@@ -175,7 +201,7 @@ const BusinessBenefits = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="mt-20 block border border-[#6E1423]/30 bg-white p-10 md:p-12 text-center relative"
+            className="mt-20 block border border-[#6E1423]/30 bg-white/90 backdrop-blur-sm p-10 md:p-12 text-center relative"
           >
             <div className="absolute inset-3 border border-dashed border-[#6E1423]/20 pointer-events-none" />
             <span className="font-mono text-[11px] tracking-[0.3em] text-[#6E1423] mb-4 block">
@@ -193,9 +219,6 @@ const BusinessBenefits = () => {
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </motion.a>
-
-          
-
         </div>
       </section>
     </MotionConfig>
@@ -203,3 +226,5 @@ const BusinessBenefits = () => {
 };
 
 export default BusinessBenefits;
+
+

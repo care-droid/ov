@@ -1,135 +1,128 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FileText, Smartphone, Keyboard, Zap, AlertCircle, QrCode, 
-  FileSpreadsheet, BarChart3, Clock, Activity, MessageSquare, 
-  CheckCircle2, ArrowRight, Layers, Users, Calendar, BarChart, 
-  Box, Palette, Maximize2, CheckCircle 
+import {
+  Layers, Users, Calendar, ArrowRight, Boxes, Radar, PackageCheck,
 } from 'lucide-react';
+import Hyperspeed from '@/components/Hyperspeed';
 
+// ============================================================================
+// DESIGN TOKENS
+// ============================================================================
+// Cream    #efe6e8  — hero backdrop, "showroom" surface
+// Maroon   #800000  — brand ink, primary action, borders
+// Near-black #150808 — "sole & asphalt", catalog-depth section
+// Leather  #b9895a  — warm accent, swatch/size motif
+// Bone     #f7f1ec  — text-on-dark
 
-
-// --- DATA FOR SECTION 10 ---
 const features = [
-  {
-    icon: <Layers size={32} />,
-    title: "Scale & Volume",
-    desc: "Built for massive product catalogs and high-volume B2B ordering without lag."
-  },
-  {
-    icon: <Users size={32} />,
-    title: "Distributor Network",
-    desc: "Seamlessly manage multiple distributors and partner hierarchies in one portal."
-  },
-  {
-    icon: <Calendar size={32} />,
-    title: "Event Ready",
-    desc: "Perfect for seasonal launches, partner meets, and distributor conferences."
-  }
+  { icon: <Layers size={26} />, title: "Scale & Volume", desc: "Built for massive product catalogs and high-volume B2B ordering." },
+  { icon: <Users size={26} />, title: "Distributor Network", desc: "Seamlessly manage multiple distributors and partner hierarchies." },
+  { icon: <Calendar size={26} />, title: "Event Ready", desc: "Perfect for seasonal launches and distributor conferences." },
 ];
 
-const OventraBenefitsPage = () => {
-  const maroon = "#800000";
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
-  };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
-  };
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
+
+const OventraPage = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="bg-white selection:bg-red-200 selection:text-maroon-900">
-      
-      
+    <div className="relative overflow-hidden bg-[#150808]">
 
-      {/* SECTION 10: WHY CHOOSE OVENTRA */}
-      <section className="py-24 px-4 md:px-8 bg-[#efe6e8] overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-center mb-16"
+      <section
+        ref={sectionRef}
+        className="relative h-[60vh] min-h-[500px] px-4 md:px-8 bg-[#efe6e8] overflow-hidden flex items-center"
+      >   
+        <div className="absolute inset-0">
+          <Hyperspeed
+            effectOptions={{
+              distortion: 'turbulentDistortion',
+              length: 400,
+              roadWidth: 12,
+              speedUp: 1.5,
+              fov: 80,
+              colors: {
+                roadColor: 0x1a0a0a,
+                islandColor: 0x2a0a0a,
+                background: 0xefe6e8,
+                shoulderLines: 0x800000,
+                brokenLines: 0x800000,
+                leftCars: [0x800000, 0xcc3333, 0xff6666],
+                rightCars: [0x800000, 0xcc3333, 0xff6666],
+                sticks: 0x800000,
+              },
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mt-10 mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8"
           >
-            <h2 className="text-[#800000] font-bold tracking-widest uppercase text-sm mb-3">Industry Leader</h2>
-            <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6">
+            <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-3">
               Why Choose <span className="text-[#800000]">OVENTRA?</span>
             </h1>
+            <p className="text-gray-600 text-sm max-w-2xl mx-auto">
+              The ultimate B2B footwear management platform designed for scale and speed.
+            </p>
           </motion.div>
 
-          {/* Cards */}
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8 mb-20"
+            className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto"
           >
             {features.map((f, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 variants={itemVariants}
-                whileHover={{ y: -10 }}
-                className="bg-gray-50 p-8 rounded-2xl border-t-4 border-[#800000] shadow-sm"
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="bg-white p-5 rounded-xl border-t-4 border-[#800000] shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="text-[#800000] mb-6">{f.icon}</div>
-                <h3 className="text-xl font-bold mb-4 text-gray-800">{f.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{f.desc}</p>
+                <div className="text-[#800000] mb-3 bg-[#efe6e8] p-2 rounded-lg inline-block">{f.icon}</div>
+                <h3 className="text-base font-bold mb-1 text-gray-800">{f.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Footwear Industry Focus Area */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl p-8 md:p-16 text-white bg-gradient-to-br from-[#0d417d] via-[#3f78b8] to-[#a9d6ff]"
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-center mt-6"
           >
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-6">
-                  Engineered for Footwear Complexity
-                </h3>
-                <p className="text-red-100 text-lg mb-8 opacity-90">
-                  Unlike generic management tools, OVENTRA thrives on variables. We handle numerous styles, colors, and size combinations with ease.
-                </p>
-                <div className="space-y-4">
-                  {["Style/Color/Size Matrix Mapping", "Annual Partner Meet Capture", "Distributor-Level Monitoring"].map((t, idx) => (
-                    <div key={idx} className="flex items-center space-x-3">
-                      <CheckCircle className="text-white w-5 h-5" />
-                      <span className="font-medium">{t}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 p-6 rounded-xl border border-white/20 text-center backdrop-blur-sm">
-                  <Palette className="mx-auto mb-2" />
-                  <p className="text-sm font-bold">Multi-Style</p>
-                </div>
-                <div className="bg-white/10 p-6 rounded-xl border border-white/20 text-center backdrop-blur-sm">
-                  <Maximize2 className="mx-auto mb-2" />
-                  <p className="text-sm font-bold">Size Combo</p>
-                </div>
-                <div className="bg-white/10 p-6 rounded-xl border border-white/20 text-center backdrop-blur-sm col-span-2">
-                  <Box className="mx-auto mb-2" />
-                  <p className="text-sm font-bold">High Volume B2B</p>
-                </div>
-              </div>
-            </div>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#800000] text-white mb-10 px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-[#600000] transition-colors mx-auto text-sm"
+            >
+              Book a Demo
+              <ArrowRight size={16} />
+            </motion.button>
           </motion.div>
         </div>
       </section>
-
+     
     </div>
   );
 };
 
-export default OventraBenefitsPage;
+export default OventraPage;

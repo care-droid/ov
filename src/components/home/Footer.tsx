@@ -17,15 +17,16 @@ import { Button } from "@/components/ui/Button";
 
 const QUICK_LINKS = [
   { label: "About Us", href: "#" },
-  { label: "FAQs", href: "#cta" },
+  { label: "FAQs", href: "/faq" },
   { label: "Community", href: "#" },
   { label: "Pricing & Plans", href: "/plans" },
   { label: "Careers", href: "#" },
 ];
 
 const SOCIALS = [
-  { icon: FaDribbble, label: "Dribbble" },
-  { icon: Rss, label: "Blog" },
+  { icon: FaDribbble, label: "Dribbble", href: "/dribbble" },
+  { icon: Rss, label: "Blog", href: "/blog" },
+  { icon: Rss, label: "FAQ", href: "/faq" },
 ];
 
 function scrollToTop() {
@@ -81,7 +82,7 @@ export default function Footer() {
             {SOCIALS.map((s) => (
               <a
                 key={s.label}
-                href="/blog"
+                href={s.href}
                 className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white/70 transition-all duration-300 hover:border-[#a52a2a]/60 hover:bg-[#a52a2a]/20 hover:text-white focus-ring"
               >
                 <s.icon className="h-4 w-4" />
@@ -102,30 +103,7 @@ export default function Footer() {
               the tools you already use so decisions move faster and busywork
               disappears.
             </p>
-            {/* <motion.form
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              onSubmit={(e) => e.preventDefault()}
-              className="mt-6 flex w-full max-w-sm gap-2"
-            >
-              <Input
-                type="email"
-                required
-                placeholder="Enter your email"
-                aria-label="Email address"
-                className="border-white/10 bg-white/5 text-white placeholder:text-white/40 focus:border-[#a52a2a]/50 focus:ring-[#a52a2a]/30"
-              />
-              <Button
-                type="submit"
-                size="md"
-                aria-label="Subscribe"
-                className="shrink-0 bg-gradient-to-br from-[#a52a2a] to-[#7a1a1a] px-4 text-white shadow-lg shadow-[#a52a2a]/30 transition-all duration-300 hover:scale-105 hover:shadow-[#a52a2a]/50"
-              >
-                <Send className="h-4 w-4" />
-              </Button>
-            </motion.form> */}
+            
           </div>
 
           <div>

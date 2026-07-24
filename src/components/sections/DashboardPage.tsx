@@ -122,23 +122,6 @@ function BadgeIcon({ shape }: { shape: "diamond" | "shield" | "hex" }) {
   );
 }
 
-function CartCard() {
-  const [items, setItems] = useState<CartItem[]>(initialItems);
-
-  const updateQty = (id: string, delta: number) => {
-    setItems((prev) =>
-      prev.map((it) =>
-        it.id === id ? { ...it, qty: Math.max(1, it.qty + delta) } : it
-      )
-    );
-  };
-
-  const count = items.length;
-  const subtotal = items.reduce((sum, it) => sum + it.price * it.qty, 0);
-
- 
-}
-
 export default function WizOrderHero() {
   const container = {
     hidden: {},
@@ -148,12 +131,12 @@ export default function WizOrderHero() {
   };
   const item = {
     hidden: { opacity: 0, y: 16 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
   };
 
   return (
-    <section className="relative w-full pt-25 overflow-hidden bg-[#F3F2EF]">
-        <Navbar/>
+    <section className="relative w-full pt-25 overflow-hidden bg-[#efe6e8]">
+       
       <div className="mx-auto flex pb-20 max-w-[1440px] flex-col lg:flex-row">
         {/* Left column */}
         <motion.div
@@ -208,7 +191,7 @@ export default function WizOrderHero() {
     <motion.button
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
-      className="rounded-md bg-gray-950 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-black"
+      className="rounded-md bg-[#1b5399] px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-black"
     >
       Book A Demo
     </motion.button>

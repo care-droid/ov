@@ -161,17 +161,15 @@ export default function PartnerMeetTypes() {
                 alt={current.label}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover grayscale"
+                className="object-cover "
               />
-              <div className="absolute inset-0 mix-blend-multiply" style={{ background: MAROON, opacity: 0.5 }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               <div className="absolute bottom-5 left-5 font-display text-6xl text-white/90">
                 {String(active + 1).padStart(2, "0")}
               </div>
             </div>
 
             {/* Text */}
-            <div className="flex flex-col justify-between p-8 sm:p-10">
+            <div className="flex flex-col  justify-between p-8 sm:p-10">
               <div>
                 <div className="mb-5 flex items-center gap-3">
                   <span

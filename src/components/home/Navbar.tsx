@@ -19,12 +19,11 @@ type NavItem =
   | { type: "mega"; label: string; sections: SolutionSection[] }
   | { type: "dropdown"; label: string; items: SimpleLink[]; columns?: number };
 
-/* ---------------- Data ---------------- */
+
 const NAV_ITEMS: NavItem[] = [
   { type: "link", label: "About Us", href: "/about" },
   // { type: "link", label: "Plans", href: "/plans" },
   
-  { type: "link", label: "FAQ", href: "/faq" },
   {
     type: "mega",
     label: "Our Solutions",
@@ -33,12 +32,30 @@ const NAV_ITEMS: NavItem[] = [
         label: "Partner Meet Ordering",
         href: "/solutions/partner-meet-ordering",
         items: [
-          { label: "Features", href: "/solutions/partner-meet-ordering/features" },
-          { label: "Benefits", href: "/solutions/partner-meet-ordering/benefits" },
-          { label: "Workflow", href: "/solutions/partner-meet-ordering/workflow" },
-          { label: "Screens", href: "/solutions/partner-meet-ordering/screens" },
-          { label: "Reports", href: "/solutions/partner-meet-ordering/reports" },
-          { label: "Book Demo", href: "/book-demo?src=partner-meet-ordering" },
+          {
+            label: "Features",
+            href: "/solutions/partner-meet-ordering#features",
+          },
+          {
+            label: "Benefits",
+            href: "/solutions/partner-meet-ordering#benefits",
+          },
+          {
+            label: "Workflow",
+            href: "/solutions/partner-meet-ordering#workflow",
+          },
+          {
+            label: "Screens",
+            href: "/solutions/partner-meet-ordering#screens",
+          },
+          {
+            label: "Reports",
+            href: "/solutions/partner-meet-ordering#reports",
+          },
+          {
+            label: "Book Demo",
+            href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Partner%20Meet%20Ordering%20on%20OVENTRA.",
+          },
         ],
       },
       {
@@ -51,7 +68,10 @@ const NAV_ITEMS: NavItem[] = [
           { label: "Screens", href: "/solutions/distributor-ordering/screens" },
           { label: "Reports", href: "/solutions/distributor-ordering/reports" },
           { label: "ERP Import / Export", href: "/solutions/distributor-ordering/erp-import-export" },
-          { label: "Book Demo", href: "/book-demo?src=distributor-ordering" },
+          {
+            label: "Book Demo",
+            href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Distributor%20Ordering%20on%20OVENTRA.",
+          },
         ],
       },
       {
@@ -65,10 +85,12 @@ const NAV_ITEMS: NavItem[] = [
           { label: "Benefits", href: "/solutions/dealer-ordering/benefits" },
           { label: "Screens", href: "/solutions/dealer-ordering/screens" },
           { label: "Reports", href: "/solutions/dealer-ordering/reports" },
-          { label: "Book Demo", href: "/book-demo?src=dealer-ordering" },
+          {
+            label: "Book Demo",
+            href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Dealer%20Ordering%20on%20OVENTRA.",
+          },
         ],
       },
-     
     ],
   },
   {
@@ -108,14 +130,16 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Demo Request Form", href: "/contact/demo-request" },
       { label: "Support", href: "/contact/support" },
       { label: "Career", href: "/contact/career" },
+      { label: "WhatsApp", href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA." },
     ],
   },
   {
     type: "dropdown",
     label: "Support",
     items: [
-      { label: "FAQs", href: "/support/faqs" },
+      { label: "FAQs", href: "/faq" },
       { label: "Contact Support", href: "/support/contact" },
+      { label: "WhatsApp", href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA." },
     ],
   },
 ];

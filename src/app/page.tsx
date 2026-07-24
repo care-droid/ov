@@ -16,7 +16,6 @@ import Whatsapp from "@/components/home/whatsapp";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <main>
         <Hero />
         <Stats />
@@ -31,7 +30,6 @@ export default function Home() {
         
       </main>
       <DemoPage/>
-      <Footer />
       <ScrollToTop />
       <Whatsapp />
     </>

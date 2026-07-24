@@ -75,12 +75,7 @@ const comparisons = [
   },
 ];
 
-const stats = [
-  { label: "Customer satisfaction", val: "98%" },
-  { label: "Orders processed", val: "50,000+" },
-  { label: "Faster order-to-close", val: "3x" },
-  { label: "Support", val: "24/7" },
-];
+
 
 const container = {
   hidden: { opacity: 0 },
@@ -89,7 +84,7 @@ const container = {
 
 const row = {
   hidden: { opacity: 0, y: 14 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 const BusinessBenefits = () => {
@@ -199,25 +194,8 @@ const BusinessBenefits = () => {
             </span>
           </motion.a>
 
-          {/* LEDGER FOOTER — same footer language as Powerful Features */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.25, duration: 0.5 }}
-            className="mt-16 pt-8 border-t border-dashed border-[#6E1423]/20 flex flex-wrap justify-between gap-8"
-          >
-            {stats.map((stat, i) => (
-              <div key={i} className="flex flex-col">
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#8C6E71] mb-2">
-                  {stat.label}
-                </span>
-                <span className="font-display text-lg text-[#2A1216]">
-                  {stat.val}
-                </span>
-              </div>
-            ))}
-          </motion.div>
+          
+
         </div>
       </section>
     </MotionConfig>

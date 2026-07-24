@@ -22,7 +22,7 @@
 
         export default function QRCodeOrderingSection() {
         return (
-            <section className="relative w-full py-20 sm:py-28" style={{ background: CREAM }}>
+            <section className="relative w-full py-20 sm:py-28" style={{ background: "efe6e8" }}>
             <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 sm:px-10 lg:grid-cols-2 lg:gap-16">
                 {/* Image — left */}
                 <motion.div

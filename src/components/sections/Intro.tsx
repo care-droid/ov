@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Layers, FileX2, BarChart3 } from "lucide-react";
+import Lightfall from "@/components/ui/Lightfall";
 
 /**
  * Section 3 — "Introducing OVENTRA Partner Meet Ordering"
@@ -36,7 +37,29 @@ const headlineWords = ["Introducing", "OVENTRA", "Partner", "Meet", "Ordering"];
 export default function Intro() {
   return (
     <section className="relative isolate w-full overflow-hidden bg-[#080808] py-24 sm:py-28 lg:py-36">
-      {/* Ambient background glows */}
+      {/* Lightfall background effect - positioned absolutely behind content */}
+      <div className="absolute inset-0 z-0">
+        <Lightfall
+          className="w-full h-full"
+          colors={['#A82242', '#113F7C', '#E23A5C']}
+          backgroundColor="#080808"
+          speed={0.3}
+          streakCount={3}
+          streakWidth={1.2}
+          streakLength={0.8}
+          glow={1.2}
+          density={0.5}
+          zoom={2.5}
+          backgroundGlow={0.3}
+          opacity={0.4}
+          mouseInteraction={true}
+          mouseStrength={0.3}
+          mouseRadius={1.5}
+          mouseDampening={0.2}
+        />
+      </div>
+
+      {/* Ambient background glows - on top of Lightfall but behind content */}
       <motion.div
         aria-hidden
         initial={{ opacity: 0 }}
@@ -44,10 +67,7 @@ export default function Intro() {
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 1.2 }}
         animate={{ x: [0, 30, -10, 0], y: [0, -20, 15, 0] }}
-        style={{
-          transition: "opacity 1.2s ease",
-        }}
-        className="pointer-events-none absolute -left-32 -top-32 h-[480px] w-[480px] rounded-full bg-[#A82242] blur-[140px]"
+        className="pointer-events-none absolute -left-32 -top-32 z-[1] h-[480px] w-[480px] rounded-full bg-[#A82242] blur-[140px]"
       />
       <motion.div
         aria-hidden
@@ -56,13 +76,13 @@ export default function Intro() {
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 1.2, delay: 0.2 }}
         animate={{ x: [0, -25, 15, 0], y: [0, 20, -15, 0] }}
-        className="pointer-events-none absolute -right-24 bottom-0 h-[420px] w-[420px] rounded-full bg-[#113F7C] blur-[150px]"
+        className="pointer-events-none absolute -right-24 bottom-0 z-[1] h-[420px] w-[420px] rounded-full bg-[#113F7C] blur-[150px]"
       />
 
       {/* faint grid texture for depth */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
+        className="pointer-events-none absolute inset-0 z-[1] opacity-[0.05]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
@@ -70,7 +90,8 @@ export default function Intro() {
         }}
       />
 
-      <div className="relative mx-auto max-w-5xl px-6 text-center sm:px-10">
+      {/* Content - on top of everything */}
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center sm:px-10">
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -95,7 +116,7 @@ export default function Intro() {
               viewport={{ once: false, amount: 0.6 }}
               transition={{ duration: 0.6, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
               className={
-                word === "OVENTRA"
+                word === "hi"
                   ? "bg-gradient-to-r from-[#E23A5C] via-[#A82242] to-[#3D7FE0] bg-clip-text text-transparent"
                   : "text-white"
               }
@@ -123,7 +144,7 @@ export default function Intro() {
       </div>
 
       {/* Pillars */}
-      <div className="relative mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-5 px-6 sm:mt-20 sm:grid-cols-3 sm:px-10">
+      <div className="relative z-10 mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-5 px-6 sm:mt-20 sm:grid-cols-3 sm:px-10">
         {pillars.map((p, i) => {
           const Icon = p.icon;
           return (

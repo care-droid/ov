@@ -9,45 +9,7 @@ import {
   Box, Palette, Maximize2, CheckCircle 
 } from 'lucide-react';
 
-// --- DATA FOR SECTION 9 ---
-const ComparisonData = [
-  {
-    traditional: "Paper Order Forms",
-    oventra: "Digital Ordering",
-    tradIcon: <FileText size={20} />,
-    ovenIcon: <Smartphone size={20} />,
-  },
-  {
-    traditional: "Manual Entry",
-    oventra: "Instant Order Capture",
-    tradIcon: <Keyboard size={20} />,
-    ovenIcon: <Zap size={20} />,
-  },
-  {
-    traditional: "Product Code Errors",
-    oventra: "QR-Based Selection",
-    tradIcon: <AlertCircle size={20} />,
-    ovenIcon: <QrCode size={20} />,
-  },
-  {
-    traditional: "Excel Consolidation",
-    oventra: "Live Dashboard",
-    tradIcon: <FileSpreadsheet size={20} />,
-    ovenIcon: <BarChart3 size={20} />,
-  },
-  {
-    traditional: "Delayed Reports",
-    oventra: "Real-Time Analytics",
-    tradIcon: <Clock size={20} />,
-    ovenIcon: <Activity size={20} />,
-  },
-  {
-    traditional: "Multiple Follow-ups",
-    oventra: "Instant Confirmation",
-    tradIcon: <MessageSquare size={20} />,
-    ovenIcon: <CheckCircle2 size={20} />,
-  },
-];
+
 
 // --- DATA FOR SECTION 10 ---
 const features = [
@@ -88,7 +50,7 @@ const OventraBenefitsPage = () => {
       
 
       {/* SECTION 10: WHY CHOOSE OVENTRA */}
-      <section className="py-24 px-4 md:px-8 bg-[#f3eee7] overflow-hidden">
+      <section className="py-24 px-4 md:px-8 bg-[#efe6e8] overflow-hidden">
         <div className="max-w-6xl mx-auto">
           
           <motion.div 
@@ -128,7 +90,7 @@ const OventraBenefitsPage = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="relative bg-[#164380] rounded-3xl overflow-hidden shadow-2xl p-8 md:p-16 text-white"
+            className="relative rounded-3xl overflow-hidden shadow-2xl p-8 md:p-16 text-white bg-gradient-to-br from-[#0d417d] via-[#3f78b8] to-[#a9d6ff]"
           >
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>

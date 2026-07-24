@@ -30,7 +30,7 @@ import {
  * Dashboard (center), Order Summary, Reports.
  */
 
-const RED = "#C41230";
+const RED = "#1b5297";
 
 const topBadges = [
   { icon: TrendingUp, label: "Increase Sales" },
@@ -108,7 +108,8 @@ function slotStyle(offset: number) {
     scale: abs === 0 ? 1 : abs === 1 ? 0.82 : 0.66,
     rotate: sign * (abs === 0 ? 0 : abs === 1 ? 7 : 12),
     y: abs === 0 ? 0 : abs === 1 ? 18 : 34,
-    zIndex: 50 - abs * 10,
+    // Reduced max z-index to stay below navbar (z-50 = 50)
+    zIndex: abs === 0 ? 20 : abs === 1 ? 15 : 10,
     opacity: abs > 2 ? 0 : abs === 0 ? 1 : abs === 1 ? 0.85 : 0.55,
   };
 }
@@ -121,7 +122,7 @@ export default function PartnerAppShowcase() {
   const prev = () => setActive((a) => (a - 1 + total) % total);
 
   return (
-    <section className="w-full bg-white">
+    <section className="relative w-full bg-white" style={{ zIndex: 1 }}>
       {/* Top benefit strip */}
       <div style={{ backgroundColor: RED }} className="w-full py-4">
         <motion.div
@@ -217,7 +218,7 @@ export default function PartnerAppShowcase() {
                   opacity: style.opacity,
                 }}
                 transition={{ type: "spring", stiffness: 260, damping: 28 }}
-                className="absolute w-[150px] overflow-hidden rounded-[1.6rem] border-[6px] border-black bg-black shadow-2xl sm:w-[180px] lg:w-[210px]"
+                className="absolute w-[150px] overflow-hidden rounded-[1.6rem]  sm:w-[180px] lg:w-[210px]"
                 style={{ aspectRatio: "9 / 19.5" }}
               >
                 <Image

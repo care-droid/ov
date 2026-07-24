@@ -10,14 +10,8 @@ import {
  * SECTION 5 — POWERFUL FEATURES
  * Concept: "The Swatch Ledger"
  *
- * Oventra sells to people who have spent a career with sample tags, order
- * books and mill ledgers in their hands. Rather than dressing the section
- * up as a generic "command center" HUD, the layout borrows directly from
- * that world: a spine of ledger tabs on the left, and a punched swatch-tag
- * card on the right that "flips" as you move between features.
- *
- * Palette — Ledger White
- *   --paper    #FBF8F5  base ground, warm off-white
+ * Palette — Soft Blue-Grey
+ *   --bg       #acbbd2  base ground, soft blue-grey
  *   --card     #FFFFFF  swatch tag surface
  *   --maroon   #6E1423  primary accent — rules, active states, icons
  *   --ink      #2A1216  primary text
@@ -81,32 +75,40 @@ export default function PowerfulFeatures() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="relative min-h-screen w-full bg-[#FBF8F5] py-24 overflow-hidden selection:bg-[#6E1423]/30">
-        {/* GROUND — ledger paper grain + a single quiet wine undertone, no floating blobs */}
+      <section className="relative min-h-screen w-full bg-[linear-gradient(10deg,#47111F_0%,#6A1A2F_35%,#B78C98_70%,#FAF8F8_100%)] py-24 overflow-hidden selection:bg-[#6E1423]/30">
+        <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+          .font-display{font-family:'Inter',sans-serif;font-optical-sizing:auto;letter-spacing:-0.02em;}
+          .font-body{font-family:'Inter',sans-serif;}
+          .font-mono{font-family:'Inter',sans-serif;letter-spacing:-0.01em;}
+        `}</style>
+
+        {/* GROUND — ledger paper grain + maroon undertone */}
         <div className="absolute inset-0 z-0">
           <div
-            className="absolute inset-0 opacity-[0.05]"
+            className="absolute inset-0 opacity-[0.08]"
             style={{
               backgroundImage:
-                "radial-gradient(#2A1216 0.5px, transparent 0.5px)",
+                "radial-gradient(#6E1423 0.5px, transparent 0.5px)",
               backgroundSize: "24px 24px",
             }}
           />
-          <div className="absolute inset-x-0 top-0 h-[520px] bg-gradient-to-b from-[#6E1423]/[0.06] to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-[520px] bg-gradient-to-b from-[#6E1423]/10 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[300px] bg-gradient-to-t from-[#6E1423]/5 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           {/* HEADER */}
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-[#6E1423]/20 pb-10">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-[#6E1423]/30 pb-10">
             <div className="max-w-2xl">
-              <div className="font-mono text-[11px] tracking-[0.3em] text-[#6E1423] mb-5">
+              <div className="font-mono text-[11px] tracking-[0.3em] text-[#6E1423] mb-5 font-semibold">
                 THE ORDER BOOK, DIGITISED
               </div>
-              <h2 className="font-display text-5xl md:text-6xl text-[#2A1216] leading-[1.05] font-medium">
+              <h2 className="font-display text-5xl md:text-6xl text-[#2A1216] leading-[1.05] font-extrabold tracking-tight">
                 Everything the floor needs.
               </h2>
             </div>
-            <p className="font-body text-[#8C6E71] max-w-sm md:text-right leading-relaxed">
+            <p className="font-body text-[#2A1216]/60 max-w-sm md:text-right leading-relaxed font-medium">
               Oventra ties every touchpoint of a partner meet — the table, the
               tablet, the ledger — into one system that never slows the sale down.
             </p>
@@ -116,15 +118,17 @@ export default function PowerfulFeatures() {
           <div className="grid lg:grid-cols-12 gap-10 items-start">
             {/* LEFT — ledger tab spine */}
             <div className="lg:col-span-5">
-              <div className="border-t border-[#6E1423]/20">
+              <div className="border-t border-[#6E1423]/30 bg-white/30 backdrop-blur-sm rounded-t-xl overflow-hidden">
                 {features.map((f) => {
                   const active = activeTab.id === f.id;
                   return (
                     <button
                       key={f.id}
                       onClick={() => setActiveTab(f)}
-                      className={`w-full group flex items-center gap-5 py-5 pr-4 pl-5 border-b border-[#6E1423]/20 text-left transition-colors duration-300 ${
-                        active ? "bg-[#6E1423]/[0.05]" : "hover:bg-[#6E1423]/[0.03]"
+                      className={`w-full group flex items-center gap-5 py-5 pr-4 pl-5 border-b border-[#6E1423]/20 text-left transition-all duration-300 ${
+                        active 
+                          ? "bg-white/60 shadow-[inset_0_0_30px_rgba(110,20,35,0.05)]" 
+                          : "hover:bg-white/40"
                       }`}
                       style={{
                         borderLeft: active
@@ -133,21 +137,21 @@ export default function PowerfulFeatures() {
                       }}
                     >
                       <div
-                        className={`flex items-center justify-center w-11 h-11 shrink-0 border ${
+                        className={`flex items-center justify-center w-11 h-11 shrink-0 border transition-all duration-300 ${
                           active
-                            ? "border-[#6E1423] text-[#6E1423]"
-                            : "border-[#8C6E71]/30 text-[#8C6E71]"
+                            ? "border-[#6E1423] text-[#6E1423] bg-white/50"
+                            : "border-[#2A1216]/20 text-[#2A1216]/40"
                         }`}
                       >
                         <f.icon size={18} strokeWidth={1.5} />
                       </div>
                       <div className="min-w-0">
-                        <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#8C6E71] mb-1">
+                        <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2A1216]/40 mb-1 font-semibold">
                           {f.tag}
                         </div>
                         <div
-                          className={`font-display text-lg truncate ${
-                            active ? "text-[#2A1216]" : "text-[#8C6E71]"
+                          className={`font-display text-lg truncate transition-colors font-semibold ${
+                            active ? "text-[#2A1216]" : "text-[#2A1216]/50"
                           }`}
                         >
                           {f.title}
@@ -155,10 +159,10 @@ export default function PowerfulFeatures() {
                       </div>
                       <ArrowUpRight
                         size={16}
-                        className={`ml-auto shrink-0 transition-transform duration-300 ${
+                        className={`ml-auto shrink-0 transition-all duration-300 ${
                           active
                             ? "text-[#6E1423] rotate-0"
-                            : "text-[#8C6E71]/30 -rotate-45 group-hover:rotate-0"
+                            : "text-[#2A1216]/20 -rotate-45 group-hover:rotate-0 group-hover:text-[#2A1216]/40"
                         }`}
                       />
                     </button>
@@ -177,11 +181,11 @@ export default function PowerfulFeatures() {
                   exit={{ opacity: 0, rotateY: 8, x: -16 }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   style={{ transformPerspective: 1200 }}
-                  className="relative border border-[#6E1423]/40 bg-[#FFFFFF] p-10 md:p-14 min-h-[460px] flex flex-col"
+                  className="relative border border-[#6E1423]/30 bg-white p-10 md:p-14 min-h-[460px] flex flex-col shadow-2xl"
                 >
                   {/* punched hole + thread loop — the signature detail */}
                   <div className="absolute top-8 left-8 w-6 h-6 rounded-full border border-[#6E1423]/50">
-                    <div className="absolute inset-[3px] rounded-full bg-[#FBF8F5]" />
+                    <div className="absolute inset-[3px] rounded-full bg-[#acbbd2]" />
                   </div>
                   <div className="absolute top-[27px] left-14 w-10 h-px bg-[#6E1423]/30" />
 
@@ -189,10 +193,10 @@ export default function PowerfulFeatures() {
                   <div className="pointer-events-none absolute inset-3 border border-dashed border-[#6E1423]/20" />
 
                   <div className="flex items-start justify-between mb-10 pl-6">
-                    <span className="font-mono text-[11px] tracking-[0.2em] text-[#6E1423]/70">
+                    <span className="font-mono text-[11px] tracking-[0.2em] text-[#6E1423]/70 font-semibold">
                       {activeTab.spec}
                     </span>
-                    <span className="font-mono text-[11px] tracking-[0.2em] text-[#8C6E71]/60">
+                    <span className="font-mono text-[11px] tracking-[0.2em] text-[#2A1216]/40 font-semibold">
                       {String(index + 1).padStart(2, "0")} / {String(features.length).padStart(2, "0")}
                     </span>
                   </div>
@@ -203,10 +207,10 @@ export default function PowerfulFeatures() {
                       strokeWidth={1}
                       className="text-[#6E1423] mb-7"
                     />
-                    <h3 className="font-display text-3xl md:text-4xl text-[#2A1216] mb-5 leading-tight">
+                    <h3 className="font-display text-3xl md:text-4xl text-[#2A1216] mb-5 leading-tight font-extrabold tracking-tight">
                       {activeTab.title}
                     </h3>
-                    <p className="font-body text-lg text-[#8C6E71] leading-relaxed max-w-lg">
+                    <p className="font-body text-lg text-[#2A1216]/60 leading-relaxed max-w-lg font-medium">
                       {activeTab.body}
                     </p>
                   </div>
@@ -214,7 +218,7 @@ export default function PowerfulFeatures() {
                   <activeTab.icon
                     size={340}
                     strokeWidth={0.4}
-                    className="absolute -bottom-16 -right-16 text-[#6E1423]/[0.05] pointer-events-none"
+                    className="absolute -bottom-16 -right-16 text-[#6E1423]/[0.04] pointer-events-none"
                   />
                 </motion.div>
               </AnimatePresence>
@@ -222,7 +226,7 @@ export default function PowerfulFeatures() {
           </div>
 
           {/* LEDGER FOOTER — dotted rule, real numbers, no mock telemetry */}
-          <div className="mt-20 pt-8 border-t border-dashed border-[#6E1423]/20 flex flex-wrap justify-between gap-8">
+          <div className="mt-20 pt-8 border-t border-dashed border-[#6E1423]/30 flex flex-wrap justify-between gap-8">
             {[
               { label: "Go live", val: "Same day" },
               { label: "Uptime", val: "99.99%" },
@@ -230,10 +234,10 @@ export default function PowerfulFeatures() {
               { label: "Catalogue capacity", val: "Unlimited SKUs" },
             ].map((stat, i) => (
               <div key={i} className="flex flex-col">
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#8C6E71] mb-2">
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#fff]/40 mb-2 font-semibold">
                   {stat.label}
                 </span>
-                <span className="font-display text-lg text-[#2A1216]">
+                <span className="font-display text-lg text-[#fff] font-bold">
                   {stat.val}
                 </span>
               </div>

@@ -24,17 +24,40 @@ import WhyChooseOventra from "@/components/sections/WhyChooseOventra";
 export default function PartnerMeetOrderingPage() {
   return (
     <>
+    <section id="intro">
+        <Intro />
+      </section>
       <DashboardPage />
-      <Partnermeetchallenges/>
-      <Intro/>
-      <Partnerappshowcase/>
-      <Powerfulfeaturespage/>
-      <Whyoventra/>
-      <EventTypes/>
-      <Qrcodeorderingsection/>
-      <Benifits/>
-      <WhyChooseOventra/>
-      <Footer />
+
+      <section id="challenges">
+        <Partnermeetchallenges />
+      </section>
+
+      
+
+      <section id="features">
+        <Powerfulfeaturespage />
+      </section>
+
+      <section id="workflow">
+        <EventTypes />
+      </section>
+
+      <section id="screens">
+        <Partnerappshowcase />
+      </section>
+
+      <section id="reports">
+        <Qrcodeorderingsection />
+      </section>
+
+      <section id="benefits">
+        <Benifits />
+      </section>
+
+      <section id="why-oventra">
+        <WhyChooseOventra />
+      </section>
     </>
   );
 }

@@ -42,7 +42,7 @@ const FAQPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f5f0ee] via-[#faf5f3] to-[#f0e8e5] py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#f5f0ee] via-[#faf5f3] to-[#f0e8e5] mt-15 py-16 px-4 sm:px-6 lg:px-8">
       {/* Decorative maroon animated elements - more prominent */}
       
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -245,7 +245,7 @@ const FAQPage = () => {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="bg-gradient-to-r from-[#7a1f1f] to-[#9c2a2a] text-white px-8 py-3 rounded-xl font-medium shadow-md shadow-[#7a1f1f]/25 hover:shadow-lg hover:shadow-[#7a1f1f]/40 transition-all duration-300"
+        className="bg-gradient-to-r from-[#1a4f92] to-[#7594bf] text-white px-8 py-3 rounded-xl font-medium shadow-md shadow-[#7a1f1f]/25 hover:shadow-lg hover:shadow-[#7a1f1f]/40 transition-all duration-300"
       >
         Contact Support
       </motion.button>

@@ -1,169 +1,191 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  FileText,
-  FileSpreadsheet,
-  AlertTriangle,
-  Clock,
-  EyeOff,
-  Frown,
-} from "lucide-react";
+import { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import OptionWheel from "@/components/ui/OptionWheel";
 
 /**
- * Maroon-themed "Challenges" section.
- * Palette: deep maroon #3B0E1A -> #741A34 -> #A82242 accents,
- * off-white surface #F6F3F1, ink #1A1414.
+ * Challenges section, v4 — OptionWheel
  *
- * Scroll behaviour: cards fade + zoom in as they enter the viewport,
- * and fade + shrink back out as they leave (viewport.once = false),
- * matching "scroll fade in/out, zoom in" request.
+ * Uses the OptionWheel component to display challenges in a scrollable wheel format.
+ * Each challenge appears as an item in the wheel with its title.
+ * Selected challenge details are shown in a panel on the right.
  */
 
 type Challenge = {
   title: string;
   body: string;
-  icon: React.ElementType;
 };
 
 const challenges: Challenge[] = [
   {
-    title: "Paper-Based Ordering",
+    title: "Paper-based ordering",
     body: "Handwritten forms are slow to fill, difficult to verify, and prone to data entry errors.",
-    icon: FileText,
   },
   {
-    title: "Multiple Excel Sheets",
+    title: "Scattered spreadsheets",
     body: "Sales teams spend hours consolidating order data from different representatives.",
-    icon: FileSpreadsheet,
   },
   {
-    title: "Product Selection Errors",
-    body: "Incorrect article numbers, missing sizes, or inaccurate quantities result in frequent order revisions.",
-    icon: AlertTriangle,
+    title: "Selection errors",
+    body: "Wrong article numbers, missing sizes, or inaccurate quantities trigger frequent order revisions.",
   },
   {
-    title: "Delayed Order Processing",
-    body: "Orders often take several days before they are entered into ERP systems.",
-    icon: Clock,
+    title: "Delayed processing",
+    body: "Orders often sit for several days before they're entered into the ERP system.",
   },
   {
-    title: "No Real-Time Visibility",
-    body: "Management cannot track event performance or monitor order progress while the event is ongoing.",
-    icon: EyeOff,
+    title: "No live visibility",
+    body: "Management can't track event performance or monitor order progress while it's happening.",
   },
   {
-    title: "Poor Customer Experience",
-    body: "Distributors expect a modern and efficient ordering process rather than paperwork and manual follow-ups.",
-    icon: Frown,
+    title: "A dated experience",
+    body: "Distributors expect a modern ordering process, not paperwork and manual follow-ups.",
   },
 ];
 
-function ChallengeCard({ challenge, index }: { challenge: Challenge; index: number }) {
-  const Icon = challenge.icon;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.85, y: 40 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.85 }}
-      viewport={{ once: false, amount: 0.35 }}
-      transition={{
-        duration: 0.55,
-        delay: (index % 3) * 0.12,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className="flex flex-col overflow-hidden rounded-2xl border border-[#e7dfdd] bg-white shadow-sm"
-    >
-      {/* Graphic panel */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: false, amount: 0.35 }}
-        transition={{ duration: 0.6, delay: (index % 3) * 0.12 + 0.1 }}
-        className="relative flex h-[200px] items-center justify-center overflow-hidden bg-gradient-to-br from-[#3B0E1A] via-[#5C1428] to-[#A82242] sm:h-[220px]"
-      >
-        {/* grid texture */}
-        <div
-          className="absolute inset-0 opacity-[0.18]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-        <motion.div
-          initial={{ scale: 0.6, opacity: 0, rotate: -8 }}
-          whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
-          viewport={{ once: false, amount: 0.35 }}
-          whileHover={{ scale: 1.08, rotate: 2 }}
-          transition={{
-            duration: 0.5,
-            delay: (index % 3) * 0.12 + 0.2,
-            ease: "backOut",
-          }}
-          className="relative z-10 grid h-20 w-20 place-items-center rounded-2xl border border-white/25 bg-white/10 backdrop-blur-sm shadow-[0_10px_30px_-8px_rgba(0,0,0,0.5)]"
-        >
-          <Icon className="h-9 w-9 text-white" strokeWidth={1.6} />
-        </motion.div>
-      </motion.div>
-
-      {/* Text */}
-      <div className="flex flex-1 flex-col gap-2 px-6 py-6">
-        <h3 className="text-lg font-semibold text-[#2A1013]">
-          {challenge.title}
-        </h3>
-        <p className="text-[14px] leading-relaxed text-gray-600">
-          {challenge.body}
-        </p>
-      </div>
-    </motion.div>
-  );
-}
+// Format challenges for OptionWheel display - use shorter display names
+const wheelItems = challenges.map(c => c.title);
 
 export default function PartnerMeetChallenges() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [selectedChallenge, setSelectedChallenge] = useState(challenges[0]);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const headerY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+
+  const handleWheelChange = (index: number, item: string) => {
+    setSelectedChallenge(challenges[index]);
+  };
+
   return (
-    <section className="w-full bg-[#F6F3F1]">
+    <section
+      ref={sectionRef}
+      className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[linear-gradient(175deg,#170509_0%,#2A0A13_24%,#47111F_50%,#5C1428_74%,#741A34_100%)] font-sans"
+    >
+      {/* grain */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] opacity-[0.05] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+      />
+      {/* vignette */}
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_50%_0%,rgba(0,0,0,0)_0%,rgba(20,4,8,0.35)_100%)]" />
+
       {/* Header */}
-      <div className="mx-auto max-w-4xl px-6 pb-14 pt-20 text-center sm:pb-16 sm:pt-24">
-        <motion.span
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.6 }}
-          transition={{ duration: 0.5 }}
-          className="mb-4 inline-block rounded-full border border-[#A82242]/30 bg-[#A82242]/10 px-4 py-1 text-xs font-semibold tracking-wide text-[#741A34]"
-        >
-          Common Challenges
-        </motion.span>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-10 sm:pt-14">
+  <motion.div
+    style={{ y: headerY }}
+    className="flex flex-col items-center text-center"
+  >
+    <div>
+      <motion.span
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.6 }}
+        transition={{ duration: 0.5, delay: 0.05 }}
+        className="mb-4 inline-flex items-center justify-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-[#F0DCE0]"
+      >
+        <span className="h-px w-8 bg-[#F0DCE0]/60" />
+        The problem, on paper
+        <span className="h-px w-8 bg-[#F0DCE0]/60" />
+      </motion.span>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[2.1rem] leading-[1.15] text-[#1A1414] sm:text-[2.6rem] lg:text-[2.9rem]"
-        >
-          Challenges with Traditional Partner Meets
-        </motion.h2>
+      <motion.h2
+        initial={{ opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        className="mx-auto max-w-3xl text-[2rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[2.8rem] lg:text-[3.2rem]"
+      >
+        Traditional partner
+        <br />
+        meets don&apos;t scale.
+      </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mx-auto mt-5 max-w-2xl text-[15px] leading-relaxed text-gray-600"
-        >
-          Even the most well-planned partner meets often struggle with manual
-          order collection and fragmented communication.
-        </motion.p>
-      </div>
+      <motion.p
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{ duration: 0.6, delay: 0.15 }}
+        className="mx-auto mt-6 max-w-2xl text-[15px] leading-relaxed text-[#F0DCE0]/85"
+      >
+        Even the best-planned events struggle with manual order
+        collection and fragmented communication.
+      </motion.p>
+    </div>
+  </motion.div>
+</div>
 
-      {/* Cards grid */}
-      <div className="mx-auto max-w-6xl px-6 pb-24 sm:px-8">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {challenges.map((c, i) => (
-            <ChallengeCard key={c.title} challenge={c} index={i} />
-          ))}
+      {/* OptionWheel + Selected Challenge Details */}
+      <div className="relative z-10 flex flex-1 items-center justify-center px-4 py-8 lg:px-8">
+        <div className="grid w-full max-w-7xl grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+          {/* Left: OptionWheel */}
+          <div className="flex items-center justify-center">
+            <div className="h-[420px] w-full max-w-xs md:max-w-sm">
+              <OptionWheel
+                items={wheelItems}
+                defaultSelected={0}
+                onChange={handleWheelChange}
+                textColor="#D9AFB8"
+                activeColor="#ffffff"
+                side="left"
+                fontSize={1.2}
+                spacing={2.2}
+                curve={0.4}
+                tilt={6}
+                blur={1}
+                fade={0.2}
+                minOpacity={0.18}
+                smoothing={150}
+                inset={40}
+                loop={false}
+                draggable={true}
+              />
+            </div>
+          </div>
+
+          {/* Right: Selected Challenge Details */}
+          <motion.div
+            key={selectedChallenge.title}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col justify-center space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:p-8"
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-4xl font-bold text-[#F4A9B8] md:text-5xl">
+                {String(challenges.findIndex(c => c.title === selectedChallenge.title) + 1).padStart(2, "0")}
+              </span>
+              <div className="h-px flex-1 bg-white/10" />
+            </div>
+            <h3 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+              {selectedChallenge.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-white/70 md:text-base">
+              {selectedChallenge.body}
+            </p>
+            <div className="mt-4 flex gap-2">
+              {challenges.map((c, i) => (
+                <button
+                  key={c.title}
+                  onClick={() => {
+                    setSelectedChallenge(c);
+                  }}
+                  className={`h-2 rounded-full transition-all ${
+                    c.title === selectedChallenge.title
+                      ? "w-8 bg-[#F4A9B8]"
+                      : "w-2 bg-white/30 hover:bg-white/50"
+                  }`}
+                  aria-label={`Select ${c.title}`}
+                />
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 
 export interface LightfallProps {
@@ -51,6 +51,23 @@ const prepColors = (input?: string[]) => {
   avg[1] /= count;
   avg[2] /= count;
   return { arr, count, avg };
+};
+
+// Cheap up-front probe so we never even attempt to construct the ogl
+// Renderer (and its underlying WebGL context) in environments where it's
+// known to be unavailable — e.g. sandboxed/headless browsers, some CI
+// or remote-dev preview environments, or GPU-disabled machines.
+const isWebGLAvailable = (): boolean => {
+  if (typeof window === 'undefined') return false;
+  try {
+    const canvas = document.createElement('canvas');
+    const gl =
+      canvas.getContext('webgl', { failIfMajorPerformanceCaveat: false }) ||
+      canvas.getContext('experimental-webgl');
+    return !!gl;
+  } catch {
+    return false;
+  }
 };
 
 const vertex = `
@@ -221,15 +238,33 @@ const Lightfall: React.FC<LightfallProps> = ({
   const mouseTargetRef = useRef<[number, number]>([0, 0]);
   const lastTimeRef = useRef(0);
 
+  // Assume support until proven otherwise; a fast synchronous probe runs
+  // before the real ogl Renderer is ever constructed.
+  const [webGLSupported, setWebGLSupported] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (!isWebGLAvailable()) {
+      setWebGLSupported(false);
+    }
+  }, []);
+
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!container || !webGLSupported) return;
 
-    const renderer = new Renderer({
-      dpr: dpr ?? (typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1),
-      alpha: true,
-      antialias: true
-    });
+    let renderer: Renderer;
+    try {
+      renderer = new Renderer({
+        dpr: dpr ?? (typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1),
+        alpha: true,
+        antialias: true
+      });
+    } catch (error) {
+      console.warn('Lightfall: WebGL unavailable, falling back to static background:', error);
+      setWebGLSupported(false);
+      return;
+    }
+
     rendererRef.current = renderer;
     const gl = renderer.gl;
     const canvas = gl.canvas as HTMLCanvasElement;
@@ -324,7 +359,9 @@ const Lightfall: React.FC<LightfallProps> = ({
         try {
           renderer.render({ scene: meshRef.current });
         } catch (e) {
-          console.error(e);
+          console.warn('Lightfall: render failed, disabling:', e);
+          if (rafRef.current) cancelAnimationFrame(rafRef.current);
+          setWebGLSupported(false);
         }
       }
     };
@@ -353,6 +390,7 @@ const Lightfall: React.FC<LightfallProps> = ({
       rendererRef.current = null;
     };
   }, [
+    webGLSupported,
     dpr,
     paused,
     colors,
@@ -372,6 +410,17 @@ const Lightfall: React.FC<LightfallProps> = ({
     mouseRadius,
     mouseDampening
   ]);
+
+  if (!webGLSupported) {
+    return (
+      <div
+        className={`w-full h-full overflow-hidden relative bg-gradient-to-br from-[#efe6e8] via-[#e8d5d8] to-[#d4c4c8] ${className ?? ''}`}
+        style={{
+          ...(mixBlendMode && { mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode'] })
+        }}
+      />
+    );
+  }
 
   return (
     <div

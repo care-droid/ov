@@ -20,11 +20,14 @@ import Whyoventra from "@/components/sections/Whyoventra";
 import EventTypes from "@/components/sections/Partnermeet";
 import Benifits from "@/components/sections/Benifits";
 import WhyChooseOventra from "@/components/sections/WhyChooseOventra";
+import Partnermeet from "@/components/sections/Partnermeet";
 
 export default function PartnerMeetOrderingPage() {
   return (
     <>
+    
     <section id="intro">
+
         <Intro />
       </section>
       <DashboardPage />
@@ -46,7 +49,10 @@ export default function PartnerMeetOrderingPage() {
       <section id="screens">
         <Partnerappshowcase />
       </section>
+      
+      
 
+      <Whyoventra/>
       <section id="reports">
         <Qrcodeorderingsection />
       </section>

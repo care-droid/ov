@@ -1,127 +1,132 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  Layers, Users, Calendar, ArrowRight, Boxes, Radar, PackageCheck,
-} from 'lucide-react';
-import Hyperspeed from '@/components/Hyperspeed';
+import { Layers, Users, Calendar, ArrowRight } from 'lucide-react';
+import type { Variants } from "framer-motion";
 
 // ============================================================================
 // DESIGN TOKENS
 // ============================================================================
-// Cream    #efe6e8  — hero backdrop, "showroom" surface
-// Maroon   #800000  — brand ink, primary action, borders
-// Near-black #150808 — "sole & asphalt", catalog-depth section
-// Leather  #b9895a  — warm accent, swatch/size motif
-// Bone     #f7f1ec  — text-on-dark
+// Cream      #efe6e8  — hero backdrop, "showroom" surface
+// Maroon     #800000  — brand ink, primary action, borders
+// Near-black #150808  — "sole & asphalt", catalog-depth section
+// Leather    #b9895a  — warm accent, swatch/size motif
+// Bone       #f7f1ec  — text-on-dark
 
 const features = [
-  { icon: <Layers size={26} />, title: "Scale & Volume", desc: "Built for massive product catalogs and high-volume B2B ordering." },
-  { icon: <Users size={26} />, title: "Distributor Network", desc: "Seamlessly manage multiple distributors and partner hierarchies." },
-  { icon: <Calendar size={26} />, title: "Event Ready", desc: "Perfect for seasonal launches and distributor conferences." },
+  { icon: <Layers size={22} />, title: "Scale & Volume", desc: "Built for massive product catalogs and high-volume B2B ordering." },
+  { icon: <Users size={22} />, title: "Distributor Network", desc: "Seamlessly manage multiple distributors and partner hierarchies." },
+  { icon: <Calendar size={22} />, title: "Event Ready", desc: "Perfect for seasonal launches and distributor conferences." },
 ];
-
-
-
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 };
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1 },
+
+const itemVariants: Variants = {
+  hidden: {
+    y: 24,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
+  },
 };
 
 const OventraPage = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div className="relative overflow-hidden bg-[#150808]">
+    <section className="relative overflow-hidden bg-[#efe6e8] px-4 md:px-8 py-20 md:py-28">
+      {/* Premium ambient background — no heavy 3D, just light + texture */}
+      <div className="pointer-events-none absolute inset-0">
+        {/* soft maroon glow, top-right */}
+        <div
+          className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full opacity-20 blur-3xl"
+          style={{ background: "radial-gradient(circle, #800000 0%, transparent 70%)" }}
+        />
+        {/* soft leather glow, bottom-left */}
+        <div
+          className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full opacity-20 blur-3xl"
+          style={{ background: "radial-gradient(circle, #b9895a 0%, transparent 70%)" }}
+        />
+        {/* faint grid, gives it a "spec sheet / studio" feel instead of a generic gradient */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#150808 1px, transparent 1px), linear-gradient(90deg, #150808 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+      </div>
 
-      <section
-        ref={sectionRef}
-        className="relative h-[60vh] min-h-[500px] px-4 md:px-8 bg-[#efe6e8] overflow-hidden flex items-center"
-      >   
-        <div className="absolute inset-0">
-          <Hyperspeed
-            effectOptions={{
-              distortion: 'turbulentDistortion',
-              length: 400,
-              roadWidth: 12,
-              speedUp: 1.5,
-              fov: 80,
-              colors: {
-                roadColor: 0x1a0a0a,
-                islandColor: 0x2a0a0a,
-                background: 0xefe6e8,
-                shoulderLines: 0x800000,
-                brokenLines: 0x800000,
-                leftCars: [0x800000, 0xcc3333, 0xff6666],
-                rightCars: [0x800000, 0xcc3333, 0xff6666],
-                sticks: 0x800000,
-              },
-            }}
-          />
-        </div>
+      <div className="relative z-10 mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-14 text-center"
+        >
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#800000]">
+            Platform
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-[#150808]">
+            Why Choose <span className="text-[#800000]">OVENTRA</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm md:text-base text-[#150808]/60">
+            The ultimate B2B footwear management platform, built for scale and speed.
+          </p>
+        </motion.div>
 
-        <div className="relative z-10 max-w-6xl mt-10 mx-auto w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8"
-          >
-            <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-3">
-              Why Choose <span className="text-[#800000]">OVENTRA?</span>
-            </h1>
-            <p className="text-gray-600 text-sm max-w-2xl mx-auto">
-              The ultimate B2B footwear management platform designed for scale and speed.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto"
-          >
-            {features.map((f, i) => (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="bg-white p-5 rounded-xl border-t-4 border-[#800000] shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="text-[#800000] mb-3 bg-[#efe6e8] p-2 rounded-lg inline-block">{f.icon}</div>
-                <h3 className="text-base font-bold mb-1 text-gray-800">{f.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-center mt-6"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#800000] text-white mb-10 px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-[#600000] transition-colors mx-auto text-sm"
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid gap-5 sm:grid-cols-2 md:grid-cols-3"
+        >
+          {features.map((f, i) => (
+            <motion.div
+              key={i}
+              variants={itemVariants}
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="group relative rounded-2xl border border-[#150808]/10 bg-white/70 backdrop-blur-sm p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg hover:border-[#800000]/30"
             >
-              Book a Demo
-              <ArrowRight size={16} />
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
-     
-    </div>
+              <div className="mb-4 inline-flex items-center justify-center rounded-xl bg-[#150808] p-2.5 text-[#b9895a] transition-colors duration-300 group-hover:bg-[#800000] group-hover:text-white">
+                {f.icon}
+              </div>
+              <h3 className="mb-1.5 text-base font-bold text-[#150808]">{f.title}</h3>
+              <p className="text-sm leading-relaxed text-[#150808]/60">{f.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-12 text-center"
+        >
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="mx-auto flex items-center gap-2 rounded-full bg-[#800000] px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-[#600000]"
+          >
+            Book a Demo
+            <ArrowRight size={16} />
+          </motion.button>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

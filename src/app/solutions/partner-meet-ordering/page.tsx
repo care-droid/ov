@@ -1,69 +1,84 @@
-"use client";
+import dynamic from "next/dynamic";
+import LazySection from "@/components/common/LazySection";
 
-/**
- * OVENTRA — Partner Meet Ordering (premium pass)
- * 
- * Palette: --void #080808  --maroon #741A34  --signal #A82242
- *          --cobalt #113F7C  --paper #F3EEE6  --ash #9C948C
- * Type: Fraunces (display) / Inter (body) / IBM Plex Mono (data, ledger fields)
- */
+/** Above-the-fold — loaded immediately for LCP */
+const Intro = dynamic(() => import("@/components/sections/Intro"));
+const DashboardPage = dynamic(() => import("@/components/sections/DashboardPage"));
 
-import DashboardPage  from "@/components/sections/DashboardPage";
-import Partnermeetchallenges from "@/components/sections/Partnermeetchallenges";
-import Intro from "@/components/sections/Intro";
-import Partnerappshowcase from "@/components/sections/Partnerappshowcase";
-import Powerfulfeaturespage from "@/components/sections/Powerfulfeaturespage";
-import Qrcodeorderingsection from "@/components/sections/Qrcodeorderingsection";
-
-import Footer from "@/components/home/Footer";
-import Whyoventra from "@/components/sections/Whyoventra";
-import EventTypes from "@/components/sections/Partnermeet";
-import Benifits from "@/components/sections/Benifits";
-import WhyChooseOventra from "@/components/sections/WhyChooseOventra";
-import Partnermeet from "@/components/sections/Partnermeet";
+/** Below-the-fold — code-split; mounted when scrolled near */
+const PartnerMeetChallenges = dynamic(
+  () => import("@/components/sections/Partnermeetchallenges"),
+);
+const PowerfulFeatures = dynamic(
+  () => import("@/components/sections/Powerfulfeaturespage"),
+);
+const EventTypes = dynamic(() => import("@/components/sections/Partnermeet"));
+const PartnerAppShowcase = dynamic(
+  () => import("@/components/sections/Partnerappshowcase"),
+);
+const WhyOventra = dynamic(() => import("@/components/sections/Whyoventra"));
+const QRCodeOrderingSection = dynamic(
+  () => import("@/components/sections/Qrcodeorderingsection"),
+);
+const BusinessBenefits = dynamic(() => import("@/components/sections/Benifits"));
+const WhyChooseOventra = dynamic(
+  () => import("@/components/sections/WhyChooseOventra"),
+);
 
 export default function PartnerMeetOrderingPage() {
   return (
     <>
-    
-    <section id="intro">
-
+      <section id="intro">
         <Intro />
       </section>
+
       <DashboardPage />
 
-      <section id="challenges">
-        <Partnermeetchallenges />
-      </section>
+      <LazySection minHeight="100vh">
+        <section id="challenges">
+          <PartnerMeetChallenges />
+        </section>
+      </LazySection>
 
-      
+      <LazySection minHeight="100vh">
+        <section id="features">
+          <PowerfulFeatures />
+        </section>
+      </LazySection>
 
-      <section id="features">
-        <Powerfulfeaturespage />
-      </section>
+      <LazySection minHeight="80vh">
+        <section id="workflow">
+          <EventTypes />
+        </section>
+      </LazySection>
 
-      <section id="workflow">
-        <EventTypes />
-      </section>
+      <LazySection minHeight="80vh">
+        <section id="screens">
+          <PartnerAppShowcase />
+        </section>
+      </LazySection>
 
-      <section id="screens">
-        <Partnerappshowcase />
-      </section>
-      
-      
+      <LazySection minHeight="80vh">
+        <WhyOventra />
+      </LazySection>
 
-      <Whyoventra/>
-      <section id="reports">
-        <Qrcodeorderingsection />
-      </section>
+      <LazySection minHeight="60vh">
+        <section id="reports">
+          <QRCodeOrderingSection />
+        </section>
+      </LazySection>
 
-      <section id="benefits">
-        <Benifits />
-      </section>
+      <LazySection minHeight="80vh">
+        <section id="benefits">
+          <BusinessBenefits />
+        </section>
+      </LazySection>
 
-      <section id="why-oventra">
-        <WhyChooseOventra />
-      </section>
+      <LazySection minHeight="60vh">
+        <section id="why-oventra">
+          <WhyChooseOventra />
+        </section>
+      </LazySection>
     </>
   );
 }

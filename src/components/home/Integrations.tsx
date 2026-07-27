@@ -136,10 +136,7 @@ export default function Integrations() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-8"
             >
-              <button className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-7 py-3.5 text-sm font-semibold text-[var(--button-text)] transition-all hover:bg-[var(--primary-light)] hover:shadow-lg hover:shadow-[var(--shadow-glow)]">
-                Browse All Tools
-                <ArrowUpRight className="h-4 w-4" />
-              </button>
+             
             </motion.div>
           </motion.div>
 

@@ -7,7 +7,7 @@ export default function FAQSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden mt-10 pb-24 sm:pb-28">
+    <section className="relative overflow-hidden pr-10 pl-10 mt-10 pb-24 sm:pb-28">
       {/* ambient glow — premium depth */}
       <div
         aria-hidden

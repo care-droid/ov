@@ -1,178 +1,159 @@
 "use client";
-import Image from "next/image";
+
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { 
-  Layers, 
-  Rss, 
-  Mail, 
-  Send, 
-  MapPin, 
-  Phone, 
-  ArrowUp 
-} from "lucide-react";
-import { FaDribbble } from "react-icons/fa";
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import Image from "next/image";
+import { type SVGProps, type ReactNode } from "react";
+
+// ---- Icons (Keep them minimal) ---------------------------------------------
+
+type IconProps = SVGProps<SVGSVGElement>;
+
+const MailIcon = (props: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+    <path d="m22 6-10 7L2 6" />
+  </svg>
+);
+
+const PhoneIcon = (props: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" />
+  </svg>
+);
+
+const MapPinIcon = (props: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+);
+
+const XIcon = (props: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M18.9 2h3.3l-7.2 8.2L23.5 22h-6.6l-5.2-6.8L5.7 22H2.4l7.7-8.8L1.5 2h6.8l4.7 6.2L18.9 2Zm-1.2 18h1.8L7.4 3.9H5.5L17.7 20Z" />
+  </svg>
+);
+
+const LinkedinIcon = (props: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z" />
+  </svg>
+);
+
+// ---- Data ------------------------------------------------------------------
 
 const QUICK_LINKS = [
-  { label: "About Us", href: "#" },
+  { label: "About Us", href: "/about" },
   { label: "FAQs", href: "/faq" },
-  { label: "Community", href: "#" },
   { label: "Pricing & Plans", href: "/plans" },
-  { label: "Careers", href: "#" },
+  { label: "Careers", href: "/careers" },
+  { label: "Blog", href: "/blog" },
+];
+
+const CONTACT_INFO = [
+  {
+    icon: MapPinIcon,
+    value: "DCG1-1105, DLF Corporate Greens, Tower-1, Sec-74A, Gurugram, India",
+  },
+  { icon: MailIcon, value: "care@oventra.in", href: "mailto:care@oventra.in" },
+  { icon: PhoneIcon, value: "+91 97160 16012", href: "tel:+919716016012" },
 ];
 
 const SOCIALS = [
-  { icon: FaDribbble, label: "Dribbble", href: "/dribbble" },
-  { icon: Rss, label: "Blog", href: "/blog" },
-  { icon: Rss, label: "FAQ", href: "/faq" },
+  { icon: XIcon, href: "#", label: "X" },
+  { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
 ];
 
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+// ---- UI Components ---------------------------------------------------------
+
+function SectionHeading({ children }: { children: ReactNode }) {
+  return (
+    <h4 className="mb-6 text-[12px] font-bold uppercase tracking-widest text-[#C6485C]">
+      {children}
+    </h4>
+  );
 }
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-[#1a0505] via-[#2d0a0a] to-[#1a0505] text-white">
-      {/* Ambient maroon glow behind the content */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[90%] max-w-3xl -translate-x-1/2 -translate-y-1/3 rounded-full opacity-40 blur-[110px] sm:w-[720px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(165,42,42,0.5) 0%, rgba(122,26,26,0.3) 45%, rgba(58,8,8,0) 75%)",
-        }}
-      />
-
-      {/* Additional gradient orbs for depth */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 -right-40 h-[400px] w-[400px] rounded-full bg-[#7a1a1a]/20 blur-[120px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#5c1010]/20 blur-[120px]"
-      />
-
-      <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-16 sm:px-6 sm:pt-20">
-        {/* Logo + socials row */}
-        <div className="flex flex-col gap-8 border-b border-white/10 pb-10 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pb-12">
-          <Link
-            href="#top"
-            className="flex shrink-0 items-center gap-2 font-display text-2xl font-semibold text-white"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#a52a2a] to-[#7a1a1a] text-white shadow-lg shadow-[#a52a2a]/30">
-              <Image
-  src="/logo1.png"
-  alt="Oventra Logo"
-  width={36}
-  height={36}
-  className="rounded-xl"
-/>
-            </span>
-            Oventra
-          </Link>
-
-          {/* Divider line — hidden on mobile, fills the gap on larger screens */}
-          <div className="hidden h-px flex-1 bg-white/10 sm:block" />
-
-          <div className="flex flex-wrap gap-3">
-            {SOCIALS.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white/70 transition-all duration-300 hover:border-[#a52a2a]/60 hover:bg-[#a52a2a]/20 hover:text-white focus-ring"
-              >
-                <s.icon className="h-4 w-4" />
-                {s.label}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* Main columns */}
-        <div className="grid gap-12 py-12 sm:grid-cols-2 sm:py-14 lg:grid-cols-4">
-          <div className="lg:col-span-2">
-            <h3 className="font-display text-xl font-semibold text-white">
-              About Oventra
-            </h3>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/60">
-              We build the calm operating layer for growing teams — connecting
-              the tools you already use so decisions move faster and busywork
-              disappears.
+    <footer className="w-full bg-[#060405] text-[#F2ECEA] border-t border-white/5">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
+        
+        {/* Main 3-Column Grid */}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+          
+          {/* Section 1: Logo & About */}
+          <div className="flex flex-col gap-6">
+            <div className="flex items-center gap-3">
+              <img src="oventra.png" alt="" className="h-30 mt-0 pt-0" />
+            </div>
+            <p className="text-[15px] leading-relaxed text-[#8C7A7D] max-w-sm">
+              We build the calm operating layer for growing teams — connecting 
+              the tools you already use so decisions move faster and work becomes effortless.
             </p>
-            
+            {/* Social Icons inside Section 1 or at bottom? Putting here for style */}
+            <div className="flex gap-4 pt-2">
+              {SOCIALS.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className="text-[#8C7A7D] hover:text-white transition-colors"
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
           </div>
 
+          {/* Section 2: Quick Links */}
           <div>
-            <h3 className="font-display text-lg font-semibold text-white">
-              Quick Links
-            </h3>
-            <ul className="mt-5 space-y-3">
-              {QUICK_LINKS.map((link) => (
-                <li key={link.label}>
+            <SectionHeading>Quick Links</SectionHeading>
+            <ul className="space-y-4">
+              {QUICK_LINKS.map((item) => (
+                <li key={item.label}>
                   <Link
-                    href={link.href}
-                    className="text-sm text-white/60 transition-all duration-300 hover:text-white hover:pl-1 focus-ring"
+                    href={item.href}
+                    className="text-[15px] text-[#D8CFCE] hover:text-[#C6485C] transition-colors duration-200"
                   >
-                    {link.label}
+                    {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Section 3: Contact Info */}
           <div>
-            <h3 className="font-display text-lg font-semibold text-white">
-              Contact Info
-            </h3>
-            <ul className="mt-5 space-y-4 text-sm text-white/60">
-              <li className="flex items-start gap-3 transition-colors duration-300 hover:text-white/80">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#a52a2a]" />
-                DCG1-1105, DLF Corporate Greens,
-Tower-1, Sec-74A, Gurugram,
-Haryana-122004, India
-              </li>
-              <li className="flex items-start gap-3 transition-colors duration-300 hover:text-white/80">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#a52a2a]" />
-                care@gigasoft.in
-              </li>
-              <li className="flex items-start gap-3 transition-colors duration-300 hover:text-white/80">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#a52a2a]" />
-                +91 97160 16012
-              </li>
+            <SectionHeading>Contact Info</SectionHeading>
+            <ul className="space-y-6">
+              {CONTACT_INFO.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <item.icon className="h-5 w-5 shrink-0 text-[#C6485C] mt-0.5" />
+                  {item.href ? (
+                    <a href={item.href} className="text-[15px] text-[#D8CFCE] hover:text-white transition-colors">
+                      {item.value}
+                    </a>
+                  ) : (
+                    <span className="text-[15px] text-[#D8CFCE]">{item.value}</span>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
+
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center text-xs text-white/50 sm:flex-row sm:text-left">
-          <p>&copy; {new Date().getFullYear()} Oventra, Inc. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="#" className="transition-all duration-300 hover:text-white focus-ring">
-              Terms
-            </Link>
-            <Link href="#" className="transition-all duration-300 hover:text-white focus-ring">
-              Privacy
-            </Link>
-            <Link href="#" className="transition-all duration-300 hover:text-white focus-ring">
-              Support
-            </Link>
+        {/* Bottom Bar */}
+        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#6B5D5F]">
+          <p>© {new Date().getFullYear()} Oventra, Inc. All rights reserved.</p>
+          <div className="flex gap-8">
+            <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white">Terms of Service</Link>
           </div>
         </div>
-      </div>
 
-      {/* Back-to-top button */}
-      <button
-        type="button"
-        onClick={scrollToTop}
-        aria-label="Back to top"
-        className="fixed bottom-6 right-6 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#a52a2a] to-[#7a1a1a] text-white shadow-[0_8px_24px_rgba(165,42,42,0.5)] transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_32px_rgba(165,42,42,0.7)] focus-ring"
-      >
-        <ArrowUp className="h-5 w-5" />
-      </button>
+      </div>
     </footer>
   );
 }

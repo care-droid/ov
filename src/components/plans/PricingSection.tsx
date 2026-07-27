@@ -65,7 +65,7 @@ export default function PricingSection() {
       {/* ================================================================ */}
       {/* HERO                                                              */}
       {/* ================================================================ */}
-      <section className="relative overflow-hidden pt-20 pb-10 sm:pt-24">
+      <section className="relative overflow-hidden pr-10 pl-10  pt-20 pb-10 sm:pt-24">
         {/* ambient glow blobs — premium depth, purely decorative */}
         <div
           aria-hidden
@@ -83,7 +83,7 @@ export default function PricingSection() {
           whileInView="visible"
           viewport={{ once: false, amount: 0.4 }}
           variants={staggerContainer}
-          className="relative flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center"
+          className="relative flex flex-col pr-10 pl-10 items-start justify-between gap-8 sm:flex-row sm:items-center"
         >
           <motion.div variants={fadeUp}>
             <span
@@ -111,7 +111,7 @@ export default function PricingSection() {
       {/* ================================================================ */}
       {/* PRICING CARDS                                                     */}
       {/* ================================================================ */}
-      <section className="pb-20 sm:pb-28">
+      <section className="pb-20 pr-10 pl-10 sm:pb-28">
         <motion.div
           initial="hidden"
           whileInView="visible"

@@ -165,13 +165,13 @@ export default function StatsSection() {
                 <h3 className="text-xl font-bold text-foreground sm:text-2xl">
                   Download, create account
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
+                <p className="mt-3 text-sm leading-relaxed text-[#5c0011]">
                   Download the app and get started instantly. Sign up in
                   moments with a smooth onboarding.
                 </p>
 
                 <button className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-semibold text-[var(--button-text)] transition-colors hover:bg-[var(--primary-light)]">
-                  Create Account
+                 Book a Demo
                   <ArrowUpRight className="h-4 w-4" />
                 </button>
               </div>
@@ -209,7 +209,7 @@ export default function StatsSection() {
               </h3>
 
               {/* Description */}
-              <p className="mt-4 max-w-lg text-lg leading-8 text-muted">
+              <p className="mt-4 max-w-lg text-lg leading-8 text-[#5c0011]">
                 Experience seamless communication with lightning-fast messaging,
                 effortless file sharing, and real-time collaboration that keeps your
                 entire team connected from anywhere.

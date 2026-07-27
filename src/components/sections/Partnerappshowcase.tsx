@@ -38,7 +38,7 @@ import {
  *    against the lighter backdrop.
  */
 
-const ACCENT = "#2563EB"; // vibrant blue accent
+const ACCENT = "#0d387f"; // vibrant blue accent
 const ACCENT_LIGHT = "#60A5FA"; // lighter blue for gradients
 
 const topBadges = [

@@ -99,20 +99,8 @@ export default function Intro() {
           }}
         />
 
-        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center sm:px-10">
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#A82242] to-[#113F7C]" />
-            <span className="text-xs font-medium tracking-[0.2em] text-white/70">
-              INTRODUCING
-            </span>
-          </m.div>
+        <div className="relative z-10 mt-20 mx-auto max-w-5xl px-6 text-center sm:px-10">
+          
 
           <h2 className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[2.3rem] leading-[1.15] sm:text-[3.2rem] lg:text-[3.6rem]">
             {headlineWords.map((word, i) => (

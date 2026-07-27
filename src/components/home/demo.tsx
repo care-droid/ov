@@ -98,12 +98,14 @@ export default function DemoPage() {
                   className="mt-6 sm:mt-8 md:mt-10"
                 >
                   <Link
-                    href="#"
-                    className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#a52a2a] to-[#7a1a1a] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(122,26,26,0.5)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_15px_50px_-10px_rgba(122,26,26,0.7)] active:scale-[0.98] sm:gap-3 sm:rounded-2xl sm:px-7 sm:py-3.5 sm:text-base md:px-8 md:py-4"
-                  >
-                    Request A Demo
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 sm:h-4.5 sm:w-4.5" />
-                  </Link>
+  href="https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#a52a2a] to-[#7a1a1a] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_40px_-10px_rgba(122,26,26,0.5)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_15px_50px_-10px_rgba(122,26,26,0.7)] active:scale-[0.98] sm:gap-3 sm:rounded-2xl sm:px-7 sm:py-3.5 sm:text-base md:px-8 md:py-4"
+>
+  Request A Demo
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 sm:h-4.5 sm:w-4.5" />
+</Link>
                 </motion.div>
               </motion.div>
             </div>

@@ -11,13 +11,12 @@ export default function PricingPage() {
   return (
     <main className="min-h-screen w-full bg-white" style={{ color: theme.heading }}>
       <div className="mx-auto w-full max-w-[1500px] ">
-        <NaNvbar />
+        
         <PricingSection />
         <CTASection />
         <FAQSection />
         
       </div>
-      <Footer />
     </main>
   );
 }

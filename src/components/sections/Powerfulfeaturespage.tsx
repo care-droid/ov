@@ -3,18 +3,18 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import {
-  Images,
-  QrCode,
-  Grid3x3,
-  Gauge,
-  Plug,
-  Globe2,
+  Zap,
+  Target,
+  Sparkles,
+  Activity,
+  Users,
+  PackageCheck,
   ArrowUpRight,
 } from "lucide-react";
 
 /**
- * SECTION 5 — POWERFUL FEATURES
- * Concept: "The Swatch Ledger"
+ * SECTION — WHY MANUFACTURERS PREFER OVENTRA
+ * Concept: "The Swatch Ledger" (shared with Powerful Features)
  *
  * Palette — Soft Blue-Grey
  *   --bg       #acbbd2  base ground, soft blue-grey
@@ -24,60 +24,59 @@ import {
  *   --ink-60   #8C6E71  secondary text
  */
 
-const features = [
+const benefits = [
   {
-    id: "catalogue",
-    icon: Images,
-    tag: "Catalogue",
-    title: "The Digital Catalogue",
-    body: "Every colourway, weight and finish — photographed true to shade, and ready before the rep has even opened the laptop.",
+    id: "booking",
+    icon: Zap,
+    tag: "Speed",
+    title: "Faster Order Booking",
+    body: "Capture orders within minutes instead of hours.",
     spec: "SPEC NO. 01",
   },
   {
-    id: "qr",
-    icon: QrCode,
-    tag: "Ordering",
-    title: "Scan-to-Order",
-    body: "Point at the swatch tag on the table. The order form opens already set to that exact colour and width.",
+    id: "accuracy",
+    icon: Target,
+    tag: "Accuracy",
+    title: "Improved Accuracy",
+    body: "QR-based product selection significantly reduces ordering mistakes.",
     spec: "SPEC NO. 02",
   },
   {
-    id: "variants",
-    icon: Grid3x3,
-    tag: "Ordering",
-    title: "Matrix Ordering",
-    body: "Colour, size and width laid out in one grid. A dealer builds a forty-line order in the time it takes to fill one paper form.",
+    id: "experience",
+    icon: Sparkles,
+    tag: "Experience",
+    title: "Professional Experience",
+    body: "Deliver a modern buying experience that reflects your brand.",
     spec: "SPEC NO. 03",
   },
   {
-    id: "dashboard",
-    icon: Gauge,
-    tag: "Reporting",
-    title: "The Floor Report",
-    body: "Revenue, top sellers and rep standings — updating live, while the meet is still running.",
+    id: "visibility",
+    icon: Activity,
+    tag: "Visibility",
+    title: "Real-Time Business Visibility",
+    body: "Know exactly how your partner meet is performing while it is happening.",
     spec: "SPEC NO. 04",
   },
   {
-    id: "erp",
-    icon: Plug,
-    tag: "Systems",
-    title: "ERP Bridge",
-    body: "Orders land straight inside SAP, Oracle or the mill's own system. No re-typing, no second entry, no lag.",
+    id: "productivity",
+    icon: Users,
+    tag: "Productivity",
+    title: "Better Sales Team Productivity",
+    body: "Sales representatives spend more time building relationships and less time managing paperwork.",
     spec: "SPEC NO. 05",
   },
   {
-    id: "cloud",
-    icon: Globe2,
-    tag: "Access",
-    title: "Anywhere Access",
-    body: "One account, every device. A rep's order book follows them from the meet room to the mill floor.",
+    id: "processing",
+    icon: PackageCheck,
+    tag: "Fulfilment",
+    title: "Faster Order Processing",
+    body: "Orders are available digitally as soon as distributors complete their booking.",
     spec: "SPEC NO. 06",
   },
 ];
 
-export default function PowerfulFeatures() {
-  const [activeTab, setActiveTab] = useState(features[0]);
-  const index = features.findIndex((f) => f.id === activeTab.id);
+export default function BusinessBenefits() {
+  const [activeTab, setActiveTab] = useState(benefits[0]);
 
   return (
     <MotionConfig reducedMotion="user">
@@ -108,16 +107,15 @@ export default function PowerfulFeatures() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-[#6E1423]/30 pb-10">
             <div className="max-w-2xl">
               <div className="font-mono text-[11px] tracking-[0.3em] text-[#6E1423] mb-5 font-semibold">
-                THE ORDER BOOK, DIGITISED
+                THE BUSINESS CASE
               </div>
               <h2 className="font-display text-5xl md:text-6xl text-[#2A1216] leading-[1.05] font-extrabold tracking-tight">
-                Everything the floor needs.
+                Why leading footwear manufacturers prefer Oventra.
               </h2>
             </div>
             <p className="font-body text-[#2A1216]/60 max-w-sm md:text-right leading-relaxed font-medium">
-              Oventra ties every touchpoint of a partner meet — the table, the
-              tablet, the ledger — into one system that never slows the sale
-              down.
+              Six reasons distributors, reps and manufacturers move their
+              partner meets onto Oventra — and keep them there.
             </p>
           </div>
 
@@ -125,12 +123,12 @@ export default function PowerfulFeatures() {
             {/* LEFT — ledger tab spine */}
             <div className="lg:col-span-5">
               <div className="border border-[#6E1423]/30 bg-white/30 backdrop-blur-sm rounded-xl overflow-hidden h-full">
-                {features.map((f) => {
-                  const active = activeTab.id === f.id;
+                {benefits.map((b) => {
+                  const active = activeTab.id === b.id;
                   return (
                     <button
-                      key={f.id}
-                      onClick={() => setActiveTab(f)}
+                      key={b.id}
+                      onClick={() => setActiveTab(b)}
                       className={`w-full group flex items-center gap-5 py-5 pr-4 pl-5 border-b border-[#6E1423]/20 text-left transition-all duration-300 ${
                         active
                           ? "bg-white/60 shadow-[inset_0_0_30px_rgba(110,20,35,0.05)]"
@@ -149,18 +147,18 @@ export default function PowerfulFeatures() {
                             : "border-[#2A1216]/20 text-[#2A1216]/40"
                         }`}
                       >
-                        <f.icon size={18} strokeWidth={1.5} />
+                        <b.icon size={18} strokeWidth={1.5} />
                       </div>
                       <div className="min-w-0">
                         <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#2A1216]/40 mb-1 font-semibold">
-                          {f.tag}
+                          {b.tag}
                         </div>
                         <div
                           className={`font-display text-lg truncate transition-colors font-semibold ${
                             active ? "text-[#2A1216]" : "text-[#2A1216]/50"
                           }`}
                         >
-                          {f.title}
+                          {b.title}
                         </div>
                       </div>
                       <ArrowUpRight
@@ -204,9 +202,9 @@ export default function PowerfulFeatures() {
                     </span>
                     <span className="font-mono text-[11px] tracking-[0.2em] text-[#2A1216]/40 font-semibold">
                       {String(
-                        features.findIndex((f) => f.id === activeTab.id) + 1,
+                        benefits.findIndex((b) => b.id === activeTab.id) + 1,
                       ).padStart(2, "0")}{" "}
-                      / {String(features.length).padStart(2, "0")}
+                      / {String(benefits.length).padStart(2, "0")}
                     </span>
                   </div>
 

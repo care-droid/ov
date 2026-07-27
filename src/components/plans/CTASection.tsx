@@ -4,7 +4,7 @@ import { theme, redirectToWhatsApp } from "./data";
 
 export default function CTASection() {
   return (
-    <section className="-mx-6 sm:-mx-10 lg:-mx-16">
+    <section className="-mx-6 pr-10 pl-10 sm:-mx-10 lg:-mx-16">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

@@ -12,7 +12,7 @@ const HEADING_LINE_2 = "growth model applications";
 
 // Updated colors to match OVENTRA branding
 const COLOR_INACTIVE = "#d4a0a0"; // Lighter maroon for inactive state
-const COLOR_ACTIVE = "#800000"; // Primary maroon color
+const COLOR_ACTIVE = "#5d0213"; // Primary maroon color
 
 export default function PremiumHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -219,28 +219,29 @@ export default function PremiumHero() {
         </p>
 
         {/* CTA - updated with maroon colors */}
-        <button
-          ref={ctaRef}
-          type="button"
-          className="group relative inline-flex items-center gap-2 rounded-full bg-[#800000] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[rgba(128,0,0,0.3)] transition-transform duration-300 ease-out hover:scale-105"
-        >
-          Start Free Trial
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 14 14"
-            fill="none"
-            className="transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          >
-            <path
-              d="M3 11L11 3M11 3H4M11 3V10"
-              stroke="white"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
+       <a
+  href="https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group relative inline-flex items-center gap-2 rounded-full bg-[#800000] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[rgba(128,0,0,0.3)] transition-transform duration-300 ease-out hover:scale-105"
+>
+  Book a Demo
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    className="transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+  >
+    <path
+      d="M3 11L11 3M11 3H4M11 3V10"
+      stroke="white"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</a>
 
         {/* Dashboard image - with maroon accent */}
         <div className="relative mt-8 h-[90vh] w-[60vw]">

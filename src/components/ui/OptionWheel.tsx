@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, useEffect, CSSProperties } from 'react';
+import { useRef, useState, useCallback, useEffect, useMemo, CSSProperties } from 'react';
 
 type Side = 'left' | 'right';
 
@@ -57,6 +57,35 @@ const DEFAULT_ITEMS = [
   'Drum & Bass'
 ];
 
+// Pure layout function so we can compute an item's transform/opacity/blur
+// both synchronously at render time (for the very first paint, and any time
+// props change) and imperatively inside the rAF loop (for smooth scrubbing).
+// Having a single source of truth here is what prevents the "all items
+// stacked at the same spot" flash — there is never a frame where an item is
+// missing its offset.
+function layoutFor(d: number, cfg: WheelConfig) {
+  const mirror = cfg.side === 'right' ? -1 : 1;
+  const tiltRad = (cfg.tilt * Math.PI) / 180;
+  const R = tiltRad > 0.0005 ? cfg.rowH / tiltRad : 0;
+
+  let x = 0;
+  let y = d * cfg.rowH;
+  let rot = 0;
+  if (R > 0) {
+    const ang = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, d * tiltRad));
+    y = R * Math.sin(ang);
+    x = -mirror * R * (1 - Math.cos(ang)) * cfg.curve;
+    rot = (mirror * ang * 180) / Math.PI;
+  }
+  const dist = Math.abs(d);
+  return {
+    transform: `translate(${x.toFixed(2)}px, calc(${y.toFixed(2)}px - 50%)) rotate(${rot.toFixed(3)}deg)`,
+    opacity: Math.max(cfg.minOpacity, 1 - dist * cfg.fade),
+    filter: cfg.blur > 0 ? `blur(${(dist * cfg.blur).toFixed(2)}px)` : 'none',
+    p: Math.max(0, 1 - Math.min(dist, 1))
+  };
+}
+
 const OptionWheel = ({
   items = DEFAULT_ITEMS,
   defaultSelected = 3,
@@ -100,7 +129,7 @@ const OptionWheel = ({
   const remPx = typeof window !== 'undefined' ? parseFloat(getComputedStyle(document.documentElement).fontSize) || 16 : 16;
 
   onChangeRef.current = onChange;
-  cfgRef.current = {
+  const cfg: WheelConfig = {
     count: items.length,
     items,
     rowH: Math.max(fontSize * spacing * remPx, 1),
@@ -116,10 +145,22 @@ const OptionWheel = ({
     soundUrl,
     soundVolume
   };
+  cfgRef.current = cfg;
 
-  // Single rAF loop that eases the wheel position toward its target with
-  // frame-rate independent exponential smoothing, then lays every option out
-  // along the curve based on its distance from the current position.
+  // Stable string key so effects only re-run when the *content* of the items
+  // list actually changes, not every time the parent hands us a brand-new
+  // array reference from a fresh `.map()` on each render.
+  const itemsKey = items.join('|');
+
+  // Precompute this render's layout for every item synchronously. Used as
+  // the initial/fallback inline style so the very first paint already shows
+  // items spread out correctly, with no dependency on rAF having run yet.
+  const initialLayouts = useMemo(
+    () => items.map((_, i) => layoutFor(i - posRef.current, cfg)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [itemsKey, fontSize, spacing, curve, tilt, blur, fade, minOpacity, side]
+  );
+
   const runFrame = useCallback((now: number) => {
     const dt = Math.min((now - lastRef.current) / 1000, 0.05);
     lastRef.current = now;
@@ -136,11 +177,6 @@ const OptionWheel = ({
 
     const els = itemRefs.current;
     const n = cfg.count;
-    const mirror = cfg.side === 'right' ? -1 : 1;
-    // Options sit on a circle whose radius keeps the arc length between two
-    // neighbors equal to one row height, so tilt controls how tightly it curls.
-    const tiltRad = (cfg.tilt * Math.PI) / 180;
-    const R = tiltRad > 0.0005 ? cfg.rowH / tiltRad : 0;
     for (let i = 0; i < n; i++) {
       const el = els[i];
       if (!el) continue;
@@ -149,20 +185,11 @@ const OptionWheel = ({
         d = ((d % n) + n) % n;
         if (d > n / 2) d -= n;
       }
-      const dist = Math.abs(d);
-      let x = 0;
-      let y = d * cfg.rowH;
-      let rot = 0;
-      if (R > 0) {
-        const ang = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, d * tiltRad));
-        y = R * Math.sin(ang);
-        x = -mirror * R * (1 - Math.cos(ang)) * cfg.curve;
-        rot = (mirror * ang * 180) / Math.PI;
-      }
-      el.style.transform = `translate(${x.toFixed(2)}px, calc(${y.toFixed(2)}px - 50%)) rotate(${rot.toFixed(3)}deg)`;
-      el.style.opacity = String(Math.max(cfg.minOpacity, 1 - dist * cfg.fade));
-      el.style.filter = cfg.blur > 0 ? `blur(${(dist * cfg.blur).toFixed(2)}px)` : 'none';
-      el.style.setProperty('--ow-p', Math.max(0, 1 - Math.min(dist, 1)).toFixed(4));
+      const { transform, opacity, filter, p } = layoutFor(d, cfg);
+      el.style.transform = transform;
+      el.style.opacity = String(opacity);
+      el.style.filter = filter;
+      el.style.setProperty('--ow-p', p.toFixed(4));
     }
 
     rafRef.current = settled ? null : requestAnimationFrame(runFrame);
@@ -174,8 +201,6 @@ const OptionWheel = ({
     rafRef.current = requestAnimationFrame(runFrame);
   }, [runFrame]);
 
-  // Optional tick on selection change, throttled so fast scrolling can't spam
-  // it, and with playback failures (e.g. autoplay policies) silently ignored.
   const playTick = useCallback(() => {
     const { soundUrl, soundVolume } = cfgRef.current;
     if (!soundUrl) return;
@@ -212,27 +237,10 @@ const OptionWheel = ({
     [startLoop, playTick]
   );
 
-  // Wheel / touchpad scrolling, registered manually so it can be non-passive.
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      const cfg = cfgRef.current;
-      const delta = e.deltaMode === 1 ? e.deltaY * 24 : e.deltaY;
-      // Cap each event at one step so notchy mouse wheels move exactly one
-      // option per click, while touchpads still scroll continuously.
-      const step = Math.max(-1, Math.min(1, delta / cfg.rowH));
-      applyTarget(targetRef.current + step, false);
-      if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
-      wheelTimerRef.current = setTimeout(() => applyTarget(targetRef.current, true), 140);
-    };
-    el.addEventListener('wheel', onWheel, { passive: false });
-    return () => {
-      el.removeEventListener('wheel', onWheel);
-      if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
-    };
-  }, [applyTarget]);
+  // NOTE: intentionally NOT registering a page-scroll-blocking 'wheel'
+  // listener here anymore. The wheel is navigated by drag or click only, so
+  // normal mouse-wheel / trackpad scrolling of the page is left completely
+  // alone, same as any other element on the page.
 
   const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     if (!cfgRef.current.draggable) return;
@@ -248,8 +256,6 @@ const OptionWheel = ({
       const dy = e.clientY - drag.y;
       if (!dragMovedRef.current && Math.abs(dy) > 4) {
         dragMovedRef.current = true;
-        // Capture only once a real drag starts, so plain clicks still reach
-        // the items and navigate to them.
         rootRef.current?.setPointerCapture(drag.id);
       }
       if (dragMovedRef.current) applyTarget(drag.start - dy / cfgRef.current.rowH, false);
@@ -293,7 +299,8 @@ const OptionWheel = ({
 
   useEffect(() => {
     applyTarget(targetRef.current, false);
-  }, [items, fontSize, spacing, curve, tilt, blur, fade, minOpacity, side, loop, smoothing, applyTarget]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemsKey, fontSize, spacing, curve, tilt, blur, fade, minOpacity, side, loop, smoothing, applyTarget]);
 
   useEffect(
     () => () => {
@@ -309,7 +316,7 @@ const OptionWheel = ({
       role="listbox"
       tabIndex={0}
       aria-label="Option wheel"
-      className={`relative h-full w-full select-none overflow-hidden outline-none [touch-action:none] ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}${className ? ` ${className}` : ''}`}
+      className={`relative h-full w-full select-none overflow-hidden outline-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}${className ? ` ${className}` : ''}`}
       style={
         {
           '--ow-text-color': textColor,
@@ -324,22 +331,33 @@ const OptionWheel = ({
       onPointerCancel={handlePointerEnd}
       onKeyDown={handleKeyDown}
     >
-      {items.map((label, index) => (
-        <div
-          key={`${label}-${index}`}
-          ref={el => {
-            itemRefs.current[index] = el;
-          }}
-          role="option"
-          aria-selected={selectedIndex === index}
-          className={`absolute top-1/2 cursor-pointer whitespace-nowrap leading-none will-change-[transform,opacity,filter] [font-size:var(--ow-font-size)] [color:color-mix(in_srgb,var(--ow-active-color)_calc(var(--ow-p,0)*100%),var(--ow-text-color))] ${
-            side === 'right' ? 'right-[var(--ow-inset)] origin-right' : 'left-[var(--ow-inset)] origin-left'
-          } ${selectedIndex === index ? 'font-medium' : 'font-extralight'}`}
-          onClick={() => handleItemClick(index)}
-        >
-          {label}
-        </div>
-      ))}
+      {items.map((label, index) => {
+        const initial = initialLayouts[index];
+        return (
+          <div
+            key={`${label}-${index}`}
+            ref={el => {
+              itemRefs.current[index] = el;
+            }}
+            role="option"
+            aria-selected={selectedIndex === index}
+            className={`absolute top-1/2 cursor-pointer whitespace-nowrap leading-none will-change-transform [font-size:var(--ow-font-size)] [color:color-mix(in_srgb,var(--ow-active-color)_calc(var(--ow-p,0)*100%),var(--ow-text-color))] ${
+              side === 'right' ? 'right-[var(--ow-inset)] origin-right' : 'left-[var(--ow-inset)] origin-left'
+            } ${selectedIndex === index ? 'font-medium' : 'font-extralight'}`}
+            style={
+              {
+                transform: initial.transform,
+                opacity: initial.opacity,
+                filter: initial.filter,
+                '--ow-p': initial.p.toFixed(4)
+              } as CSSProperties
+            }
+            onClick={() => handleItemClick(index)}
+          >
+            {label}
+          </div>
+        );
+      })}
     </div>
   );
 };

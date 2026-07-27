@@ -122,23 +122,23 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Why We Built OVENTRA", href: "/why-oventra/why-we-built-oventra" },
     ],
   },
-  { type: "link", label: "Blogs", href: "/blog" },
-  {
-    type: "dropdown",
-    label: "Contact",
-    items: [
-      { label: "Demo Request Form", href: "/contact/demo-request" },
-      { label: "Support", href: "/contact/support" },
-      { label: "Career", href: "/contact/career" },
-      { label: "WhatsApp", href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA." },
-    ],
-  },
+ 
   {
     type: "dropdown",
     label: "Support",
     items: [
       { label: "FAQs", href: "/faq" },
       { label: "Contact Support", href: "/support/contact" },
+      { label: "WhatsApp", href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA." },
+    ],
+  },
+   {
+    type: "dropdown",
+    label: "Contact",
+    items: [
+      { label: "Demo Request Form", href: "/contact/demo-request" },
+      { label: "Support", href: "/contact/support" },
+      { label: "Career", href: "/contact/career" },
       { label: "WhatsApp", href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA." },
     ],
   },

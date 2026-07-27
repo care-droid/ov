@@ -170,20 +170,20 @@ export default function Hero() {
             custom={3}
             className="mt-9 flex flex-wrap gap-4"
           >
+            
             <Button
-              size="lg"
-              variant="secondary"
-              className="h-12 min-w-[144px] rounded-[10px] border border-white/20 bg-transparent px-7 text-base font-semibold text-white hover:bg-white/10"
-            >
-              Get Started
-            </Button>
-            <Button
-              size="lg"
-              className="group h-12 min-w-[178px] rounded-[10px] border-0 bg-gradient-to-br from-[#7A1F3D] to-[#5C0011] px-7 text-base font-semibold text-white hover:from-[#A8325A] hover:to-[#7A1F3D]"
-            >
-              Start For Free
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+  size="lg"
+  onClick={() =>
+    window.open(
+      "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA",
+      "_blank"
+    )
+  }
+  className="group h-12 min-w-[178px] rounded-[10px] border-0 bg-gradient-to-br from-[#7A1F3D] to-[#5C0011] px-7 text-base font-semibold text-white hover:from-[#A8325A] hover:to-[#7A1F3D]"
+>
+  Start For Free
+  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+</Button>
           </motion.div>
         </div>
 

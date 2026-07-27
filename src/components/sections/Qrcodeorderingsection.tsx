@@ -43,17 +43,7 @@
 
                 {/* Text — right */}
                 <div className="order-1 lg:order-2">
-                <motion.span
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.6 }}
-                    transition={{ duration: 0.4 }}
-                    className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em]"
-                    style={{ color: MAROON }}
-                >
-                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: MAROON_BRIGHT }} />
-                    Section 8
-                </motion.span>
+                
 
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}

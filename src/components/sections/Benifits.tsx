@@ -129,20 +129,20 @@ const BusinessBenefits = () => {
         <div className="max-w-5xl mx-auto relative z-10">
           {/* HEADER */}
           <div className="text-center mb-16">
-            <div className="font-mono text-[11px] tracking-[0.3em] text-[#6E1423] mb-5">
+            <div className="font-mono text-[11px] tracking-[0.3em] text-[#ecdada] mb-5">
               THE LEDGER, LINE BY LINE
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#fff] leading-[1.05] font-medium mb-4">
               What changes on the floor.
             </h2>
-            <p className="font-body text-[#6e1423] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-[#fff] text-lg max-w-2xl mx-auto leading-relaxed">
               Six frictions the trade has lived with for decades, and what
               replaces each one once the meet runs on Oventra.
             </p>
           </div>
 
           {/* COLUMN LABELS */}
-          <div className="hidden md:grid grid-cols-11 gap-4 mb-5 px-6 font-mono text-[11px] tracking-[0.25em] text-[#8C6E71]">
+          <div className="hidden md:grid grid-cols-11 gap-4 mb-5 px-6 font-mono text-[11px] tracking-[0.25em] text-[#fff]">
             <div className="col-span-5">THE WAY IT WAS</div>
             <div className="col-span-1" />
             <div className="col-span-5">THE WAY IT RUNS NOW</div>
@@ -192,33 +192,7 @@ const BusinessBenefits = () => {
             ))}
           </motion.div>
 
-          {/* CTA — a ledger ticket, not a shiny sweep card */}
-          <motion.a
-            href="https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA."
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15, duration: 0.5 }}
-            className="mt-20 block border border-[#6E1423]/30 bg-white/90 backdrop-blur-sm p-10 md:p-12 text-center relative"
-          >
-            <div className="absolute inset-3 border border-dashed border-[#6E1423]/20 pointer-events-none" />
-            <span className="font-mono text-[11px] tracking-[0.3em] text-[#6E1423] mb-4 block">
-              GET IN TOUCH
-            </span>
-            <h3 className="font-display text-3xl md:text-4xl text-[#2A1216] mb-3">
-              Ready to close this ledger for good?
-            </h3>
-            <p className="font-body text-[#8C6E71] mb-8 max-w-lg mx-auto leading-relaxed">
-              Bring your next partner meet onto Oventra and send us a message
-              on WhatsApp to get set up.
-            </p>
-            <span className="inline-flex items-center gap-2 bg-[#6E1423] px-9 py-4 font-body font-medium text-white transition-colors duration-300 hover:bg-[#4A0D17]">
-              Talk to us on WhatsApp
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </span>
-          </motion.a>
+          
         </div>
       </section>
     </MotionConfig>

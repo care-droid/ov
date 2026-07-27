@@ -405,22 +405,28 @@ export default function WhyOventra() {
             const Icon = b.icon;
             const isActive = i === active;
             return (
-              <motion.button
-                key={b.title}
-                onClick={() => setActive(i)}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.5 }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                whileHover={{ backgroundColor: "rgba(123,26,44,0.04)" }}
-                className={`w-full border-b border-gray-200 px-6 py-6 text-left transition-colors sm:px-10 ${
-                  isActive ? "border-l-4" : "border-l-4 border-l-transparent"
-                }`}
-                style={{
-                  backgroundColor: isActive ? "rgba(123,26,44,0.06)" : "transparent",
-                  borderLeftColor: isActive ? MAROON : "transparent",
-                }}
-              >
+             <motion.button
+  key={b.title}
+  onClick={() => setActive(i)}
+  initial={{ opacity: 0, y: 14 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false, amount: 0.5 }}
+  transition={{ duration: 0.4, delay: i * 0.05 }}
+  whileHover={{
+    backgroundColor: "rgba(123,26,44,0.04)",
+  }}
+  className={`w-full border-b border-gray-200 px-6 py-6 text-left transition-colors sm:px-10 ${
+    isActive ? "border-l-4" : "border-l-4 border-l-transparent"
+  }`}
+  style={{
+    backgroundColor: isActive
+      ? "rgba(123,26,44,0.06)"
+      : "rgba(123,26,44,0)",
+    borderLeftColor: isActive
+      ? MAROON
+      : "rgba(123,26,44,0)",
+  }}
+>
                 <span className="flex items-center gap-3">
                   <Icon
                     className="h-5 w-5 shrink-0"

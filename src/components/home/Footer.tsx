@@ -59,10 +59,7 @@ const CONTACT_INFO = [
   { icon: PhoneIcon, value: "+91 97160 16012", href: "tel:+919716016012" },
 ];
 
-const SOCIALS = [
-  { icon: XIcon, href: "#", label: "X" },
-  { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
-];
+
 
 // ---- UI Components ---------------------------------------------------------
 
@@ -85,25 +82,13 @@ export default function Footer() {
           {/* Section 1: Logo & About */}
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-3">
-              <img src="oventra.png" alt="" className="h-30 mt-0 pt-0" />
+              <img src="oventra.png" alt="" className="h-30 w-50 mt-0 pt-0" />
             </div>
             <p className="text-[15px] leading-relaxed text-[#8C7A7D] max-w-sm">
               We build the calm operating layer for growing teams — connecting 
               the tools you already use so decisions move faster and work becomes effortless.
             </p>
-            {/* Social Icons inside Section 1 or at bottom? Putting here for style */}
-            <div className="flex gap-4 pt-2">
-              {SOCIALS.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="text-[#8C7A7D] hover:text-white transition-colors"
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
+            
           </div>
 
           {/* Section 2: Quick Links */}

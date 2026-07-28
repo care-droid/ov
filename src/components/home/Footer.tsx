@@ -2,147 +2,185 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { type SVGProps, type ReactNode } from "react";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-// ---- Icons (Keep them minimal) ---------------------------------------------
+// Brand palette — maroon on near-black, replacing the old blue accent system
+const MAROON = "#6E1423";
+const MAROON_LIGHT = "#8C1E30";
+const MAROON_SOFT = "#B23A4E";
+const INK = "#0B0708"; // near-black background
+const INK_2 = "#170B0D";
+const INK_BORDER = "rgba(140,30,48,0.28)";
 
-type IconProps = SVGProps<SVGSVGElement>;
+/* ---------------- Types ---------------- */
+type SimpleLink = { label: string; href: string };
+type FooterColumn = { heading: string; links: SimpleLink[] };
 
-const MailIcon = (props: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <rect x="2" y="4" width="20" height="16" rx="2" />
-    <path d="m22 6-10 7L2 6" />
-  </svg>
-);
-
-const PhoneIcon = (props: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" />
-  </svg>
-);
-
-const MapPinIcon = (props: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-    <circle cx="12" cy="10" r="3" />
-  </svg>
-);
-
-// ---- Data ------------------------------------------------------------------
-
-const QUICK_LINKS = [
-  { label: "About Us", href: "/about" },
-  { label: "FAQs", href: "/faq" },
-  { label: "Pricing & Plans", href: "/plans" },
-  { label: "Careers", href: "/careers" },
-  { label: "Blog", href: "/blog" },
+/* ---------------- Content ---------------- */
+const COLUMNS: FooterColumn[] = [
+  {
+    heading: "Solutions",
+    links: [
+      { label: "Partner Meet Ordering", href: "/solutions/partner-meet-ordering" },
+      { label: "Distributor Ordering", href: "/solutions/distributor-ordering" },
+      { label: "Dealer Ordering", href: "/solutions/dealer-ordering" },
+    ],
+  },
+  {
+    heading: "Features",
+    links: [
+      { label: "Product Catalogue", href: "/features/product-catalogue-management" },
+      { label: "QR Ordering", href: "/features/qr-ordering" },
+      { label: "Mobile Ordering", href: "/features/mobile-ordering" },
+      { label: "Order Management", href: "/features/order-management" },
+      { label: "Live Dashboard", href: "/features/live-dashboard" },
+      { label: "ERP Integration", href: "/features/erp-integration" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Our Story", href: "/why-oventra/our-story" },
+      { label: "Why We Built OVENTRA", href: "/why-oventra/why-we-built-oventra" },
+      { label: "Career", href: "/contact/career" },
+    ],
+  },
+  {
+    heading: "Support",
+    links: [
+      { label: "FAQs", href: "/faq" },
+      { label: "Contact Support", href: "/support/contact" },
+      { label: "Demo Request", href: "/contact/demo-request" },
+      {
+        label: "WhatsApp",
+        href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA.",
+      },
+    ],
+  },
+  {
+    heading: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms and Conditions", href: "/terms-and-conditions" },
+    ],
+  },
 ];
 
-type ContactItem = {
-  icon: (props: IconProps) => ReactNode;
-  value: string;
-  href?: string;
+/* ---------------- Motion variants ---------------- */
+const container = {
+  hidden: { opacity: 0, y: 16 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const, staggerChildren: 0.06, delayChildren: 0.05 },
+  },
 };
 
-const CONTACT_INFO: ContactItem[] = [
-  {
-    icon: MapPinIcon,
-    value: "DCG1-1105, DLF Corporate Greens, Tower-1, Sec-74A, Gurugram, India",
-  },
-  { icon: MailIcon, value: "care@oventra.in", href: "mailto:care@oventra.in" },
-  { icon: PhoneIcon, value: "+91 97160 16012", href: "tel:+919716016012" },
-];
+const column = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" as const } },
+};
 
-// ---- UI Components ---------------------------------------------------------
-
-function SectionHeading({ children }: { children: ReactNode }) {
-  return (
-    <h4 className="mb-6 flex h-5 items-center text-[12px] font-bold uppercase tracking-widest text-[#C6485C]">
-      {children}
-    </h4>
-  );
-}
-
-// Shared row height so Quick Links and Contact Info line up identically,
-// regardless of whether the row is a plain link, an anchor, or an icon + text.
-const ROW_HEIGHT = "h-6";
-
+/* ---------------- Component ---------------- */
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="w-full bg-[#060405] text-[#F2ECEA] border-t border-white/5">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
+    <footer className="relative w-full overflow-hidden">
+      {/* Top accent line — full bleed */}
+      <div
+        className="h-px w-full"
+        style={{ background: `linear-gradient(90deg, transparent, ${MAROON_SOFT}, ${MAROON_LIGHT}, ${MAROON_SOFT}, transparent)` }}
+      />
 
-        {/* Main 3-Column Grid */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+        className="relative w-full px-5 pb-10 pt-14 sm:px-10 lg:px-16"
+        style={{
+          background: `
+            radial-gradient(90% 140% at 12% 0%, ${MAROON}3d 0%, transparent 55%),
+            radial-gradient(70% 120% at 100% 100%, ${MAROON_LIGHT}33 0%, transparent 55%),
+            linear-gradient(180deg, ${INK} 0%, ${INK_2} 55%, ${INK} 100%)
+          `,
+        }}
+      >
+        {/* subtle vignette border glow */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ boxShadow: `inset 0 1px 0 ${INK_BORDER}` }}
+        />
 
-          {/* Section 1: Logo & About */}
-          <div className="flex flex-col gap-6">
-            <Link href="/" className="flex w-fit items-center" aria-label="Oventra home">
-              <Image
-                src="/oventra.png"
-                alt="Oventra"
-                width={160}
-                height={54}
-                className=""
-              />
-            </Link>
-            <p className="max-w-sm text-[15px] leading-relaxed text-[#8C7A7D]">
-              We build the calm operating layer for growing teams — connecting
-              the tools you already use so decisions move faster and work becomes effortless.
+        <div className="relative mx-auto max-w-7xl">
+          {/* Link grid — 2 cols on mobile, scaling up to 6 on desktop */}
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-5">
+            {COLUMNS.map((col) => (
+              <motion.div key={col.heading} variants={column} className="min-w-0">
+                <p
+                  className="mb-4 text-[11px] font-semibold uppercase tracking-widest sm:text-[12px]"
+                  style={{ color: MAROON_SOFT }}
+                >
+                  {col.heading}
+                </p>
+                <ul className="flex flex-col gap-3">
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="group relative inline-block text-[13px] font-medium text-white/70 transition-colors duration-200 hover:text-white sm:text-[14px]"
+                      >
+                        {link.label}
+                        <span
+                          className="absolute -bottom-1 left-0 h-[1.5px] w-0 rounded-full transition-all duration-300 ease-out group-hover:w-full"
+                          style={{ background: `linear-gradient(90deg, ${MAROON_LIGHT}, ${MAROON_SOFT})` }}
+                        />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <motion.div
+            variants={column}
+            className="my-10 h-px w-full sm:my-12"
+            style={{ background: `linear-gradient(90deg, transparent, ${MAROON}88, ${MAROON_LIGHT}55, ${MAROON}88, transparent)` }}
+          />
+
+          {/* Bottom bar — stacks on mobile, row on larger screens */}
+          <motion.div
+            variants={column}
+            className="flex flex-col items-center justify-between gap-6 sm:flex-row sm:gap-6"
+          >
+            <Link href="/" className="flex shrink-0 items-center gap-2 focus-visible:outline-none" aria-label="Oventra home">
+  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.94 }} transition={{ type: "spring", stiffness: 300, damping: 18 }}>
+    <Image
+      src="/ovantra.png"
+      alt="Oventra"
+      width={200}
+      height={68}
+      className="h-14  w-auto sm:h-20 md:h-24"
+      priority
+    />
+  </motion.div>
+</Link>
+
+            <p className="order-3 text-center text-[12px] text-white/40 sm:order-2 sm:text-left sm:text-[13px]">
+              © {year} OVENTRA. All rights reserved.
             </p>
-          </div>
 
-          {/* Section 2: Quick Links */}
-          <div>
-            <SectionHeading>Quick Links</SectionHeading>
-            <ul className="space-y-4">
-              {QUICK_LINKS.map((item) => (
-                <li key={item.label} className={`flex ${ROW_HEIGHT} items-center`}>
-                  <Link
-                    href={item.href}
-                    className="text-[15px] leading-none text-[#D8CFCE] transition-colors duration-200 hover:text-[#C6485C]"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Section 3: Contact Info */}
-          <div>
-            <SectionHeading>Contact Info</SectionHeading>
-            <ul className="space-y-4">
-              {CONTACT_INFO.map((item, idx) => (
-                <li key={idx} className={`flex ${ROW_HEIGHT} items-center gap-4`}>
-                  <item.icon className="h-5 w-5 shrink-0 text-[#C6485C]" />
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      className="text-[15px] leading-none text-[#D8CFCE] transition-colors hover:text-white"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <span className="text-[15px] leading-none text-[#D8CFCE]">{item.value}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-
+            <div className={cn("order-2 flex items-center gap-5 sm:order-3")}>
+              {/* reserved for future badges / trust marks */}
+            </div>
+          </motion.div>
         </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-[#6B5D5F] md:flex-row">
-          <p>© {new Date().getFullYear()} Oventra, Inc. All rights reserved.</p>
-          <div className="flex gap-8">
-            <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white">Terms of Service</Link>
-          </div>
-        </div>
-
-      </div>
+      </motion.div>
     </footer>
   );
 }

@@ -93,27 +93,27 @@ const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  {
-    type: "dropdown",
-    label: "Features",
-    columns: 2,
-    items: [
-      { label: "Product Catalogue Management", href: "/features/product-catalogue-management" },
-      { label: "QR Ordering", href: "/features/qr-ordering" },
-      { label: "Mobile Ordering", href: "/features/mobile-ordering" },
-      { label: "Order Management", href: "/features/order-management" },
-      { label: "Live Dashboard", href: "/features/live-dashboard" },
-      { label: "Sales Reports", href: "/features/sales-reports" },
-      { label: "Analytics", href: "/features/analytics" },
-      { label: "ERP Integration", href: "/features/erp-integration" },
-      { label: "Multi User Management", href: "/features/multi-user-management" },
-      { label: "Product Images", href: "/features/product-images" },
-      { label: "Product Variants (Size, Color etc.)", href: "/features/product-variants" },
-      { label: "Notifications", href: "/features/notifications" },
-      { label: "Role Based Access", href: "/features/role-based-access" },
-      { label: "Cloud Platform", href: "/features/cloud-platform" },
-    ],
-  },
+  // {
+  //   type: "dropdown",
+  //   label: "Features",
+  //   columns: 2,
+  //   items: [
+  //     { label: "Product Catalogue Management", href: "/features/product-catalogue-management" },
+  //     { label: "QR Ordering", href: "/features/qr-ordering" },
+  //     { label: "Mobile Ordering", href: "/features/mobile-ordering" },
+  //     { label: "Order Management", href: "/features/order-management" },
+  //     { label: "Live Dashboard", href: "/features/live-dashboard" },
+  //     { label: "Sales Reports", href: "/features/sales-reports" },
+  //     { label: "Analytics", href: "/features/analytics" },
+  //     { label: "ERP Integration", href: "/features/erp-integration" },
+  //     { label: "Multi User Management", href: "/features/multi-user-management" },
+  //     { label: "Product Images", href: "/features/product-images" },
+  //     { label: "Product Variants (Size, Color etc.)", href: "/features/product-variants" },
+  //     { label: "Notifications", href: "/features/notifications" },
+  //     { label: "Role Based Access", href: "/features/role-based-access" },
+  //     { label: "Cloud Platform", href: "/features/cloud-platform" },
+  //   ],
+  // },
   {
     type: "dropdown",
     label: "Why OVENTRA",
@@ -123,15 +123,16 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
  
-  {
-    type: "dropdown",
-    label: "Support",
-    items: [
-      { label: "FAQs", href: "/faq" },
-      { label: "Contact Support", href: "/support/contact" },
-      { label: "WhatsApp", href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA." },
-    ],
-  },
+  // {
+  //   type: "dropdown",
+  //   label: "Support",
+  //   items: [
+  //     { label: "FAQs", href: "/faq" },
+  //     { label: "Contact Support", href: "/support/contact" },
+  //     { label: "WhatsApp", href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA." },
+  //   ],
+  // },
+
    {
     type: "dropdown",
     label: "Contact",
@@ -139,8 +140,7 @@ const NAV_ITEMS: NavItem[] = [
       { label: "Demo Request Form", href: "/contact/demo-request" },
       { label: "Support", href: "/contact/support" },
       { label: "Career", href: "/contact/career" },
-      { label: "WhatsApp", href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA." },
-    ],
+      ],
   },
 ];
 

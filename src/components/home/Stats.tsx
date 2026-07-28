@@ -169,11 +169,17 @@ export default function StatsSection() {
                   Download the app and get started instantly. Sign up in
                   moments with a smooth onboarding.
                 </p>
-
-                <button className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-semibold text-[var(--button-text)] transition-colors hover:bg-[var(--primary-light)]">
-                 Book a Demo
-                  <ArrowUpRight className="h-4 w-4" />
-                </button>
+<a
+  href="https://wa.me/919716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA."
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Book a Demo on WhatsApp"
+>
+  <button className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-semibold text-[var(--button-text)] transition-colors hover:bg-[var(--primary-light)]">
+    Book a Demo
+    <ArrowUpRight className="h-4 w-4" />
+  </button>
+</a>
               </div>
 
               <div className="hidden h-40 w-40 flex-shrink-0 sm:block">

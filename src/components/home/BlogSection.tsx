@@ -11,14 +11,14 @@ const HEADING_LINE_1 = "Accelerating business";
 const HEADING_LINE_2 = "growth model applications";
 
 // Updated colors to match OVENTRA branding
-const COLOR_INACTIVE = "#d4a0a0"; // Lighter maroon for inactive state
+const COLOR_INACTIVE = "#5d0213a7"; // Lighter maroon for inactive state
 const COLOR_ACTIVE = "#5d0213"; // Primary maroon color
 
 export default function PremiumHero() {
   const sectionRef = useRef<HTMLElement>(null);
   const wordRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const badgeRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLButtonElement>(null);
+  const ctaRef = useRef<HTMLAnchorElement>(null);
   const dashboardRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const glowOneRef = useRef<HTMLDivElement>(null);
@@ -39,103 +39,87 @@ export default function PremiumHero() {
     }
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 0.8,
-        },
+      // Real starting state for the words (React's inline style can't set
+      // a transform via a bare `y`, so GSAP sets the true "before" state here).
+      gsap.set(words, { y: 20, opacity: 0.3, color: COLOR_INACTIVE });
+
+      // ---------------------------------------------------------------
+      // ENTRANCE — plays immediately on mount, NOT tied to scroll.
+      // A hero is visible the instant the page loads, so its reveal
+      // has to happen on load; waiting for scrub/scroll made everything
+      // look frozen until the user scrolled past it, i.e. "too late".
+      // ---------------------------------------------------------------
+      const entrance = gsap.timeline({
+        defaults: { ease: "power2.out" },
+        delay: 0.15, // tiny beat so it doesn't fire before layout settles
       });
 
-      // Heading words reveal one by one with color change
+      entrance.fromTo(badge, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, 0);
+
       words.forEach((word, i) => {
-        tl.to(
+        entrance.to(
           word,
-          {
-            color: COLOR_ACTIVE,
-            y: 0,
-            opacity: 1,
-            duration: 0.4,
-            ease: "power2.out",
-          },
-          i * 0.15
+          { color: COLOR_ACTIVE, y: 0, opacity: 1, duration: 0.4 },
+          0.15 + i * 0.08 // faster stagger than before — reads instantly, not sluggishly
         );
       });
 
-      // Dashboard container - subtle scale and translate
-      tl.fromTo(
+      entrance.fromTo(
         dashboard,
-        { 
-          scale: 0.92, 
-          y: 60,
-          opacity: 0.7,
-          rotateX: 2,
-        },
-        { 
-          scale: 1, 
-          y: 0,
-          opacity: 1,
-          rotateX: 0,
-          duration: 1.6, 
-          ease: "power3.out" 
-        },
-        0
+        { scale: 0.94, y: 40, opacity: 0, rotateX: 2 },
+        { scale: 1, y: 0, opacity: 1, rotateX: 0, duration: 1.1 },
+        0.35
       );
 
-      // Image inside - subtle zoom and parallax
-      tl.fromTo(
+      entrance.fromTo(
         imageContainer,
-        {
-          scale: 1.05,
-          y: 20,
-        },
-        {
-          scale: 1,
-          y: -10,
-          duration: 1.8,
-          ease: "power2.out",
-        },
-        0.2
+        { scale: 1.05, y: 16 },
+        { scale: 1, y: 0, duration: 1.2 },
+        0.45
       );
 
-      // CTA button lift
-      tl.fromTo(
+      entrance.fromTo(
         cta,
-        { y: 0, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" },
-        {
-          y: -8,
-          boxShadow: "0 25px 50px rgba(0,0,0,0.2)",
-          duration: 1,
-          ease: "power2.out",
+        { y: 10, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5 },
+        0.5
+      );
+
+      // ---------------------------------------------------------------
+      // AMBIENT SCROLL PARALLAX — subtle, ongoing, scrub-linked.
+      // This is the part that should be scroll-driven: it keeps
+      // moving as the user scrolls past the hero, rather than being
+      // the thing that has to finish before anything looks "done".
+      // ---------------------------------------------------------------
+      const parallax = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.6,
+          invalidateOnRefresh: true,
         },
-        0.3
-      );
+      });
 
-      // Badge parallax
-      tl.fromTo(
-        badge,
-        { y: 0, x: 0, opacity: 0 },
-        { y: -10, x: -5, opacity: 1, duration: 0.8, ease: "power2.out" },
-        0
-      );
-
-      // Background glows - updated to maroon colors
-      tl.fromTo(
-        glowOne,
-        { x: 0, y: 0, opacity: 0.3 },
-        { x: 50, y: 40, opacity: 0.5, duration: 1.2, ease: "none" },
-        0
-      );
-      tl.fromTo(
-        glowTwo,
-        { x: 0, y: 0, opacity: 0.25 },
-        { x: -40, y: -30, opacity: 0.45, duration: 1.2, ease: "none" },
-        0
-      );
+      parallax.fromTo(imageContainer, { y: 0 }, { y: -24, ease: "none" }, 0);
+      parallax.fromTo(cta, { y: 0, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }, {
+        y: -8,
+        boxShadow: "0 25px 50px rgba(0,0,0,0.2)",
+        ease: "none",
+      }, 0);
+      parallax.fromTo(glowOne, { x: 0, y: 0, opacity: 0.3 }, { x: 50, y: 40, opacity: 0.5, ease: "none" }, 0);
+      parallax.fromTo(glowTwo, { x: 0, y: 0, opacity: 0.25 }, { x: -40, y: -30, opacity: 0.45, ease: "none" }, 0);
     }, section);
 
-    return () => ctx.revert();
+    // Refresh once the hero image finishes loading, since it can change
+    // section height after ScrollTrigger already measured it.
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refresh);
+
+    return () => {
+      window.removeEventListener("load", refresh);
+      ctx.revert();
+    };
   }, []);
 
   let wordIndex = -1;
@@ -150,10 +134,9 @@ export default function PremiumHero() {
             wordRefs.current[i] = el;
           }}
           className="inline-block will-change-[color,transform,opacity]"
-          style={{ 
+          style={{
             color: COLOR_INACTIVE,
-            y: 20,
-            opacity: 0.3
+            opacity: 0.3,
           }}
         >
           {word}
@@ -219,29 +202,30 @@ export default function PremiumHero() {
         </p>
 
         {/* CTA - updated with maroon colors */}
-       <a
-  href="https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group relative inline-flex items-center gap-2 rounded-full bg-[#800000] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[rgba(128,0,0,0.3)] transition-transform duration-300 ease-out hover:scale-105"
->
-  Book a Demo
-  <svg
-    width="14"
-    height="14"
-    viewBox="0 0 14 14"
-    fill="none"
-    className="transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-  >
-    <path
-      d="M3 11L11 3M11 3H4M11 3V10"
-      stroke="white"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-</a>
+        <a
+          ref={ctaRef}
+          href="https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative inline-flex items-center gap-2 rounded-full bg-[#5d0213] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[rgba(128,0,0,0.3)] transition-transform duration-300 ease-out hover:scale-105"
+        >
+          Book a Demo
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            className="transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          >
+            <path
+              d="M3 11L11 3M11 3H4M11 3V10"
+              stroke="white"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </a>
 
         {/* Dashboard image - with maroon accent */}
         <div className="relative mt-8 h-[90vh] w-[60vw]">
@@ -255,7 +239,7 @@ export default function PremiumHero() {
               className="pointer-events-none absolute -bottom-12 left-1/2 h-24 w-4/5 -translate-x-1/2 rounded-full opacity-30 blur-[50px]"
               style={{ background: "#800000" }}
             />
-            <div 
+            <div
               ref={imageContainerRef}
               className="relative h-full w-full"
             >
@@ -266,6 +250,7 @@ export default function PremiumHero() {
                 priority
                 className="relative z-10 object-cover object-top"
                 quality={100}
+                onLoad={() => ScrollTrigger.refresh()}
               />
             </div>
           </div>

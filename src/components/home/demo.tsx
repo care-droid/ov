@@ -5,14 +5,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Sparkles, Zap, BarChart3 } from "lucide-react";
 
-const EASE = [0.22, 1, 0.36, 1] as const;
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   show: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: i * 0.1, ease: EASE as any },
+    transition: { duration: 0.7, delay: i * 0.1, ease: EASE },
   }),
 };
 

@@ -28,18 +28,6 @@ const MapPinIcon = (props: IconProps) => (
   </svg>
 );
 
-const XIcon = (props: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M18.9 2h3.3l-7.2 8.2L23.5 22h-6.6l-5.2-6.8L5.7 22H2.4l7.7-8.8L1.5 2h6.8l4.7 6.2L18.9 2Zm-1.2 18h1.8L7.4 3.9H5.5L17.7 20Z" />
-  </svg>
-);
-
-const LinkedinIcon = (props: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z" />
-  </svg>
-);
-
 // ---- Data ------------------------------------------------------------------
 
 const QUICK_LINKS = [
@@ -50,7 +38,13 @@ const QUICK_LINKS = [
   { label: "Blog", href: "/blog" },
 ];
 
-const CONTACT_INFO = [
+type ContactItem = {
+  icon: (props: IconProps) => ReactNode;
+  value: string;
+  href?: string;
+};
+
+const CONTACT_INFO: ContactItem[] = [
   {
     icon: MapPinIcon,
     value: "DCG1-1105, DLF Corporate Greens, Tower-1, Sec-74A, Gurugram, India",
@@ -59,36 +53,43 @@ const CONTACT_INFO = [
   { icon: PhoneIcon, value: "+91 97160 16012", href: "tel:+919716016012" },
 ];
 
-
-
 // ---- UI Components ---------------------------------------------------------
 
 function SectionHeading({ children }: { children: ReactNode }) {
   return (
-    <h4 className="mb-6 text-[12px] font-bold uppercase tracking-widest text-[#C6485C]">
+    <h4 className="mb-6 flex h-5 items-center text-[12px] font-bold uppercase tracking-widest text-[#C6485C]">
       {children}
     </h4>
   );
 }
 
+// Shared row height so Quick Links and Contact Info line up identically,
+// regardless of whether the row is a plain link, an anchor, or an icon + text.
+const ROW_HEIGHT = "h-6";
+
 export default function Footer() {
   return (
     <footer className="w-full bg-[#060405] text-[#F2ECEA] border-t border-white/5">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
-        
+
         {/* Main 3-Column Grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-          
+
           {/* Section 1: Logo & About */}
           <div className="flex flex-col gap-6">
-            <div className="flex items-center gap-3">
-              <img src="oventra.png" alt="" className="h-30 w-50 mt-0 pt-0" />
-            </div>
-            <p className="text-[15px] leading-relaxed text-[#8C7A7D] max-w-sm">
-              We build the calm operating layer for growing teams — connecting 
+            <Link href="/" className="flex w-fit items-center" aria-label="Oventra home">
+              <Image
+                src="/oventra.png"
+                alt="Oventra"
+                width={160}
+                height={54}
+                className=""
+              />
+            </Link>
+            <p className="max-w-sm text-[15px] leading-relaxed text-[#8C7A7D]">
+              We build the calm operating layer for growing teams — connecting
               the tools you already use so decisions move faster and work becomes effortless.
             </p>
-            
           </div>
 
           {/* Section 2: Quick Links */}
@@ -96,10 +97,10 @@ export default function Footer() {
             <SectionHeading>Quick Links</SectionHeading>
             <ul className="space-y-4">
               {QUICK_LINKS.map((item) => (
-                <li key={item.label}>
+                <li key={item.label} className={`flex ${ROW_HEIGHT} items-center`}>
                   <Link
                     href={item.href}
-                    className="text-[15px] text-[#D8CFCE] hover:text-[#C6485C] transition-colors duration-200"
+                    className="text-[15px] leading-none text-[#D8CFCE] transition-colors duration-200 hover:text-[#C6485C]"
                   >
                     {item.label}
                   </Link>
@@ -111,16 +112,19 @@ export default function Footer() {
           {/* Section 3: Contact Info */}
           <div>
             <SectionHeading>Contact Info</SectionHeading>
-            <ul className="space-y-6">
+            <ul className="space-y-4">
               {CONTACT_INFO.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <item.icon className="h-5 w-5 shrink-0 text-[#C6485C] mt-0.5" />
+                <li key={idx} className={`flex ${ROW_HEIGHT} items-center gap-4`}>
+                  <item.icon className="h-5 w-5 shrink-0 text-[#C6485C]" />
                   {item.href ? (
-                    <a href={item.href} className="text-[15px] text-[#D8CFCE] hover:text-white transition-colors">
+                    <a
+                      href={item.href}
+                      className="text-[15px] leading-none text-[#D8CFCE] transition-colors hover:text-white"
+                    >
                       {item.value}
                     </a>
                   ) : (
-                    <span className="text-[15px] text-[#D8CFCE]">{item.value}</span>
+                    <span className="text-[15px] leading-none text-[#D8CFCE]">{item.value}</span>
                   )}
                 </li>
               ))}
@@ -130,7 +134,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#6B5D5F]">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-[#6B5D5F] md:flex-row">
           <p>© {new Date().getFullYear()} Oventra, Inc. All rights reserved.</p>
           <div className="flex gap-8">
             <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import {
@@ -120,7 +120,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
    Feature pill
 --------------------------------------------------------------- */
 
-function FeaturePill({ icon: Icon, label }: { icon: any; label: string }) {
+function FeaturePill({ icon: Icon, label }: { icon: React.ComponentType<{ className?: string }>; label: string }) {
   return (
     <div className="group flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-2 transition-colors hover:border-[var(--primary)]/30 hover:bg-[var(--primary)]/5">
       <Icon className="h-3.5 w-3.5 text-[var(--primary)] transition-transform duration-300 group-hover:scale-110" />

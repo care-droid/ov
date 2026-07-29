@@ -223,7 +223,7 @@ export default function SupportPage() {
   return (
     <div className="ov-root">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
         .ov-root {
           --black: #0a0908;
@@ -246,12 +246,12 @@ export default function SupportPage() {
         }
         .ov-root * { box-sizing: border-box; }
         .ov-root h1, .ov-root h2, .ov-root h3 {
-          font-family: 'Fraunces', serif;
+          font-family: 'Inter', sans-serif;
           letter-spacing: -0.01em;
           margin: 0;
         }
         .eyebrow {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem;
           letter-spacing: 0.22em;
           text-transform: uppercase;
@@ -279,10 +279,10 @@ export default function SupportPage() {
           border-bottom: 1px solid var(--hair);
         }
         .nav__row { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 0; }
-        .nav__brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.15rem; }
+        .nav__brand { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.15rem; }
         .nav__brand em { color: var(--maroon-bright); font-style: normal; }
         .nav__cta {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
           color: var(--black); background: var(--white); border: none;
           padding: 0.65rem 1.15rem; border-radius: 999px; cursor: pointer;
@@ -332,7 +332,7 @@ export default function SupportPage() {
         }
         .search-bar input:focus { outline: none; }
         .search-bar button {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
           color: var(--black); background: var(--white); border: none;
           padding: 0.65rem 1.1rem; border-radius: 999px; cursor: pointer; white-space: nowrap;
@@ -359,7 +359,7 @@ export default function SupportPage() {
           position: absolute; bottom: 1.1rem; left: 1.1rem; right: 1.1rem; z-index: 2;
           background: rgba(10,9,8,0.75); border: 1px solid var(--hair); border-radius: 6px;
           padding: 0.85rem 1rem;
-          font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.06em; color: var(--white);
+          font-family: 'Inter', sans-serif; font-size: 0.68rem; letter-spacing: 0.06em; color: var(--white);
           display: flex; align-items: center; gap: 0.5rem;
         }
         .media-badge svg { width: 14px; height: 14px; color: var(--good); flex-shrink: 0; }
@@ -424,7 +424,7 @@ export default function SupportPage() {
           gap: 1rem;
           background: transparent; border: none; text-align: left; cursor: pointer;
           padding: 1.35rem 0.2rem;
-          font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 500;
+          font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 500;
           color: var(--white);
         }
         .faq-chevron {
@@ -446,7 +446,7 @@ export default function SupportPage() {
         }
         .faq-empty {
           color: var(--muted);
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.85rem;
           padding: 1.5rem 0.2rem;
         }
@@ -472,7 +472,7 @@ export default function SupportPage() {
         .channel-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.6rem; }
         .channel-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.65; margin-bottom: 1.1rem; }
         .channel-action {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase;
           color: var(--white);
           display: inline-flex; align-items: center; gap: 0.4rem;
@@ -488,7 +488,7 @@ export default function SupportPage() {
           display: flex; justify-content: space-between; align-items: center;
           flex-wrap: wrap; gap: 1rem;
           color: var(--muted);
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.7rem; letter-spacing: 0.06em;
         }
 

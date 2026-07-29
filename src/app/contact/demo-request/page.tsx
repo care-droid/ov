@@ -133,7 +133,7 @@ export default function RequestDemoPage() {
   return (
     <div className="ov-root">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
         .ov-root {
           --black: #0a0908;
@@ -156,12 +156,12 @@ export default function RequestDemoPage() {
         }
         .ov-root * { box-sizing: border-box; }
         .ov-root h1, .ov-root h2, .ov-root h3 {
-          font-family: 'Fraunces', serif;
+          font-family: 'Inter', sans-serif;
           letter-spacing: -0.01em;
           margin: 0;
         }
         .eyebrow {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem;
           letter-spacing: 0.22em;
           text-transform: uppercase;
@@ -200,14 +200,14 @@ export default function RequestDemoPage() {
           padding: 1.1rem 0;
         }
         .nav__brand {
-          font-family: 'Fraunces', serif;
+          font-family: 'Inter', sans-serif;
           font-weight: 600;
           font-size: 1.15rem;
           letter-spacing: 0.02em;
         }
         .nav__brand em { color: var(--maroon-bright); font-style: normal; }
         .nav__cta {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem;
           letter-spacing: 0.08em;
           text-transform: uppercase;
@@ -258,7 +258,7 @@ export default function RequestDemoPage() {
           display: inline-flex;
           align-items: center;
           gap: 0.6rem;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.78rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -276,7 +276,7 @@ export default function RequestDemoPage() {
           display: flex;
           gap: 1.4rem;
           flex-wrap: wrap;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.7rem;
           letter-spacing: 0.05em;
           color: var(--muted);
@@ -307,7 +307,7 @@ export default function RequestDemoPage() {
           border: 1px solid var(--hair);
           border-radius: 6px;
           padding: 0.9rem 1.1rem;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.7rem;
           letter-spacing: 0.06em;
           color: var(--white);
@@ -327,14 +327,14 @@ export default function RequestDemoPage() {
           align-items: center;
         }
         .logos__label {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.66rem;
           letter-spacing: 0.12em;
           text-transform: uppercase;
           color: var(--muted);
         }
         .logos__item {
-          font-family: 'Fraunces', serif;
+          font-family: 'Inter', sans-serif;
           font-style: italic;
           font-size: 1rem;
           color: var(--muted);
@@ -366,7 +366,7 @@ export default function RequestDemoPage() {
         .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
         .step-card { position: relative; padding-top: 0.4rem; }
         .step-num {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.85rem;
           color: var(--maroon-bright);
           letter-spacing: 0.05em;
@@ -392,7 +392,7 @@ export default function RequestDemoPage() {
         .demo-perks { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
         .demo-perks li {
           display: flex; align-items: center; gap: 0.6rem;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.76rem; letter-spacing: 0.03em; color: var(--white);
         }
         .demo-perks li::before {
@@ -405,7 +405,7 @@ export default function RequestDemoPage() {
         .field { margin-bottom: 1.1rem; }
         .field label {
           display: block;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.66rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -428,7 +428,7 @@ export default function RequestDemoPage() {
         }
         .demo-submit {
           width: 100%;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.8rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -461,7 +461,7 @@ export default function RequestDemoPage() {
           display: flex; justify-content: space-between; align-items: center;
           flex-wrap: wrap; gap: 1rem;
           color: var(--muted);
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.7rem;
           letter-spacing: 0.06em;
         }

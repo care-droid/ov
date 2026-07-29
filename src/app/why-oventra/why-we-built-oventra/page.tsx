@@ -244,7 +244,7 @@ export default function WhyWeBuiltOventra() {
   return (
     <div className="ov-root">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
         .ov-root {
           --black: #0a0908;
@@ -268,13 +268,13 @@ export default function WhyWeBuiltOventra() {
         .ov-root * { box-sizing: border-box; }
 
         .ov-root h1, .ov-root h2, .ov-root h3, .ov-root blockquote {
-          font-family: 'Fraunces', serif;
+          font-family: 'Inter', sans-serif;
           letter-spacing: -0.01em;
           margin: 0;
         }
 
         .eyebrow {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem;
           letter-spacing: 0.22em;
           text-transform: uppercase;
@@ -345,7 +345,7 @@ export default function WhyWeBuiltOventra() {
           display: inline-flex;
           align-items: center;
           gap: 0.6rem;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.78rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -426,14 +426,14 @@ export default function WhyWeBuiltOventra() {
           text-align: center;
         }
         .dial-readout__num {
-          font-family: 'Fraunces', serif;
+          font-family: 'Inter', sans-serif;
           font-style: italic;
           font-weight: 500;
           font-size: clamp(1.1rem, 2.4vw, 1.4rem);
           color: var(--white);
         }
         .dial-readout__unit {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.64rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -633,7 +633,7 @@ export default function WhyWeBuiltOventra() {
         .quote-attr {
           position: relative; z-index: 2;
           margin-top: 1rem;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.75rem;
           letter-spacing: 0.14em;
           text-transform: uppercase;
@@ -669,7 +669,7 @@ export default function WhyWeBuiltOventra() {
           padding: 0;
           display: grid;
           gap: 0.7rem;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.78rem;
           letter-spacing: 0.04em;
           color: var(--white);
@@ -694,7 +694,7 @@ export default function WhyWeBuiltOventra() {
         }
         .order-card__form label {
           display: block;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.68rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -720,7 +720,7 @@ export default function WhyWeBuiltOventra() {
         }
         .order-card__form button {
           width: 100%;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.78rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -756,7 +756,7 @@ export default function WhyWeBuiltOventra() {
           max-width: 22ch;
         }
         .footer__cta {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.78rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
@@ -776,7 +776,7 @@ export default function WhyWeBuiltOventra() {
           display: flex;
           justify-content: space-between;
           color: var(--muted);
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.7rem;
           letter-spacing: 0.08em;
         }

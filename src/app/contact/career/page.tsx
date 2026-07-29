@@ -149,7 +149,7 @@ export default function CareersPage() {
   return (
     <div className="ov-root">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
         .ov-root {
           --black: #0a0908;
@@ -172,12 +172,12 @@ export default function CareersPage() {
         }
         .ov-root * { box-sizing: border-box; }
         .ov-root h1, .ov-root h2, .ov-root h3 {
-          font-family: 'Fraunces', serif;
+          font-family: 'Inter', sans-serif;
           letter-spacing: -0.01em;
           margin: 0;
         }
         .eyebrow {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem;
           letter-spacing: 0.22em;
           text-transform: uppercase;
@@ -205,10 +205,10 @@ export default function CareersPage() {
           border-bottom: 1px solid var(--hair);
         }
         .nav__row { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 0; }
-        .nav__brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.15rem; }
+        .nav__brand { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.15rem; }
         .nav__brand em { color: var(--maroon-bright); font-style: normal; }
         .nav__cta {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
           color: var(--black); background: var(--white); border: none;
           padding: 0.65rem 1.15rem; border-radius: 999px; cursor: pointer;
@@ -243,7 +243,7 @@ export default function CareersPage() {
         .hero__sub { margin-top: 1.4rem; max-width: 50ch; font-size: clamp(1rem, 1.3vw, 1.1rem); line-height: 1.75; color: var(--muted); }
         .hero__ctas { margin-top: 2.2rem; display: flex; gap: 0.9rem; flex-wrap: wrap; }
         .hero__cta {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
           padding: 0.95rem 1.5rem; border-radius: 999px; cursor: pointer;
           transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
@@ -262,13 +262,13 @@ export default function CareersPage() {
         .hero__stat { }
         .hero__stat strong {
           display: block;
-          font-family: 'Fraunces', serif;
+          font-family: 'Inter', sans-serif;
           font-size: clamp(1.5rem, 2.6vw, 2rem);
           font-weight: 600;
           color: var(--white);
         }
         .hero__stat span {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
           color: var(--muted);
         }
@@ -323,7 +323,7 @@ export default function CareersPage() {
         .benefit-card:hover { border-color: var(--maroon-line); transform: translateY(-4px); }
         .benefit-card h3 {
           font-size: 0.72rem;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           letter-spacing: 0.08em; text-transform: uppercase;
           color: var(--maroon-bright);
           margin-bottom: 0.7rem;
@@ -335,7 +335,7 @@ export default function CareersPage() {
           display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.2rem;
         }
         .filter-chip {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
           color: var(--muted);
           background: transparent;
@@ -364,14 +364,14 @@ export default function CareersPage() {
           transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
         }
         .role-row:hover { border-color: var(--maroon-line); background: var(--black-card); transform: translateX(4px); }
-        .role-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; }
+        .role-title { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 1.02rem; }
         .role-meta {
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem; letter-spacing: 0.05em; color: var(--muted);
         }
         .role-apply {
           justify-self: end;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
           color: var(--white);
           border-bottom: 1px solid var(--maroon-line);
@@ -382,7 +382,7 @@ export default function CareersPage() {
         .role-row:hover .role-apply { color: var(--maroon-bright); border-color: var(--maroon-bright); }
         .roles-empty {
           color: var(--muted);
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.85rem;
           padding: 2rem 0;
           text-align: center;
@@ -399,7 +399,7 @@ export default function CareersPage() {
         .closing p { margin: 1.1rem auto 0; max-width: 50ch; color: var(--muted); line-height: 1.75; }
         .closing__cta {
           margin-top: 2rem;
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
           color: var(--black); background: var(--white); border: none;
           padding: 1rem 1.7rem; border-radius: 999px; cursor: pointer;
@@ -413,7 +413,7 @@ export default function CareersPage() {
           display: flex; justify-content: space-between; align-items: center;
           flex-wrap: wrap; gap: 1rem;
           color: var(--muted);
-          font-family: 'IBM Plex Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 0.7rem; letter-spacing: 0.06em;
         }
 

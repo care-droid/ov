@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Geist } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import WhatsAppButton from "@/components/home/whatsapp";
 import Navbar from "@/components/home/Navbar";
 import Footer from "@/components/home/Footer";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -33,8 +31,7 @@ export default function RootLayout({
     "h-full",
     "antialiased",
     inter.variable,
-    "font-sans",
-    geist.variable
+    "font-sans"
   )}
   suppressHydrationWarning
 >

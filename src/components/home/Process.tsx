@@ -8,16 +8,16 @@ const STEPS = [
   {
     number: "01",
     icon: Link2,
-    title: "Connect your stack",
+    title: "Upload & Set Up",
     description:
-      "Securely link the apps and platforms your team already runs on — data starts syncing in seconds.",
-    features: ["One-click OAuth, no manual keys", "Two-way sync every few seconds"],
+      "The manufacturer uploads the product catalogue, then creates an event or enables ordering.",
+    features: ["Uploads Product Catalogue", "Creates Event / Enables Ordering"],
     preview: (
       <div className="space-y-2.5">
         {[
-          { label: "Mail workspace", status: "Connected", ok: true },
-          { label: "Team chat", status: "Connected", ok: true },
-          { label: "Calendar", status: "Syncing…", ok: false },
+          { label: "Product Catalogue", status: "Uploaded", ok: true },
+          { label: "Event / Ordering", status: "Enabled", ok: true },
+          { label: "Distributor / Dealer Login", status: "Ready", ok: false },
         ].map((row) => (
           <div
             key={row.label}
@@ -41,14 +41,14 @@ const STEPS = [
   {
     number: "02",
     icon: LayoutGrid,
-    title: "Create Workspace",
+    title: "Browse & Order",
     description:
-      "Create a personalized workspace for your team to manage projects, collaborate efficiently, and keep all your tools and data organized in one central hub.",
-    features: ["Custom fields, views & templates", "Invite unlimited teammates"],
+      "Distributors and dealers log in, browse products, select size and colour, and place their order.",
+    features: ["Distributor / Dealer Login", "Select Size & Colour"],
     preview: (
       <div className="rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--primary-light)] p-5 text-[var(--button-text)] shadow-lg shadow-[var(--shadow-glow)]">
-        <p className="text-sm font-semibold">Create workspace</p>
-        <p className="mt-1 text-xs text-[var(--button-text)]/70">Q3 planning workspace</p>
+        <p className="text-sm font-semibold">Browse Products</p>
+        <p className="mt-1 text-xs text-[var(--button-text)]/70">Select size & colour</p>
         <div className="mt-4 flex -space-x-2">
           {["A", "M", "R", "K"].map((l) => (
             <span
@@ -60,7 +60,7 @@ const STEPS = [
           ))}
         </div>
         <button className="mt-5 w-full rounded-lg bg-[var(--background)] py-2 text-sm font-semibold text-[var(--primary)]">
-          Launch workspace
+          Place Order
         </button>
       </div>
     ),
@@ -68,10 +68,10 @@ const STEPS = [
   {
     number: "03",
     icon: Rocket,
-    title: "Unlock Smarter Growth",
+    title: "Track & Dispatch",
     description:
-      "Use powerful automation, real-time insights, and streamlined workflows to scale faster, improve productivity, and make smarter business decisions with confidence.",
-    features: ["No-code automation rules", "Live analytics & forecasting"],
+      "Orders flow into a real-time dashboard, sync with your ERP, and move straight to dispatch.",
+    features: ["Real-Time Dashboard", "ERP Integration"],
     preview: (
       <div className="rounded-2xl bg-[var(--background)] p-4 shadow-xl shadow-[var(--shadow)]">
         <div className="mb-3 flex items-center justify-between">
@@ -186,16 +186,9 @@ export default function Process() {
             </span>
 
             <h2 className="mt-4 text-4xl font-bold leading-[1.08] tracking-tight text-[#581924] sm:text-5xl lg:text-6xl">
-              Simple Setup. <br />
-              Powerful Results.
+              How OVENTRA <br />
+              Works
             </h2>
-
-            <p className="mt-6 max-w-md text-base leading-relaxed text-black/50 sm:text-lg">
-              Set up your workspace in minutes with an intuitive onboarding process designed to help you launch
-              faster, streamline operations, and achieve real results from day one.
-            </p>
-
-          
           </div>
 
           {/* ─── CENTER TIMELINE (desktop only) ─── */}

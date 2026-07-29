@@ -157,12 +157,12 @@ export default function Features() {
         {/* ─── SECTION 1 ─── */}
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} className="mb-16 sm:mb-24">
           <motion.div variants={fadeUp} custom={0} className="mb-14 text-center">
-            <Eyebrow>Our Solution</Eyebrow>
+            
               <h2 className="mx-auto max-w-2xl text-[2.4rem] font-bold leading-[1.08] tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
-              Best platform for your
+              Everything you need to
               <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-[var(--primary)] via-[var(--primary-light)] to-[var(--primary)] bg-clip-text text-transparent">
-               Of Your Sales Journey
+                digitize B2B ordering
               </span>
             </h2>
           </motion.div>
@@ -182,12 +182,12 @@ export default function Features() {
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#a52a2a]/60 to-transparent" />
 
               <div className="relative z-10">
-                  <h3 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">Distributor Ordering</h3>
+                  <h3 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">Digital Product Catalogue</h3>
                   <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[var(--text-primary)]/70 sm:text-base">
-                  Enable distributors to browse products and place routine orders anytime through a dedicated mobile application.
-                  </p>
+                  Display products with images, specifications, sizes, colours, pricing, and collections.
+                </p>
                   <button className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:text-[#a52a2a]">
-                  Learn More
+                  View Catalogue
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </button>
               </div>
@@ -222,16 +222,15 @@ export default function Features() {
                     <div className="flex items-center gap-2">
                       <TrendingUp className="h-4 w-4 text-[#a52a2a]" />
                       <span className="text-sm font-semibold text-neutral-900">
-                       QR Code Product Ordering
+                        Analytics Overview
                       </span>
                     </div>
-                    <p className="mt-1 text-xs text-neutral-500">Attach QR codes to product displays and enable instant ordering during exhibitions and partner meets.</p>
+                    <p className="mt-1 text-xs text-neutral-500">Monitor business performance in real time</p>
                   </div>
+                  <span className="rounded-full border border-[#a52a2a]/20 bg-[#a52a2a]/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#a52a2a]">
+                    Live
+                  </span>
                 </div>
-                  <button className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:text-[#a52a2a]">
-                  Learn More
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </button>
 
                 <PremiumBarChart />
 
@@ -281,18 +280,18 @@ export default function Features() {
             <div className="absolute inset-0 bg-gradient-to-br from-[#7a1a1a]/5 via-transparent to-[#5c1010]/5 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
 
             <div className="relative z-10">
-              <Eyebrow>One-Click Applications</Eyebrow>
+              <Eyebrow>QR Code Ordering</Eyebrow>
               <h3 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
-               Partner Meet Ordering
+                Scan products, place orders instantly
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-[var(--text-primary)]/70 sm:text-base">
-                Conduct completely digital partner meets with QR-enabled ordering and real-time dashboards.
+                Attach QR codes to product displays and enable instant ordering during exhibitions and partner meets.
               </p>
 
-              <button className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:text-[#a52a2a]">
-                  Learn More
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </button>
+              <div className="mt-6 flex flex-wrap items-center gap-2.5">
+                <FeaturePill icon={CheckCircle2} label="QR Code Ordering" />
+                <FeaturePill icon={CheckCircle2} label="Mobile Ordering" />
+              </div>
 
               <div className="relative mt-8 overflow-hidden rounded-2xl border border-[var(--brand-ink)]/10 bg-[var(--background)] p-2">
                 <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#7a1a1a]/5 to-transparent" />
@@ -330,19 +329,28 @@ export default function Features() {
             </div>
 
             <div className="relative z-10">
-              <Eyebrow>Dealer Ordering</Eyebrow>
+              <Eyebrow>Product Variants</Eyebrow>
               <h3 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
-                Dealer Ordering
+                Product Variants
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-[var(--text-primary)]/70 sm:text-base">
-               Empower dealers to order directly from their assigned distributors through a self-service ordering portal
-               </p>
+                Support multiple sizes, colours, designs, and packaging options.
+              </p>
 
               <div className="mt-6 grid grid-cols-2 gap-3">
-               <button className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:text-[#a52a2a]">
-                  Learn More
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </button>
+                {[
+                  { icon: MessageSquare, label: "Notifications" },
+                  { icon: Sparkles, label: "Product Variants" },
+                  { icon: BarChart3, label: "Reports & Analytics" },
+                  { icon: Workflow, label: "ERP Integration" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-2">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#a52a2a]/10 transition-colors group-hover:bg-[#a52a2a]/20">
+                      <item.icon className="h-3.5 w-3.5 text-[#a52a2a]" />
+                    </span>
+                    <span className="text-sm font-medium text-[var(--text-primary)]">{item.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>

@@ -67,12 +67,12 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* --- WHO WE ARE / GIGASOFT SECTION --- */}
+      {/* --- WHO WE ARE / Oventra SECTION --- */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeIn}>
-              <h2 className="text-3xl font-bold mb-6">Built by GigaSoft. <br/>Designed for Modern Distribution.</h2>
+              <h2 className="text-3xl font-bold mb-6">Built by Oventra. <br/>Designed for Modern Distribution.</h2>
               <p className="text-slate-600 mb-6 leading-relaxed">
                 With over **24 years of experience** and more than **1,200 successful projects** globally, Giga Soft Systems Pvt. Ltd. (an ISO 9001:2015 certified company) brings enterprise-grade reliability to OVENTRA.
               </p>
@@ -277,7 +277,7 @@ const AboutUs = () => {
               that connects manufacturers, distributors, and dealers on one intelligent ecosystem.
             </p>
             <button className="px-10 py-4 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-slate-100 transition-colors shadow-lg">
-              Contact GigaSoft Systems
+              Contact Oventra Systems
             </button>
           </motion.div>
         </div>

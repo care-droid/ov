@@ -131,23 +131,14 @@ export default function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-[1320px] items-center gap-10 px-6 lg:grid-cols-[1.02fr_minmax(0,1fr)] lg:gap-8 lg:px-12">
         <div className="max-w-[640px]">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            custom={0}
-            className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.06em] text-[#A8325A]"
-          >
-            <span className="h-3.5 w-3.5 bg-[linear-gradient(180deg,#7A1F3D_0%,#A8325A_100%)] [clip-path:polygon(0_54%,54%_54%,54%_0,100%_0,100%_46%,46%_46%,46%_100%,0_100%)]" />
-            BUILD YOUR FUTURE
-          </motion.p>
+          
 
           <motion.h1
             variants={fadeUp}
             initial="hidden"
             animate="show"
             custom={1}
-            className="mt-8 font-display text-[43px] font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:text-[68px]"
+            className="mt-8 font-display text-[33px] font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:text-[58px]"
           >
            The Complete B2B Ordering & Channel Sales Platform
           </motion.h1>

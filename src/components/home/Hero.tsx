@@ -180,7 +180,7 @@ export default function Hero() {
   }
   className="group h-12 min-w-[178px] rounded-[10px] border-0 bg-gradient-to-br from-[#7A1F3D] to-[#5C0011] px-7 text-base font-semibold text-white hover:from-[#A8325A] hover:to-[#7A1F3D]"
 >
-  Start For Free
+  Book a Demo
   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
 </Button>
           </motion.div>

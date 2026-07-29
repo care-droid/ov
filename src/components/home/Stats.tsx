@@ -90,9 +90,9 @@ export default function StatsSection() {
   transition={{ duration: 0.8, ease: "easeOut" }}
   className="mx-auto mb-10 bg-gradient-to-r from-[#a71416] via-[#8B1E3F] to-[#C44E72] bg-clip-text text-center text-4xl font-semibold leading-[0.95] tracking-[-0.04em] text-transparent sm:mb-14 sm:text-5xl md:text-6xl lg:text-[4rem]"
 >
-  Crafted pixel by pixel.
+  Crafted pixel by piStill Managing B2B Orders Throughxel
   <br />
-  Designed with intention.
+  WhatsApp, Phone Calls & Excel?
 </motion.h2>
 
         {/* Main grid: left stack + right tall card */}
@@ -163,11 +163,10 @@ export default function StatsSection() {
             >
               <div className="max-w-xs">
                 <h3 className="text-xl font-bold text-foreground sm:text-2xl">
-                  Download, create account
+                  Business has evolved.
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-[#5c0011]">
-                  Download the app and get started instantly. Sign up in
-                  moments with a smooth onboarding.
+                  But has your ordering process?
                 </p>
 <a
   href="https://wa.me/919716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA."
@@ -211,23 +210,23 @@ export default function StatsSection() {
 
               {/* Heading */}
               <h3 className="mt-6 text-3xl font-semibold tracking-tight text-foreground">
-                Instant Messaging
+                Every day, manufacturers and distributors struggle with
               </h3>
 
-              {/* Description */}
-              <p className="mt-4 max-w-lg text-lg leading-8 text-[#5c0011]">
-                Experience seamless communication with lightning-fast messaging,
-                effortless file sharing, and real-time collaboration that keeps your
-                entire team connected from anywhere.
+              <p className="mt-3 text-sm leading-relaxed text-[var(--brand-ink)]/80">
+                These outdated processes slow your business, reduce productivity, and impact customer satisfaction.
               </p>
 
               {/* Features */}
               <div className="mt-8 space-y-4">
                 {[
-                  "Real-time conversations",
-                  "File & media sharing",
-                  "Presence indicators",
-                  "Smart message scheduling",
+                  "Paper Order Forms",
+                  "WhatsApp Orders",
+                  "Phone Calls",
+                  "Manual Excel Sheets",
+                  "Order Entry Errors",
+                  "Delayed Confirmations",
+                  "No Real-Time Visibility",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <Sparkles className="h-4 w-4 text-[var(--primary)]" />
@@ -238,11 +237,7 @@ export default function StatsSection() {
                 ))}
               </div>
 
-              {/* Button */}
-              <button className="group mt-10 flex w-fit items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--primary)] transition-colors hover:text-[var(--primary-light)]">
-                READ MORE
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+              
             </div>
           </motion.div>
         </div>

@@ -90,7 +90,7 @@ export default function StatsSection() {
   transition={{ duration: 0.8, ease: "easeOut" }}
   className="mx-auto mb-10 bg-gradient-to-r from-[#a71416] via-[#8B1E3F] to-[#C44E72] bg-clip-text text-center text-4xl font-semibold leading-[0.95] tracking-[-0.04em] text-transparent sm:mb-14 sm:text-5xl md:text-6xl lg:text-[4rem]"
 >
-  Crafted pixel by piStill Managing B2B Orders Throughxel
+  Still Managing B2B Orders Through
   <br />
   WhatsApp, Phone Calls & Excel?
 </motion.h2>

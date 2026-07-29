@@ -162,7 +162,7 @@ export default function Features() {
               Best platform for your
               <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-[var(--primary)] via-[var(--primary-light)] to-[var(--primary)] bg-clip-text text-transparent">
-                entire business module
+               Of Your Sales Journey
               </span>
             </h2>
           </motion.div>
@@ -182,13 +182,12 @@ export default function Features() {
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#a52a2a]/60 to-transparent" />
 
               <div className="relative z-10">
-                  <h3 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">Easy Integration</h3>
+                  <h3 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">Distributor Ordering</h3>
                   <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[var(--text-primary)]/70 sm:text-base">
-                  Connect your favorite tools and platforms quickly with simple setup, flexible APIs, and seamless
-                  workflows. Start using powerful features without complex coding or technical delays.
-                </p>
+                  Enable distributors to browse products and place routine orders anytime through a dedicated mobile application.
+                  </p>
                   <button className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:text-[#a52a2a]">
-                  Explore integrations
+                  Learn More
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </button>
               </div>
@@ -223,15 +222,16 @@ export default function Features() {
                     <div className="flex items-center gap-2">
                       <TrendingUp className="h-4 w-4 text-[#a52a2a]" />
                       <span className="text-sm font-semibold text-neutral-900">
-                        Analytics Overview
+                       QR Code Product Ordering
                       </span>
                     </div>
-                    <p className="mt-1 text-xs text-neutral-500">Weekly performance metrics</p>
+                    <p className="mt-1 text-xs text-neutral-500">Attach QR codes to product displays and enable instant ordering during exhibitions and partner meets.</p>
                   </div>
-                  <span className="rounded-full border border-[#a52a2a]/20 bg-[#a52a2a]/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#a52a2a]">
-                    Live
-                  </span>
                 </div>
+                  <button className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:text-[#a52a2a]">
+                  Learn More
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </button>
 
                 <PremiumBarChart />
 
@@ -283,17 +283,16 @@ export default function Features() {
             <div className="relative z-10">
               <Eyebrow>One-Click Applications</Eyebrow>
               <h3 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
-                One click, multiple opportunities
+               Partner Meet Ordering
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-[var(--text-primary)]/70 sm:text-base">
-                Simplify your workflow with instant actions and automated processes in just one click. Save valuable
-                time, reduce manual work.
+                Conduct completely digital partner meets with QR-enabled ordering and real-time dashboards.
               </p>
 
-              <div className="mt-6 flex flex-wrap items-center gap-2.5">
-                <FeaturePill icon={CheckCircle2} label="Task Management" />
-                <FeaturePill icon={CheckCircle2} label="Presence Indicators" />
-              </div>
+              <button className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:text-[#a52a2a]">
+                  Learn More
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </button>
 
               <div className="relative mt-8 overflow-hidden rounded-2xl border border-[var(--brand-ink)]/10 bg-[var(--background)] p-2">
                 <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#7a1a1a]/5 to-transparent" />
@@ -331,29 +330,19 @@ export default function Features() {
             </div>
 
             <div className="relative z-10">
-              <Eyebrow>AI-Powered Machine</Eyebrow>
+              <Eyebrow>Dealer Ordering</Eyebrow>
               <h3 className="text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
-                AI-Powered Machine
+                Dealer Ordering
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed text-[var(--text-primary)]/70 sm:text-base">
-                Harness the full potential of advanced artificial intelligence, machine learning, and intelligent
-                automation to transform how your business operates.
-              </p>
+               Empower dealers to order directly from their assigned distributors through a self-service ordering portal
+               </p>
 
               <div className="mt-6 grid grid-cols-2 gap-3">
-                {[
-                  { icon: MessageSquare, label: "AI Chat" },
-                  { icon: Sparkles, label: "Smart Assist" },
-                  { icon: BarChart3, label: "Data Insights" },
-                  { icon: Workflow, label: "Automation" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#a52a2a]/10 transition-colors group-hover:bg-[#a52a2a]/20">
-                      <item.icon className="h-3.5 w-3.5 text-[#a52a2a]" />
-                    </span>
-                    <span className="text-sm font-medium text-[var(--text-primary)]">{item.label}</span>
-                  </div>
-                ))}
+               <button className="group/btn mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:text-[#a52a2a]">
+                  Learn More
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </button>
               </div>
             </div>
           </motion.div>

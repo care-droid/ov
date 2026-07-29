@@ -126,7 +126,7 @@ export default function Integrations() {
             </div>
 
             <h2 className="text-3xl font-bold leading-[1.2] text-foreground sm:text-4xl lg:text-[2.75rem]">
-              Unlock more value from favourite best tools
+             One Platform. Complete B2B Ordering
             </h2>
 
             <motion.div

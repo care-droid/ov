@@ -149,7 +149,7 @@ export default function Hero() {
             custom={1}
             className="mt-8 font-display text-[43px] font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:text-[68px]"
           >
-            Achieve a 98% productivity through streamlined.
+           The Complete B2B Ordering & Channel Sales Platform
           </motion.h1>
 
           <motion.p
@@ -159,8 +159,7 @@ export default function Hero() {
             custom={2}
             className="mt-8 max-w-[560px] text-base leading-8 text-white/70 sm:text-[19px]"
           >
-            After 26 years in the industry, we&apos;ve developed our own unique
-            approach to support, ensuring that as we grow we don&apos;t lose.
+           Digitize Partner Meets. Simplify Distributor Ordering. Empower Your Dealer Network.
           </motion.p>
 
           <motion.div

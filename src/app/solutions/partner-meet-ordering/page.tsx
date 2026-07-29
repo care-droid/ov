@@ -2,27 +2,27 @@ import dynamic from "next/dynamic";
 import LazySection from "@/components/common/LazySection";
 
 /** Above-the-fold — loaded immediately for LCP */
-const Intro = dynamic(() => import("@/components/sections/Intro"));
-const DashboardPage = dynamic(() => import("@/components/sections/DashboardPage"));
+const Intro = dynamic(() => import("@/components/parnter/sections/Intro"));
+const DashboardPage = dynamic(() => import("@/components/parnter/sections/DashboardPage"));
 
 /** Below-the-fold — code-split; mounted when scrolled near */
 const PartnerMeetChallenges = dynamic(
-  () => import("@/components/sections/Partnermeetchallenges"),
+  () => import("@/components/parnter/sections/Partnermeetchallenges"),
 );
 const PowerfulFeatures = dynamic(
-  () => import("@/components/sections/Powerfulfeaturespage"),
+  () => import("@/components/parnter/sections/Powerfulfeaturespage"),
 );
-const EventTypes = dynamic(() => import("@/components/sections/Partnermeet"));
+const EventTypes = dynamic(() => import("@/components/parnter/sections/Partnermeet"));
 const PartnerAppShowcase = dynamic(
-  () => import("@/components/sections/Partnerappshowcase"),
+  () => import("@/components/parnter/sections/Partnerappshowcase"),
 );
-const WhyOventra = dynamic(() => import("@/components/sections/Whyoventra"));
+const WhyOventra = dynamic(() => import("@/components/parnter/sections/Whyoventra"));
 const QRCodeOrderingSection = dynamic(
-  () => import("@/components/sections/Qrcodeorderingsection"),
+  () => import("@/components/parnter/sections/Qrcodeorderingsection"),
 );
-const BusinessBenefits = dynamic(() => import("@/components/sections/Benifits"));
+const BusinessBenefits = dynamic(() => import("@/components/parnter/sections/Benifits"));
 const WhyChooseOventra = dynamic(
-  () => import("@/components/sections/WhyChooseOventra"),
+  () => import("@/components/parnter/sections/WhyChooseOventra"),
 );
 
 export default function PartnerMeetOrderingPage() {

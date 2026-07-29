@@ -13,6 +13,9 @@ const INK = "#0B0708"; // near-black background
 const INK_2 = "#170B0D";
 const INK_BORDER = "rgba(140,30,48,0.28)";
 
+// Logo height configuration - change this value to adjust logo size
+const LOGO_HEIGHT = 40; // in pixels (40px, 48px, 56px, 64px, etc.)
+
 /* ---------------- Types ---------------- */
 type SimpleLink = { label: string; href: string };
 type FooterColumn = { heading: string; links: SimpleLink[] };
@@ -25,17 +28,6 @@ const COLUMNS: FooterColumn[] = [
       { label: "Partner Meet Ordering", href: "/solutions/partner-meet-ordering" },
       { label: "Distributor Ordering", href: "/solutions/distributor-ordering" },
       { label: "Dealer Ordering", href: "/solutions/dealer-ordering" },
-    ],
-  },
-  {
-    heading: "Features",
-    links: [
-      { label: "Product Catalogue", href: "/features/product-catalogue-management" },
-      { label: "QR Ordering", href: "/features/qr-ordering" },
-      { label: "Mobile Ordering", href: "/features/mobile-ordering" },
-      { label: "Order Management", href: "/features/order-management" },
-      { label: "Live Dashboard", href: "/features/live-dashboard" },
-      { label: "ERP Integration", href: "/features/erp-integration" },
     ],
   },
   {
@@ -100,7 +92,7 @@ export default function Footer() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="relative w-full px-5 pb-10 pt-14 sm:px-10 lg:px-16"
+        className="relative w-full px-5 pb-8 pt-8 sm:px-10 sm:pt-10 lg:px-16"
         style={{
           background: `
             radial-gradient(90% 140% at 12% 0%, ${MAROON}3d 0%, transparent 55%),
@@ -115,9 +107,21 @@ export default function Footer() {
           style={{ boxShadow: `inset 0 1px 0 ${INK_BORDER}` }}
         />
 
-        <div className="relative mx-auto max-w-7xl">
-          {/* Link grid — 2 cols on mobile, scaling up to 6 on desktop */}
-          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-5">
+        <div className="relative ">
+          {/* Top row — logo column + 4 nav columns, all aligned on one row on desktop */}
+          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-5">
+            {/* Column 1 — Logo + short description */}
+            <motion.div variants={column} className="min-w-0">
+              <Link href="/" className="flex shrink-0 items-center gap-2 focus-visible:outline-none" aria-label="Oventra home">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.94 }} transition={{ type: "spring", stiffness: 300, damping: 18 }}>
+            <Image src="/oventra.png" alt="Oventra" width={140} height={48} className="h-10 w-auto sm:h-11" priority />
+          </motion.div>
+        </Link>
+              <p className="mt-4 max-w-[220px] text-[13px] leading-relaxed text-white/40">
+                Streamlined ordering infrastructure for modern distribution networks.
+              </p>
+            </motion.div>
+
             {COLUMNS.map((col) => (
               <motion.div key={col.heading} variants={column} className="min-w-0">
                 <p
@@ -149,35 +153,22 @@ export default function Footer() {
           {/* Divider */}
           <motion.div
             variants={column}
-            className="my-10 h-px w-full sm:my-12"
+            className="my-8 h-px w-full sm:my-9"
             style={{ background: `linear-gradient(90deg, transparent, ${MAROON}88, ${MAROON_LIGHT}55, ${MAROON}88, transparent)` }}
           />
 
-          {/* Bottom bar — stacks on mobile, row on larger screens */}
+          {/* Bottom bar — compact mark on left, copyright on right */}
           <motion.div
             variants={column}
-            className="flex flex-col items-center justify-between gap-6 sm:flex-row sm:gap-6"
+            className="flex flex-col items-center justify-between gap-4 sm:flex-row"
           >
-            <Link href="/" className="flex shrink-0 items-center gap-2 focus-visible:outline-none" aria-label="Oventra home">
-  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.94 }} transition={{ type: "spring", stiffness: 300, damping: 18 }}>
-    <Image
-      src="/ovantra.png"
-      alt="Oventra"
-      width={200}
-      height={68}
-      className="h-14  w-auto sm:h-20 md:h-24"
-      priority
-    />
-  </motion.div>
-</Link>
-
-            <p className="order-3 text-center text-[12px] text-white/40 sm:order-2 sm:text-left sm:text-[13px]">
-              © {year} OVENTRA. All rights reserved.
+            <p className="text-center text-[12px] text-white/40 sm:text-left">
+              OVENTRA
             </p>
 
-            <div className={cn("order-2 flex items-center gap-5 sm:order-3")}>
-              {/* reserved for future badges / trust marks */}
-            </div>
+            <p className="text-center text-[12px] text-white/40 sm:text-right sm:text-[13px]">
+              © {year} OVENTRA. All rights reserved.
+            </p>
           </motion.div>
         </div>
       </motion.div>

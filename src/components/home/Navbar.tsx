@@ -62,12 +62,26 @@ const NAV_ITEMS: NavItem[] = [
         label: "Distributor Ordering",
         href: "/solutions/distributor-ordering",
         items: [
-          { label: "Daily Ordering", href: "/solutions/distributor-ordering/daily-ordering" },
-          { label: "Product Catalogue", href: "/solutions/distributor-ordering/product-catalogue" },
-          { label: "Order Management", href: "/solutions/distributor-ordering/order-management" },
-          { label: "Screens", href: "/solutions/distributor-ordering/screens" },
-          { label: "Reports", href: "/solutions/distributor-ordering/reports" },
-          { label: "ERP Import / Export", href: "/solutions/distributor-ordering/erp-import-export" },
+          {
+            label: "Features",
+            href: "/solutions/distributor-ordering#features",
+          },
+          {
+            label: "Benefits",
+            href: "/solutions/distributor-ordering#benefits",
+          },
+          {
+            label: "Workflow",
+            href: "/solutions/distributor-ordering#workflow",
+          },
+          {
+            label: "Screens",
+            href: "/solutions/distributor-ordering#screens",
+          },
+          {
+            label: "Reports",
+            href: "/solutions/distributor-ordering#reports",
+          },
           {
             label: "Book Demo",
             href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Distributor%20Ordering%20on%20OVENTRA.",
@@ -78,13 +92,26 @@ const NAV_ITEMS: NavItem[] = [
         label: "Dealer Ordering",
         href: "/solutions/dealer-ordering",
         items: [
-          { label: "Dealer Login", href: "/solutions/dealer-ordering/login" },
-          { label: "Dealer Catalogue", href: "/solutions/dealer-ordering/catalogue" },
-          { label: "Order Tracking", href: "/solutions/dealer-ordering/order-tracking" },
-          { label: "Order History", href: "/solutions/dealer-ordering/order-history" },
-          { label: "Benefits", href: "/solutions/dealer-ordering/benefits" },
-          { label: "Screens", href: "/solutions/dealer-ordering/screens" },
-          { label: "Reports", href: "/solutions/dealer-ordering/reports" },
+          {
+            label: "Features",
+            href: "/solutions/dealer-ordering#features",
+          },
+          {
+            label: "Benefits",
+            href: "/solutions/dealer-ordering#benefits",
+          },
+          {
+            label: "Workflow",
+            href: "/solutions/dealer-ordering#workflow",
+          },
+          {
+            label: "Screens",
+            href: "/solutions/dealer-ordering#screens",
+          },
+          {
+            label: "Reports",
+            href: "/solutions/dealer-ordering#reports",
+          },
           {
             label: "Book Demo",
             href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20book%20a%20demo%20for%20Dealer%20Ordering%20on%20OVENTRA.",

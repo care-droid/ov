@@ -23,7 +23,7 @@ export default function Home() {
         <Features />
         <Process />
         <Testimonials />
-        <ClientLogos />
+        {/* <ClientLogos /> */}
         <BlogSection />
         
         <CTA />

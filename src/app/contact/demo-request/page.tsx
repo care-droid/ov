@@ -501,12 +501,12 @@ export default function RequestDemoPage() {
         <div className="hero__copy">
           <div className="eyebrow">Request a Demo</div>
           <h1>
-            See your event's carton order, <em>live</em>
+            See your event&apos;s carton order, <em>live</em>
           </h1>
           <p className="hero__sub">
-            Book a 20-minute walkthrough of the TRV platform. We'll pull real
+            Book a 20-minute walkthrough of the TRV platform. We&apos;ll pull real
             stock for a size run close to yours and show you the exact quote
-            you'd get for your next event — no generic sales deck.
+            you&apos;d get for your next event — no generic sales deck.
           </p>
           <button className="hero__cta" onClick={scrollToForm}>
             Book your slot
@@ -595,11 +595,11 @@ export default function RequestDemoPage() {
             <div className="demo-card">
               <div className="demo-card__text">
                 <div className="eyebrow">Book Your Slot</div>
-                <h2>Tell us about your event, we'll take it from there</h2>
+                <h2>Tell us about your event, we&apos;ll take it from there</h2>
                 <p>
                   Fill this in and our team will confirm a time within one
                   business day. Bring your rough size run and event date —
-                  everything else, we'll figure out together on the call.
+                  everything else, we&apos;ll figure out together on the call.
                 </p>
                 <ul className="demo-perks">
                   <li>No commitment to buy after the demo</li>
@@ -641,7 +641,7 @@ export default function RequestDemoPage() {
                       <input id="cartons" name="cartons" type="number" min={1} placeholder="e.g. 5" required />
                     </div>
                     <div className="field full">
-                      <label htmlFor="useCase">What's the event for?</label>
+                      <label htmlFor="useCase">What&apos;s the event for?</label>
                       <select id="useCase" name="useCase" defaultValue="corporate">
                         <option value="corporate">Corporate gifting</option>
                         <option value="wedding">Wedding / celebration</option>
@@ -665,7 +665,7 @@ export default function RequestDemoPage() {
                   </svg>
                   <h3>Request received</h3>
                   <p>
-                    We'll email a confirmed time within one business day.
+                    We&apos;ll email a confirmed time within one business day.
                     Keep an eye on your inbox for a calendar invite from the
                     TRV team.
                   </p>

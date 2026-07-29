@@ -461,8 +461,8 @@ export default function CareersPage() {
             Help us make event catering <em>honest</em>
           </h1>
           <p className="hero__sub">
-            We're a small team building the tool we wished existed when we
-            couldn't get a straight answer from a single caterer. Come build
+            We&apos;re a small team building the tool we wished existed when we
+            could&apos;t get a straight answer from a single caterer. Come build
             it with us.
           </p>
           <div className="hero__ctas">
@@ -486,7 +486,7 @@ export default function CareersPage() {
         <div className="container">
           <Reveal className="section-head">
             <div className="eyebrow">How We Work</div>
-            <h2>What it's actually like here</h2>
+            <h2>What it&apos;s actually like here</h2>
           </Reveal>
           <div className="values-grid">
             {VALUES.map((v, i) => (
@@ -505,7 +505,7 @@ export default function CareersPage() {
         <div className="container">
           <Reveal className="section-head">
             <div className="eyebrow">The Team</div>
-            <h2>A few faces you'd be working with</h2>
+            <h2>A few faces you&apos;d be working with</h2>
           </Reveal>
           <div className="gallery-grid">
             <Reveal className="gallery-item gallery-item--tall">
@@ -593,10 +593,10 @@ export default function CareersPage() {
       <section className="closing">
         <div className="container">
           <Reveal>
-            <h2>Don't see your role listed?</h2>
+            <h2>Don&apos;t see your role listed?</h2>
             <p>
-              We're always open to meeting people who care about the same
-              problem. Send us a note and tell us what you'd want to work on.
+              We&apos;re always open to meeting people who care about the same
+              problem. Send us a note and tell us what you&apos;d want to work on.
             </p>
             <a className="closing__cta" href="mailto:careers@oventra.com">
               Introduce yourself

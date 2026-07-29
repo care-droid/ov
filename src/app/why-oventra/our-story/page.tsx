@@ -89,7 +89,7 @@ const OurStoryPage = () => {
             <span className="text-[#5B0E14]">Art of Luxury.</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-md leading-relaxed">
-            We believe that true quality isn't just seen; it's felt. Our journey began with a single mission: to create spaces and products that transcend time. Every detail is a dialogue between craftsmanship and innovation.
+            We believe that true quality isn&apos;t just seen; it&apos;s felt. Our journey began with a single mission: to create spaces and products that transcend time. Every detail is a dialogue between craftsmanship and innovation.
           </p>
           <motion.button 
             whileHover={{ x: 10 }}
@@ -169,7 +169,7 @@ const OurStoryPage = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             className="text-5xl md:text-8xl font-black text-white mb-10 tracking-tighter"
           >
-            LET'S BUILD <br /> <span className="text-[#5B0E14]">YOUR STORY.</span>
+            LET&apos;S BUILD <br /> <span className="text-[#5B0E14]">YOUR STORY.</span>
           </motion.h2>
           
           <motion.button 

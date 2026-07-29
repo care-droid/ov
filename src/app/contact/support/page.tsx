@@ -606,7 +606,7 @@ export default function SupportPage() {
                 </Reveal>
               ))
             ) : (
-              <div className="faq-empty">No matches for "{query}" — try a different search, or reach out below.</div>
+              <div className="faq-empty">No matches for &quot;{query}&quot; — try a different search, or reach out below.</div>
             )}
           </div>
         </div>

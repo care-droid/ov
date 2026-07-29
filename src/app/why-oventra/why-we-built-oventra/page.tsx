@@ -851,9 +851,9 @@ export default function WhyWeBuiltOventra() {
         <div className="container split">
           <Reveal className="split__text">
             <div className="eyebrow">The Problem</div>
-            <h2>Ordering shoes for an event shouldn't feel like a second job</h2>
+            <h2>Ordering shoes for an event shouldn&apos;t feel like a second job</h2>
             <p>
-              You've locked the venue, the guest list, the run-of-show — and
+              You&apos;ve locked the venue, the guest list, the run-of-show — and
               now the real work starts: fifteen chats open with distributors,
               a dozen messages asking who actually has your size run in
               stock, and quotes that trickle in over days in totally
@@ -861,8 +861,8 @@ export default function WhyWeBuiltOventra() {
             </p>
             <p>
               Nobody can tell you how many cartons are actually available for
-              your date until you've already asked. So you plan around
-              silence, chase replies, and hope the batch you liked hasn't
+              your date until you&apos;ve already asked. So you plan around
+              silence, chase replies, and hope the batch you liked hasn&apos;t
               already sold out by the time your event rolls around.
             </p>
           </Reveal>
@@ -886,7 +886,7 @@ export default function WhyWeBuiltOventra() {
             <div className="eyebrow">How It Started</div>
             <h2>A marathon giveaway, six weeks, and one spreadsheet</h2>
             <p>
-              It started with our own event. Six weeks out, we still didn't
+              It started with our own event. Six weeks out, we still didn&apos;t
               have finisher-kit sneakers confirmed — not for lack of trying,
               but because every lead went through the same loop: a call, a
               voicemail, a catalogue PDF with no prices, a quote that arrived
@@ -896,7 +896,7 @@ export default function WhyWeBuiltOventra() {
               We ended up with a spreadsheet of forty distributors and no way
               to tell, at a glance, who could actually deliver our size run
               on our date. So we built the tool we wished existed: one place
-              to see who's stocked, what a carton costs, and how to order it
+              to see who&apos;s stocked, what a carton costs, and how to order it
               — today.
             </p>
           </Reveal>
@@ -958,7 +958,7 @@ export default function WhyWeBuiltOventra() {
                 <h2>Ordering for an event? Get a carton, not a headache.</h2>
                 <p>
                   Weddings, corporate gifting, marathons, team kits — tell us
-                  your event date and size run, and we'll match you to a
+                  your event date and size run, and we&apos;ll match you to a
                   verified warehouse with real stock, a single quote, and one
                   invoice.
                 </p>

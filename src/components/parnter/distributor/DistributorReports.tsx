@@ -22,7 +22,7 @@ type Report = {
   id: number;
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   metrics: string[];
 };
 

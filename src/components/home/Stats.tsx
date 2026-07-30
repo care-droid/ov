@@ -32,7 +32,8 @@ const cardVariants = {
 
 const groups = [
   {
-  
+    label: "Storefront & Ordering",
+    blurb: "Intuitive mobile ordering and rich product catalogs for your sales network.",
     features: [
       {
         icon: Package,
@@ -59,8 +60,8 @@ const groups = [
     ],
   },
   {
-    
-    
+    label: "Management & Integration",
+    blurb: "Real-time analytics dashboards and seamless ERP synchronization.",
     features: [
       {
         icon: LayoutDashboard,

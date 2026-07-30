@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -99,7 +101,7 @@ const AboutUs = () => {
                 className="rounded-3xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-8 rounded-2xl hidden md:block">
-                <p className="italic text-lg">"Enterprise reliability, scalability, and innovation."</p>
+                <p className="italic text-lg">&ldquo;Enterprise reliability, scalability, and innovation.&rdquo;</p>
               </div>
             </motion.div>
           </div>
@@ -165,27 +167,30 @@ const AboutUs = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: <Globe />, title: "Purpose-Built B2B", desc: "Designed specifically for complex channel networks." },
-              { icon: <Smartphone />, title: "Mobile-First Experience", desc: "Intuitive apps for distributors, dealers, and sales teams." },
-              { icon: <Layers />, title: "Enterprise-Ready", desc: "Scalable architecture capable of supporting any business size." },
-              { icon: <ShieldCheck />, title: "Cloud-Based Platform", desc: "Secure, accessible, and always available from anywhere." },
-              { icon: <BarChart3 />, title: "Real-Time Visibility", desc: "Monitor performance through centralized dashboards." },
-              { icon: <CheckCircle2 />, title: "Easy ERP Integration", desc: "Seamlessly sync with your existing ERP systems." }
-            ].map((feature, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-blue-500 transition-colors group"
-              >
-                <div className="text-blue-400 mb-6 group-hover:scale-110 transition-transform">
-                  {React.cloneElement(feature.icon as React.ReactElement, { size: 32 })}
-                </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
-              </motion.div>
-            ))}
+              { icon: Globe, title: "Purpose-Built B2B", desc: "Designed specifically for complex channel networks." },
+              { icon: Smartphone, title: "Mobile-First Experience", desc: "Intuitive apps for distributors, dealers, and sales teams." },
+              { icon: Layers, title: "Enterprise-Ready", desc: "Scalable architecture capable of supporting any business size." },
+              { icon: ShieldCheck, title: "Cloud-Based Platform", desc: "Secure, accessible, and always available from anywhere." },
+              { icon: BarChart3, title: "Real-Time Visibility", desc: "Monitor performance through centralized dashboards." },
+              { icon: CheckCircle2, title: "Easy ERP Integration", desc: "Seamlessly sync with your existing ERP systems." }
+            ].map((feature, i) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-8 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-blue-500 transition-colors group"
+                >
+                  <div className="text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                    <Icon size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                  <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -198,7 +203,7 @@ const AboutUs = () => {
               <div>
                 <h3 className="text-3xl font-bold mb-4 text-blue-600">Our Vision</h3>
                 <p className="text-xl text-slate-700 leading-relaxed">
-                  To Become the World's Most Trusted B2B Ordering Platform.
+                  To Become the World&apos;s Most Trusted B2B Ordering Platform.
                 </p>
               </div>
               <div className="h-[1px] bg-slate-200"></div>

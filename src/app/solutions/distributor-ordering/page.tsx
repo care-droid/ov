@@ -17,18 +17,43 @@ import Partnermeet from "@/components/parnter/distributor/DistributorMeetTypes";
 export default function DistributorOrderingPage() {
   return (
     <main>
-      <DistributorIntro />
-      <DistributorDashboardPage />
-      <DistributorFeatures />
-      <DistributorBenefits />
-      <DistributorWorkflow />
-      <DistributorScreens />
-      <DistributorReports />
-      <WhyOventra />
-      <WhyChooseOventra />
-      <Partnermeetchallenges />
-      <Qrcodeorderingsection />
-      <Partnermeet />
-    </main>
+  <section id="intro">
+    <DistributorIntro />
+  </section>
+
+  <DistributorDashboardPage />
+
+  <section id="features">
+    <DistributorFeatures />
+  </section>
+
+  <section id="benefits">
+    <DistributorBenefits />
+  </section>
+
+  <section id="workflow">
+    <DistributorWorkflow />
+  </section>
+
+  <section id="screens">
+    <DistributorScreens />
+  </section>
+
+  <section id="reports">
+    <DistributorReports />
+  </section>
+
+  <WhyOventra />
+
+  <section id="why-oventra">
+    <WhyChooseOventra />
+  </section>
+
+  <Partnermeetchallenges />
+
+  <Qrcodeorderingsection />
+
+  <Partnermeet />
+</main>
   );
 }

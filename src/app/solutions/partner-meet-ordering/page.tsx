@@ -34,51 +34,41 @@ export default function PartnerMeetOrderingPage() {
 
       <DashboardPage />
 
-      <LazySection minHeight="100vh">
-        <section id="challenges">
-          <PartnerMeetChallenges />
-        </section>
-      </LazySection>
+     <section id="features">
+  <PowerfulFeatures />
+</section>
 
-      <LazySection minHeight="100vh">
-        <section id="features">
-          <PowerfulFeatures />
-        </section>
-      </LazySection>
+      <section id="challenges">
+  <PartnerMeetChallenges />
+</section>
 
-      <LazySection minHeight="80vh">
-        <section id="workflow">
-          <EventTypes />
-        </section>
-      </LazySection>
+<section id="features">
+  <PowerfulFeatures />
+</section>
 
-      <LazySection minHeight="80vh">
-        <section id="screens">
-          <PartnerAppShowcase />
-        </section>
-      </LazySection>
+<section id="workflow">
+  <EventTypes />
+</section>
 
-      <LazySection minHeight="80vh">
-        <WhyOventra />
-      </LazySection>
+<section id="screens">
+  <PartnerAppShowcase />
+</section>
 
-      <LazySection minHeight="60vh">
-        <section id="reports">
-          <QRCodeOrderingSection />
-        </section>
-      </LazySection>
+<section>
+  <WhyOventra />
+</section>
 
-      <LazySection minHeight="80vh">
-        <section id="benefits">
-          <BusinessBenefits />
-        </section>
-      </LazySection>
+<section id="reports">
+  <QRCodeOrderingSection />
+</section>
 
-      <LazySection minHeight="60vh">
-        <section id="why-oventra">
-          <WhyChooseOventra />
-        </section>
-      </LazySection>
+<section id="benefits">
+  <BusinessBenefits />
+</section>
+
+<section id="why-oventra">
+  <WhyChooseOventra />
+</section>
     </>
   );
 }

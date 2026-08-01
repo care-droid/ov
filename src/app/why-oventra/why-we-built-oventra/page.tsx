@@ -1,1034 +1,377 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { motion, type Variants } from "framer-motion";
+import {
+  Package,
+  MapPin,
+  ShieldCheck,
+  PenTool,
+  XCircle,
+  TrendingUp,
+  Users,
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+} from "lucide-react";
 
-/* ------------------------------------------------------------------
-   WHY WE BUILT Oventra
-   A premium, single-file brand-story page for Oventra Sports.
-   Palette: near-black, maroon, warm white, a touch of dark blue.
-   Signature element: the "carton match dial" — your event sits at
-   the center, and the ring of warehouses around it is always
-   quietly checking real stock, instead of you chasing suppliers.
-------------------------------------------------------------------- */
+/* ------------------------------------------------------------------ */
+/* Animation variants                                                   */
+/* ------------------------------------------------------------------ */
 
-/* ---------------------------- Data --------------------------------- */
+const fadeIn: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
 
-const VALUES = [
+const fadeLeft: Variants = {
+  hidden: { opacity: 0, x: -36 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
+const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+};
+
+/* ------------------------------------------------------------------ */
+/* Data                                                                  */
+/* ------------------------------------------------------------------ */
+
+const problems = [
   {
-    id: "instant",
-    title: "Live carton stock, not phone tag",
-    body: "See exactly how many cartons of your size run are available for your event date, live — instead of waiting three days for a supplier call-back.",
-    icon: (
-      <path d="M12 8v5l3 3M12 2a10 10 0 100 20 10 10 0 000-20z" />
-    ),
+    icon: PenTool,
+    n: "01",
+    title: "Paper Loss",
+    desc: "Traditional slips get lost, damaged, or misplaced. No guarantee of history.",
   },
   {
-    id: "verified",
-    title: "Verified factories, real quality checks",
-    body: "Every warehouse on Oventra is audited for authenticity, sizing accuracy, and packaging before a single carton is listed.",
-    icon: (
-      <path d="M12 2l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V5l7-3z" />
-    ),
+    icon: XCircle,
+    n: "02",
+    title: "Fake Orders",
+    desc: "Manual entries allow for fraudulent orders and stock manipulation.",
   },
   {
-    id: "onebooking",
-    title: "One order, one invoice, zero chasing",
-    body: "Size run, carton count, quote, and dispatch happen in the same flow — no separate emails, calls, or spreadsheets to reconcile.",
-    icon: (
-      <path d="M4 4h16v16H4V4zm4 4h8M8 12h8M8 16h5" />
-    ),
+    icon: Users,
+    n: "03",
+    title: "Invisible Network",
+    desc: "Cannot track distributors or dealers in real-time. Data is always delayed.",
   },
 ];
 
-const GALLERY = {
-  problem:
-    "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=1400&q=80",
-  origin:
-    "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=1400&q=80",
-  craftMain:
-    "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1800&q=80",
-  craftFloat:
-    "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1000&q=80",
-  quoteBg:
-    "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=1600&q=80",
-};
+const features = [
+  {
+    icon: Package,
+    title: "Book Cartons Digitally",
+    text: "Customize carton sizes and quantity instantly. Your stock is locked and guaranteed.",
+  },
+  {
+    icon: MapPin,
+    title: "Live Distribution Tracking",
+    text: "Track every dealer's location and order status on a live interactive map.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Fraud Prevention",
+    text: "Every order requires digital verification. Eliminate fake entries permanently.",
+  },
+];
 
-/* ------------------------- Reveal-on-scroll ------------------------- */
+const galleryImages = [
+  { src: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=500", offset: "mt-12" },
+  { src: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=500", offset: "" },
+  { src: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=500", offset: "" },
+  { src: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&q=80&w=500", offset: "mt-[-3rem]" },
+];
 
-function useReveal<T extends HTMLElement>() {
-  const ref = useRef<T | null>(null);
-  const [visible, setVisible] = useState(false);
+/* ------------------------------------------------------------------ */
+/* Page                                                                  */
+/* ------------------------------------------------------------------ */
 
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.18 }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  return { ref, visible };
-}
-
-function Reveal({
-  className = "",
-  delay = 0,
-  children,
-}: {
-  className?: string;
-  delay?: number;
-  children: React.ReactNode;
-}) {
-  const { ref, visible } = useReveal<HTMLDivElement>();
+export default function OventraLanding() {
   return (
-    <div
-      ref={ref}
-      className={`reveal ${visible ? "reveal--visible" : ""} ${className}`}
-      style={{ transitionDelay: visible ? `${delay}ms` : "0ms" }}
-    >
-      {children}
-    </div>
-  );
-}
+    <div className="min-h-screen bg-white text-[#1c1418] font-sans overflow-x-hidden selection:bg-[#741A34] selection:text-white">
+      {/* ============================================================ */}
+      {/* HERO                                                          */}
+      {/* ============================================================ */}
+      <section className="relative pt-36 pb-24 px-6 overflow-hidden">
+        {/* mesh glow */}
+        <div className="pointer-events-none absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-[#741A34]/10 blur-[120px]" />
+        <div className="pointer-events-none absolute top-40 -left-32 w-[420px] h-[420px] rounded-full bg-[#A82242]/8 blur-[100px]" />
 
-/* ----------------------------- The Dial ------------------------------ */
-/* The signature element: a "carton match dial" — your event sits at the
-   center, and the ring of warehouses around it is always quietly
-   re-checking who actually has stock, instead of you doing the calling. */
+        <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            variants={staggerContainer}
+          >
+            <motion.span
+              variants={fadeIn}
+              className="inline-flex items-center gap-2 bg-[#741A34]/6 border border-[#741A34]/15 rounded-full pl-3 pr-4 py-1.5 mb-8 text-[#741A34] text-xs font-bold tracking-[0.14em]"
+            >
+              Simplifying B2b Ordering
+            </motion.span>
 
-const ORBIT_NODES = 7;
+            <motion.h1
+              variants={fadeIn}
+              className="text-5xl lg:text-[4.5rem] font-extrabold leading-[1.02] tracking-tight mb-7"
+            >
+              Stop Losing Orders
+              <br />
+              to{" "}
+              <span className="relative inline-block text-[#741A34]">
+                Paper Chains.
+                <svg
+                  className="absolute -bottom-2 left-0 w-full"
+                  viewBox="0 0 200 8"
+                  fill="none"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M2 6C40 2 160 2 198 6"
+                    stroke="#A82242"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+            </motion.h1>
 
-function CartonMatchDial({ size = 340 }: { size?: number }) {
-  const ticks = Array.from({ length: 48 });
-  const nodes = Array.from({ length: ORBIT_NODES });
+            <motion.p
+              variants={fadeIn}
+              className="text-lg text-[#5c5158] mb-10 max-w-lg leading-relaxed"
+            >
+              OVENTRA digitizes your entire shoe distribution network. From
+              carton booking to live dealer tracking — no more lost papers,
+              no more fake orders.
+            </motion.p>
 
-  return (
-    <div className="dial-wrap" style={{ width: size, height: size }}>
-      <svg viewBox="0 0 200 200" className="dial-svg" aria-hidden="true">
-        <defs>
-          <filter id="dialGlow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="2.6" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        {/* slowly rotating outer tick ring, like a radar sweeping for stock */}
-        <g className="dial-rotor">
-          <circle cx="100" cy="100" r="92" className="dial-rim" />
-          {ticks.map((_, i) => {
-            const angle = i * (360 / ticks.length);
-            const major = i % 6 === 0;
-            const r1 = major ? 80 : 86;
-            const r2 = 92;
-            const rad = (angle * Math.PI) / 180;
-            const x1 = 100 + r1 * Math.cos(rad);
-            const y1 = 100 + r1 * Math.sin(rad);
-            const x2 = 100 + r2 * Math.cos(rad);
-            const y2 = 100 + r2 * Math.sin(rad);
-            return (
-              <line
-                key={i}
-                x1={x1}
-                y1={y1}
-                x2={x2}
-                y2={y2}
-                className={major ? "tick tick--major" : "tick"}
-              />
-            );
-          })}
-        </g>
-
-        {/* connecting lines from event to each warehouse node */}
-        <g className="dial-links">
-          {nodes.map((_, i) => {
-            const angle = -90 + i * (360 / nodes.length);
-            const rad = (angle * Math.PI) / 180;
-            const r = 62;
-            const x = 100 + r * Math.cos(rad);
-            const y = 100 + r * Math.sin(rad);
-            return (
-              <line
-                key={i}
-                x1="100"
-                y1="100"
-                x2={x}
-                y2={y}
-                className="dial-link"
-                style={{ animationDelay: `${i * 0.4}s` }}
-              />
-            );
-          })}
-        </g>
-
-        {/* warehouse nodes, pulsing as they're "matched" one by one */}
-        <g className="dial-nodes" filter="url(#dialGlow)">
-          {nodes.map((_, i) => {
-            const angle = -90 + i * (360 / nodes.length);
-            const rad = (angle * Math.PI) / 180;
-            const r = 62;
-            const x = 100 + r * Math.cos(rad);
-            const y = 100 + r * Math.sin(rad);
-            return (
-              <circle
-                key={i}
-                cx={x}
-                cy={y}
-                r="4.2"
-                className="dial-node"
-                style={{ animationDelay: `${i * 0.4}s` }}
-              />
-            );
-          })}
-        </g>
-
-        {/* center: the event */}
-        <circle cx="100" cy="100" r="40" className="dial-face" />
-        <circle cx="100" cy="100" r="40" className="dial-face-ring" />
-      </svg>
-
-      <div className="dial-readout">
-        <span className="dial-readout__num">Your Event</span>
-        <span className="dial-readout__unit">matching carton stock…</span>
-      </div>
-    </div>
-  );
-}
-
-/* ----------------------------- Icon shell ---------------------------- */
-
-function Icon({ children }: { children: React.ReactNode }) {
-  return (
-    <svg
-      className="value-icon"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {children}
-    </svg>
-  );
-}
-
-/* ------------------------------- Page -------------------------------- */
-
-export default function WhyWeBuiltOventra() {
-  const scrollToStory = () => {
-    document
-      .getElementById("the-problem")
-      ?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToOrder = () => {
-    document
-      .getElementById("order-carton")
-      ?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  return (
-    <div className="ov-root">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-        .ov-root {
-          --black: #0a0908;
-          --black-soft: #14110f;
-          --black-card: #17130f;
-          --maroon: #5c1220;
-          --maroon-bright: #9a2a3d;
-          --maroon-line: #7a1d2c;
-          --navy: #0d1526;
-          --navy-soft: #131e35;
-          --white: #f5f1ea;
-          --muted: #a99c95;
-          --hair: rgba(245, 241, 234, 0.1);
-          font-family: 'Inter', -apple-system, sans-serif;
-          background: var(--black);
-          color: var(--white);
-          overflow-x: hidden;
-          position: relative;
-        }
-
-        .ov-root * { box-sizing: border-box; }
-
-        .ov-root h1, .ov-root h2, .ov-root h3, .ov-root blockquote {
-          font-family: 'Inter', sans-serif;
-          letter-spacing: -0.01em;
-          margin: 0;
-        }
-
-        .eyebrow {
-          font-family: 'Inter', sans-serif;
-          font-size: 0.72rem;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: var(--maroon-bright);
-          display: flex;
-          align-items: center;
-          gap: 0.6rem;
-          margin-bottom: 1.1rem;
-        }
-        .eyebrow::before {
-          content: '';
-          width: 22px;
-          height: 1px;
-          background: var(--maroon-bright);
-          display: inline-block;
-        }
-
-        .container {
-          max-width: 1180px;
-          margin: 0 auto;
-          padding: 0 clamp(1.25rem, 4vw, 3rem);
-        }
-
-        /* -------- hero -------- */
-        .hero {
-          position: relative;
-          min-height: 100svh;
-          display: grid;
-          grid-template-columns: 1.1fr 0.9fr;
-          align-items: center;
-          gap: 2rem;
-          padding-top: clamp(3rem, 8vw, 5rem);
-        }
-        .hero::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background:
-            radial-gradient(60% 55% at 82% 30%, rgba(13, 21, 38, 0.85) 0%, transparent 70%),
-            radial-gradient(45% 45% at 8% 92%, rgba(92, 18, 32, 0.35) 0%, transparent 70%);
-          pointer-events: none;
-        }
-        .hero__copy { position: relative; z-index: 2; }
-        .hero h1 {
-          font-size: clamp(2.6rem, 6vw, 4.6rem);
-          font-weight: 600;
-          line-height: 1.03;
-        }
-        .hero h1 em {
-          font-style: italic;
-          font-weight: 500;
-          color: var(--maroon-bright);
-        }
-        .hero__sub {
-          margin-top: 1.6rem;
-          max-width: 46ch;
-          font-size: clamp(1rem, 1.4vw, 1.15rem);
-          line-height: 1.7;
-          color: var(--muted);
-        }
-        .hero__ctas {
-          margin-top: 2.4rem;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.9rem;
-        }
-        .hero__cta {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.6rem;
-          font-family: 'Inter', sans-serif;
-          font-size: 0.78rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--white);
-          background: transparent;
-          border: 1px solid var(--maroon-line);
-          padding: 0.9rem 1.4rem;
-          border-radius: 999px;
-          cursor: pointer;
-          transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-        }
-        .hero__cta:hover {
-          background: var(--maroon);
-          border-color: var(--maroon-bright);
-          transform: translateY(-2px);
-        }
-        .hero__cta--solid {
-          background: var(--white);
-          color: var(--black);
-          border-color: var(--white);
-        }
-        .hero__cta--solid:hover {
-          background: var(--maroon-bright);
-          border-color: var(--maroon-bright);
-          color: var(--white);
-        }
-        .hero__cta svg { width: 14px; height: 14px; animation: bob 1.8s ease-in-out infinite; }
-
-        .hero__dial {
-          position: relative;
-          z-index: 2;
-          display: flex;
-          justify-content: center;
-        }
-
-        /* -------- dial -------- */
-        .dial-wrap { position: relative; }
-        .dial-svg { width: 100%; height: 100%; overflow: visible; }
-        .dial-rim { fill: none; stroke: var(--hair); stroke-width: 1; }
-        .tick { stroke: rgba(245, 241, 234, 0.22); stroke-width: 1; }
-        .tick--major { stroke: rgba(245, 241, 234, 0.45); stroke-width: 1.4; }
-        .dial-rotor {
-          transform-origin: 100px 100px;
-          animation: rotor-spin 40s linear infinite;
-        }
-        .dial-face {
-          fill: var(--black-soft);
-          stroke: var(--hair);
-          stroke-width: 1;
-        }
-        .dial-face-ring {
-          fill: none;
-          stroke: var(--maroon-line);
-          stroke-width: 1;
-          opacity: 0.6;
-        }
-        .dial-link {
-          stroke: var(--maroon-line);
-          stroke-width: 1;
-          opacity: 0.18;
-          animation: link-pulse 4.8s ease-in-out infinite;
-        }
-        .dial-node {
-          fill: var(--maroon-bright);
-          opacity: 0.35;
-          transform-box: fill-box;
-          transform-origin: center;
-          animation: node-pulse 4.8s ease-in-out infinite;
-        }
-        .dial-readout {
-          position: absolute;
-          inset: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          pointer-events: none;
-          text-align: center;
-        }
-        .dial-readout__num {
-          font-family: 'Inter', sans-serif;
-          font-style: italic;
-          font-weight: 500;
-          font-size: clamp(1.1rem, 2.4vw, 1.4rem);
-          color: var(--white);
-        }
-        .dial-readout__unit {
-          font-family: 'Inter', sans-serif;
-          font-size: 0.64rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--muted);
-          margin-top: 0.35rem;
-        }
-
-        @keyframes rotor-spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes link-pulse {
-          0%, 70%, 100% { opacity: 0.15; }
-          85% { opacity: 0.75; }
-        }
-        @keyframes node-pulse {
-          0%, 70%, 100% { opacity: 0.35; transform: scale(1); }
-          85% { opacity: 1; transform: scale(1.6); }
-        }
-        @keyframes bob {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(3px); }
-        }
-
-        /* -------- generic sections -------- */
-        section { position: relative; padding: clamp(5rem, 10vw, 8rem) 0; }
-        .split {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: clamp(2rem, 5vw, 4.5rem);
-          align-items: center;
-        }
-        .split.reverse .split__media { order: 2; }
-        .split.reverse .split__text { order: 1; }
-
-        .split__text h2 {
-          font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-          font-weight: 600;
-          line-height: 1.15;
-        }
-        .split__text p {
-          margin-top: 1.3rem;
-          color: var(--muted);
-          font-size: 1.02rem;
-          line-height: 1.85;
-        }
-
-        .media-frame {
-          position: relative;
-          border-radius: 4px;
-          overflow: hidden;
-          aspect-ratio: 4 / 3.1;
-          border: 1px solid var(--hair);
-          box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7);
-        }
-        .media-frame img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-          transition: transform 1.4s cubic-bezier(.16,1,.3,1);
-        }
-        .media-frame:hover img { transform: scale(1.05); }
-        .media-frame::after {
-          content: '';
-          position: absolute; inset: 0;
-          background: linear-gradient(180deg, transparent 60%, rgba(10,9,8,0.55) 100%);
-        }
-
-        .section--origin {
-          background: linear-gradient(180deg, var(--black) 0%, var(--navy) 50%, var(--black) 100%);
-        }
-
-        /* -------- values -------- */
-        .values-head { max-width: 640px; margin-bottom: 3.2rem; }
-        .values-head h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 600; }
-        .values-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1.6rem;
-        }
-        .value-card {
-          background: var(--black-card);
-          border: 1px solid var(--hair);
-          border-radius: 6px;
-          padding: 2.1rem 1.8rem;
-          transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
-        }
-        .value-card:hover {
-          border-color: var(--maroon-line);
-          transform: translateY(-6px);
-          background: #1b1410;
-        }
-        .value-icon {
-          width: 30px; height: 30px;
-          color: var(--maroon-bright);
-          margin-bottom: 1.4rem;
-        }
-        .value-card h3 {
-          font-size: 1.15rem;
-          font-weight: 600;
-          margin-bottom: 0.7rem;
-        }
-        .value-card p {
-          color: var(--muted);
-          font-size: 0.95rem;
-          line-height: 1.7;
-        }
-
-        /* -------- craft banner -------- */
-        .craft {
-          position: relative;
-          border-radius: 4px;
-          overflow: hidden;
-          min-height: 560px;
-          display: flex;
-          align-items: flex-end;
-        }
-        .craft img.craft__bg {
-          position: absolute; inset: 0;
-          width: 100%; height: 100%;
-          object-fit: cover;
-        }
-        .craft::before {
-          content: '';
-          position: absolute; inset: 0;
-          background: linear-gradient(90deg, rgba(10,9,8,0.92) 10%, rgba(10,9,8,0.35) 60%, rgba(13,21,38,0.55) 100%);
-        }
-        .craft__copy {
-          position: relative;
-          z-index: 2;
-          padding: clamp(2rem, 5vw, 3.5rem);
-          max-width: 560px;
-        }
-        .craft__copy h2 {
-          font-size: clamp(1.9rem, 3.6vw, 2.7rem);
-          font-weight: 600;
-          color: var(--white);
-        }
-        .craft__copy p {
-          margin-top: 1.2rem;
-          color: var(--muted);
-          line-height: 1.8;
-        }
-        .craft__float {
-          position: absolute;
-          top: 8%;
-          right: 6%;
-          width: clamp(140px, 20vw, 220px);
-          aspect-ratio: 3/4;
-          border-radius: 4px;
-          overflow: hidden;
-          border: 1px solid rgba(245,241,234,0.18);
-          box-shadow: 0 30px 60px -20px rgba(0,0,0,0.8);
-          z-index: 2;
-          animation: float 6s ease-in-out infinite;
-        }
-        .craft__float img { width: 100%; height: 100%; object-fit: cover; }
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-14px); }
-        }
-
-        /* -------- quote -------- */
-        .quote-section {
-          position: relative;
-          text-align: center;
-          overflow: hidden;
-        }
-        .quote-section__bg {
-          position: absolute; inset: 0;
-          background-size: cover;
-          background-position: center;
-          opacity: 0.14;
-          filter: grayscale(1) contrast(1.1);
-        }
-        .quote-section__scrim {
-          position: absolute; inset: 0;
-          background: linear-gradient(180deg, var(--black) 0%, rgba(10,9,8,0.85) 50%, var(--black) 100%);
-        }
-        blockquote {
-          position: relative;
-          z-index: 2;
-          max-width: 780px;
-          margin: 0 auto;
-          font-size: clamp(1.5rem, 3.4vw, 2.3rem);
-          font-style: italic;
-          font-weight: 500;
-          line-height: 1.5;
-        }
-        .quote-rule {
-          width: 46px; height: 2px;
-          background: var(--maroon-bright);
-          margin: 1.8rem auto 0;
-          position: relative; z-index: 2;
-        }
-        .quote-attr {
-          position: relative; z-index: 2;
-          margin-top: 1rem;
-          font-family: 'Inter', sans-serif;
-          font-size: 0.75rem;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--muted);
-        }
-
-        /* -------- order carton -------- */
-        .order-section {
-          background: linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
-        }
-        .order-card {
-          background: var(--black-card);
-          border: 1px solid var(--maroon-line);
-          border-radius: 10px;
-          padding: clamp(2rem, 5vw, 3.5rem);
-          display: grid;
-          grid-template-columns: 1.2fr 1fr;
-          gap: clamp(2rem, 4vw, 3rem);
-          align-items: center;
-        }
-        .order-card__text h2 {
-          font-size: clamp(1.7rem, 3vw, 2.3rem);
-          font-weight: 600;
-        }
-        .order-card__text p {
-          margin-top: 1.1rem;
-          color: var(--muted);
-          line-height: 1.8;
-        }
-        .order-list {
-          list-style: none;
-          margin: 1.6rem 0 0;
-          padding: 0;
-          display: grid;
-          gap: 0.7rem;
-          font-family: 'Inter', sans-serif;
-          font-size: 0.78rem;
-          letter-spacing: 0.04em;
-          color: var(--white);
-        }
-        .order-list li {
-          display: flex;
-          align-items: center;
-          gap: 0.6rem;
-        }
-        .order-list li::before {
-          content: '';
-          width: 6px; height: 6px;
-          border-radius: 50%;
-          background: var(--maroon-bright);
-          flex-shrink: 0;
-        }
-        .order-card__form {
-          background: var(--black-soft);
-          border: 1px solid var(--hair);
-          border-radius: 8px;
-          padding: 1.8rem;
-        }
-        .order-card__form label {
-          display: block;
-          font-family: 'Inter', sans-serif;
-          font-size: 0.68rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--muted);
-          margin-bottom: 0.4rem;
-        }
-        .order-card__form input,
-        .order-card__form select {
-          width: 100%;
-          background: var(--black);
-          border: 1px solid var(--hair);
-          color: var(--white);
-          padding: 0.75rem 0.9rem;
-          border-radius: 6px;
-          font-family: 'Inter', sans-serif;
-          font-size: 0.92rem;
-          margin-bottom: 1.1rem;
-        }
-        .order-card__form input:focus,
-        .order-card__form select:focus {
-          outline: none;
-          border-color: var(--maroon-bright);
-        }
-        .order-card__form button {
-          width: 100%;
-          font-family: 'Inter', sans-serif;
-          font-size: 0.78rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--black);
-          background: var(--white);
-          border: none;
-          padding: 0.95rem 1.2rem;
-          border-radius: 999px;
-          cursor: pointer;
-          transition: background 0.25s ease, transform 0.25s ease, color 0.25s ease;
-        }
-        .order-card__form button:hover {
-          background: var(--maroon-bright);
-          color: var(--white);
-          transform: translateY(-2px);
-        }
-
-        /* -------- footer -------- */
-        .footer {
-          border-top: 1px solid var(--hair);
-          padding: clamp(3rem, 6vw, 4.5rem) 0 3rem;
-        }
-        .footer__top {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 2rem;
-          flex-wrap: wrap;
-        }
-        .footer__tagline {
-          font-size: clamp(1.3rem, 2.4vw, 1.7rem);
-          font-weight: 500;
-          max-width: 22ch;
-        }
-        .footer__cta {
-          font-family: 'Inter', sans-serif;
-          font-size: 0.78rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: var(--black);
-          background: var(--white);
-          border: none;
-          padding: 1rem 1.7rem;
-          border-radius: 999px;
-          cursor: pointer;
-          transition: background 0.25s ease, transform 0.25s ease;
-        }
-        .footer__cta:hover { background: var(--maroon-bright); color: var(--white); transform: translateY(-2px); }
-        .footer__bottom {
-          margin-top: 3rem;
-          padding-top: 1.6rem;
-          border-top: 1px solid var(--hair);
-          display: flex;
-          justify-content: space-between;
-          color: var(--muted);
-          font-family: 'Inter', sans-serif;
-          font-size: 0.7rem;
-          letter-spacing: 0.08em;
-        }
-
-        /* -------- reveal animation -------- */
-        .reveal {
-          opacity: 0;
-          transform: translateY(28px);
-          transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1);
-        }
-        .reveal--visible { opacity: 1; transform: translateY(0); }
-
-        /* -------- responsive -------- */
-        @media (max-width: 900px) {
-          .hero { grid-template-columns: 1fr; text-align: left; }
-          .hero__dial { margin-top: 2.5rem; }
-          .split, .split.reverse { grid-template-columns: 1fr; }
-          .split.reverse .split__media, .split.reverse .split__text { order: initial; }
-          .values-grid { grid-template-columns: 1fr; }
-          .craft { min-height: 460px; }
-          .craft__float { display: none; }
-          .order-card { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 560px) {
-          .nav__link { display: none; }
-          .footer__top { flex-direction: column; align-items: flex-start; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-          .dial-needle, .craft__float, .hero__cta svg { animation: none !important; }
-          .media-frame img { transition: none !important; }
-        }
-      `}</style>
-
-      {/* ---------------- Hero ---------------- */}
-      <header className="hero container">
-        <div className="hero__copy">
-          <div className="eyebrow">The Oventra Story</div>
-          <h1>
-            Why we built <em>Oventra</em>
-          </h1>
-          <p className="hero__sub">
-            Every great event still runs on WhatsApp forwards, unpriced
-            catalogues, and guessing which factory can actually ship your
-            size run on time. We built Oventra so you can find your event, check
-            real carton stock, and place a bulk order — in minutes, not a
-            week of chasing suppliers.
-          </p>
-          <div className="hero__ctas">
-            <button className="hero__cta hero__cta--solid" onClick={scrollToOrder}>
-              Order a carton
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M20 12H4M14 6l6 6-6 6" />
-              </svg>
-            </button>
-            <button className="hero__cta" onClick={scrollToStory}>
-              Read the story
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 4v16M6 14l6 6 6-6" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div className="hero__dial">
-          <CartonMatchDial size={340} />
-        </div>
-      </header>
-
-      {/* ---------------- The Problem ---------------- */}
-      <section id="the-problem">
-        <div className="container split">
-          <Reveal className="split__text">
-            <div className="eyebrow">The Problem</div>
-            <h2>Ordering shoes for an event shouldn&apos;t feel like a second job</h2>
-            <p>
-              You&apos;ve locked the venue, the guest list, the run-of-show — and
-              now the real work starts: fifteen chats open with distributors,
-              a dozen messages asking who actually has your size run in
-              stock, and quotes that trickle in over days in totally
-              different formats.
-            </p>
-            <p>
-              Nobody can tell you how many cartons are actually available for
-              your date until you&apos;ve already asked. So you plan around
-              silence, chase replies, and hope the batch you liked hasn&apos;t
-              already sold out by the time your event rolls around.
-            </p>
-          </Reveal>
-          <Reveal className="split__media" delay={120}>
-            <div className="media-frame">
-              <img src={GALLERY.problem} alt="A pair of running shoes laid out before an event" loading="lazy" />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ---------------- Origin ---------------- */}
-      <section className="section--origin">
-        <div className="container split reverse">
-          <Reveal className="split__media">
-            <div className="media-frame">
-              <img src={GALLERY.origin} alt="Rows of sneakers displayed on a warehouse shelf" loading="lazy" />
-            </div>
-          </Reveal>
-          <Reveal className="split__text" delay={120}>
-            <div className="eyebrow">How It Started</div>
-            <h2>A marathon giveaway, six weeks, and one spreadsheet</h2>
-            <p>
-              It started with our own event. Six weeks out, we still didn&apos;t
-              have finisher-kit sneakers confirmed — not for lack of trying,
-              but because every lead went through the same loop: a call, a
-              voicemail, a catalogue PDF with no prices, a quote that arrived
-              four days later.
-            </p>
-            <p>
-              We ended up with a spreadsheet of forty distributors and no way
-              to tell, at a glance, who could actually deliver our size run
-              on our date. So we built the tool we wished existed: one place
-              to see who&apos;s stocked, what a carton costs, and how to order it
-              — today.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ---------------- Values ---------------- */}
-      <section>
-        <div className="container">
-          <Reveal className="values-head">
-            <div className="eyebrow">What We Believe</div>
-            <h2>Three rules the whole company answers to</h2>
-          </Reveal>
-          <div className="values-grid">
-            {VALUES.map((v, i) => (
-              <Reveal key={v.id} delay={i * 100} className="value-card">
-                <Icon>{v.icon}</Icon>
-                <h3>{v.title}</h3>
-                <p>{v.body}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------- The Craft ---------------- */}
-      <section>
-        <div className="container">
-          <Reveal>
-            <div className="craft">
-              <img className="craft__bg" src={GALLERY.craftMain} alt="A pair of red sneakers on a dark studio backdrop" loading="lazy" />
-              <div className="craft__float">
-                <img src={GALLERY.craftFloat} alt="Pastel sneakers styled for a product shoot" loading="lazy" />
-              </div>
-              <div className="craft__copy">
-                <div className="eyebrow">What We Built</div>
-                <h2>Every SKU tracked. One honest dial.</h2>
-                <p>
-                  Oventra reads live inventory across every partner warehouse and
-                  recalibrates availability the moment a carton moves — not
-                  just once a week. No more guessing which size run actually
-                  matches the number on the listing.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      
-
-      {/* ---------------- Order a Carton ---------------- */}
-      <section id="order-carton" className="order-section">
-        <div className="container">
-          <Reveal>
-            <div className="order-card">
-              <div className="order-card__text">
-                <div className="eyebrow">For Events</div>
-                <h2>Ordering for an event? Get a carton, not a headache.</h2>
-                <p>
-                  Weddings, corporate gifting, marathons, team kits — tell us
-                  your event date and size run, and we&apos;ll match you to a
-                  verified warehouse with real stock, a single quote, and one
-                  invoice.
-                </p>
-                <ul className="order-list">
-                  <li>Minimum order: 1 carton (12 pairs)</li>
-                  <li>Live size-run availability by event date</li>
-                  <li>Dispatch tracked from warehouse to venue</li>
-                </ul>
-              </div>
-              {/* <form
-                className="order-card__form"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const form = e.currentTarget as HTMLFormElement;
-                  const data = new FormData(form);
-                  const name = data.get("name");
-                  const event = data.get("event");
-                  const date = data.get("date");
-                  const cartons = data.get("cartons");
-                  const size = data.get("size");
-                  const subject = encodeURIComponent(`Carton order enquiry — ${event || "event"}`);
-                  const body = encodeURIComponent(
-                    `Name: ${name}\nEvent: ${event}\nEvent date: ${date}\nCartons needed: ${cartons}\nSize run: ${size}`
-                  );
-                  window.location.href = `mailto:orders@Oventrasports.com?subject=${subject}&body=${body}`;
-                }}
+            <motion.div variants={fadeIn} className="flex flex-wrap items-center gap-6">
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2.5 bg-[#741A34] hover:bg-[#5c1428] text-white px-8 py-4 rounded-xl font-bold text-base shadow-[0_18px_40px_-12px_rgba(116,26,52,0.55)] transition-colors"
               >
-                <label htmlFor="name">Your name</label>
-                <input id="name" name="name" type="text" placeholder="Full name" required />
+               <a
+                href="#features"
+                className="text-sm font-bold text-[#fff] hover:text-[#741A34] transition-colors underline decoration-[#741A34]/30 underline-offset-4"
+              >
+                See how it works
+              </a>
+              </motion.button>
+              
+            </motion.div>
+          </motion.div>
 
-                <label htmlFor="event">Event type</label>
-                <input id="event" name="event" type="text" placeholder="Wedding, marathon, corporate…" required />
-
-                <label htmlFor="date">Event date</label>
-                <input id="date" name="date" type="date" required />
-
-                <label htmlFor="cartons">Cartons needed</label>
-                <input id="cartons" name="cartons" type="number" min={1} placeholder="e.g. 5" required />
-
-                <label htmlFor="size">Size run</label>
-                <select id="size" name="size" defaultValue="mixed">
-                  <option value="mixed">Mixed sizes (assorted)</option>
-                  <option value="uniform">Uniform size run</option>
-                  <option value="custom">Custom breakdown</option>
-                </select>
-
-                <button type="submit">Request carton quote</button>
-              </form> */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            variants={scaleIn}
+            className="relative"
+          >
+            <div className="rounded-[2rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(116,26,52,0.35)] border-[6px] border-white ring-1 ring-[#741A34]/10">
+              <Image
+                src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=900"
+                alt="Premium shoes"
+                width={900}
+                height={1000}
+                className="w-full h-[520px] object-cover"
+              />
             </div>
-          </Reveal>
+
+           
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7, duration: 0.5, ease: "easeOut" }}
+              className="absolute -top-5 -right-5 bg-[#741A34] text-white text-xs font-bold tracking-wide px-4 py-2.5 rounded-full shadow-lg"
+            >
+              100% Verified
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ---------------- Footer ---------------- */}
-      <footer className="footer">
-        <div className="container">
-          <Reveal className="footer__top">
-            <div className="footer__tagline">
-              Step up before the event does.
-            </div>
-            <button className="footer__cta" onClick={scrollToOrder}>
-              Order a Carton
-            </button>
-          </Reveal>
-          <div className="footer__bottom">
-            <span>Oventra SPORTS</span>
-            <span>© {new Date().getFullYear()} Oventra Sports. Honest stock, always.</span>
-          </div>
+      {/* ============================================================ */}
+      {/* PROBLEM                                                       */}
+      {/* ============================================================ */}
+      <section className="py-24 bg-[#fdf7f7] relative">
+        <div className="max-w-7xl mx-auto px-6 text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-[#A82242] text-xs font-bold tracking-[0.2em] mb-4 block"
+          >
+            THE PROBLEM
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight"
+          >
+            Why We Built <span className="text-[#741A34]">OVENTRA</span>
+          </motion.h2>
+          <p className="text-[#6b6b6b] text-base md:text-lg">
+            The traditional way is broken. We fixed it.
+          </p>
         </div>
-      </footer>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+          className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6"
+        >
+          {problems.map(({ icon: Icon, n, title, desc }) => (
+            <motion.div
+              key={title}
+              variants={fadeIn}
+              whileHover={{ y: -6 }}
+              className="relative bg-white p-8 rounded-2xl border border-[#741A34]/10 hover:border-[#741A34]/40 hover:shadow-[0_25px_60px_-20px_rgba(116,26,52,0.25)] transition-all group"
+            >
+              <span className="absolute top-6 right-7 text-[2.5rem] font-extrabold text-[#741A34]/[0.06] group-hover:text-[#741A34]/10 transition-colors leading-none">
+                {n}
+              </span>
+              <div className="relative w-12 h-12 flex items-center justify-center rounded-xl bg-[#741A34]/8 text-[#741A34] mb-5 group-hover:bg-[#741A34] group-hover:text-white transition-colors">
+                <Icon size={20} />
+              </div>
+              <h3 className="text-xl font-bold mb-2">{title}</h3>
+              <p className="text-[#6b6b6b] leading-relaxed">{desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* FEATURES / SOLUTION                                           */}
+      {/* ============================================================ */}
+      <section id="features" className="py-28 px-6 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={staggerContainer}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.span
+              variants={fadeIn}
+              className="text-[#A82242] text-xs font-bold tracking-[0.2em] mb-4 block"
+            >
+              THE SOLUTION
+            </motion.span>
+            <motion.h2
+              variants={fadeIn}
+              className="text-4xl font-extrabold mb-12 tracking-tight leading-tight"
+            >
+              Built for the{" "}
+              <span className="text-[#741A34]">Footwear Industry</span>
+            </motion.h2>
+
+            <div className="space-y-9">
+              {features.map(({ icon: Icon, title, text }) => (
+                <motion.div key={title} variants={fadeIn} className="flex gap-6">
+                  <div className="bg-[#741A34] text-white p-4 h-fit rounded-xl shadow-[0_12px_28px_-10px_rgba(116,26,52,0.5)]">
+                    <Icon size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-1.5">{title}</h4>
+                    <p className="text-[#6b6b6b] leading-relaxed">{text}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 gap-4"
+          >
+            {galleryImages.map(({ src, offset }, i) => (
+              <motion.div
+                key={i}
+                variants={scaleIn}
+                whileHover={{ scale: 1.04 }}
+                transition={{ duration: 0.35 }}
+                className={`relative rounded-2xl overflow-hidden shadow-[0_20px_45px_-18px_rgba(116,26,52,0.3)] h-64 ${offset}`}
+              >
+                <Image src={src} alt="Shoes" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#741A34]/25 via-transparent to-transparent" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* LIVE TRACKING DEMO                                            */}
+      {/* ============================================================ */}
+      <section className="relative py-24 bg-[#140c0f] text-white overflow-hidden">
+        <div className="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#741A34]/25 blur-[130px]" />
+
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+          <motion.div
+            variants={fadeLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            <span className="text-[#e0a3b4] text-xs font-bold tracking-[0.2em] mb-4 block">
+              LIVE VISIBILITY
+            </span>
+            <h2 className="text-4xl font-extrabold mb-6 tracking-tight">
+              Real-Time Visibility
+            </h2>
+            <p className="text-white/60 mb-9 leading-relaxed max-w-md">
+              See your entire warehouse and distribution fleet on one
+              dashboard. No more phone calls asking &ldquo;where is my
+              carton?&rdquo; check it live with OVENTRA&apos;s
+              GPS-integrated network.
+            </p>
+            <div className="flex items-center gap-4 border-l-2 border-[#A82242] pl-6 py-1">
+              <TrendingUp className="text-[#A82242]" size={22} />
+              <span className="font-bold text-xl">
+                Increase in Order Efficiency
+              </span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative bg-white/[0.03] rounded-2xl p-4 aspect-video overflow-hidden border border-white/10 backdrop-blur-sm"
+          >
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=900')] opacity-30 bg-cover grayscale" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#140c0f] via-transparent to-transparent" />
+            <div className="relative z-10 flex items-center justify-center h-full">
+              <div className="flex items-center gap-2.5 bg-[#741A34] px-6 py-3 rounded-full font-mono text-sm tracking-wide">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                LIVE_TRACKING_ACTIVE
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+    
     </div>
   );
 }

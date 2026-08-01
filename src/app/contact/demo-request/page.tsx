@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------
-   REQUEST A DEMO — TRV Sports
+   Book a Demo — TRV Sports
    Same design system as the "Why We Built TRV" story page:
    near-black, maroon, warm white, dark blue accent.
    Purpose: let distributors, event planners, and bulk buyers book
@@ -499,7 +499,7 @@ export default function RequestDemoPage() {
       {/* ---------------- Hero ---------------- */}
       <header className="hero container">
         <div className="hero__copy">
-          <div className="eyebrow">Request a Demo</div>
+          <div className="eyebrow">Book a Demo</div>
           <h1>
             See your event&apos;s carton order, <em>live</em>
           </h1>

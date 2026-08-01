@@ -21,6 +21,8 @@ type NavItem =
 
 
 const NAV_ITEMS: NavItem[] = [
+  
+  { type: "link", label: "Home", href: "/" },
   { type: "link", label: "About Us", href: "/about" },
   // { type: "link", label: "Plans", href: "/plans" },
 
@@ -141,14 +143,14 @@ const NAV_ITEMS: NavItem[] = [
   //     { label: "Cloud Platform", href: "/features/cloud-platform" },
   //   ],
   // },
-  {
-    type: "dropdown",
-    label: "Why OVENTRA",
-    items: [
-      { label: "Our Story", href: "/why-oventra/our-story" },
-      { label: "Why We Built OVENTRA", href: "/why-oventra/why-we-built-oventra" },
-    ],
-  },
+  // {
+  //   type: "dropdown",
+  //   label: "Why OVENTRA",
+  //   items: [
+  //     { label: "Our Story", href: "/why-oventra/our-story" },
+  //     { label: "Why We Built OVENTRA", href: "/why-oventra/why-we-built-oventra" },
+  //   ],
+  // },
  
   // {
   //   type: "dropdown",
@@ -169,6 +171,8 @@ const NAV_ITEMS: NavItem[] = [
   //     { label: "Career", href: "/contact/career" },
   //     ],
   // },
+  
+  { type: "link", label: "Why OVENTRA", href: "/why-oventra" },
   
   { type: "link", label: "Contact Us", href: "/contactus" },
 ];

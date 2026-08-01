@@ -110,7 +110,7 @@ export default function Contact() {
         <div className="relative w-full h-[70vh] overflow-hidden">
   {/* Background Image */}
   <img
-    src="/contactus/contactus.avif"
+    src="/contactUs/contactus.avif"
     alt="Contact Us"
     className="absolute inset-0 w-full h-full object-cover"
   />

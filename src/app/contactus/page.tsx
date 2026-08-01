@@ -169,7 +169,7 @@ export default function Contact() {
 
               <motion.a
                 whileHover={{ y: -3 }}
-                href="mailto:infooventra@gmail.com"
+                href="mailto:contactoventra@gmail.com"
                 className="group flex items-center justify-between gap-2 rounded-lg border border-[#741A34]/15 bg-[#faf8f7] px-4 py-4 hover:border-[#741A34]/40 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
@@ -179,7 +179,7 @@ export default function Contact() {
                       Email Us
                     </div>
                     <div className="text-[11px] text-[#8a7d81]">
-                      infooventra@gmail.com
+                      contactoventra@gmail.com
                     </div>
                   </div>
                 </div>

@@ -88,7 +88,7 @@ export default function Contact() {
     if (Object.keys(nextErrors).length > 0) return;
 
     const lines = [
-      `*New Project Enquiry*`,
+      `*Oventra Enquiry*`,
       `Name: ${form.fullName}`,
       `Email: ${form.email}`,
       form.phone ? `Phone: ${form.phone}` : null,
@@ -110,7 +110,7 @@ export default function Contact() {
         <div className="relative w-full h-[70vh] overflow-hidden">
   {/* Background Image */}
   <img
-    src="/contactUs/contactus.avif"
+    src="/contactUs/contact.webp"
     alt="Contact Us"
     className="absolute inset-0 w-full h-full object-cover"
   />
@@ -165,27 +165,7 @@ export default function Contact() {
               HOW WOULD YOU LIKE TO CONNECT?
             </p>
             <div className="grid sm:grid-cols-3 gap-3">
-              <motion.a
-                whileHover={{ y: -3 }}
-                href="#schedule"
-                className="group flex items-center justify-between gap-2 rounded-lg border border-[#741A34]/15 bg-[#faf8f7] px-4 py-4 hover:border-[#741A34]/40 transition-colors"
-              >
-                <div className="flex items-center gap-2.5">
-                  <Calendar size={16} className="text-[#741A34]" />
-                  <div>
-                    <div className="text-sm font-bold text-[#1c1c1c]">
-                      Schedule a Meeting
-                    </div>
-                    <div className="text-[11px] text-[#8a7d81]">
-                      We&apos;ll call you back
-                    </div>
-                  </div>
-                </div>
-                <ArrowRight
-                  size={14}
-                  className="text-[#741A34] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
-                />
-              </motion.a>
+              
 
               <motion.a
                 whileHover={{ y: -3 }}
@@ -274,7 +254,7 @@ export default function Contact() {
                 <input
                   value={form.fullName}
                   onChange={(e) => handleChange("fullName", e.target.value)}
-                  placeholder="Full Name *"
+                  placeholder="Your Name *"
                   className={`${inputBase} ${
                     errors.fullName ? "border-red-400" : "border-[#741A34]/15"
                   }`}
@@ -295,9 +275,10 @@ export default function Contact() {
                   errors.phone ? "border-red-400" : "border-[#741A34]/15"
                 }`}
               >
-                <span className="flex items-center gap-1 px-3 text-sm text-[#4a4a4a] border-r border-[#741A34]/15">
-                  🇮🇳 +91
-                </span>
+                <span className="flex items-center gap-2 whitespace-nowrap px-4 border-r border-[#741A34]/15 text-sm text-[#4a4a4a]">
+  <span>🇮🇳</span>
+  <span>+91</span>
+</span>
                 <input
                   type="tel"
                   inputMode="numeric"
@@ -364,26 +345,18 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 mt-6 border-t border-[#741A34]/10">
-              <p className="flex items-center gap-1.5 text-xs text-[#8a7d81]">
-                <ShieldCheck size={13} className="text-[#741A34]" />
-                Your data is protected by our{" "}
-                <a href="#privacy" className="underline text-[#741A34]">
-                  Privacy Policy
-                </a>
-              </p>
-
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={handleSubmit}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#741A34] hover:bg-[#5c1428] text-white text-sm font-bold px-7 py-3.5 rounded-md transition-colors"
-              >
-                <MessageCircle size={16} />
-                Submit via WhatsApp
-                <ArrowRight size={15} />
-              </motion.button>
-            </div>
+           <div className="pt-6 mt-6 border-t border-[#741A34]/10">
+  <motion.button
+    whileHover={{ scale: 1.03 }}
+    whileTap={{ scale: 0.97 }}
+    onClick={handleSubmit}
+    className="w-full flex items-center justify-center gap-2 bg-[#741A34] hover:bg-[#5c1428] text-white text-sm font-bold px-7 py-3.5 rounded-md transition-colors"
+  >
+    <MessageCircle size={16} />
+    Submit via WhatsApp
+    <ArrowRight size={15} />
+  </motion.button>
+</div>
 
            
           </div>

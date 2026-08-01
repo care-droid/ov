@@ -105,8 +105,30 @@ export default function Contact() {
     "w-full bg-[#faf8f7] border rounded-md px-4 py-3.5 text-sm text-[#1c1c1c] placeholder:text-[#8a7d81] outline-none transition-colors focus:border-[#741A34] focus:bg-white";
 
   return (
-    <section className="w-full bg-white py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 lg:gap-10 items-start">
+    <section className="w-full bg-white">
+
+        <div className="relative w-full h-[70vh] overflow-hidden">
+  {/* Background Image */}
+  <img
+    src="/contactus/contactus.avif"
+    alt="Contact Us"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* Optional Dark Overlay */}
+  <div className="absolute inset-0 bg-black/35" />
+
+  {/* Text Content */}
+  <div className="relative z-10 flex h-full items-center justify-center px-6">
+    <motion.h1
+      variants={fadeUp}
+      className="text-center text-white font-extrabold leading-[1.02] text-4xl sm:text-5xl md:text-6xl"
+    >
+      CONTACT US
+    </motion.h1>
+  </div>
+</div>
+      <div className="max-w-7xl mt-10 mb-10 mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 lg:gap-10 items-start">
         {/* ------------------------------------------------------ */}
         {/* Left column                                             */}
         {/* ------------------------------------------------------ */}
@@ -130,11 +152,11 @@ export default function Contact() {
           </motion.h1>
 
           <motion.p
-            variants={fadeUp}
-            className="border-l-2 border-[#A82242]/60 pl-5 text-[#4a4a4a] text-base md:text-lg max-w-md mb-8"
-          >
-            Have a project in mind or need expert guidance? Our team is ready to answer your questions, discuss your requirements, and help you find the right solution. Let's connect and bring your ideas to life.
-          </motion.p>
+  variants={fadeUp}
+  className="border-l-2 border-[#A82242]/60 pl-5 text-[#4a4a4a] text-base md:text-lg max-w-md mb-8"
+>
+  Have a project in mind or need expert guidance? Our team is ready to answer your questions, discuss your requirements, and help you find the right solution. Let&apos;s connect and bring your ideas to life.
+</motion.p>
 
 
           <motion.div variants={fadeUp}>

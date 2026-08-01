@@ -6,11 +6,18 @@ import { useRef, useEffect, useState } from "react";
    wine-deep  #4A0E1A   gradient anchor
    wine-mid   #7A1428   gradient / accent
    blush      #E8B4BE   accent text
-   gold       #C9A15A   "intelligence" highlight, CTA + data accent
+   gold       #1b5399   "intelligence" highlight, CTA + data accent
    Display: Sora (800/900)   Body: Inter   Data/mono: IBM Plex Mono
 ------------------------------------- */
 
-function CountUp({ end, duration = 1800, trigger, suffix = "" }) {
+interface CountUpProps {
+  end: number;
+  duration?: number;
+  trigger: boolean;
+  suffix?: string;
+}
+
+function CountUp({ end, duration = 1800, trigger, suffix = "" }: CountUpProps) {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -22,9 +29,9 @@ function CountUp({ end, duration = 1800, trigger, suffix = "" }) {
       setValue(end);
       return;
     }
-    let raf;
+    let raf: number;
     const start = performance.now();
-    const tick = (now) => {
+    const tick = (now: number) => {
       const p = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
       setValue(Math.floor(eased * end));
@@ -60,7 +67,7 @@ export function HeroSection() {
     return () => obs.disconnect();
   }, []);
 
-  const line = (delayMs) => ({
+  const line = (delayMs: number) => ({
     transitionDelay: `${delayMs}ms`,
   });
 
@@ -148,7 +155,7 @@ export function HeroSection() {
 
       {/* Ambient gradient blobs */}
       <div className="absolute top-1/3 -left-20 w-[28rem] h-[28rem] bg-[#7A1428]/25 rounded-full blur-[110px] z-[1] hero-blob-a" />
-      <div className="absolute bottom-0 right-0 w-[24rem] h-[24rem] bg-[#C9A15A]/10 rounded-full blur-[130px] z-[1] hero-blob-b" />
+      <div className="absolute bottom-0 right-0 w-[24rem] h-[24rem] bg-[#1b5399]/10 rounded-full blur-[130px] z-[1] hero-blob-b" />
 
       {/* 2. OVERLAY CONTENT */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 w-full py-16 sm:py-20">
@@ -161,13 +168,14 @@ export function HeroSection() {
               }`}
             >
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-[#E8B4BE] text-[11px] sm:text-[12px] font-data tracking-[0.3em] uppercase mb-7 sm:mb-8 border border-white/15">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A15A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1b5399]" />
                 About OVENTRA
               </span>
             </div>
 
             {/* Headline — staggered per-line reveal */}
-            <h1 className="font-display font-black text-white leading-[1.05] tracking-tight text-[clamp(2.5rem,7vw,5.5rem)]">
+            <h1   className="mt-8 font-display text-[33px] font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:text-[58px]"
+          >
               <span className="block overflow-hidden">
                 <span
                   className={`block transition-all duration-700 ease-out ${
@@ -186,7 +194,7 @@ export function HeroSection() {
                   style={line(380)}
                 >
                   B2B Ordering
-                  <span className="hero-underline absolute left-0 -bottom-1 sm:-bottom-2 h-[3px] sm:h-[4px] w-full bg-gradient-to-r from-[#C9A15A] to-[#E8B4BE]/40 rounded-full" />
+                  <span className="hero-underline absolute left-0 -bottom-1 sm:-bottom-2 h-[3px] sm:h-[4px] w-full bg-gradient-to-r from-[#1b5399] to-[#E8B4BE]/40 rounded-full" />
                 </span>
               </span>
               <span className="block overflow-hidden">
@@ -207,7 +215,7 @@ export function HeroSection() {
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
-              <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed font-light">
+              <p  className="mt-8 max-w-[560px] text-base leading-8 text-white/70 sm:text-[19px]">
                 OVENTRA is a cloud-based B2B Ordering &amp; Channel Sales
                 Management Platform developed by{" "}
                 <strong className="text-white font-semibold">
@@ -218,7 +226,7 @@ export function HeroSection() {
 
               {/* CTAs */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <button className="group relative px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-[#201A1B] text-sm sm:text-base bg-gradient-to-r from-[#C9A15A] to-[#E8B4BE] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_40px_-8px_#C9A15A] active:scale-[0.98]">
+                <button className="group relative px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-[#fff] text-sm sm:text-base bg-[#1b5399] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_40px_-8px_#1b5399] active:scale-[0.98]">
                   Book a Demo
                 </button>
                 <button className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-white text-sm sm:text-base border border-white/25 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/40">
@@ -243,14 +251,6 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="hero-card-float-delay flex-1 lg:flex-none p-5 sm:p-6 rounded-2xl bg-white/[0.07] backdrop-blur-xl border border-white/15 shadow-2xl hover:bg-white/[0.11] transition-colors duration-500 lg:ml-8">
-              <p className="font-data text-2xl sm:text-3xl text-[#C9A15A] font-medium">
-                <CountUp end={1200} suffix="+" trigger={visible} />
-              </p>
-              <p className="mt-1 text-[11px] sm:text-xs uppercase tracking-[0.2em] text-white/60 font-data">
-                Projects Delivered
-              </p>
-            </div>
           </div>
         </div>
       </div>

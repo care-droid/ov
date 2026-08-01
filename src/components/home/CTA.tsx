@@ -143,7 +143,7 @@ export default function NewsEvents() {
                 aria-hidden
                 className="pointer-events-none absolute -inset-[1px] rounded-[24px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{
-                  background: "linear-gradient(135deg, #2563eb40, #3b82f630, #1d4ed840)",
+                  background: "linear-gradient(135deg, #1b5399, #3b82f630, #1d4ed840)",
                   zIndex: -1,
                 }}
               />

@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components/about/HeroSection";
+import HeroSection from "@/components/about/HeroSection";
 import { VisionSection } from "@/components/about/VisionSection";
 import { OriginSection } from "@/components/about/OriginSection";
 import { AdvantageGrid } from "@/components/about/AdvantageGrid";

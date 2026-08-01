@@ -42,9 +42,6 @@ export default function PartnerMeetOrderingPage() {
   <PartnerMeetChallenges />
 </section>
 
-<section id="features">
-  <PowerfulFeatures />
-</section>
 
 <section id="workflow">
   <EventTypes />

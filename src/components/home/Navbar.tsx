@@ -160,15 +160,17 @@ const NAV_ITEMS: NavItem[] = [
   //   ],
   // },
 
-   {
-    type: "dropdown",
-    label: "Contact",
-    items: [
-      { label: "Demo Request Form", href: "/contact/demo-request" },
-      { label: "Support", href: "/contact/support" },
-      { label: "Career", href: "/contact/career" },
-      ],
-  },
+  //  {
+  //   type: "dropdown",
+  //   label: "Contact",
+  //   items: [
+  //     { label: "Demo Request Form", href: "/contact/demo-request" },
+  //     { label: "Support", href: "/contact/support" },
+  //     { label: "Career", href: "/contact/career" },
+  //     ],
+  // },
+  
+  { type: "link", label: "Contact Us", href: "/contactus" },
 ];
 
 const LEGAL_LINKS: SimpleLink[] = [

@@ -33,12 +33,12 @@
                 className="relative order-2 h-72 w-full overflow-hidden rounded-2xl sm:h-96 lg:order-1 lg:h-[520px]"
                 >
                 <Image
-                    src="/partner/QR.webp"
-                    alt="Dealer selecting product variants on the OVENTRA mobile app"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                />
+  src="/partnermeet/Parnter1.png"
+  alt="Dealer selecting product variants on the OVENTRA mobile app"
+  fill
+  sizes="(max-width: 1024px) 100vw, 50vw"
+  className="object-cover"
+/>
                 </motion.div>
 
                 {/* Text — right */}

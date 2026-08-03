@@ -184,16 +184,14 @@ export default function Hero() {
           className="relative ml-auto w-full max-w-[640px] lg:mr-2"
         >
           <div className="relative aspect-[1.35/1] w-full overflow-visible">
-            <div className="absolute inset-x-0 top-[7%] h-[76%] overflow-hidden rounded-2xl border border-white/10 bg-[#1B0B0F] shadow-[0_22px_80px_-32px_rgba(92,0,17,0.4)]">
-              <Image
-                src="/dashboard.jpg"
-                alt="Finance dashboard preview"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 620px"
-              />
-            </div>
+            <div className="absolute inset-x-0 top-[7%] h-[76%] rounded-2xl border border-white/10 bg-[#1B0B0F] p-4">
+  <Image
+    src="/home/Dashboard1.png"
+    alt="Dashboard"
+    fill
+    className="object-contain"
+  />
+</div>
 
             <motion.div
               initial={{ opacity: 0, y: 18, x: 14 }}

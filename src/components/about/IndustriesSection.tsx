@@ -124,7 +124,7 @@ export function IndustriesSection() {
         >
           <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
             <Image
-              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80"
+              src="/about/About4.png"
               alt="Industries"
               fill
               className="object-cover"

@@ -23,7 +23,7 @@ export default function DistributorQRSection() {
           className="relative order-2 h-72 w-full overflow-hidden rounded-2xl sm:h-96 lg:order-1 lg:h-[520px]"
         >
           <Image
-            src="/partner/QR.webp"
+            src="/partnermeet/Parnter4.png"
             alt="Distributor scanning a QR code to place an order"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"

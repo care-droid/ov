@@ -95,7 +95,7 @@ export function OriginSection() {
           }`}
         >
           <Image
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+            src="/about/About2.png"
             alt="Sales team meeting"
             fill
             className="object-cover"

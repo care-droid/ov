@@ -32,12 +32,12 @@
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="relative order-2 h-72 w-full overflow-hidden rounded-2xl sm:h-96 lg:order-1 lg:h-[520px]"
                 >
-                <Image
-                    src="/partner/QR.webp"
-                    alt="Distributor scanning a QR code on a shoe to place an order"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
+                 <Image
+                  src="/partnermeet/Partner4.png"
+                  alt="Dealer selecting product variants on the OVENTRA mobile app"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 </motion.div>
 

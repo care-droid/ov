@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import WhatsAppButton from "@/components/home/whatsapp";
-import Navbar from "@/components/home/Navbar";
-import Footer from "@/components/home/Footer";
+import Navbar from "@/components/universal/Navbar";
+import Footer from "@/components/universal/Footer";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({

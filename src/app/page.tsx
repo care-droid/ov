@@ -1,4 +1,4 @@
-import Navbar from "@/components/home/Navbar";
+import Navbar from "@/components/universal/Navbar";
 import Hero from "@/components/home/Hero";
 import Stats from "@/components/home/Stats";
 import Features from "@/components/home/Features";
@@ -8,7 +8,7 @@ import Testimonials from "@/components/home/Testimonials";
 import ClientLogos from "@/components/home/ClientLogos";
 import BlogSection from "@/components/home/BlogSection";
 import CTA from "@/components/home/CTA";
-import Footer from "@/components/home/Footer";
+import Footer from "@/components/universal/Footer";
 import ScrollToTop from "@/components/home/ScrollToTop";
 import DemoPage from "@/components/home/demo";
 

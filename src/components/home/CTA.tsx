@@ -43,7 +43,7 @@ const BLOG_POSTS: BlogPost[] = [
     gradient: "linear-gradient(135deg,#6D1025,#214E8A)",
     featured: true,
     content: b2bContent[101],
-    image: "/CTA1.jpg",
+    image: "/Home/CTA1.jpg",
     link: "#",
   },
   {
@@ -59,7 +59,7 @@ const BLOG_POSTS: BlogPost[] = [
     icon: <Users className="h-8 w-8" />,
     gradient: "linear-gradient(135deg,#214E8A,#8F1538)",
     content: b2bContent[102],
-    image: "/CTA2.jpg",
+    image: "/Home/CTA2.jpg",
     link: "#",
   },
   {
@@ -75,7 +75,7 @@ const BLOG_POSTS: BlogPost[] = [
     icon: <Zap className="h-8 w-8" />,
     gradient: "linear-gradient(135deg,#8F1538,#6D1025)",
     content: b2bContent[103],
-    image: "/CTA3.jpg",
+    image: "/Home/CTA3.jpg",
     link: "#",
   },
 ];
@@ -84,7 +84,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function NewsEvents() {
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#7a1a1a] via-[var(--background)] to-[#7a1a1a]/10 py-16 px-4 md:py-20 lg:py-24">
+    <section className="relative w-full overflow-hidden  py-16 px-4 md:py-20 lg:py-24">
       {/* Subtle radial maroon glow — very low opacity, purely ambient */}
       <div
         aria-hidden

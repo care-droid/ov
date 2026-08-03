@@ -11,10 +11,33 @@ export const COLORS = {
   mist: '#F3F1EE',
 };
 
+// ---- FONT FAMILIES ----
 export const displayFont = { fontFamily: "'Oswald', sans-serif" };
 export const bigDisplayFont = { fontFamily: "'Bebas Neue', sans-serif" };
 export const bodyFont = { fontFamily: "'Inter', sans-serif" };
 export const monoFont = { fontFamily: "'IBM Plex Mono', monospace" };
+
+// ---- TYPOGRAPHY SCALE (matches reference Hero / StatsSection sizing) ----
+// Hero-level H1 (largest headline on a page)
+export const heroHeadingClass =
+  "text-[33px] sm:text-[56px] lg:text-[58px] font-semibold leading-[1.05] tracking-[-0.02em]";
+
+// Section H2 (big statement headings, e.g. "Why Businesses Choose OVENTRA")
+export const sectionHeadingClass =
+  "text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-semibold leading-[1.05] tracking-[-0.04em]";
+
+// Sub-section H3 (card/panel headings)
+export const subHeadingClass =
+  "text-2xl md:text-3xl font-semibold leading-tight tracking-[-0.02em]";
+
+// Small card/item headings
+export const cardHeadingClass =
+  "text-lg md:text-xl font-semibold leading-snug tracking-[-0.01em]";
+
+// Body paragraph (matches reference: text-base sm:text-[19px] leading-8 / text-lg sm:text-xl)
+export const bodyLgClass = "text-base sm:text-lg md:text-xl leading-7 sm:leading-8";
+export const bodyClass = "text-base sm:text-lg leading-relaxed";
+export const bodySmClass = "text-sm sm:text-base leading-relaxed";
 
 export const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -64,7 +87,7 @@ export const SwingTag = ({ children }: { children: React.ReactNode }) => (
     className="inline-flex items-center gap-2 mb-6"
   >
     <span
-      className="flex items-center gap-2 border px-3 py-1 text-[11px] tracking-[0.25em] uppercase"
+      className="flex items-center gap-2 border px-3 py-1 text-[11px] tracking-[0.25em] uppercase font-semibold"
       style={{ fontFamily: "'IBM Plex Mono', monospace", color: COLORS.blue, borderColor: 'rgba(27,83,153,0.45)' }}
     >
       <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: COLORS.blue }} />

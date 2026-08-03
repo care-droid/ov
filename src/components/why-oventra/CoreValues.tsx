@@ -1,13 +1,13 @@
 "use client";
 import { motion } from 'framer-motion';
 import { Lightbulb, Feather, ShieldCheck, HeartHandshake, Users } from 'lucide-react';
-import { COLORS, displayFont, fadeUp, stagger, SwingTag } from './Shared';
+import { COLORS, fadeUp, stagger, SwingTag, sectionHeadingClass, cardHeadingClass, bodySmClass } from './Shared';
 
 export const CoreValues = () => (
   <section className="py-24 md:py-32 px-6 md:px-20">
     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 max-w-3xl">
       <SwingTag>Our Core Values</SwingTag>
-      <h2 style={displayFont} className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight">Our Core Values</h2>
+      <h2 className={`font-display ${sectionHeadingClass}`}>Our Core Values</h2>
     </motion.div>
     <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid sm:grid-cols-2 md:grid-cols-5 gap-px bg-gray-200 border border-gray-200">
       {[
@@ -20,8 +20,8 @@ export const CoreValues = () => (
         <motion.div key={i} variants={fadeUp} whileHover={{ y: -6, backgroundColor: COLORS.maroon, color: '#fff' }} className="bg-white p-8 group">
           <Icon size={26} className="mb-6" style={{ color: COLORS.blue }} />
           <div className="w-8 h-[2px] mb-6 group-hover:w-16 transition-all duration-500" style={{ background: COLORS.maroon }} />
-          <h3 style={displayFont} className="text-lg font-semibold tracking-tight mb-3">{title}</h3>
-          <p className="text-sm text-gray-500 group-hover:text-white/80 leading-relaxed transition-colors">{desc}</p>
+          <h3 className={`font-display mb-3 ${cardHeadingClass}`}>{title}</h3>
+          <p className={`text-gray-500 group-hover:text-white/80 transition-colors ${bodySmClass}`}>{desc}</p>
         </motion.div>
       ))}
     </motion.div>

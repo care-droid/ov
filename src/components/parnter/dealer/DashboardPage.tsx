@@ -103,7 +103,7 @@ function WizOrderHero() {
               className="relative h-[320px] w-full sm:h-[420px] lg:h-[640px]"
             >
               <Image
-                src="/partner/dashboard.png"
+  src="/partnermeet/Partner1.png"
                 alt="Dealer reviewing an order on a mobile device"
                 fill
                 priority

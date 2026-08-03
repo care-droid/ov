@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { COLORS, displayFont, fadeUp, stagger, SwingTag, StitchDivider } from "./Shared";
+import { COLORS, fadeUp, stagger, SwingTag, StitchDivider, sectionHeadingClass, bodyLgClass } from "./Shared";
 
 export const Story = () => {
   return (
@@ -21,15 +21,14 @@ export const Story = () => {
 
           <motion.h2
             variants={fadeUp}
-            style={displayFont}
-            className="mt-8 max-w-[560px] text-2xl md:text-4xl font-bold leading-tight text-[#0A0A0A]"
+            className={`mt-8 font-display max-w-[640px] text-[#0A0A0A] ${sectionHeadingClass}`}
           >
             Digitizing the Future of B2B Ordering
           </motion.h2>
 
           <motion.div
             variants={fadeUp}
-            className="mt-8 space-y-5 text-gray-600 text-lg leading-relaxed"
+            className={`mt-8 space-y-5 text-gray-600 ${bodyLgClass}`}
           >
             <p>
               Every successful business reaches a point where manual processes
@@ -38,7 +37,7 @@ export const Story = () => {
               teams spend more time handling paperwork than building customer
               relationships.
             </p>
-            <p style={{ color: COLORS.maroon }} className="font-medium">
+            <p style={{ color: COLORS.maroon }} className="font-semibold">
               At OVENTRA, we believe technology should remove these barriers—not
               create them.
             </p>
@@ -70,8 +69,7 @@ export const Story = () => {
         >
           <SwingTag>Our Story</SwingTag>
           <h2
-            style={displayFont}
-            className="text-3xl md:text-5xl font-semibold tracking-tight mb-8 leading-tight text-[#0A0A0A]"
+            className={`font-display mb-8 text-[#0A0A0A] ${sectionHeadingClass}`}
           >
             Built from Real Industry Challenges. Refined Through Real Business
             Experience.
@@ -83,7 +81,7 @@ export const Story = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="space-y-5 text-gray-600 text-lg leading-relaxed"
+          className={`space-y-5 text-gray-600 ${bodyLgClass}`}
         >
           {[
             "OVENTRA wasn&apos;t created inside a boardroom—it was built in the field.",
@@ -97,7 +95,7 @@ export const Story = () => {
           <motion.p
             variants={fadeUp}
             style={{ color: COLORS.maroon }}
-            className="font-medium"
+            className="font-semibold"
           >
             We believed there had to be a better way.
           </motion.p>

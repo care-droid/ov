@@ -1,7 +1,7 @@
 "use client";
 
-import NaNvbar from "@/components/home/Navbar";
-import Footer from "@/components/home/Footer";
+import NaNvbar from "@/components/universal/Navbar";
+import Footer from "@/components/universal/Footer";
 import PricingSection from "@/components/plans/PricingSection";
 import CTASection from "@/components/plans/CTASection";
 import FAQSection from "@/components/plans/FAQSection";

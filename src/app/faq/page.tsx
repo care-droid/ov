@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle, Sparkles } from "lucide-react";
-import Navbar from "@/components/home/Navbar";
+import Navbar from "@/components/universal/Navbar";
 
 const faqs = [
   {

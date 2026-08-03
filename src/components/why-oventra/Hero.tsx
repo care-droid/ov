@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { COLORS, bigDisplayFont, fadeUp, stagger, SwingTag, StitchDivider } from './Shared';
+import { COLORS, fadeUp, stagger, SwingTag, StitchDivider, heroHeadingClass, bodyLgClass } from './Shared';
 
 export const Hero = () => {
   const heroRef = useRef(null);
@@ -45,13 +45,12 @@ export const Hero = () => {
           animate="show"
           className="max-w-3xl  mx-auto md:mx-0"
         >
-         
+
 
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.7 }}
-            style={bigDisplayFont}
-            className="mt-8 leading-[0.92] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white"
+            className={`mt-8 font-display text-white ${heroHeadingClass}`}
           >
             DIGITIZING THE FUTURE OF{" "}
             <span style={{ color: COLORS.blue }}>B2B ORDERING</span>
@@ -60,7 +59,7 @@ export const Hero = () => {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.6 }}
-            className="text-white/75 max-w-xl mt-8 text-lg md:text-xl leading-relaxed"
+            className={`text-white/75 max-w-xl mt-8 ${bodyLgClass}`}
           >
             Every successful business reaches a point where manual processes
             begin to slow growth. Orders start coming through multiple
@@ -102,7 +101,7 @@ export const Hero = () => {
         className="absolute z-20 bottom-24 right-6 md:right-16 md:bottom-16"
       >
         <div
-          className="px-5 py-3 rounded-full backdrop-blur-md bg-white/10 border border-white/25 text-white text-[10px] md:text-[11px] tracking-[0.25em] uppercase"
+          className="px-5 py-3 rounded-full backdrop-blur-md bg-white/10 border border-white/25 text-white text-[10px] md:text-[11px] tracking-[0.25em] uppercase font-semibold"
         >
           Track · Book · Verify
         </div>

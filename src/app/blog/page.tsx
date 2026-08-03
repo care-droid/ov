@@ -10,8 +10,8 @@ import { BlogCard } from "@/components/blog/BlogCard";
 import { BlogPopup } from "@/components/blog/BlogPopup";
 import { Sidebar } from "@/components/blog/Sidebar";
 import { FilterChip } from "@/components/blog/FilterChip";
-import Navbar from "@/components/home/Navbar";
-import Footer from "@/components/home/Footer";
+import Navbar from "@/components/universal/Navbar";
+import Footer from "@/components/universal/Footer";
 
 export default function BlogPage() {
   const [search, setSearch] = useState("");

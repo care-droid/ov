@@ -34,7 +34,7 @@ const MAROON = "#6E1423";
 const INK = "#2A1216";
 const INK_60 = "#8C6E71";
 
-const featureImages = ["/features1.jpg", "/features2.jpg", "/features3.jpg"];
+const featureImages = ["/partnermeet/Partner1.png", "/partnermeet/Partner2.png", "/partnermeet/Partner3.png", "/partnermeet/Partner5.png", "/partnermeet/Partner4.png", "/partnermeet/Partner7.png"];
 
 type MeetType = {
   icon: ElementType;

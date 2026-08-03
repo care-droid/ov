@@ -41,6 +41,10 @@ const steps: Step[] = [
       "Manage collections",
       "Set promotional schemes",
     ],
+    image: {
+  src: "/DistributorDealor/Distributor.jpeg",
+  alt: "Distributor login",
+},
   },
   {
     id: 2,
@@ -52,7 +56,7 @@ const steps: Step[] = [
       "Multi-device support",
     ],
     image: {
-      src: "/partner/IMG_0768_63d5164d-2f70-4db0-b0d2-b627d96a6fa8.webp",
+      src: "/DistributorDealor/Screen/DistributorDealor1.jpeg",
       alt: "Distributor login",
     },
   },
@@ -66,7 +70,7 @@ const steps: Step[] = [
       "Colour selection",
       "Article number search",
     ],
-    image: { src: "/partner/IMG_0782.webp", alt: "Product browsing" },
+    image: { src: "/DistributorDealor/Screen/DistributorDealor2.jpeg", alt: "Product browsing" },
   },
   {
     id: 4,
@@ -78,7 +82,7 @@ const steps: Step[] = [
       "Instant submission",
       "Order confirmation",
     ],
-    image: { src: "/partner/IMG_0793.webp", alt: "Order placement" },
+    image: { src: "/DistributorDealor/Screen/DistributorDealor3.jpeg", alt: "Order placement" },
   },
   {
     id: 5,
@@ -90,7 +94,7 @@ const steps: Step[] = [
       "Processing",
       "Fulfilment planning",
     ],
-    image: { src: "/partner/IMG_0784.webp", alt: "Order processing" },
+    image: { src: "/DistributorDealor/Screen/DistributorDealor4.jpeg", alt: "Order processing" },
   },
   {
     id: 6,
@@ -102,7 +106,7 @@ const steps: Step[] = [
       "Delivery tracking",
       "Real-time status",
     ],
-    image: { src: "/partner/IMG_0794.webp", alt: "Order tracking" },
+    image: { src: "/DistributorDealor/Screen/DistributorDealor5.jpeg", alt: "Order tracking" },
   },
 ];
 

@@ -63,6 +63,10 @@ const steps: Step[] = [
     description:
       "Each dealer receives secure credentials linked to their assigned distributor.",
     bullets: [],
+    image: {
+      src: "/DistributorDealor/Screen/Dealer.jpeg",
+      alt: "Dealer browsing digital catalogue",
+    },
   },
   {
     id: 2,
@@ -77,7 +81,7 @@ const steps: Step[] = [
       "Product Specifications",
     ],
     image: {
-      src: "/partner/IMG_0768_63d5164d-2f70-4db0-b0d2-b627d96a6fa8.webp",
+      src: "/DistributorDealor/Screen/DistributorDealor1.jpeg",
       alt: "Dealer browsing digital catalogue",
     },
   },
@@ -86,6 +90,8 @@ const steps: Step[] = [
     title: "Choose Product Variants",
     description: "Select:",
     bullets: ["Size", "Color", "Quantity"],
+    
+    image: { src: "/DistributorDealor/Screen/DistributorDealor2.jpeg", alt: "Dealer placing an order" },
   },
   {
     id: 4,
@@ -93,28 +99,28 @@ const steps: Step[] = [
     description:
       "Orders are automatically routed to the assigned distributor.",
     bullets: [],
-    image: { src: "/partner/IMG_0782.webp", alt: "Dealer placing an order" },
+    image: { src: "/DistributorDealor/Screen/DistributorDealor3.jpeg", alt: "Dealer placing an order" },
   },
   {
     id: 5,
     title: "Distributor Review",
     description: "Distributor reviews and processes the order.",
     bullets: [],
-    image: { src: "/partner/IMG_0793.webp", alt: "Distributor reviewing order" },
+    image: { src: "/DistributorDealor/Screen/DistributorDealor4.jpeg", alt: "Distributor reviewing order" },
   },
   {
     id: 6,
     title: "Order Confirmation",
     description: "Dealer receives instant confirmation.",
     bullets: [],
-    image: { src: "/partner/IMG_0784.webp", alt: "Order confirmation" },
+    image: { src: "/DistributorDealor/Screen/DistributorDealor5.jpeg", alt: "Order confirmation" },
   },
   {
     id: 7,
     title: "Track Order Status",
     description: "Monitor from the mobile application:",
     bullets: ["Pending", "Confirmed", "Processing", "Dispatched", "Delivered"],
-    image: { src: "/partner/IMG_0794.webp", alt: "Order status tracking" },
+    image: { src: "/DistributorDealor/Screen/DistributorDealor4.jpeg", alt: "Order status tracking" },
   },
 ];
 

@@ -115,8 +115,8 @@ export default function Contact() {
     className="absolute inset-0 w-full h-full object-cover"
   />
 
-  {/* Optional Dark Overlay */}
-  <div className="absolute inset-0 bg-black/35" />
+  {/* Maroon Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[#4A0E1A]/80 via-[#4A0E1A]/20 to-black/30" />
 
   {/* Text Content */}
   <div className="relative z-10 flex h-full items-center justify-center px-6">

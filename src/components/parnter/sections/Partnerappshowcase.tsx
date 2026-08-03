@@ -70,6 +70,10 @@ const steps: Step[] = [
       "Pricing",
       "Schemes",
     ],
+    image: {
+      src: "/partnermeet/Partner6.png",
+      alt: "Product catalog",
+    },
   },
   {
     id: 2,
@@ -85,7 +89,7 @@ const steps: Step[] = [
       "Schemes",
     ],
     image: {
-      src: "/partner/IMG_0768_63d5164d-2f70-4db0-b0d2-b627d96a6fa8.webp",
+      src: "/partnermeet/screen/Edit.jpeg",
       alt: "Product catalog",
     },
   },
@@ -95,6 +99,10 @@ const steps: Step[] = [
     description:
       "Every product receives its own QR code for instant product identification.",
     bullets: [],
+    image: {
+      src: "/partnermeet/screen/Home.jpeg",
+      alt: "QR code generation",
+    },
   },
   {
     id: 4,
@@ -107,34 +115,14 @@ const steps: Step[] = [
       "Scan QR codes",
       "Compare products",
     ],
-    image: { src: "/partner/IMG_0782.webp", alt: "Distributor browsing" },
+    image: { src: "/partnermeet/screen/OrderPage.jpeg", alt: "Distributor browsing" },
   },
   {
     id: 5,
     title: "Place Orders",
     description: "Choose:",
     bullets: ["Sizes", "Colors", "Quantity", "Submit order instantly"],
-    image: { src: "/partner/IMG_0793.webp", alt: "Order entry" },
-  },
-  {
-    id: 6,
-    title: "Management Dashboard",
-    description: "Track:",
-    bullets: [
-      "Orders",
-      "Sales value",
-      "Distributor performance",
-      "Sales executive performance",
-    ],
-    image: { src: "/partner/IMG_0784.webp", alt: "Dashboard" },
-  },
-  {
-    id: 7,
-    title: "Export Orders",
-    description:
-      "Download reports or integrate with ERP for faster processing.",
-    bullets: [],
-    image: { src: "/partner/IMG_0794.webp", alt: "Reports" },
+    image: { src: "/partnermeet/screen/Submit.jpeg", alt: "Order entry" },
   },
 ];
 

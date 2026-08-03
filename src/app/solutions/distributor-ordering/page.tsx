@@ -21,6 +21,9 @@ export default function DistributorOrderingPage() {
     <DistributorIntro />
   </section>
 
+  
+  <DistributorDashboardPage />
+
 
   <section id="features">
     <DistributorFeatures />
@@ -36,7 +39,6 @@ export default function DistributorOrderingPage() {
 
   <section id="screens">
     
-  <DistributorDashboardPage />
     {/* <DistributorScreens /> */}
   </section>
 

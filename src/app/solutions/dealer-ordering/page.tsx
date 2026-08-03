@@ -10,6 +10,8 @@ import DealerBenefitsForDealers from "@/components/parnter/dealer/Partnermeet";
 import DealerBenefitsForManufacturers from "@/components/parnter/dealer/Whyoventra";
 import DealerBusinessBenefits from "@/components/parnter/dealer/Benifits";
 import DealerWhyOventra from "@/components/parnter/dealer/WhyChooseOventra";
+import PartnerMeet from "@/components/parnter/dealer/Partnermeet";
+import PartnerMeetChallenges from "@/components/parnter/dealer/Partnermeetchallenges";
 
 export const metadata: Metadata = {
   title: "Dealer Ordering | OVENTRA",
@@ -24,7 +26,11 @@ export default function DealerOrderingPage() {
       <DealerIntro />
       <DealerHero />
 
-      <DealerChallenges />
+<div id="features" className="scroll-mt-24">
+        <DealerPowerfulFeatures />
+      </div>
+      <PartnerMeetChallenges />
+      <PartnerMeet/>
 
 
       <div id="workflow" className="scroll-mt-24">
@@ -35,15 +41,12 @@ export default function DealerOrderingPage() {
         <DealerChooseVariants />
       </div>
 
-      <div id="features" className="scroll-mt-24">
-        <DealerPowerfulFeatures />
-      </div>
+      
 
       <div id="benefits" className="scroll-mt-24">
         <DealerBenefitsForDealers />
       </div>
 
-      <DealerBenefitsForManufacturers />
 
       <div id="reports" className="scroll-mt-24">
         <DealerBusinessBenefits />

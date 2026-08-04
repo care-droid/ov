@@ -18,7 +18,7 @@
         const CREAM = "#F3EEE7";
         const INK = "#1A1512";
 
-        const steps = ["Size", "Color", "Quantity", "Images","Price Breakup","Prices"];
+        const steps = ["Size", "Color", "Quantity", "Images","Price Breakup","Stock"];
 
         export default function QRCodeOrderingSection() {
         return (

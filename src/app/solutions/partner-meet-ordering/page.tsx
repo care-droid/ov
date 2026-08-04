@@ -59,7 +59,8 @@ export default function PartnerMeetOrderingPage() {
         <PartnerMeet />
       </section>
 
-      <section id="showcase">
+      
+      <section id="workflow">
         <PartnerAppShowcase />
       </section>
 

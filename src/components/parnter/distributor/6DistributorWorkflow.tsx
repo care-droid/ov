@@ -42,7 +42,7 @@ const steps: Step[] = [
       "Set promotional schemes",
     ],
     image: {
-  src: "/DistributorDealor/Distributor.jpeg",
+  src: "/DistributorDealor/Screen/Distributor.jpeg",
   alt: "Distributor login",
 },
   },

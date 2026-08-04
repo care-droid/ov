@@ -64,7 +64,7 @@ const steps: Step[] = [
       "Each dealer receives secure credentials linked to their assigned distributor.",
     bullets: [],
     image: {
-      src: "/DistributorDealor/Screen/Dealer.jpeg",
+      src: "/DistributorDealor/Screen/DistributorDealor1.jpeg",
       alt: "Dealer browsing digital catalogue",
     },
   },
@@ -81,7 +81,7 @@ const steps: Step[] = [
       "Product Specifications",
     ],
     image: {
-      src: "/DistributorDealor/Screen/DistributorDealor1.jpeg",
+      src: "/DistributorDealor/Screen/Dealer.jpeg",
       alt: "Dealer browsing digital catalogue",
     },
   },

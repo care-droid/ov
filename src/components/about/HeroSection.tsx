@@ -61,7 +61,7 @@ export function HeroSection() {
           obs.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
@@ -145,9 +145,17 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#201A1B] via-[#4A0E1A]/90 to-[#4A0E1A]/30 z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#201A1B] via-transparent to-[#201A1B]/40 z-10" />
         {/* subtle film grain for cinematic depth */}
-        <svg className="absolute inset-0 w-full h-full opacity-[0.05] mix-blend-overlay hero-grain z-10" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="absolute inset-0 w-full h-full opacity-[0.05] mix-blend-overlay hero-grain z-10"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <filter id="grain">
-            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" />
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.85"
+              numOctaves="2"
+              stitchTiles="stitch"
+            />
           </filter>
           <rect width="100%" height="100%" filter="url(#grain)" />
         </svg>
@@ -164,7 +172,9 @@ export function HeroSection() {
             {/* Badge */}
             <div
               className={`transition-all mt-10 duration-700 delay-150 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6"
               }`}
             >
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-[#E8B4BE] text-[11px] sm:text-[12px] font-data tracking-[0.3em] uppercase mb-7 sm:mb-8 border border-white/15">
@@ -174,12 +184,13 @@ export function HeroSection() {
             </div>
 
             {/* Headline — staggered per-line reveal */}
-            <h1   className="mt-8 font-display text-[33px] font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:text-[58px]"
-          >
+            <h1 className="mt-8 font-display text-[33px] font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:text-[58px]">
               <span className="block overflow-hidden">
                 <span
                   className={`block transition-all duration-700 ease-out ${
-                    visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
+                    visible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-full"
                   }`}
                   style={line(200)}
                 >
@@ -189,7 +200,9 @@ export function HeroSection() {
               <span className="block overflow-hidden">
                 <span
                   className={`block text-[#E8B4BE] relative w-fit transition-all duration-700 ease-out ${
-                    visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
+                    visible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-full"
                   }`}
                   style={line(380)}
                 >
@@ -200,7 +213,9 @@ export function HeroSection() {
               <span className="block overflow-hidden">
                 <span
                   className={`block transition-all duration-700 ease-out ${
-                    visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
+                    visible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-full"
                   }`}
                   style={line(520)}
                 >
@@ -212,10 +227,12 @@ export function HeroSection() {
             {/* Description */}
             <div
               className={`mt-8 sm:mt-10 space-y-6 transition-all duration-700 delay-700 font-body ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6"
               }`}
             >
-              <p  className="mt-8 max-w-[560px] text-base leading-8 text-white/70 sm:text-[19px]">
+              <p className="mt-8 max-w-[560px] text-base leading-8 text-white/70 sm:text-[19px]">
                 OVENTRA is a cloud-based B2B Ordering &amp; Channel Sales
                 Management Platform developed by{" "}
                 <strong className="text-white font-semibold">
@@ -227,15 +244,14 @@ export function HeroSection() {
               {/* CTAs */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a
-  href="https://wa.me/919716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA."
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <button className="group relative px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-white text-sm sm:text-base bg-[#1b5399] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_40px_-8px_#1b5399] active:scale-[0.98]">
-    Book a Demo
-  </button>
-</a>
-               
+                  href="https://wa.me/919716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="group relative px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-white text-sm sm:text-base bg-[#1b5399] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_40px_-8px_#1b5399] active:scale-[0.98]">
+                    Book a Demo
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -254,7 +270,22 @@ export function HeroSection() {
                 Years of Experience
               </p>
             </div>
-
+            <div className="hero-card-float flex-1 lg:flex-none p-5 sm:p-6 rounded-2xl bg-white/[0.07] backdrop-blur-xl border border-white/15 shadow-2xl hover:bg-white/[0.11] transition-colors duration-500">
+              <p className="font-data text-2xl sm:text-3xl text-[#E8B4BE] font-medium">
+                <CountUp end={100} suffix="+" trigger={visible} />
+              </p>
+              <p className="mt-1 text-[11px] sm:text-xs uppercase tracking-[0.2em] text-white/60 font-data">
+                Distributor / Dealers
+              </p>
+            </div>
+            <div className="hero-card-float flex-1 lg:flex-none p-5 sm:p-6 rounded-2xl bg-white/[0.07] backdrop-blur-xl border border-white/15 shadow-2xl hover:bg-white/[0.11] transition-colors duration-500">
+              <p className="font-data text-2xl sm:text-3xl text-[#E8B4BE] font-medium">
+                <CountUp end={8} suffix="+" trigger={visible} />
+              </p>
+              <p className="mt-1 text-[11px] sm:text-xs uppercase tracking-[0.2em] text-white/60 font-data">
+                Industries
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -18,21 +18,6 @@ import {
 
 const WHATSAPP_NUMBER = "919716016012"; // country code + number, no + or spaces
 
-const needOptions = [
-  "Book a Demo",
-];
-
-const hearOptions = [
-  "Google Search",
-  "Event",
-  "LinkedIn",
-  "Referral",
-  "Social Media",
-  "Other",
-];
-
-
-
 /* ------------------------------------------------------------------ */
 /* Animation variants                                                   */
 /* ------------------------------------------------------------------ */
@@ -56,9 +41,7 @@ export default function Contact() {
     fullName: "",
     email: "",
     phone: "",
-    need: "",
     message: "",
-    hear: "",
   });
   const [errors, setErrors] = useState<Record<string, boolean>>({});
 
@@ -68,7 +51,7 @@ export default function Contact() {
   };
 
   const handleSubmit = () => {
-    const required = ["fullName", "email", "need", "message"];
+    const required = ["fullName", "email", "message"];
     const nextErrors: Record<string, boolean> = {};
     required.forEach((f) => {
       if (!form[f as keyof typeof form].trim()) nextErrors[f] = true;
@@ -92,8 +75,6 @@ export default function Contact() {
       `Name: ${form.fullName}`,
       `Email: ${form.email}`,
       form.phone ? `Phone: ${form.phone}` : null,
-      `Looking for: ${form.need}`,
-      form.hear ? `Heard via: ${form.hear}` : null,
       `Message: ${form.message}`,
     ].filter(Boolean);
 
@@ -106,114 +87,55 @@ export default function Contact() {
 
   return (
     <section className="w-full bg-white">
+      <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] overflow-hidden">
+        {/* Background Image */}
+        <img
+          src="/contactUs/contact.webp"
+          alt="Contact Us"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-        <div className="relative w-full h-[70vh] overflow-hidden">
-  {/* Background Image */}
-  <img
-    src="/contactUs/contact.webp"
-    alt="Contact Us"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
+        {/* Maroon Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#4A0E1A]/80 via-[#4A0E1A]/20 to-black/30" />
 
-  {/* Maroon Gradient Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-[#4A0E1A]/80 via-[#4A0E1A]/20 to-black/30" />
+        {/* Text Content */}
+        <div className="relative z-10 flex h-full items-center justify-center px-6">
+          <motion.h1
+            variants={fadeUp}
+            className="text-center text-white font-extrabold leading-[1.02] text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+          >
+            CONTACT US
+          </motion.h1>
+        </div>
+      </div>
 
-  {/* Text Content */}
-  <div className="relative z-10 flex h-full items-center justify-center px-6">
-    <motion.h1
-      variants={fadeUp}
-      className="text-center text-white font-extrabold leading-[1.02] text-4xl sm:text-5xl md:text-6xl"
-    >
-      CONTACT US
-    </motion.h1>
-  </div>
-</div>
-      <div className="max-w-7xl mt-10 mb-10 mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 lg:gap-10 items-start">
+      <div className="max-w-7xl mt-8 sm:mt-10 mb-8 sm:mb-10 mx-auto px-4 sm:px-6 md:px-10 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-10 items-center">
         {/* ------------------------------------------------------ */}
-        {/* Left column                                             */}
+        {/* Left column - Centered vertically                      */}
         {/* ------------------------------------------------------ */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
+          className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left order-2 lg:order-1"
         >
-          
-
           <motion.h1
             variants={fadeUp}
-            className="text-[#1c1c1c] font-extrabold leading-[1.02] text-4xl sm:text-5xl md:text-6xl mb-8"
+            className="text-[#1c1c1c] font-extrabold leading-[1.1] sm:leading-[1.02] text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 md:mb-8"
           >
             Contact Our  
             <br />
             Experts
-            <br />
-            <span className="text-[#A82242]">Today.</span>
+            <span className="text-[#A82242]"> Today.</span>
           </motion.h1>
 
           <motion.p
-  variants={fadeUp}
-  className="border-l-2 border-[#A82242]/60 pl-5 text-[#4a4a4a] text-base md:text-lg max-w-md mb-8"
->
-  Have a project in mind or need expert guidance? Our team is ready to answer your questions, discuss your requirements, and help you find the right solution. Let&apos;s connect and bring your ideas to life.
-</motion.p>
-
-
-          <motion.div variants={fadeUp}>
-            <p className="flex items-center gap-2 text-[#1c1c1c] font-bold text-sm tracking-wide mb-4">
-              <Mail size={16} className="text-[#741A34]" />
-              HOW WOULD YOU LIKE TO CONNECT?
-            </p>
-            <div className="grid sm:grid-cols-3 gap-3">
-              
-
-              <motion.a
-                whileHover={{ y: -3 }}
-                href="mailto:contactOVENTRA@gmail.com"
-                className="group flex items-center justify-between gap-2 rounded-lg border border-[#741A34]/15 bg-[#faf8f7] px-4 py-4 hover:border-[#741A34]/40 transition-colors"
-              >
-                <div className="flex items-center gap-2.5">
-                  <Mail size={16} className="text-[#741A34]" />
-                  <div>
-                    <div className="text-sm font-bold text-[#1c1c1c]">
-                      Email Us
-                    </div>
-                    <div className="text-[11px] text-[#8a7d81]">
-                      contactOVENTRA@gmail.com
-                    </div>
-                  </div>
-                </div>
-                <ArrowRight
-                  size={14}
-                  className="text-[#741A34] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
-                />
-              </motion.a>
-
-              <motion.a
-                whileHover={{ y: -3 }}
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-2 rounded-lg border border-[#741A34]/15 bg-[#faf8f7] px-4 py-4 hover:border-[#741A34]/40 transition-colors"
-              >
-                <div className="flex items-center gap-2.5">
-                  <MessageCircle size={16} className="text-[#741A34]" />
-                  <div>
-                    <div className="text-sm font-bold text-[#1c1c1c]">
-                      WhatsApp Us
-                    </div>
-                    <div className="text-[11px] text-[#8a7d81]">
-                      +91 9716016012
-                    </div>
-                  </div>
-                </div>
-                <ArrowRight
-                  size={14}
-                  className="text-[#741A34] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
-                />
-              </motion.a>
-            </div>
-          </motion.div>
+            variants={fadeUp}
+            className="border-l-2 border-[#A82242]/60 pl-4 sm:pl-5 text-[#4a4a4a] text-sm sm:text-base md:text-lg max-w-md mx-auto lg:mx-0 mb-6 sm:mb-8"
+          >
+            Have a project in mind or need expert guidance? Our team is ready to answer your questions, discuss your requirements, and help you find the right solution. Let&apos;s connect and bring your ideas to life.
+          </motion.p>
         </motion.div>
 
         {/* ------------------------------------------------------ */}
@@ -224,33 +146,22 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="rounded-2xl border border-[#741A34]/10 shadow-[0_20px_60px_-15px_rgba(116,26,52,0.18)] overflow-hidden bg-white lg:sticky lg:top-8"
+          className="rounded-2xl border border-[#741A34]/10 shadow-[0_20px_60px_-15px_rgba(116,26,52,0.18)] overflow-hidden bg-white lg:sticky lg:top-8 order-1 lg:order-2 w-full"
         >
-          {/* window chrome */}
-          <div className="flex items-center justify-between px-6 py-4 bg-[#faf8f7] border-b border-[#741A34]/10">
-            <div className="flex gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#e5544f]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#e6b84f]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#4fae66]" />
-            </div>
-            
-          </div>
-
-          <div className="p-6 md:p-8">
-            <div className="flex items-start gap-3 pb-5 mb-5 border-b border-[#741A34]/10">
-              <span className="w-8 h-8 flex-shrink-0 rounded-full bg-[#741A34]/10 flex items-center justify-center">
-  <FileText size={15} className="text-[#741A34]" />
-</span>
+          <div className="p-4 sm:p-6 md:p-8">
+            <div className="flex items-start gap-3 pb-4 sm:pb-5 mb-4 sm:mb-5 border-b border-[#741A34]/10">
+              <span className="w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 rounded-full bg-[#741A34]/10 flex items-center justify-center">
+                <FileText size={13} className="sm:w-[15px] sm:h-[15px] text-[#741A34]" />
+              </span>
               <div>
-                <div className="text-sm font-extrabold tracking-wide text-[#1c1c1c]">
+                <div className="text-xs sm:text-sm font-extrabold tracking-wide text-[#1c1c1c]">
                   CONTACT DETAILS
                 </div>
-               
               </div>
             </div>
 
-            <div className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <input
                   value={form.fullName}
                   onChange={(e) => handleChange("fullName", e.target.value)}
@@ -275,10 +186,10 @@ export default function Contact() {
                   errors.phone ? "border-red-400" : "border-[#741A34]/15"
                 }`}
               >
-                <span className="flex items-center gap-2 whitespace-nowrap px-4 border-r border-[#741A34]/15 text-sm text-[#4a4a4a]">
-  <span>🇮🇳</span>
-  <span>+91</span>
-</span>
+                <span className="flex items-center gap-1 sm:gap-2 whitespace-nowrap px-3 sm:px-4 border-r border-[#741A34]/15 text-xs sm:text-sm text-[#4a4a4a]">
+                  <span>🇮🇳</span>
+                  <span>+91</span>
+                </span>
                 <input
                   type="tel"
                   inputMode="numeric"
@@ -287,29 +198,8 @@ export default function Contact() {
                   onChange={(e) =>
                     handleChange("phone", e.target.value.replace(/\D/g, "").slice(0, 10))
                   }
-                  placeholder="Phone (Optional)"
-                  className="w-full bg-transparent px-3 py-3.5 text-sm outline-none placeholder:text-[#8a7d81]"
-                />
-              </div>
-
-              <div className="relative">
-                <select
-                  value={form.need}
-                  onChange={(e) => handleChange("need", e.target.value)}
-                  className={`${inputBase} appearance-none pr-10 ${
-                    errors.need ? "border-red-400" : "border-[#741A34]/15"
-                  } ${form.need ? "text-[#1c1c1c]" : "text-[#8a7d81]"}`}
-                >
-                  <option value="">What do you need? *</option>
-                  {needOptions.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown
-                  size={16}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#8a7d81] pointer-events-none"
+                  placeholder="Phone Number"
+                  className="w-full bg-transparent px-3 py-3 sm:py-3.5 text-sm outline-none placeholder:text-[#8a7d81]"
                 />
               </div>
 
@@ -322,48 +212,23 @@ export default function Contact() {
                   errors.message ? "border-red-400" : "border-[#741A34]/15"
                 }`}
               />
-
-              <div className="relative">
-                <select
-                  value={form.hear}
-                  onChange={(e) => handleChange("hear", e.target.value)}
-                  className={`${inputBase} appearance-none pr-10 border-[#741A34]/15 ${
-                    form.hear ? "text-[#1c1c1c]" : "text-[#8a7d81]"
-                  }`}
-                >
-                  <option value="">How did you hear about us? (Optional)</option>
-                  {hearOptions.map((opt) => (
-                    <option key={opt} value={opt}>
-                      {opt}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown
-                  size={16}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[#8a7d81] pointer-events-none"
-                />
-              </div>
             </div>
 
-           <div className="pt-6 mt-6 border-t border-[#741A34]/10">
-  <motion.button
-    whileHover={{ scale: 1.03 }}
-    whileTap={{ scale: 0.97 }}
-    onClick={handleSubmit}
-    className="w-full flex items-center justify-center gap-2 bg-[#741A34] hover:bg-[#5c1428] text-white text-sm font-bold px-7 py-3.5 rounded-md transition-colors"
-  >
-    <MessageCircle size={16} />
-    Submit via WhatsApp
-    <ArrowRight size={15} />
-  </motion.button>
-</div>
-
-           
+            <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-[#741A34]/10">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={handleSubmit}
+                className="w-full flex items-center justify-center gap-2 bg-[#741A34] hover:bg-[#5c1428] text-white text-xs sm:text-sm font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-md transition-colors"
+              >
+                <MessageCircle size={15} className="sm:w-4 sm:h-4" />
+                Submit 
+                <ArrowRight size={14} className="sm:w-[15px] sm:h-[15px]" />
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </div>
-
-      
     </section>
   );
 }

@@ -12,6 +12,7 @@ import {
   Link,
   Store,
   Settings2,
+  BookOpen,
 } from "lucide-react";
 
 const containerVariants = {
@@ -36,11 +37,11 @@ const groups = [
     blurb: "Intuitive mobile ordering and rich product catalogs for your sales network.",
     features: [
       {
-        icon: Package,
-        title: "Digital Product Catalogue",
-        description:
-          "Display products with images, specifications, sizes, colours, pricing, and collections.",
-      },
+  icon: BookOpen,
+  title: "Digital Product Catalogue",
+  description:
+    "Display products with images, specifications, sizes, colours, pricing, and collections.",
+},
       {
         icon: Smartphone,
         title: "Mobile Ordering",
@@ -75,14 +76,14 @@ const groups = [
       },
       {
         icon: Bell,
-        title: "Notifications",
+        title: "Offer & Updates ",
         description:
-          "Keep distributors and dealers informed throughout the ordering lifecycle.",
+          " Keep your Distributors updated on the latest Offers & Schemes.",
       },
       {
         icon: Link,
-        title: "ERP/SAP Integration",
-        description: "Connect seamlessly with your existing ERP software.",
+        title: "ERP/SAP/Tally Integration",
+        description: "Option to integrate with your existing software’s.",
       },
     ],
   },

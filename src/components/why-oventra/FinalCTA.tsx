@@ -9,7 +9,7 @@ import {
   StitchDivider,
   heroHeadingClass,
   bodyLgClass,
-} from "@/components/why-oventra/Shared";
+} from "./Shared";
 import { Button } from '@/components/ui/Button';
 
 export const FinalCTA = () => (

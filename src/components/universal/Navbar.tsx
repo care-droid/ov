@@ -147,8 +147,8 @@ const NAV_ITEMS: NavItem[] = [
   //   type: "dropdown",
   //   label: "Why OVENTRA",
   //   items: [
-  //     { label: "Our Story", href: "/why-OVENTRA/our-story" },
-  //     { label: "Why We Built OVENTRA", href: "/why-OVENTRA/why-we-built-OVENTRA" },
+  //     { label: "Our Story", href: "/why-oventra/our-story" },
+  //     { label: "Why We Built OVENTRA", href: "/why-oventra/why-we-built-OVENTRA" },
   //   ],
   // },
  
@@ -172,7 +172,7 @@ const NAV_ITEMS: NavItem[] = [
   //     ],
   // },
   
-  { type: "link", label: "Why OVENTRA", href: "/why-OVENTRA" },
+  { type: "link", label: "Why OVENTRA", href: "/why-oventra" },
   
   { type: "link", label: "Contact Us", href: "/contactus" },
 ];

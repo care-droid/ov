@@ -52,7 +52,7 @@ export default function DistributorOrderingPage() {
         <DistributorFeatures />
       </section>
 
-      <section id="why-OVENTRA">
+      <section id="why-oventra">
         <WhyChooseDistributor />
       </section>
     </main>

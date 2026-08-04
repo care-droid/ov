@@ -48,7 +48,7 @@ export const MissionVision = () => (
         </div>
 
         <h3 className={`mb-6 font-display ${subHeadingClass}`}>
-          To Become the World's Most Trusted B2B Ordering & Channel Sales Platform
+          To Become the World&apos;s Most Trusted B2B Ordering & Channel Sales Platform
         </h3>
 
         <p className={`text-white/80 ${bodyClass}`}>

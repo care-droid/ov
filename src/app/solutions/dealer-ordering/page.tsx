@@ -29,7 +29,7 @@ export default function DealerOrderingPage() {
       <DealerHero />
 
       {/* 3. Why OVENTRA */}
-      <section id="why-OVENTRA">
+      <section id="why-oventra">
         <DealerWhyOVENTRA />
       </section>
 

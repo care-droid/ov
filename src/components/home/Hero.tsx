@@ -193,7 +193,7 @@ export default function Hero() {
   />
 </div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 18, x: 14 }}
               animate={{ opacity: 1, y: 0, x: 0 }}
               transition={{ delay: 0.6, duration: 0.55 }}
@@ -205,7 +205,7 @@ export default function Hero() {
                 <TrendingUp className="h-5 w-5" />
                 <span className="text-sm sm:text-[31px]">Strong growth</span>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
       </div>

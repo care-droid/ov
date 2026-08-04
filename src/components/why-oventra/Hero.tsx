@@ -2,6 +2,8 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { COLORS, fadeUp, stagger, SwingTag, StitchDivider, heroHeadingClass, bodyLgClass } from './Shared';
+import { ArrowRight } from 'lucide-react';
+import { Button } from "@/components/ui/Button";
 
 export const Hero = () => {
   const heroRef = useRef(null);
@@ -68,27 +70,26 @@ export const Hero = () => {
             customer relationships.
           </motion.p>
 
-          <motion.div
+           <motion.div
             variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="flex flex-wrap gap-4 mt-10"
+            initial="hidden"
+            animate="show"
+            custom={3}
+            className="mt-9 flex flex-wrap gap-4"
           >
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 font-semibold uppercase tracking-[0.15em] text-sm text-white shadow-[0_20px_40px_-15px_rgba(0,0,0,0.6)]"
-              style={{ background: COLORS.blue, fontFamily: "'Oswald', sans-serif" }}
+            <Button
+              size="lg"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA",
+                  "_blank"
+                )
+              }
+              className="group h-12 min-w-[178px] rounded-[10px] border-0 bg-[#1b5399] px-7 text-base font-semibold text-white hover:from-[#A8325A] hover:to-[#7A1F3D]"
             >
               Book a Demo
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.04, borderColor: COLORS.blue, color: COLORS.blue, backgroundColor: 'rgba(255,255,255,0.08)' }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 font-semibold uppercase tracking-[0.15em] text-sm border border-white/40 text-white backdrop-blur-sm transition-colors"
-              style={{ fontFamily: "'Oswald', sans-serif" }}
-            >
-              Talk to Our Experts
-            </motion.button>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
           </motion.div>
         </motion.div>
       </div>

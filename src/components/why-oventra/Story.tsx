@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { COLORS, fadeUp, stagger, SwingTag, StitchDivider, sectionHeadingClass, bodyLgClass } from "./Shared";
+import { COLORS, fadeUp, stagger, SwingTag, StitchDivider, sectionHeadingClass, bodyLgClass, heroHeadingClass } from "./Shared";
 
 export const Story = () => {
   return (
@@ -21,7 +21,7 @@ export const Story = () => {
 
           <motion.h2
             variants={fadeUp}
-            className={`mt-8 font-display max-w-[640px] text-[#0A0A0A] ${sectionHeadingClass}`}
+            className={`mt-8 font-display max-w-[640px] text-[#0A0A0A] `}
           >
             Digitizing the Future of B2B Ordering
           </motion.h2>
@@ -56,59 +56,58 @@ export const Story = () => {
         </motion.div>
       </section>
 
-      <div className="px-6 md:px-20">
-        <StitchDivider />
-      </div>
+      
 
       {/* --- SECTION 2: OUR STORY --- */}
-      <section className="py-24 md:py-32 px-6 md:px-20 grid md:grid-cols-2 gap-16 items-start bg-[#F3F1EE]">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <SwingTag>Our Story</SwingTag>
-          <h2
-          className={`mt-8 font-display max-w-[640px] text-[#0A0A0A] ${sectionHeadingClass}`}
-          >
-            Built from Real Industry Challenges. Refined Through Real Business
-            Experience.
-          </h2>
-        </motion.div>
+     <section className="py-24 md:py-32 px-6 md:px-20 bg-[#F3F1EE]">
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="max-w-4xl mx-auto"
+  >
+    <SwingTag>Our Story</SwingTag>
+    <h1
+      className={`mt-8 font-display text-black ${heroHeadingClass}`}
+    >
+      Built from Real Industry Challenges. Refined Through Real Business
+      Experience.
+    </h1>
+  </motion.div>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className={`space-y-5 text-gray-600 ${bodyLgClass}`}
-        >
-          {[
-            "OVENTRA wasn&apos;t created inside a boardroom—it was built in the field.",
-            "As the team at Giga Soft Systems Pvt. Ltd., we have spent over 24 years developing enterprise software and digital transformation solutions for businesses across industries. During this journey, we worked closely with leading footwear manufacturers and witnessed a common challenge: despite investing heavily in production, marketing, and distribution, many companies still relied on manual methods to capture and process B2B orders.",
-            "At partner meets, sales teams carried printed catalogues and handwritten order forms. Routine distributor orders arrived through phone calls, WhatsApp messages, emails, and spreadsheets. Product launches involved countless follow-ups, manual data entry, and delayed reporting.",
-            "As businesses expanded, these traditional methods became difficult to manage. Order errors increased, visibility decreased, and valuable time was spent on administrative tasks instead of driving sales.",
-          ].map((t, i) => (
-            <motion.p key={i} variants={fadeUp} dangerouslySetInnerHTML={{ __html: t }} />
-          ))}
+  <motion.div
+    variants={stagger}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true }}
+    className={`mt-12 max-w-3xl mx-auto space-y-5 text-gray-600 ${bodyLgClass}`}
+  >
+    {[
+      "OVENTRA wasn&apos;t created inside a boardroom—it was built in the field.",
+      "As the team at Giga Soft Systems Pvt. Ltd., we have spent over 24 years developing enterprise software and digital transformation solutions for businesses across industries. During this journey, we worked closely with leading footwear manufacturers and witnessed a common challenge: despite investing heavily in production, marketing, and distribution, many companies still relied on manual methods to capture and process B2B orders.",
+      "At partner meets, sales teams carried printed catalogues and handwritten order forms. Routine distributor orders arrived through phone calls, WhatsApp messages, emails, and spreadsheets. Product launches involved countless follow-ups, manual data entry, and delayed reporting.",
+      "As businesses expanded, these traditional methods became difficult to manage. Order errors increased, visibility decreased, and valuable time was spent on administrative tasks instead of driving sales.",
+    ].map((t, i) => (
+      <motion.p key={i} variants={fadeUp} dangerouslySetInnerHTML={{ __html: t }} />
+    ))}
 
-          <motion.p
-            variants={fadeUp}
-            style={{ color: COLORS.maroon }}
-            className="font-semibold"
-          >
-            We believed there had to be a better way.
-          </motion.p>
+    <motion.p
+      variants={fadeUp}
+      style={{ color: COLORS.maroon }}
+      className="font-semibold"
+    >
+      We believed there had to be a better way.
+    </motion.p>
 
-          {[
-            "Working alongside some of India&apos;s leading footwear brands, we developed and refined a digital ordering platform that solved these real-world challenges. What began as a custom enterprise solution evolved into OVENTRA—a scalable SaaS platform designed specifically for businesses managing large product catalogues, distributor networks, and channel sales operations.",
-            "Today, OVENTRA combines years of industry experience with modern cloud technology to deliver a seamless ordering experience for manufacturers, distributors, dealers, and sales teams.",
-            "Our journey has always been guided by one principle: build technology that solves real business problems and creates measurable value.",
-          ].map((t, i) => (
-            <motion.p key={i + 10} variants={fadeUp} dangerouslySetInnerHTML={{ __html: t }} />
-          ))}
-        </motion.div>
-      </section>
+    {[
+      "Working alongside some of India&apos;s leading footwear brands, we developed and refined a digital ordering platform that solved these real-world challenges. What began as a custom enterprise solution evolved into OVENTRA—a scalable SaaS platform designed specifically for businesses managing large product catalogues, distributor networks, and channel sales operations.",
+      "Today, OVENTRA combines years of industry experience with modern cloud technology to deliver a seamless ordering experience for manufacturers, distributors, dealers, and sales teams.",
+      "Our journey has always been guided by one principle: build technology that solves real business problems and creates measurable value.",
+    ].map((t, i) => (
+      <motion.p key={i + 10} variants={fadeUp} dangerouslySetInnerHTML={{ __html: t }} />
+    ))}
+  </motion.div>
+</section>
     </div>
   );
 };

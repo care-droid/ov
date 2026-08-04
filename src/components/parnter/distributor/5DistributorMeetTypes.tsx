@@ -203,7 +203,7 @@ export default function DistributorMeetTypes() {
                   style={{ color: MAROON }}
                 >
                   Explore OVENTRA
-                  <ArrowUpRight className="h-3.5 w-3.5" />
+    
                 </motion.a>
               </div>
             </div>

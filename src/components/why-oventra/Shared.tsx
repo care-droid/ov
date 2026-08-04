@@ -87,7 +87,7 @@ export const SwingTag = ({ children }: { children: React.ReactNode }) => (
     className="inline-flex items-center gap-2 mb-6"
   >
     <span
-      className="flex items-center gap-2 border px-3 py-1 text-[11px] tracking-[0.25em] uppercase font-semibold"
+      className="flex items-center gap-2 border px-3 py-1 text-[11px] tracking-[0.25em]  font-semibold"
       style={{ fontFamily: "'IBM Plex Mono', monospace", color: COLORS.blue, borderColor: 'rgba(27,83,153,0.45)' }}
     >
       <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: COLORS.blue }} />

@@ -223,7 +223,7 @@ export default function PartnerMeetTypes() {
                   style={{ color: MAROON }}
                 >
                   Explore this benefit
-                  <ArrowUpRight className="h-3.5 w-3.5" />
+    
                 </motion.a>
               </div>
             </div>

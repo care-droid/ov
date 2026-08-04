@@ -14,11 +14,10 @@ export const Trust = () => (
         </div>
       </motion.div>
     </section>
-    <div className="px-6 md:px-20"><StitchDivider /></div>
     <section className="py-24 md:py-32 px-6 md:px-20 bg-[#F3F1EE]">
       <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 max-w-3xl">
         <SwingTag>Trust</SwingTag>
-        <h2 className={`font-display ${sectionHeadingClass}`}>Why Businesses Trust OVENTRA</h2>
+        <motion.h1 className={`font-display ${sectionHeadingClass}`}>Why Businesses Trust OVENTRA</motion.h1>
       </motion.div>
       <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {[{ icon: Factory, title: 'Industry-Focused Solution', desc: 'Purpose-built for manufacturers...' }, { icon: Cloud, title: 'Enterprise-Grade Technology', desc: 'Developed using scalable cloud architecture...' }, { icon: History, title: 'Backed by Experience', desc: 'Powered by Giga Soft Systems...' }, { icon: RefreshCw, title: 'Continuous Innovation', desc: 'Regular product updates...' }, { icon: LifeBuoy, title: 'Dedicated Support', desc: 'A knowledgeable implementation...' }, { icon: TrendingUp, title: 'Scalable Platform', desc: 'Whether you manage 50 distributors...' }].map(({ icon: Icon, title, desc }, i) => (

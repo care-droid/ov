@@ -189,7 +189,7 @@ export default function NewsEvents() {
                 </h3>
 
                 <Link
-                  href={post.link}
+                  href="/blog"
                   className="mt-auto inline-flex w-fit items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-primary)]/65 transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[#01397b]"
                 >
                   Read More

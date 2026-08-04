@@ -184,7 +184,7 @@ export default function NewsEvents() {
 
               {/* Content */}
               <div className="flex flex-1 flex-col p-10">
-                <h3 className="line-clamp-2 text-3xl font-extrabold tracking-tight leading-tight text-slate-900 transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[#01397b] sm:text-4xl">
+                <h3 className="line-clamp-2 text-3xl font-bold tracking-tight leading-tight text-slate-900 transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[#01397b] sm:text-4xl">
   {post.title}
 </h3>
 

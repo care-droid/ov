@@ -117,7 +117,7 @@ export default function Footer() {
             <Image src="/OVENTRA.png" alt="OVENTRA" width={140} height={48} className="h-10 w-auto sm:h-11" priority />
           </motion.div>
         </Link>
-              <p className="mt-4 max-w-[220px] text-[13px] leading-relaxed text-white/40">
+              <p className="mt-4 max-w-[220px] text-[13px] leading-relaxed text-white/70">
                 Streamlined ordering infrastructure for modern distribution networks.
               </p>
             </motion.div>
@@ -163,7 +163,7 @@ export default function Footer() {
             className="flex flex-col items-center justify-between gap-4 sm:flex-row"
           >
             <p className="text-center text-[12px] text-white/40 sm:text-left">
-              OVENTRA
+              Powered by GIGA SOFT
             </p>
 
             <p className="text-center text-[12px] text-white/40 sm:text-right sm:text-[13px]">

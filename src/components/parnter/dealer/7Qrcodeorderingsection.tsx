@@ -18,7 +18,7 @@
         const CREAM = "#F3EEE7";
         const INK = "#1A1512";
 
-        const steps = ["Size", "Color", "Quantity"];
+        const steps = ["Size", "Color", "Quantity", "Images","Price Breakup","Prices"];
 
         export default function QRCodeOrderingSection() {
         return (
@@ -71,17 +71,7 @@
                     They select
                 </motion.p>
 
-                <motion.ul
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.55, delay: 0.18 }}
-                    className="mt-5 max-w-md space-y-2"
-                >
-                    {steps.map((step) => (
-                    <li key={step} className="mt-3 gap-2 flex max-w-md text-[15px] leading-relaxed" style={{ color: `${INK}99` }}> <span className="grid h-5 w-5 place-items-center rounded-full text-[10px] font-bold text-white" style={{ background: `linear-gradient(135deg, ${MAROON}, ${MAROON_BRIGHT})` }} > ✓ </span> {step} </li>
-                    ))}
-                </motion.ul>
+                <motion.ul initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.55, delay: 0.18 }} className="mt-5 grid max-w-md grid-cols-2 grid-flow-col grid-rows-3 gap-x-8 gap-y-3" > {steps.map((step) => ( <li key={step} className="flex items-center gap-2 text-[15px] leading-relaxed" style={{ color: `${INK}99` }} > <span className="grid h-5 w-5 flex-shrink-0 place-items-center rounded-full text-[10px] font-bold text-white" style={{ background: `linear-gradient(135deg, ${MAROON}, ${MAROON_BRIGHT})` }} > ✓ </span> {step} </li> ))} </motion.ul>
 
                 <motion.p
                     initial={{ opacity: 0, y: 16 }}

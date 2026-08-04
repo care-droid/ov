@@ -30,7 +30,7 @@ const WhyChooseDistributor = () => {
       <div className="pointer-events-none absolute inset-0">
         <div
           className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full opacity-20 blur-3xl"
-          style={{ background: "radial-gradient(circle, #800000 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #a82225 0%, transparent 70%)" }}
         />
         <div
           className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full opacity-20 blur-3xl"
@@ -54,11 +54,11 @@ const WhyChooseDistributor = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start"
         >
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#800000]">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-[#a82225]">
             Platform
           </span>
           <h2 className="text-3xl font-black leading-[1.05] tracking-tight text-[#150808] md:text-5xl">
-            Why Choose <span className="text-[#800000]">OVENTRA</span>
+            Why Choose <span className="text-[#a82225]">OVENTRA</span>
           </h2>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-[#150808]/60 md:text-base">
             Not a generic order form. A platform built around how the
@@ -71,7 +71,7 @@ const WhyChooseDistributor = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#800000] px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-[#600000]"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#a82225] px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-[#600000]"
           >
             Book a Demo
             <ArrowRight size={16} />
@@ -97,25 +97,32 @@ const WhyChooseDistributor = () => {
                   >
                     <span
                       className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 ${
-                        open ? "bg-[#800000] text-white" : "bg-[#204a8c] text-white"
+                        open ? "bg-[#a82225] text-white" : "bg-[#204a8c] text-white"
                       }`}
                     >
                       <p.icon size={18} />
                     </span>
 
                     <span className="flex-1">
-                      <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-[#800000]/70">
+                      <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-[#a82225]/70">
                         Spec {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="mt-0.5 block text-base font-bold text-[#204a8c] sm:text-lg">
-                        {p.label}
-                      </span>
+
+                      
+                     <span
+  className={`mt-0.5 block text-base font-bold sm:text-lg ${
+    open ? "text-[#a82225]" : "text-[#204a8c]"
+  }`}
+>
+  {p.label}
+</span>
+
                     </span>
 
                     <Plus
                       size={18}
                       className={`shrink-0 text-[#204a8c]/40 transition-transform duration-300 ${
-                        open ? "rotate-45 text-[#800000]" : ""
+                        open ? "rotate-45 text-[#a82225]" : ""
                       }`}
                     />
                   </button>
@@ -130,7 +137,7 @@ const WhyChooseDistributor = () => {
                         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                         className="overflow-hidden"
                       >
-                        <p className="px-6 pb-6 pl-20 text-sm leading-relaxed text-[#204a8c]/70 sm:text-base">
+                        <p className="px-6 pb-6 pl-20 text-sm leading-relaxed text-[#000000] sm:text-base">
                           {p.body}
                         </p>
                       </motion.div>

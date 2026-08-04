@@ -18,7 +18,7 @@ export const Challenges = () => (
       >
         <SwingTag>Why We Built OVENTRA</SwingTag>
         <div className="relative inline-block">
-          <h1 className={`mt-8 font-display text-black ${heroHeadingClass}`}>
+          <h1 className={`mt-8 font-display text-[#5c0011] ${heroHeadingClass}`}>
             Because Businesses Should Focus on Growth Not Paperwork.
           </h1>
           <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-[#6D1025] to-[#214E8A] rounded-full" />

@@ -32,7 +32,7 @@ type MeetType = {
 const rawTypes: Omit<MeetType, "image">[] = [
   {
     icon: CalendarDays,
-    label: "Annual Distributor Meets",
+    label: "Distributor Meets",
     body: "Launch new collections and capture distributor orders the same day.",
   },
   {
@@ -184,7 +184,10 @@ export default function DistributorMeetTypes() {
                     style={{ borderColor: `${MAROON}40`, color: MAROON }}
                     aria-label="Previous format"
                   >
-                    <ChevronLeft size={14} />
+                    <ChevronLeft
+  size={14}
+  className="text-[#571327] hover:text-white transition-colors duration-200"
+/>
                   </button>
                   <button
                     onClick={() => go(1)}
@@ -192,7 +195,10 @@ export default function DistributorMeetTypes() {
                     style={{ borderColor: `${MAROON}40`, color: MAROON }}
                     aria-label="Next format"
                   >
-                    <ChevronRight size={14} />
+                    <ChevronRight
+  size={14}
+  className="text-[#571327] hover:text-white transition-colors duration-200"
+/>
                   </button>
                 </div>
 

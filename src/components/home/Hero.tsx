@@ -100,35 +100,38 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="relative z-10 ml-auto w-full max-w-[640px] lg:mr-2"
         >
-          <div className="relative aspect-[1.35/1] w-full overflow-visible">
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.97 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: [0, -8, 0],
-              }}
-              transition={{
-                opacity: { duration: 0.6, delay: 0.4, ease: "easeOut" },
-                scale: { duration: 0.6, delay: 0.4, ease: "easeOut" },
-                y: {
-                  duration: 4,
-                  delay: 1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
-              className="absolute inset-x-0 top-[7%] z-10 h-[76%] rounded-2xl border border-white/10 bg-[#1B0B0F] p-4 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]"
-            >
-              <Image
-                src="/Home/Dashboard1.png"
-                alt="Dashboard"
-                fill
-                sizes="(max-width: 768px) 90vw, 45vw"
-                className="object-contain"
-              />
-            </motion.div>
-          </div>
+          {/* Device mockup — the PNG already contains its own tablet frame,
+              so we render it directly with object-contain and no second
+              wrapping box. This avoids the "frame inside a frame" clipping
+              you were seeing (bezel getting cut off at the edges). */}
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.97 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: [0, -8, 0],
+            }}
+            transition={{
+              opacity: { duration: 0.6, delay: 0.4, ease: "easeOut" },
+              scale: { duration: 0.6, delay: 0.4, ease: "easeOut" },
+              y: {
+                duration: 4,
+                delay: 1,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
+            className="relative aspect-[1.35/1] w-full drop-shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+          >
+            <Image
+              src="/Home/Dashboard7.png"
+              alt="OVENTRA live dashboard shown on a tablet"
+              fill
+              sizes="(max-width: 768px) 90vw, 45vw"
+              className="object-contain rounded-lg"
+              priority
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

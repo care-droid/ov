@@ -202,10 +202,7 @@ export default function DistributorReports() {
                   <span className="text-xs text-[#F0DCE0]/40">
                     Available for export and ERP integration
                   </span>
-                  <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#6E1423] text-white text-sm hover:bg-[#5C1428] transition-colors">
-                    <Download className="w-4 h-4" />
-                    Export Report
-                  </button>
+                  
                 </div>
               </motion.div>
             </AnimatePresence>

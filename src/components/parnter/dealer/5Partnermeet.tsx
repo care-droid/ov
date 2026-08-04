@@ -204,7 +204,8 @@ export default function PartnerMeetTypes() {
                     style={{ borderColor: `${MAROON}40`, color: MAROON }}
                     aria-label="Previous format"
                   >
-                    <ChevronLeft size={14} />
+                    <ChevronLeft size={14} className="text-[#571327] hover:text-white transition-colors duration-200"
+/>
                   </button>
                   <button
                     onClick={() => go(1)}
@@ -212,7 +213,10 @@ export default function PartnerMeetTypes() {
                     style={{ borderColor: `${MAROON}40`, color: MAROON }}
                     aria-label="Next format"
                   >
-                    <ChevronRight size={14} />
+                    <ChevronRight
+  size={14}
+  className="text-[#571327] hover:text-white transition-colors duration-200"
+/>
                   </button>
                 </div>
 

@@ -59,7 +59,7 @@ export const Story = () => {
       
 
       {/* --- SECTION 2: OUR STORY --- */}
-     <section className="py-24 md:py-32 px-6 md:px-20 bg-[#F3F1EE]">
+     <section className="py-24 md:py-32 px-6 md:px-20 ">
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}

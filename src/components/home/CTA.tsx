@@ -34,7 +34,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "Why Footwear Manufacturers Should Digitize Their B2B Ordering Process",
     excerpt:
       "Learn how digital B2B ordering helps footwear manufacturers reduce order errors, streamline partner meets, improve distributor ordering, and increase operational efficiency.",
-    date: "20 Jul 2026",
+    date: "3 Aug 2026",
     author: "OVENTRA Team",
     category: "B2B Ordering",
     tags: ["B2B Ordering", "Footwear", "Digital Transformation"],
@@ -51,7 +51,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "How to Conduct a Successful Digital Partner Meet for Footwear Distributors",
     excerpt:
       "Learn how footwear manufacturers can digitize partner meets, reduce order errors, improve distributor experience, and capture real-time orders with digital ordering.",
-    date: "19 Jul 2026",
+    date: "27 Jul 2026",
     author: "OVENTRA Team",
     category: "B2B Ordering",
     tags: ["Digital Partner Meet", "Footwear", "Distributors"],
@@ -67,7 +67,7 @@ const BLOG_POSTS: BlogPost[] = [
     title: "7 Challenges of Manual Distributor Ordering and How to Overcome Them",
     excerpt:
       "Discover the seven biggest challenges of manual distributor ordering in the footwear industry and learn how a digital B2B ordering platform improves accuracy and efficiency.",
-    date: "18 Jul 2026",
+    date: "20 Jul 2026",
     author: "OVENTRA Team",
     category: "B2B Ordering",
     tags: ["Distributor Ordering", "Challenges", "Automation"],

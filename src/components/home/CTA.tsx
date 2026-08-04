@@ -117,9 +117,7 @@ export default function NewsEvents() {
       <div className="relative mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-14 md:mb-20">
-          <span className="text-sm font-semibold uppercase tracking-wider text-[var(--primary)]">
-            NEWS & EVENTS
-          </span>
+          
           <h2 className="mt-2 text-3xl font-bold text-[#5c0011] md:text-4xl lg:text-5xl">
             Latest blog posts
           </h2>

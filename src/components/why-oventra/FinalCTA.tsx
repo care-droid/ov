@@ -17,8 +17,13 @@ export const FinalCTA = () => (
     <motion.div className="absolute -top-24 -left-24 w-72 h-72 rounded-full" style={{ background: COLORS.blue, opacity: 0.15 }} animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 6, repeat: Infinity }} />
     <motion.div className="absolute -bottom-24 -right-16 w-96 h-96 rounded-full" style={{ background: COLORS.blueDeep, opacity: 0.15 }} animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 7, repeat: Infinity }} />
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative z-10 text-center max-w-3xl">
-      <motion.h1  className="mt-8 font-display text-[33px] font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:text-[58px]"
-          >READY TO EXPERIENCE THE <span style={{ color: '#fff', textDecoration: 'underline', textDecorationColor: COLORS.blue }}>OVENTRA</span> DIFFERENCE?</motion.h1>
+     <motion.h1
+                 variants={fadeUp}
+                 initial="hidden"
+                 animate="show"
+                 custom={1}
+                 className="mt-8 font-display text-[33px] font-semibold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:text-[58px]"
+               >READY TO EXPERIENCE THE <span style={{ color: '#fff', textDecoration: 'underline', textDecorationColor: COLORS.blue }}>OVENTRA</span> DIFFERENCE?</motion.h1>
       <p className={`text-white/80 mb-3 ${bodyLgClass}`}>Join forward-thinking businesses that are transforming their B2B ordering process...</p>
       <div className="flex flex-wrap gap-4 justify-center mt-10">
          <motion.div

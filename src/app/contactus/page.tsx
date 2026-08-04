@@ -186,10 +186,7 @@ export default function Contact() {
                   errors.phone ? "border-red-400" : "border-[#741A34]/15"
                 }`}
               >
-                <span className="flex items-center gap-1 sm:gap-2 whitespace-nowrap px-3 sm:px-4 border-r border-[#741A34]/15 text-xs sm:text-sm text-[#4a4a4a]">
-                  <span>🇮🇳</span>
-                  <span>+91</span>
-                </span>
+                
                 <input
                   type="tel"
                   inputMode="numeric"
@@ -206,7 +203,7 @@ export default function Contact() {
               <textarea
                 value={form.message}
                 onChange={(e) => handleChange("message", e.target.value)}
-                placeholder="Tell us about your project or needs *"
+                placeholder="How can we help you? *"
                 rows={4}
                 className={`${inputBase} resize-none ${
                   errors.message ? "border-red-400" : "border-[#741A34]/15"

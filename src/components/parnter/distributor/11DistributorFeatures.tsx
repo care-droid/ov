@@ -31,7 +31,7 @@ import {
  *   --paper       #F7F1E4   certificate surface, aged ivory
  *   --ink         #241512   primary text on paper
  *   --ink-60      #6E5850   secondary text on paper
- *   --blue        #1B5399   accent — seal, rules, active index state
+ *   --blue        #591625   accent — seal, rules, active index state
  */
 
 const features = [
@@ -164,16 +164,16 @@ export default function DistributorFeatures() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-3xl mx-auto text-center mb-16"
           >
-            <div className="font-label text-[11px] uppercase text-[#8FB4DE] mb-5 font-medium">
+            <div className="font-label text-[11px] uppercase text-[#2d5390] mb-5 font-medium">
               Powerful Features
             </div>
             <h2 className="font-display text-[33px] sm:text-[56px] lg:text-[58px] text-[#F7F1E4] leading-[1.05] tracking-[-0.02em] font-semibold">
               Designed for Modern Distribution Networks
             </h2>
             <div className="flex items-center justify-center gap-3 mt-8">
-              <span className="h-px w-16 bg-[#1B5399]/60" />
-              <span className="w-1.5 h-1.5 rotate-45 bg-[#1B5399]/70" />
-              <span className="h-px w-16 bg-[#1B5399]/60" />
+              <span className="h-px w-16 bg-[#591625]/60" />
+              <span className="w-1.5 h-1.5 rotate-45 bg-[#591625]/70" />
+              <span className="h-px w-16 bg-[#591625]/60" />
             </div>
           </motion.div>
 
@@ -200,7 +200,7 @@ export default function DistributorFeatures() {
                 >
                   <span
                     className={`font-label text-[11px] shrink-0 transition-colors duration-300 ${
-                      isActive ? "text-[#8FB4DE]" : "text-[#F7F1E4]/35"
+                      isActive ? "text-[#2d5390]" : "text-[#F7F1E4]/35"
                     }`}
                   >
                     {String(
@@ -228,13 +228,13 @@ export default function DistributorFeatures() {
                     size={15}
                     strokeWidth={1.5}
                     className={`shrink-0 transition-colors duration-300 ${
-                      isActive ? "text-[#8FB4DE]" : "text-[#F7F1E4]/30"
+                      isActive ? "text-[#2d5390]" : "text-[#F7F1E4]/30"
                     }`}
                   />
                   {isActive && (
                     <motion.span
                       layoutId="index-mark"
-                      className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#1B5399]"
+                      className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#591625]"
                       transition={{ type: "spring", stiffness: 400, damping: 32 }}
                     />
                   )}
@@ -254,8 +254,8 @@ export default function DistributorFeatures() {
               className="relative max-w-4xl mx-auto"
             >
               <div className="relative bg-[#F7F1E4] p-1 rounded-sm shadow-[0_40px_80px_-30px_rgba(0,0,0,0.55)]">
-                <div className="border border-[#1B5399]/30 p-[3px]">
-                  <div className="border border-[#1B5399]/50 px-8 py-12 md:px-16 md:py-16">
+                <div className="border border-[#591625]/30 p-[3px]">
+                  <div className="border border-[#591625]/50 px-8 py-12 md:px-16 md:py-16">
                     {/* corner marks */}
                     {[
                       "top-3 left-3 border-t border-l",
@@ -265,7 +265,7 @@ export default function DistributorFeatures() {
                     ].map((pos) => (
                       <div
                         key={pos}
-                        className={`absolute ${pos} w-3 h-3 border-[#1B5399]/60`}
+                        className={`absolute ${pos} w-3 h-3 border-[#591625]/60`}
                       />
                     ))}
 
@@ -277,23 +277,14 @@ export default function DistributorFeatures() {
                         transition={{ delay: 0.1, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                         className="shrink-0 mx-auto md:mx-0"
                       >
-                        <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-[#1B5399] flex items-center justify-center">
-                          <div className="absolute inset-1.5 rounded-full border border-dashed border-[#1B5399]/50" />
-                          <active.icon size={30} strokeWidth={1.25} className="text-[#1B5399]" />
+                        <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-[#591625] flex items-center justify-center">
+                          <div className="absolute inset-1.5 rounded-full border border-dashed border-[#591625]/50" />
+                          <active.icon size={30} strokeWidth={1.25} className="text-[#591625]" />
                         </div>
                       </motion.div>
 
                       <div className="min-w-0 text-center md:text-left">
-                        <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-4 justify-center md:justify-start">
-                          <span className="font-label text-[11px] uppercase text-[#1B5399] font-medium">
-                            {active.spec}
-                          </span>
-                          <span className="hidden md:block w-px h-3 bg-[#241512]/20" />
-                          <span className="font-label text-[11px] uppercase text-[#241512]/40 font-medium">
-                            {String(activeIndex + 1).padStart(2, "0")} of{" "}
-                            {String(features.length).padStart(2, "0")}
-                          </span>
-                        </div>
+                       
 
                         <h3 className="font-display text-[26px] sm:text-[34px] text-[#241512] leading-[1.05] tracking-[-0.02em] font-semibold mb-5">
                           {active.title}
@@ -311,7 +302,7 @@ export default function DistributorFeatures() {
                                 key={h}
                                 className="font-label text-[11px] uppercase tracking-[0.1em] text-[#241512]/60 flex items-center gap-2"
                               >
-                                <span className="w-1 h-1 rotate-45 bg-[#1B5399]/70 shrink-0" />
+                                <span className="w-1 h-1 rotate-45 bg-[#591625]/70 shrink-0" />
                                 {h}
                               </span>
                             ))}

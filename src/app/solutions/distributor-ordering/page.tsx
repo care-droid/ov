@@ -24,7 +24,9 @@ export default function DistributorOrderingPage() {
 
       <DistributorDashboardPage />
 
-      <WhyDistributor />
+      <section id="features">
+        <DistributorFeatures />
+      </section>
 
       <DistributorChallenges />
 
@@ -48,9 +50,7 @@ export default function DistributorOrderingPage() {
         <DistributorReports />
       </section>
 
-      <section id="features">
-        <DistributorFeatures />
-      </section>
+      
 
       <section id="why-oventra">
         <WhyChooseDistributor />

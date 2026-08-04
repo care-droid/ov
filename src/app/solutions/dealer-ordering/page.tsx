@@ -28,9 +28,9 @@ export default function DealerOrderingPage() {
       {/* 2. Dashboard */}
       <DealerHero />
 
-      {/* 3. Why OVENTRA */}
-      <section id="why-oventra">
-        <DealerWhyOVENTRA />
+   {/* 9. Powerful Features */}
+      <section id="features" className="scroll-mt-24">
+        <DealerPowerfulFeatures />
       </section>
 
       {/* 4. Challenges */}
@@ -58,10 +58,7 @@ export default function DealerOrderingPage() {
         {/* <DealerBusinessBenefits /> */}
       </section>
 
-      {/* 9. Powerful Features */}
-      <section id="features" className="scroll-mt-24">
-        <DealerPowerfulFeatures />
-      </section>
+      
 
       {/* 10. Why Choose OVENTRA */}
       <section id="why-choose-OVENTRA" className="scroll-mt-24">

@@ -235,9 +235,7 @@ export function HeroSection() {
     Book a Demo
   </button>
 </a>
-                <button className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-white text-sm sm:text-base border border-white/25 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/40">
-                  See How It Works
-                </button>
+               
               </div>
             </div>
           </div>

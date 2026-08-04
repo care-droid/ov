@@ -118,28 +118,6 @@ export function IndustriesSection() {
           business managing large catalogues.
         </p>
 
-        <div
-          className={`relative ind-rise ${visible ? "is-visible" : ""}`}
-          style={{ animationDelay: visible ? "0.26s" : undefined }}
-        >
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
-            <Image
-              src="/About/About4.png"
-              alt="Industries"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#2c0810]/50 via-transparent to-transparent" />
-          </div>
-
-          {/* Floating stat card, echoes the mockup-card signature used elsewhere on the page */}
-          <div className="ind-float absolute -bottom-6 -right-4 sm:-right-6 bg-white rounded-2xl shadow-2xl border border-[#7A1428]/10 px-5 py-4">
-            <p className="text-2xl font-bold text-[#7A1428] leading-none">8+</p>
-            <p className="text-[11px] font-medium text-[#4b4243] tracking-wide mt-1">
-              Industries, one platform
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* Right: icon grid + experience panel */}
@@ -147,57 +125,28 @@ export function IndustriesSection() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {industries.map(({ name, icon: Icon }, i) => (
             <div
-              key={name}
-              className={`group relative flex flex-col items-start gap-4 p-5 rounded-2xl bg-white border border-[#7A1428]/10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-16px_rgba(122,20,40,0.35)] hover:bg-[#7A1428] cursor-default ind-pop ${
-                visible ? "is-visible" : ""
-              }`}
-              style={{ animationDelay: visible ? `${0.15 + i * 0.07}s` : undefined }}
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#7A1428]/10 flex items-center justify-center transition-colors duration-300 group-hover:bg-white/15">
-                <Icon
-                  className="w-5 h-5 text-[#7A1428] transition-colors duration-300 group-hover:text-white"
-                  strokeWidth={1.75}
-                />
-              </div>
-              <span className="font-semibold text-[#4A0E1A] leading-snug transition-colors duration-300 group-hover:text-white">
-                {name}
-              </span>
-              <span className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-[#1b5399] opacity-0 scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100" />
-            </div>
+  key={name}
+  className={`group relative flex items-center gap-3 p-3 rounded-xl bg-white border border-[#7A1428]/10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-16px_rgba(122,20,40,0.35)] hover:bg-[#7A1428] cursor-default ind-pop ${
+    visible ? "is-visible" : ""
+  }`}
+  style={{ animationDelay: visible ? `${0.15 + i * 0.07}s` : undefined }}
+>
+  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#7A1428]/10 transition-colors duration-300 group-hover:bg-white/15">
+    <Icon
+      className="h-5 w-5 text-[#7A1428] transition-colors duration-300 group-hover:text-white"
+      strokeWidth={1.75}
+    />
+  </div>
+
+  <span className="text-sm font-semibold leading-tight text-[#4A0E1A] transition-colors duration-300 group-hover:text-white">
+    {name}
+  </span>
+
+  <span className="absolute top-3 right-3 h-1.5 w-1.5 rounded-full bg-[#1b5399] opacity-0 scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100" />
+</div>
           ))}
         </div>
 
-        <div
-          className={`mt-8 p-8 rounded-3xl bg-[#7A1428]/5 border border-[#7A1428]/10 w-full relative overflow-hidden ind-rise ${
-            visible ? "is-visible" : ""
-          }`}
-          style={{ animationDelay: visible ? "0.7s" : undefined }}
-        >
-          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#7A1428] to-[#1b5399]" />
-          <h3 className="text-2xl font-bold text-[#4A0E1A] mb-3 pl-4">
-            Backed by Experience.
-          </h3>
-          <p className="text-[#4b4243] leading-relaxed pl-4 mb-6">
-            Partnering with a company that has spent two decades solving
-            complex challenges.
-          </p>
-          <div className="flex flex-wrap gap-8 pl-4">
-            {[
-              { value: "20+", label: "Years in business" },
-              { value: "8", label: "Industries served" },
-              { value: "100%", label: "Cloud-native" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="text-xl font-bold text-[#7A1428] leading-none">
-                  {stat.value}
-                </p>
-                <p className="text-[11px] text-[#4b4243] mt-1 tracking-wide">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

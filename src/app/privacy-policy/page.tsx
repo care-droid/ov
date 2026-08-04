@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Building, Calendar, Shield, Lock, Eye, FileText } from "lucide-react";
+import { Mail, Phone, MapPin, Calendar } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -17,12 +17,7 @@ export default function PrivacyPolicy() {
   return (
     <section className="w-full bg-white">
       {/* Hero Section */}
-      <div className="relative w-full h-[40vh] sm:h-[45vh] md:h-[50vh] overflow-hidden">
-        <img
-          src="/contactUs/contact.webp"
-          alt="Privacy Policy"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <div className="relative w-full h-[40vh] sm:h-[45vh] md:h-[50vh] overflow-hidden bg-gradient-to-br from-[#4A0E1A] to-[#741A34]">
         <div className="absolute inset-0 bg-gradient-to-b from-[#4A0E1A]/80 via-[#4A0E1A]/20 to-black/30" />
         <div className="relative z-10 flex h-full items-center justify-center px-6">
           <motion.h1
@@ -84,7 +79,7 @@ export default function PrivacyPolicy() {
               <li className="flex items-start gap-3">
                 <span className="text-[#741A34] font-semibold">•</span>
                 <div>
-                  <span className="font-semibold text-[#1c1c1c]">Company</span> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to OVENTRA, managed by Gigasoft.
+                  <span className="font-semibold text-[#1c1c1c]">Company</span> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to OVENTRA, managed by Gigasoft.
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -144,7 +139,10 @@ export default function PrivacyPolicy() {
             </div>
           </motion.div>
 
-        
+          {/* Footer */}
+          <motion.div variants={fadeUp} className="pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
+            <p>&copy; {new Date().getFullYear()} OVENTRA. All rights reserved.</p>
+          </motion.div>
         </motion.div>
       </div>
     </section>

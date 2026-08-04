@@ -54,32 +54,32 @@ const rawTypes: Omit<MeetType, "image">[] = [
   {
     icon: CalendarDays,
     label: "Partner Meets",
-    body: "Launch new collections and capture seasonal orders the same day.",
+    body: "Launch new collections and capture seasonal orders the very same day. Showcase your latest products, collect distributor commitments instantly, and eliminate manual order-taking during partner meetings.",
   },
   {
     icon: MapPin,
     label: "Regional Distributor Meets",
-    body: "Run city-wise sales events without losing a single order in transit.",
+    body: "Run city-wise sales events without losing a single order in transit. Enable distributors to browse the complete catalogue, place orders digitally, and ensure every order reaches your system instantly.",
   },
   {
     icon: Rocket,
     label: "Product Launch Events",
-    body: "Introduce a new collection with ordering built in from the first minute.",
+    body: "Introduce a new collection with ordering built in from the very first minute. Let attendees explore products, check specifications, and place confirmed orders while the launch presentation is still in progress.",
   },
   {
     icon: Users,
     label: "Dealer Conferences",
-    body: "Let dealers browse the full range and place orders on the spot.",
+    body: "Let dealers browse the full product range and place orders on the spot. Provide instant access to your latest catalogue, pricing, and availability while capturing every order digitally without paperwork.",
   },
   {
     icon: Store,
     label: "Trade Exhibitions",
-    body: "Replace the paper form at your stall with a single QR code.",
+    body: "Replace paper forms at your exhibition stall with a single QR code. Visitors can instantly access your digital catalogue, browse products, and submit enquiries or orders directly from their smartphones.",
   },
   {
     icon: Mic,
     label: "Sales Conferences",
-    body: "Capture every distributor's commitment while the room is still in the meeting.",
+    body: "Capture every distributor's commitment while everyone is still in the meeting. Record confirmed orders, planned quantities, and follow-up actions in real time so nothing is missed after the conference ends.",
   },
 ];
 
@@ -208,7 +208,7 @@ export default function PartnerMeetTypes() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
-                  className="font-display text-xl leading-relaxed sm:text-2xl"
+                  className="font-display text-lg leading-relaxed sm:text-xl"
                   style={{ color: INK }}
                 >
                   {current.body}

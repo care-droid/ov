@@ -137,7 +137,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2000"
-          alt="Oventra Hero Background"
+          alt="OVENTRA Hero Background"
           className={`w-full h-full object-cover transition-transform duration-[6s] ease-out ${
             visible ? "scale-110" : "scale-100"
           }`}

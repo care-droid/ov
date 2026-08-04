@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------
    OVENTRA — SUPPORT CENTER
-   Same design system as the Oventra brand pages: near-black, maroon,
+   Same design system as the OVENTRA brand pages: near-black, maroon,
    warm white, dark blue accent. This page: help categories with
    imagery, an animated FAQ accordion, and contact channels.
 ------------------------------------------------------------------- */
@@ -49,7 +49,7 @@ const CATEGORIES = [
 const FAQS = [
   {
     q: "How do I know a caterer is actually free for my date?",
-    a: "Every caterer's calendar on Oventra updates in real time. When you open a listing, the availability you see is live — if a date shows as open, you can book it immediately without waiting for a confirmation call.",
+    a: "Every caterer's calendar on OVENTRA updates in real time. When you open a listing, the availability you see is live — if a date shows as open, you can book it immediately without waiting for a confirmation call.",
   },
   {
     q: "What happens after I pay the deposit?",
@@ -65,7 +65,7 @@ const FAQS = [
   },
   {
     q: "Do you support dietary restrictions and custom menus?",
-    a: "Most caterers on Oventra let you filter by dietary need (vegetarian, vegan, halal, gluten-free, and more) before you even open a listing, and you can message any vendor directly to request custom adjustments.",
+    a: "Most caterers on OVENTRA let you filter by dietary need (vegetarian, vegan, halal, gluten-free, and more) before you even open a listing, and you can message any vendor directly to request custom adjustments.",
   },
   {
     q: "How do I contact my caterer directly?",
@@ -85,7 +85,7 @@ const CHANNELS = [
     id: "email",
     title: "Email us",
     body: "For anything detailed — attach screenshots, invoices, or booking references.",
-    action: "support@oventra.com",
+    action: "support@OVENTRA.com",
     icon: <path d="M4 4h16v16H4V4zm0 0l8 8 8-8" />,
   },
   {
@@ -521,7 +521,7 @@ export default function SupportPage() {
       {/* ---------------- Nav ---------------- */}
       <nav className="nav">
         <div className="container nav__row">
-          <div className="nav__brand">Oventra <em>Support</em></div>
+          <div className="nav__brand">OVENTRA <em>Support</em></div>
           <button className="nav__cta" onClick={scrollToFaqs}>Browse FAQs</button>
         </div>
       </nav>
@@ -638,7 +638,7 @@ export default function SupportPage() {
       <footer className="footer">
         <div className="container footer__row">
           <span>OVENTRA</span>
-          <span>© {new Date().getFullYear()} Oventra. Honest heat, always.</span>
+          <span>© {new Date().getFullYear()} OVENTRA. Honest heat, always.</span>
         </div>
       </footer>
     </div>

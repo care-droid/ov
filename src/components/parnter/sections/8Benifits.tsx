@@ -137,7 +137,7 @@ const BusinessBenefits = () => {
             </h2>
             <p className="font-body text-[#fff] text-lg max-w-2xl mx-auto leading-relaxed">
               Six frictions the trade has lived with for decades, and what
-              replaces each one once the meet runs on Oventra.
+              replaces each one once the meet runs on OVENTRA.
             </p>
           </div>
 

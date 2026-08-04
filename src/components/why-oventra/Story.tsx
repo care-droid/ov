@@ -16,7 +16,7 @@ export const Story = () => {
           viewport={{ once: true }}
         >
           <motion.div variants={fadeUp}>
-            <SwingTag>Why Oventra</SwingTag>
+            <SwingTag>Why OVENTRA</SwingTag>
           </motion.div>
 
           <motion.h2

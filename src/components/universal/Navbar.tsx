@@ -147,8 +147,8 @@ const NAV_ITEMS: NavItem[] = [
   //   type: "dropdown",
   //   label: "Why OVENTRA",
   //   items: [
-  //     { label: "Our Story", href: "/why-oventra/our-story" },
-  //     { label: "Why We Built OVENTRA", href: "/why-oventra/why-we-built-oventra" },
+  //     { label: "Our Story", href: "/why-OVENTRA/our-story" },
+  //     { label: "Why We Built OVENTRA", href: "/why-OVENTRA/why-we-built-OVENTRA" },
   //   ],
   // },
  
@@ -172,7 +172,7 @@ const NAV_ITEMS: NavItem[] = [
   //     ],
   // },
   
-  { type: "link", label: "Why OVENTRA", href: "/why-oventra" },
+  { type: "link", label: "Why OVENTRA", href: "/why-OVENTRA" },
   
   { type: "link", label: "Contact Us", href: "/contactus" },
 ];
@@ -252,9 +252,9 @@ export default function Navbar() {
         aria-label="Primary"
       >
         {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center gap-2 focus-visible:outline-none" aria-label="Oventra home">
+        <Link href="/" className="flex shrink-0 items-center gap-2 focus-visible:outline-none" aria-label="OVENTRA home">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.94 }} transition={{ type: "spring", stiffness: 300, damping: 18 }}>
-            <Image src="/logo2.png" alt="Oventra" width={140} height={48} className="h-10 w-auto sm:h-11" priority />
+            <Image src="/logo2.png" alt="OVENTRA" width={140} height={48} className="h-10 w-auto sm:h-11" priority />
           </motion.div>
         </Link>
 

@@ -138,18 +138,24 @@ export default function Integrations() {
 {/* Header Section */}
 <div className="relative mb-16 flex flex-col items-center text-center px-4">
   {/* Sub-header / Badge */}
-  <motion.div
-   initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mx-auto mb-6 text-center text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#5d0213] sm:mb-10 sm:text-5xl md:text-6xl lg:text-[4rem]"
-        >
-    Built by GigaSoft
-   <div>
-     <span className="relative inline-block">
-      
-      <span className="relative z-10 text-4xl text-[#800020]">Designed for Modern Distribution Networks</span>
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="mx-auto mb-6 text-center text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#5d0213] sm:mb-10 sm:text-5xl md:text-6xl lg:text-[4rem]"
+>
+  Built by{" "}
+  <span className="bg-[#01397b] bg-clip-text text-transparent">
+    GigaSoft
+  </span>
+
+  <div>
+    <span className="relative inline-block">
+      <span className="relative z-10 text-4xl text-[#800020]">
+        Designed for Modern Distribution Networks
+      </span>
+
       <svg
         className="absolute -bottom-2 left-0 -z-10 h-3 w-full fill-[#800020]/10"
         viewBox="0 0 100 10"
@@ -158,8 +164,8 @@ export default function Integrations() {
         <path d="M0 5 Q 25 0, 50 5 T 100 5 L 100 10 L 0 10 Z" />
       </svg>
     </span>
-   </div>
-  </motion.div>
+  </div>
+</motion.div>
 
 
     

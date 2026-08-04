@@ -127,7 +127,7 @@ export default function BusinessBenefits() {
               The Business Case
             </div>
             <h2 className="font-display text-[33px] sm:text-[56px] lg:text-[58px] text-[#F7F1E4] leading-[1.05] tracking-[-0.02em] font-semibold">
-              Why leading footwear manufacturers prefer Oventra
+              Why leading footwear manufacturers prefer OVENTRA
             </h2>
             <div className="flex items-center justify-center gap-3 mt-8">
               <span className="h-px w-16 bg-[#1B5399]/60" />

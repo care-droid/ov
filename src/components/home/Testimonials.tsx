@@ -24,7 +24,7 @@ const TESTIMONIALS: TestimonialItem[] = [
     name: "Alexander Smith",
     role: "Director, Bridgeton Finance Ltd.",
     quote:
-      "I have an amazing experience with team Oventra. Highly recommended. They have skilled & amazing team members in their studio. We would love to work again with Oventra.",
+      "I have an amazing experience with team OVENTRA. Highly recommended. They have skilled & amazing team members in their studio. We would love to work again with OVENTRA.",
     rating: 4.9,
     image: "/CTA1.jpg",
   },
@@ -40,7 +40,7 @@ const TESTIMONIALS: TestimonialItem[] = [
     name: "Elena Kovacs",
     role: "COO, Larkspur Labs",
     quote:
-      "Oventra is the calmest piece of software our team has ever adopted. Onboarding took an afternoon, not a quarter.",
+      "OVENTRA is the calmest piece of software our team has ever adopted. Onboarding took an afternoon, not a quarter.",
     rating: 4.8,
     image: "/CTA3.jpg",
   },

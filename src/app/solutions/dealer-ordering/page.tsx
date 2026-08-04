@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 
 import DealerIntro from "@/components/parnter/dealer/1Intro";
 import DealerHero from "@/components/parnter/dealer/2DashboardPage";
-import DealerWhyOventra from "@/components/parnter/dealer/3Whyoventra";
+import DealerWhyOVENTRA from "@/components/parnter/dealer/3WhyOVENTRA";
 import DealerChallenges from "@/components/parnter/dealer/4Partnermeetchallenges";
 import DealerPartnerMeet from "@/components/parnter/dealer/5Partnermeet";
 import DealerHowItWorks from "@/components/parnter/dealer/6Partnerappshowcase";
 import DealerChooseVariants from "@/components/parnter/dealer/7Qrcodeorderingsection";
 import DealerBusinessBenefits from "@/components/parnter/dealer/8Benifits";
 import DealerPowerfulFeatures from "@/components/parnter/dealer/9Powerfulfeaturespage";
-import DealerWhyChooseOventra from "@/components/parnter/dealer/10WhyChooseOventra";
+import DealerWhyChooseOVENTRA from "@/components/parnter/dealer/10WhyChooseOVENTRA";
 
 export const metadata: Metadata = {
   title: "Dealer Ordering | OVENTRA",
@@ -29,8 +29,8 @@ export default function DealerOrderingPage() {
       <DealerHero />
 
       {/* 3. Why OVENTRA */}
-      <section id="why-oventra">
-        <DealerWhyOventra />
+      <section id="why-OVENTRA">
+        <DealerWhyOVENTRA />
       </section>
 
       {/* 4. Challenges */}
@@ -64,8 +64,8 @@ export default function DealerOrderingPage() {
       </section>
 
       {/* 10. Why Choose OVENTRA */}
-      <section id="why-choose-oventra" className="scroll-mt-24">
-        <DealerWhyChooseOventra />
+      <section id="why-choose-OVENTRA" className="scroll-mt-24">
+        <DealerWhyChooseOVENTRA />
       </section>
     </main>
   );

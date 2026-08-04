@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /**
- * Oventra's signature motif: a quiet constellation of nodes and
+ * OVENTRA's signature motif: a quiet constellation of nodes and
  * connecting lines, with two soft brand-color glow blobs. Reused
  * (at different scales/opacities) across Hero, Integrations and CTA
  * so the "orchestration" idea recurs structurally, not decoratively.
@@ -54,7 +54,7 @@ export default function AnimatedBackground({
             y1={nodes[a].y}
             x2={nodes[b].x}
             y2={nodes[b].y}
-            stroke="url(#oventra-line)"
+            stroke="url(#OVENTRA-line)"
             strokeWidth="0.15"
             initial={{ pathLength: 0, opacity: 0 }}
             whileInView={{ pathLength: 1, opacity: 1 }}
@@ -66,7 +66,7 @@ export default function AnimatedBackground({
           <circle key={i} cx={n.x} cy={n.y} r="0.5" fill="var(--brand-2)" />
         ))}
         <defs>
-          <linearGradient id="oventra-line" x1="0" y1="0" x2="1" y2="1">
+          <linearGradient id="OVENTRA-line" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="var(--brand)" />
             <stop offset="100%" stopColor="var(--accent)" />
           </linearGradient>

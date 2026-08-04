@@ -6,8 +6,8 @@ const Intro = dynamic(() => import("@/components/parnter/sections/1Intro"));
 const DashboardPage = dynamic(() => import("@/components/parnter/sections/2DashboardPage"));
 
 /** Below-the-fold — code-split; mounted when scrolled near */
-const WhyOventra = dynamic(
-  () => import("@/components/parnter/sections/3Whyoventra")
+const WhyOVENTRA = dynamic(
+  () => import("@/components/parnter/sections/3WhyOVENTRA")
 );
 
 const PartnerMeetChallenges = dynamic(
@@ -34,8 +34,8 @@ const PowerfulFeatures = dynamic(
   () => import("@/components/parnter/sections/9Powerfulfeaturespage")
 );
 
-const WhyChooseOventra = dynamic(
-  () => import("@/components/parnter/sections/10WhyChooseOventra")
+const WhyChooseOVENTRA = dynamic(
+  () => import("@/components/parnter/sections/10WhyChooseOVENTRA")
 );
 
 export default function PartnerMeetOrderingPage() {
@@ -47,8 +47,8 @@ export default function PartnerMeetOrderingPage() {
 
       <DashboardPage />
 
-      <section id="why-oventra">
-        <WhyOventra />
+      <section id="why-OVENTRA">
+        <WhyOVENTRA />
       </section>
 
       <section id="challenges">
@@ -76,8 +76,8 @@ export default function PartnerMeetOrderingPage() {
         <PowerfulFeatures />
       </section>
 
-      <section id="why-choose-oventra">
-        <WhyChooseOventra />
+      <section id="why-choose-OVENTRA">
+        <WhyChooseOVENTRA />
       </section>
     </>
   );

@@ -153,7 +153,7 @@ const BusinessBenefits = () => {
             </h2>
             <p className="font-body text-[#fff] text-lg max-w-2xl mx-auto leading-relaxed">
               Eight frictions dealer networks have lived with for years, and
-              what replaces each one once ordering runs on Oventra.
+              what replaces each one once ordering runs on OVENTRA.
             </p>
           </div>
 

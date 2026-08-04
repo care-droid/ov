@@ -34,8 +34,8 @@ const COLUMNS: FooterColumn[] = [
     heading: "Company",
     links: [
       { label: "About Us", href: "/about" },
-      { label: "Our Story", href: "/why-oventra/our-story" },
-      { label: "Why We Built OVENTRA", href: "/why-oventra/why-we-built-oventra" },
+      { label: "Our Story", href: "/why-OVENTRA/our-story" },
+      { label: "Why We Built OVENTRA", href: "/why-OVENTRA/why-we-built-OVENTRA" },
       { label: "Career", href: "/contact/career" },
     ],
   },
@@ -112,9 +112,9 @@ export default function Footer() {
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-5">
             {/* Column 1 — Logo + short description */}
             <motion.div variants={column} className="min-w-0">
-              <Link href="/" className="flex shrink-0 items-center gap-2 focus-visible:outline-none" aria-label="Oventra home">
+              <Link href="/" className="flex shrink-0 items-center gap-2 focus-visible:outline-none" aria-label="OVENTRA home">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.94 }} transition={{ type: "spring", stiffness: 300, damping: 18 }}>
-            <Image src="/oventra.png" alt="Oventra" width={140} height={48} className="h-10 w-auto sm:h-11" priority />
+            <Image src="/OVENTRA.png" alt="OVENTRA" width={140} height={48} className="h-10 w-auto sm:h-11" priority />
           </motion.div>
         </Link>
               <p className="mt-4 max-w-[220px] text-[13px] leading-relaxed text-white/40">

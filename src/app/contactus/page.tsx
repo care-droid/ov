@@ -88,7 +88,7 @@ export default function Contact() {
     if (Object.keys(nextErrors).length > 0) return;
 
     const lines = [
-      `*Oventra Enquiry*`,
+      `*OVENTRA Enquiry*`,
       `Name: ${form.fullName}`,
       `Email: ${form.email}`,
       form.phone ? `Phone: ${form.phone}` : null,
@@ -169,7 +169,7 @@ export default function Contact() {
 
               <motion.a
                 whileHover={{ y: -3 }}
-                href="mailto:contactoventra@gmail.com"
+                href="mailto:contactOVENTRA@gmail.com"
                 className="group flex items-center justify-between gap-2 rounded-lg border border-[#741A34]/15 bg-[#faf8f7] px-4 py-4 hover:border-[#741A34]/40 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
@@ -179,7 +179,7 @@ export default function Contact() {
                       Email Us
                     </div>
                     <div className="text-[11px] text-[#8a7d81]">
-                      contactoventra@gmail.com
+                      contactOVENTRA@gmail.com
                     </div>
                   </div>
                 </div>

@@ -345,7 +345,7 @@ const mockups = [
 
 /* ---------- Main section ---------- */
 
-export default function WhyOventra() {
+export default function WhyOVENTRA() {
   const [active, setActive] = useState(0);
   const ActiveMockup = mockups[active];
 

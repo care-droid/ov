@@ -13,9 +13,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Oventra — Orchestrate every tool, one calm surface",
+  title: "OVENTRA — Orchestrate every tool, one calm surface",
   description:
-    "Oventra unifies your team's tools, signals, and workflows into a single premium control surface. Connect everything. Chase nothing.",
+    "OVENTRA unifies your team's tools, signals, and workflows into a single premium control surface. Connect everything. Chase nothing.",
 };
 
 export default function RootLayout({

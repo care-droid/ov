@@ -31,7 +31,7 @@ const pillars = [
   },
 ];
 
-const WhyChooseOventra = () => {
+const WhyChooseOVENTRA = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
@@ -158,4 +158,4 @@ const WhyChooseOventra = () => {
   );
 };
 
-export default WhyChooseOventra;
+export default WhyChooseOVENTRA;

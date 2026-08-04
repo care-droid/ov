@@ -102,7 +102,7 @@ export default function PartnerMeetTypes() {
           Every kind of meet, one system.
         </h2>
         <p className="font-body max-w-xl text-[15px] leading-relaxed" style={{ color: INK_60 }}>
-          From an annual launch to a single exhibition stall, Oventra runs
+          From an annual launch to a single exhibition stall, OVENTRA runs
           the meet the same way every time.
         </p>
 

@@ -102,7 +102,7 @@ export default function PartnerMeetTypes() {
           Everything dealers gain, one platform.
         </h2>
         <p className="font-body max-w-xl text-[15px] leading-relaxed" style={{ color: INK_60 }}>
-          From product discovery to delivery, Oventra improves every part
+          From product discovery to delivery, OVENTRA improves every part
           of the dealer buying experience.
         </p>
 

@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------
    OVENTRA — CAREERS
-   Same design system as the Oventra brand pages: near-black, maroon,
+   Same design system as the OVENTRA brand pages: near-black, maroon,
    warm white, dark blue accent. This page: culture imagery, a filterable
    open-roles list, benefits, and a team gallery — all animated + responsive.
 ------------------------------------------------------------------- */
@@ -446,17 +446,17 @@ export default function CareersPage() {
       {/* ---------------- Nav ---------------- */}
       <nav className="nav">
         <div className="container nav__row">
-          <div className="nav__brand">Oventra <em>Careers</em></div>
+          <div className="nav__brand">OVENTRA <em>Careers</em></div>
           <button className="nav__cta" onClick={scrollToRoles}>View Open Roles</button>
         </div>
       </nav>
 
       {/* ---------------- Hero ---------------- */}
       <header className="hero">
-        <img className="hero__bg" src={CULTURE_IMAGES.hero} alt="The Oventra team working together in the office" loading="lazy" />
+        <img className="hero__bg" src={CULTURE_IMAGES.hero} alt="The OVENTRA team working together in the office" loading="lazy" />
         <div className="hero__scrim" />
         <div className="container hero__copy">
-          <div className="eyebrow">Careers at Oventra</div>
+          <div className="eyebrow">Careers at OVENTRA</div>
           <h1>
             Help us make event catering <em>honest</em>
           </h1>
@@ -469,7 +469,7 @@ export default function CareersPage() {
             <button className="hero__cta hero__cta--solid" onClick={scrollToRoles}>
               See open roles
             </button>
-            <a className="hero__cta hero__cta--ghost" href="mailto:careers@oventra.com">
+            <a className="hero__cta hero__cta--ghost" href="mailto:careers@OVENTRA.com">
               Email the team
             </a>
           </div>
@@ -512,7 +512,7 @@ export default function CareersPage() {
               <img src={CULTURE_IMAGES.teamA} alt="Team members collaborating at a desk" loading="lazy" />
             </Reveal>
             <Reveal delay={80} className="gallery-item gallery-item--wide">
-              <img src={CULTURE_IMAGES.office} alt="The Oventra office space" loading="lazy" />
+              <img src={CULTURE_IMAGES.office} alt="The OVENTRA office space" loading="lazy" />
             </Reveal>
             <Reveal delay={160} className="gallery-item">
               <img src={CULTURE_IMAGES.teamB} alt="A team member presenting during a meeting" loading="lazy" />
@@ -571,7 +571,7 @@ export default function CareersPage() {
                 <Reveal key={r.id} delay={i * 60}>
                   <a
                     className="role-row"
-                    href={`mailto:careers@oventra.com?subject=${encodeURIComponent(
+                    href={`mailto:careers@OVENTRA.com?subject=${encodeURIComponent(
                       `Application: ${r.title}`
                     )}`}
                   >
@@ -598,7 +598,7 @@ export default function CareersPage() {
               We&apos;re always open to meeting people who care about the same
               problem. Send us a note and tell us what you&apos;d want to work on.
             </p>
-            <a className="closing__cta" href="mailto:careers@oventra.com">
+            <a className="closing__cta" href="mailto:careers@OVENTRA.com">
               Introduce yourself
             </a>
           </Reveal>

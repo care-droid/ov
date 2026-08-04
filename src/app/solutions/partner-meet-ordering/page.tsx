@@ -7,7 +7,7 @@ const DashboardPage = dynamic(() => import("@/components/parnter/sections/2Dashb
 
 /** Below-the-fold — code-split; mounted when scrolled near */
 const WhyOVENTRA = dynamic(
-  () => import("@/components/parnter/sections/3WhyOVENTRA")
+  () => import("@/components/parnter/sections/3Whyoventra")
 );
 
 const PartnerMeetChallenges = dynamic(
@@ -35,7 +35,7 @@ const PowerfulFeatures = dynamic(
 );
 
 const WhyChooseOVENTRA = dynamic(
-  () => import("@/components/parnter/sections/10WhyChooseOVENTRA")
+  () => import("@/components/parnter/sections/10WhyChooseOventra")
 );
 
 export default function PartnerMeetOrderingPage() {

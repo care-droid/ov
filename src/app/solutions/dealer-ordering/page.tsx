@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 
 import DealerIntro from "@/components/parnter/dealer/1Intro";
 import DealerHero from "@/components/parnter/dealer/2DashboardPage";
-import DealerWhyOVENTRA from "@/components/parnter/dealer/3WhyOVENTRA";
+import DealerWhyOVENTRA from "@/components/parnter/dealer/3Whyoventra";
 import DealerChallenges from "@/components/parnter/dealer/4Partnermeetchallenges";
 import DealerPartnerMeet from "@/components/parnter/dealer/5Partnermeet";
 import DealerHowItWorks from "@/components/parnter/dealer/6Partnerappshowcase";
 import DealerChooseVariants from "@/components/parnter/dealer/7Qrcodeorderingsection";
 import DealerBusinessBenefits from "@/components/parnter/dealer/8Benifits";
 import DealerPowerfulFeatures from "@/components/parnter/dealer/9Powerfulfeaturespage";
-import DealerWhyChooseOVENTRA from "@/components/parnter/dealer/10WhyChooseOVENTRA";
+import DealerWhyChooseOVENTRA from "@/components/parnter/dealer/10WhyChooseOventra";
 
 export const metadata: Metadata = {
   title: "Dealer Ordering | OVENTRA",

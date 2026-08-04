@@ -34,21 +34,21 @@ const COLUMNS: FooterColumn[] = [
     heading: "Company",
     links: [
       { label: "About Us", href: "/about" },
-      { label: "Our Story", href: "/why-oventra/our-story" },
+      // { label: "Our Story", href: "/why-oventra/our-story" },
       { label: "Why We Built OVENTRA", href: "/why-oventra/why-we-built-OVENTRA" },
-      { label: "Career", href: "/contact/career" },
+      // { label: "Career", href: "/contact/career" },
     ],
   },
   {
     heading: "Support",
     links: [
       { label: "FAQs", href: "/faq" },
-      { label: "Contact Support", href: "/support/contact" },
+      // { label: "Contact Support", href: "/support/contact" },
       { label: "Demo Request", href: "/contact/demo-request" },
-      {
-        label: "WhatsApp",
-        href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA.",
-      },
+      // {
+      //   label: "WhatsApp",
+      //   href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA.",
+      // },
     ],
   },
   {

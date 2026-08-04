@@ -47,32 +47,32 @@ const rawTypes: Omit<MeetType, "image">[] = [
   {
     icon: ShoppingBag,
     label: "Easy Product Discovery",
-    body: "Browse thousands of products without printed catalogues.",
+    body: "Browse thousands of products without relying on printed catalogues. Use smart search, filters, and categories to quickly find the right products with complete details, images, and specifications.",
   },
   {
     icon: Zap,
     label: "Faster Ordering",
-    body: "Complete orders in just a few minutes.",
+    body: "Complete orders in just a few minutes with a simple, digital ordering process. Add products, review quantities, and submit confirmed orders instantly without manual paperwork.",
   },
   {
     icon: ThumbsUp,
     label: "Better Buying Experience",
-    body: "Order anytime without waiting for sales representatives.",
+    body: "Order anytime without waiting for sales representatives. Access the latest product catalogue, pricing, and offers whenever it's convenient, from any device.",
   },
   {
     icon: CheckCircle2,
     label: "Accurate Orders",
-    body: "Digital product selection minimizes ordering mistakes.",
+    body: "Digital product selection minimizes ordering mistakes and eliminates handwritten errors. Every order is captured with the correct product details, quantities, and specifications.",
   },
   {
     icon: Truck,
     label: "Live Order Updates",
-    body: "Track every order until delivery.",
+    body: "Track every order from confirmation to delivery with real-time status updates. Stay informed about order progress, dispatch, and expected delivery without making follow-up calls.",
   },
   {
     icon: Sparkles,
     label: "Instant Access to New Collections",
-    body: "View new arrivals as soon as manufacturers publish them.",
+    body: "View new arrivals as soon as manufacturers publish them. Explore the latest collections, seasonal launches, and product updates instantly, ensuring you never miss a new opportunity.",
   },
 ];
 
@@ -188,7 +188,7 @@ export default function PartnerMeetTypes() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
-                  className="font-display text-xl leading-relaxed sm:text-2xl"
+                  className="font-display text-lg leading-relaxed sm:text-xl"
                   style={{ color: INK }}
                 >
                   {current.body}

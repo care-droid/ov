@@ -2749,8 +2749,8 @@ export const posts: Post[] = [
     category: "B2B Ordering",
     tags: ["B2B Ordering Software for Footwear"],
     readTime: "8 min read",
+    image: "/Blog/Blog1.jpeg",
     icon: <TrendingUp className="h-8 w-8" />,
-    gradient: "linear-gradient(135deg,#6D1025,#214E8A)",
     featured: true,
     content: b2bContent[101],
   },
@@ -2764,8 +2764,9 @@ export const posts: Post[] = [
     category: "B2B Ordering",
     tags: ["Digital Partner Meet"],
     readTime: "7 min read",
+    
+    image: "/Blog/Blog2.jpeg",
     icon: <Users className="h-8 w-8" />,
-    gradient: "linear-gradient(135deg,#214E8A,#8F1538)",
     content: b2bContent[102],
   },
   {
@@ -2778,8 +2779,8 @@ export const posts: Post[] = [
     category: "B2B Ordering",
     tags: ["Distributor Ordering System"],
     readTime: "6 min read",
-    icon: <Zap className="h-8 w-8" />,
-    gradient: "linear-gradient(135deg,#8F1538,#6D1025)",
+    
+    image: "/Blog/Blog3.jpeg",
     content: b2bContent[103],
   },
   {

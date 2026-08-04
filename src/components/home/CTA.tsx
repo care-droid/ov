@@ -43,7 +43,7 @@ const BLOG_POSTS: BlogPost[] = [
     gradient: "linear-gradient(135deg,#6D1025,#214E8A)",
     featured: true,
     content: b2bContent[101],
-    image: "/Home/CTA1.jpg",
+    image: "/Blog/Blog1.jpeg",
     link: "#",
   },
   {
@@ -59,7 +59,7 @@ const BLOG_POSTS: BlogPost[] = [
     icon: <Users className="h-8 w-8" />,
     gradient: "linear-gradient(135deg,#214E8A,#8F1538)",
     content: b2bContent[102],
-    image: "/Home/CTA2.jpg",
+    image: "/Blog/Blog2.jpeg",
     link: "#",
   },
   {
@@ -75,7 +75,7 @@ const BLOG_POSTS: BlogPost[] = [
     icon: <Zap className="h-8 w-8" />,
     gradient: "linear-gradient(135deg,#8F1538,#6D1025)",
     content: b2bContent[103],
-    image: "/Home/CTA3.jpg",
+    image: "/Blog/Blog3.jpeg",
     link: "#",
   },
 ];

@@ -13,307 +13,181 @@ import {
 } from "lucide-react";
 
 const ACCENT = "#0d387f";
-const ACCENT_LIGHT = "#60A5FA";
 
-const topBadges = [
-  { icon: TrendingUp, label: "Faster Processing" },
-  { icon: ShieldCheck, label: "Improved Accuracy" },
-  { icon: CloudOff, label: "24/7 Access" },
-  { icon: Eye, label: "Real-Time Visibility" },
-];
-
-type Step = {
-  id: number;
-  title: string;
-  description: string;
-  bullets: string[];
-  image?: { src: string; alt: string };
-};
-
-const steps: Step[] = [
+const steps = [
   {
     id: 1,
     title: "Product Catalogue Publishing",
     description: "The manufacturer uploads or updates the latest products, pricing, collections, and promotional schemes.",
-    bullets: [
-      "Upload product catalogue",
-      "Update pricing",
-      "Manage collections",
-      "Set promotional schemes",
-    ],
-    image: {
-  src: "/DistributorDealor/Screen/Distributor.jpeg",
-  alt: "Distributor login",
-},
+    bullets: ["Upload catalogue", "Update pricing", "Manage collections", "Promotional schemes"],
+        image: "/DistributorDealor/new/distributorDealor1.png",
   },
   {
     id: 2,
     title: "Distributor Login",
-    description: "Distributors securely log into OVENTRA using their assigned credentials.",
-    bullets: [
-      "Secure authentication",
-      "Role-based access",
-      "Multi-device support",
-    ],
-    image: {
-      src: "/DistributorDealor/Screen/DistributorDealor1.jpeg",
-      alt: "Distributor login",
-    },
+    description: "Distributors securely log into OVENTRA using their assigned credentials for role-based access.",
+    bullets: ["Secure authentication", "Role-based access", "Multi-device support", "Quick login"],
+    image: "/DistributorDealor/new/distributorDealor2.png",
   },
   {
     id: 3,
     title: "Browse & Select Products",
     description: "Browse the digital catalogue and choose products based on category, size, colour, or article number.",
-    bullets: [
-      "Category browsing",
-      "Size selection",
-      "Colour selection",
-      "Article number search",
-    ],
-    image: { src: "/DistributorDealor/Screen/DistributorDealor2.jpeg", alt: "Product browsing" },
+    bullets: ["Category browsing", "Size selection", "Colour selection", "Article search"],
+    image: "/DistributorDealor/new/distributorDealor3.png",
   },
   {
     id: 4,
     title: "Place Order",
-    description: "Review the shopping cart and submit the order instantly.",
-    bullets: [
-      "Cart review",
-      "Quantity verification",
-      "Instant submission",
-      "Order confirmation",
-    ],
-    image: { src: "/DistributorDealor/Screen/DistributorDealor3.jpeg", alt: "Order placement" },
+    description: "Review the shopping cart, verify quantities, and submit the order instantly to the manufacturer.",
+    bullets: ["Cart review", "Quantity verification", "Instant submission", "Order confirmation"],
+    image: "/DistributorDealor/new/distributorDealor4.png",
   },
   {
     id: 5,
-    title: "Order Processing",
-    description: "The order is immediately available to the manufacturer's sales and operations teams for review and fulfilment.",
-    bullets: [
-      "Sales team review",
-      "Order approval",
-      "Processing",
-      "Fulfilment planning",
-    ],
-    image: { src: "/DistributorDealor/Screen/DistributorDealor4.jpeg", alt: "Order processing" },
+    title: "Browse Products",
+    description: "Browse the complete product catalogue with images, pricing, and variants to quickly find and select the right products.",
+    bullets: ["Sales team review", "Order approval", "Processing", "Fulfilment planning"],
+    image: "/DistributorDealor/new/distributorDealor5.png",
   },
   {
     id: 6,
     title: "Track Order",
-    description: "Distributors can monitor the order status from confirmation to dispatch and delivery.",
-    bullets: [
-      "Order confirmation",
-      "Dispatch updates",
-      "Delivery tracking",
-      "Real-time status",
-    ],
-    image: { src: "/DistributorDealor/Screen/DistributorDealor5.jpeg", alt: "Order tracking" },
+    description: "Distributors can monitor the order status in real-time from confirmation to dispatch and delivery.",
+    bullets: ["Order confirmation", "Dispatch updates", "Delivery tracking", "Real-time status"],
+    image: "/DistributorDealor/new/distributorDealor6.png",
   },
 ];
-
-function PlaceholderScreen({ id }: { id: number }) {
-  return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-3 rounded-[1.6rem] border border-blue-200 bg-gradient-to-b from-blue-50 to-white p-4">
-      <span
-        className="grid h-11 w-11 place-items-center rounded-xl text-white"
-        style={{ backgroundColor: ACCENT }}
-      >
-        <span className="text-sm font-bold">{String(id).padStart(2, "0")}</span>
-      </span>
-      <div className="w-full space-y-2">
-        <div className="mx-auto h-2 w-4/5 rounded-full bg-blue-200" />
-        <div className="mx-auto h-2 w-3/5 rounded-full bg-blue-200" />
-        <div className="mx-auto h-2 w-2/3 rounded-full bg-blue-200" />
-      </div>
-    </div>
-  );
-}
-
-function slotStyle(offset: number) {
-  const abs = Math.abs(offset);
-  return {
-    x: offset * 130,
-    scale: abs === 0 ? 1 : abs === 1 ? 0.86 : 0.7,
-    zIndex: abs === 0 ? 20 : abs === 1 ? 15 : 10,
-    opacity: abs > 2 ? 0 : abs === 0 ? 1 : abs === 1 ? 0.8 : 0.45,
-  };
-}
-
-function getOffset(index: number, active: number, total: number) {
-  let rel = index - active;
-  const half = Math.floor(total / 2);
-  if (rel > half) rel -= total;
-  if (rel < -half) rel += total;
-  return rel;
-}
 
 export default function DistributorWorkflow() {
   const [active, setActive] = useState(0);
   const total = steps.length;
-  const current = steps[active];
 
   const next = () => setActive((a) => (a + 1) % total);
   const prev = () => setActive((a) => (a - 1 + total) % total);
 
+  // Aspect Ratio for 1086x1448 is ~0.75. 
+  // Scaled for "Tablet" feel on desktop.
+  const imgWidth = 380;
+  const imgHeight = 506;
+
   return (
-    <section
-      className="relative w-full"
-      style={{
-        zIndex: 1,
-        background: `linear-gradient(135deg, #FFFFFF 0%, #EFF6FF 40%, #DBEAFE 70%, #BFDBFE 100%)`,
-      }}
-    >
-      <div
-        style={{ backgroundColor: ACCENT }}
-        className="w-full flex justify-center py-4"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.6 }}
-          transition={{ duration: 0.5 }}
-          className="flex w-4/5 max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 sm:justify-between"
-        >
-          {topBadges.map((b, i) => {
-            const Icon = b.icon;
-            return (
-              <motion.div
-                key={b.label}
-                initial={{ opacity: 0, y: -10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.6 }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex items-center gap-2 text-white"
-              >
-                <Icon className="h-5 w-5 shrink-0" strokeWidth={2} />
-                <span className="text-[13px] font-semibold uppercase tracking-wide">
-                  {b.label}
-                </span>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+    <section className="relative min-h-screen w-full overflow-hidden bg-white">
+      {/* Background soft blurs */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-0 h-[600px] w-[600px] rounded-full bg-blue-50/50 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-blue-100/30 blur-[120px]" />
       </div>
 
-      <div className="flex w-full justify-center pb-20 pt-14 sm:pt-16">
-        <div className="w-4/5 max-w-6xl px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-              How Distributor Ordering Works
-            </h2>
-            <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-              OVENTRA simplifies the entire ordering journey
-            </p>
-          </div>
+      <div className="relative z-10 flex min-h-screen flex-col lg:flex-row">
+        
+        {/* LEFT PANEL: CONTENT (45%) */}
+        <div className="flex flex-1 flex-col justify-center px-8 py-16 sm:px-16 lg:max-w-[45%] lg:py-0 lg:pl-24">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 30 }}
+              transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+            >
+              <span className="text-[12px] font-bold uppercase tracking-[0.4em] text-blue-600/80">
+                Step {String(active + 1).padStart(2, "0")} of {String(total).padStart(2, "0")}
+              </span>
+              
+              <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                {steps[active].title}
+              </h2>
+              
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-500">
+                {steps[active].description}
+              </p>
 
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr,1.1fr] lg:gap-14">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current.id}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+             
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Navigation Controls Fixed to Left Panel */}
+          <div className="mt-16 flex items-center gap-10">
+            <div className="flex gap-4">
+              <button
+                onClick={prev}
+                className="group flex h-14 w-14 items-center justify-center rounded-full border border-slate-200 bg-white transition-all hover:border-blue-600 hover:shadow-lg"
               >
-                <span
-                  className="text-[11px] font-semibold uppercase tracking-[0.2em]"
-                  style={{ color: ACCENT }}
-                >
-                  Step {String(current.id).padStart(2, "0")} of {String(total).padStart(2, "0")}
-                </span>
-                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-gray-800 sm:text-3xl">
-                  {current.title}
-                </h3>
-                <p className="mt-3 max-w-md text-[15px] leading-relaxed text-gray-600">
-                  {current.description}
-                </p>
-                {current.bullets.length > 0 && (
-                  <ul className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                    {current.bullets.map((b) => (
-                      <li key={b} className="flex items-center gap-2.5 text-[13.5px] text-gray-700">
-                        <span
-                          className="h-1.5 w-1.5 shrink-0 rounded-full"
-                          style={{ backgroundColor: ACCENT }}
-                        />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </motion.div>
-            </AnimatePresence>
+                <ChevronLeft className="h-6 w-6 text-slate-600 group-hover:text-blue-600" />
+              </button>
+              <button
+                onClick={next}
+                className="group flex h-14 w-14 items-center justify-center rounded-full border border-slate-200 bg-white transition-all hover:border-blue-600 hover:shadow-lg"
+              >
+                <ChevronRight className="h-6 w-6 text-slate-600 group-hover:text-blue-600" />
+              </button>
+            </div>
 
-            <div className="relative flex h-[380px] w-full items-center justify-center sm:h-[420px]">
-              {steps.map((step, i) => {
-                const offset = getOffset(i, active, total);
-                const style = slotStyle(offset);
+            <div className="flex gap-2">
+              {steps.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${
+                    i === active ? "w-10 bg-blue-600" : "w-2 bg-slate-200"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT PANEL: IMAGE SHOWCASE (55%) */}
+        <div className="relative flex flex-[1.2] items-center justify-center bg-slate-50/40 py-20 lg:py-0">
+          <div className="relative flex h-[500px] w-full items-center justify-center overflow-hidden lg:h-full">
+            <div className="relative flex w-full items-center justify-center">
+              {steps.map((step, index) => {
+                let offset = index - active;
+                
+                // Continuous loop math
+                if (offset > 2) offset -= total;
+                if (offset < -2) offset += total;
+
                 const isActive = offset === 0;
+                const isVisible = Math.abs(offset) <= 1;
 
                 return (
                   <motion.div
                     key={step.id}
+                    initial={false}
                     animate={{
-                      x: style.x,
-                      scale: style.scale,
-                      zIndex: style.zIndex,
-                      opacity: style.opacity,
+                      // Spacing adjusted for wider 1086px images (offset * 420)
+                      x: offset * 420, 
+                      scale: isActive ? 1 : 0.82,
+                      opacity: isActive ? 1 : isVisible ? 0.4 : 0,
+                      zIndex: isActive ? 30 : 20,
                     }}
-                    transition={{ type: "spring", stiffness: 260, damping: 28 }}
-                    className="absolute w-[150px] overflow-hidden rounded-[1.6rem] sm:w-[180px] lg:w-[200px]"
-                    style={{ aspectRatio: "9 / 19.5" }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 170,
+                      damping: 26
+                    }}
+                    style={{
+                      width: imgWidth,
+                      height: imgHeight,
+                    }}
+                    className="absolute"
                   >
-                    {step.image ? (
+                    <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] bg-white shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] ring-4 ring-white">
                       <Image
-                        src={step.image.src}
-                        alt={step.image.alt}
+                        src={step.image}
+                        alt={step.title}
                         fill
-                        sizes="200px"
-                        className="rounded-[1.6rem] object-cover"
+                        className="object-cover"
                         priority={isActive}
+                        sizes="400px"
                       />
-                    ) : (
-                      <PlaceholderScreen id={step.id} />
-                    )}
+                    </div>
                   </motion.div>
                 );
               })}
             </div>
-          </div>
-
-          <div className="mt-10 flex items-center justify-center gap-6">
-            <motion.button
-              onClick={prev}
-              aria-label="Previous step"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="grid h-11 w-11 place-items-center rounded-full border border-blue-300 text-blue-700 transition-colors hover:bg-blue-50"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </motion.button>
-
-            <div className="flex items-center gap-2">
-              {steps.map((s, i) => (
-                <button
-                  key={s.id}
-                  onClick={() => setActive(i)}
-                  aria-label={`Go to ${s.title}`}
-                  className="h-2 rounded-full transition-all"
-                  style={{
-                    width: i === active ? 20 : 8,
-                    backgroundColor: i === active ? ACCENT : "#BFDBFE",
-                  }}
-                />
-              ))}
-            </div>
-
-            <motion.button
-              onClick={next}
-              aria-label="Next step"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="grid h-11 w-11 place-items-center rounded-full border border-blue-300 text-blue-700 transition-colors hover:bg-blue-50"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </motion.button>
           </div>
         </div>
       </div>

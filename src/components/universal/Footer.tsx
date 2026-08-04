@@ -55,7 +55,7 @@ const COLUMNS: FooterColumn[] = [
     heading: "Legal",
     links: [
       { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms and Conditions", href: "/terms-and-conditions" },
+      // { label: "Terms and Conditions", href: "/terms-and-conditions" },
     ],
   },
 ];
@@ -163,7 +163,7 @@ export default function Footer() {
             className="flex flex-col items-center justify-between gap-4 sm:flex-row"
           >
             <p className="text-center text-[12px] text-white/40 sm:text-left">
-              Powered by GIGA SOFT
+              Powered by GigaSoft®
             </p>
 
             <p className="text-center text-[12px] text-white/40 sm:text-right sm:text-[13px]">

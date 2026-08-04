@@ -2,27 +2,40 @@ import dynamic from "next/dynamic";
 import LazySection from "@/components/common/LazySection";
 
 /** Above-the-fold — loaded immediately for LCP */
-const Intro = dynamic(() => import("@/components/parnter/sections/Intro"));
-const DashboardPage = dynamic(() => import("@/components/parnter/sections/DashboardPage"));
+const Intro = dynamic(() => import("@/components/parnter/sections/1Intro"));
+const DashboardPage = dynamic(() => import("@/components/parnter/sections/2DashboardPage"));
 
 /** Below-the-fold — code-split; mounted when scrolled near */
+const WhyOventra = dynamic(
+  () => import("@/components/parnter/sections/3Whyoventra")
+);
+
 const PartnerMeetChallenges = dynamic(
-  () => import("@/components/parnter/sections/Partnermeetchallenges"),
+  () => import("@/components/parnter/sections/4Partnermeetchallenges")
 );
-const PowerfulFeatures = dynamic(
-  () => import("@/components/parnter/sections/Powerfulfeaturespage"),
+
+const PartnerMeet = dynamic(
+  () => import("@/components/parnter/sections/5Partnermeet")
 );
-const EventTypes = dynamic(() => import("@/components/parnter/sections/Partnermeet"));
+
 const PartnerAppShowcase = dynamic(
-  () => import("@/components/parnter/sections/Partnerappshowcase"),
+  () => import("@/components/parnter/sections/6Partnerappshowcase")
 );
-const WhyOventra = dynamic(() => import("@/components/parnter/sections/Whyoventra"));
+
 const QRCodeOrderingSection = dynamic(
-  () => import("@/components/parnter/sections/Qrcodeorderingsection"),
+  () => import("@/components/parnter/sections/7Qrcodeorderingsection")
 );
-const BusinessBenefits = dynamic(() => import("@/components/parnter/sections/Benifits"));
+
+const Benefits = dynamic(
+  () => import("@/components/parnter/sections/8Benifits")
+);
+
+const PowerfulFeatures = dynamic(
+  () => import("@/components/parnter/sections/9Powerfulfeaturespage")
+);
+
 const WhyChooseOventra = dynamic(
-  () => import("@/components/parnter/sections/WhyChooseOventra"),
+  () => import("@/components/parnter/sections/10WhyChooseOventra")
 );
 
 export default function PartnerMeetOrderingPage() {
@@ -34,38 +47,37 @@ export default function PartnerMeetOrderingPage() {
 
       <DashboardPage />
 
-     <section id="features">
-  <PowerfulFeatures />
-</section>
+      <section id="why-oventra">
+        <WhyOventra />
+      </section>
 
       <section id="challenges">
-  <PartnerMeetChallenges />
-</section>
+        <PartnerMeetChallenges />
+      </section>
 
+      <section id="partner-meet">
+        <PartnerMeet />
+      </section>
 
-<section id="workflow">
-  <EventTypes />
-</section>
+      <section id="showcase">
+        <PartnerAppShowcase />
+      </section>
 
-<section id="screens">
-  <PartnerAppShowcase />
-</section>
+      <section id="qr-ordering">
+        <QRCodeOrderingSection />
+      </section>
 
-<section>
-  <WhyOventra />
-</section>
+      <section id="benefits">
+        <Benefits />
+      </section>
 
-<section id="reports">
-  <QRCodeOrderingSection />
-</section>
+      <section id="features">
+        <PowerfulFeatures />
+      </section>
 
-<section id="benefits">
-  <BusinessBenefits />
-</section>
-
-<section id="why-oventra">
-  <WhyChooseOventra />
-</section>
+      <section id="why-choose-oventra">
+        <WhyChooseOventra />
+      </section>
     </>
   );
 }

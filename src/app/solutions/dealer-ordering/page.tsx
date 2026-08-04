@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
 
-import DealerHero from "@/components/parnter/dealer/DashboardPage";
-import DealerChallenges from "@/components/parnter/dealer/Partnermeetchallenges";
-import DealerIntro from "@/components/parnter/dealer/Intro";
-import DealerHowItWorks from "@/components/parnter/dealer/Partnerappshowcase";
-import DealerChooseVariants from "@/components/parnter/dealer/Qrcodeorderingsection";
-import DealerPowerfulFeatures from "@/components/parnter/dealer/Powerfulfeaturespage";
-import DealerBenefitsForDealers from "@/components/parnter/dealer/Partnermeet";
-import DealerBenefitsForManufacturers from "@/components/parnter/dealer/Whyoventra";
-import DealerBusinessBenefits from "@/components/parnter/dealer/Benifits";
-import DealerWhyOventra from "@/components/parnter/dealer/WhyChooseOventra";
-import PartnerMeet from "@/components/parnter/dealer/Partnermeet";
-import PartnerMeetChallenges from "@/components/parnter/dealer/Partnermeetchallenges";
+import DealerIntro from "@/components/parnter/dealer/1Intro";
+import DealerHero from "@/components/parnter/dealer/2DashboardPage";
+import DealerWhyOventra from "@/components/parnter/dealer/3Whyoventra";
+import DealerChallenges from "@/components/parnter/dealer/4Partnermeetchallenges";
+import DealerPartnerMeet from "@/components/parnter/dealer/5Partnermeet";
+import DealerHowItWorks from "@/components/parnter/dealer/6Partnerappshowcase";
+import DealerChooseVariants from "@/components/parnter/dealer/7Qrcodeorderingsection";
+import DealerBusinessBenefits from "@/components/parnter/dealer/8Benifits";
+import DealerPowerfulFeatures from "@/components/parnter/dealer/9Powerfulfeaturespage";
+import DealerWhyChooseOventra from "@/components/parnter/dealer/10WhyChooseOventra";
 
 export const metadata: Metadata = {
   title: "Dealer Ordering | OVENTRA",
@@ -22,38 +20,53 @@ export const metadata: Metadata = {
 export default function DealerOrderingPage() {
   return (
     <main className="w-full overflow-x-hidden">
-      
-      <DealerIntro />
+      {/* 1. Intro */}
+      <section id="intro">
+        <DealerIntro />
+      </section>
+
+      {/* 2. Dashboard */}
       <DealerHero />
 
-<div id="features" className="scroll-mt-24">
-        <DealerPowerfulFeatures />
-      </div>
-      <PartnerMeetChallenges />
-      <PartnerMeet/>
+      {/* 3. Why OVENTRA */}
+      <section id="why-oventra">
+        <DealerWhyOventra />
+      </section>
 
+      {/* 4. Challenges */}
+      <section id="challenges">
+        <DealerChallenges />
+      </section>
 
-      <div id="workflow" className="scroll-mt-24">
+      {/* 5. Partner Meet */}
+      <section id="partner-meet">
+        <DealerPartnerMeet />
+      </section>
+
+      {/* 6. Workflow */}
+      <section id="workflow" className="scroll-mt-24">
         <DealerHowItWorks />
-      </div>
+      </section>
 
-      <div id="screens" className="scroll-mt-24">
+      {/* 7. QR Code Ordering */}
+      <section id="screens" className="scroll-mt-24">
         <DealerChooseVariants />
-      </div>
+      </section>
 
-      
+      {/* 8. Benefits */}
+      <section id="benefits" className="scroll-mt-24">
+        {/* <DealerBusinessBenefits /> */}
+      </section>
 
-      <div id="benefits" className="scroll-mt-24">
-        <DealerBenefitsForDealers />
-      </div>
+      {/* 9. Powerful Features */}
+      <section id="features" className="scroll-mt-24">
+        <DealerPowerfulFeatures />
+      </section>
 
-
-      <div id="reports" className="scroll-mt-24">
-        <DealerBusinessBenefits />
-      </div>
-
-      {/* Section 12 — Why OVENTRA? */}
-      <DealerWhyOventra />
+      {/* 10. Why Choose OVENTRA */}
+      <section id="why-choose-oventra" className="scroll-mt-24">
+        <DealerWhyChooseOventra />
+      </section>
     </main>
   );
 }

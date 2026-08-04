@@ -202,7 +202,7 @@ export default function DistributorMeetTypes() {
                   className="flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em]"
                   style={{ color: MAROON }}
                 >
-                  Explore this format
+                  Explore OVENTRA
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </motion.a>
               </div>

@@ -47,8 +47,8 @@ export default function PartnerMeetOrderingPage() {
 
       <DashboardPage />
 
-      <section id="why-OVENTRA">
-        <WhyOVENTRA />
+        <section id="features">
+        <PowerfulFeatures />
       </section>
 
       <section id="challenges">
@@ -72,9 +72,7 @@ export default function PartnerMeetOrderingPage() {
         <Benefits />
       </section>
 
-      <section id="features">
-        <PowerfulFeatures />
-      </section>
+     
 
       <section id="why-choose-OVENTRA">
         <WhyChooseOVENTRA />

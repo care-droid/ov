@@ -34,7 +34,14 @@ const MAROON = "#6E1423";
 const INK = "#2A1216";
 const INK_60 = "#8C6E71";
 
-const featureImages = ["/partnermeet/Partner1.png", "/partnermeet/Partner2.png", "/partnermeet/Partner3.png", "/partnermeet/Partner5.png", "/partnermeet/Partner4.png", "/partnermeet/Partner7.png"];
+const featureImages = [
+  "/partnermeet/Partner1.png",
+  "/partnermeet/Partner2.png",
+  "/partnermeet/Partner3.png",
+  "/partnermeet/Partner5.png",
+  "/partnermeet/Partner4.png",
+  "/partnermeet/Partner7.png",
+];
 
 type MeetType = {
   icon: ElementType;
@@ -46,7 +53,7 @@ type MeetType = {
 const rawTypes: Omit<MeetType, "image">[] = [
   {
     icon: CalendarDays,
-    label: "Annual Partner Meets",
+    label: "Partner Meets",
     body: "Launch new collections and capture seasonal orders the same day.",
   },
   {
@@ -92,7 +99,10 @@ export default function PartnerMeetTypes() {
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-[#F4DEE1] to-[#6E1423] py-20 sm:py-28">
       <div className="relative mx-auto max-w-6xl px-6 sm:px-10">
         {/* HEADER — white zone */}
-        <div className="font-mono text-[11px] tracking-[0.3em] mb-5" style={{ color: MAROON }}>
+        <div
+          className="font-mono text-[11px] tracking-[0.3em] mb-5"
+          style={{ color: MAROON }}
+        >
           SIX STOPS, ONE ROUTE
         </div>
         <h2
@@ -101,9 +111,12 @@ export default function PartnerMeetTypes() {
         >
           Every kind of meet, one system.
         </h2>
-        <p className="font-body max-w-xl text-[15px] leading-relaxed" style={{ color: INK_60 }}>
-          From an annual launch to a single exhibition stall, OVENTRA runs
-          the meet the same way every time.
+        <p
+          className="font-body max-w-xl text-[15px] leading-relaxed"
+          style={{ color: INK_60 }}
+        >
+          From an annual launch to a single exhibition stall, OVENTRA runs the
+          meet the same way every time.
         </p>
 
         {/* ROUTE — numbered stops on a connecting line, replaces the tab bar */}
@@ -176,9 +189,16 @@ export default function PartnerMeetTypes() {
                     className="grid h-10 w-10 shrink-0 place-items-center rounded-lg"
                     style={{ background: `${MAROON}12` }}
                   >
-                    <Icon className="h-4.5 w-4.5" style={{ color: MAROON }} strokeWidth={1.5} />
+                    <Icon
+                      className="h-4.5 w-4.5"
+                      style={{ color: MAROON }}
+                      strokeWidth={1.5}
+                    />
                   </span>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.2em]" style={{ color: INK_60 }}>
+                  <p
+                    className="font-mono text-[11px] uppercase tracking-[0.2em]"
+                    style={{ color: INK_60 }}
+                  >
                     {current.label}
                   </p>
                 </div>
@@ -195,7 +215,10 @@ export default function PartnerMeetTypes() {
                 </motion.p>
               </div>
 
-              <div className="mt-8 flex items-center justify-between border-t pt-5" style={{ borderColor: `${MAROON}15` }}>
+              <div
+                className="mt-8 flex items-center justify-between border-t pt-5"
+                style={{ borderColor: `${MAROON}15` }}
+              >
                 {/* prev / next */}
                 <div className="flex items-center gap-2">
                   <button
@@ -204,7 +227,10 @@ export default function PartnerMeetTypes() {
                     style={{ borderColor: `${MAROON}40`, color: MAROON }}
                     aria-label="Previous format"
                   >
-                    <ChevronLeft size={14} />
+                    <ChevronLeft
+                      size={14}
+                      className=" hover:text-white transition-colors duration-200"
+                    />
                   </button>
                   <button
                     onClick={() => go(1)}
@@ -212,7 +238,10 @@ export default function PartnerMeetTypes() {
                     style={{ borderColor: `${MAROON}40`, color: MAROON }}
                     aria-label="Next format"
                   >
-                    <ChevronRight size={14} />
+                    <ChevronRight
+                      size={14}
+                      className=" hover:text-white transition-colors duration-200"
+                    />
                   </button>
                 </div>
 
@@ -222,7 +251,7 @@ export default function PartnerMeetTypes() {
                   className="flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em]"
                   style={{ color: MAROON }}
                 >
-                  Explore this format
+                  Explore OVENTRA
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </motion.a>
               </div>

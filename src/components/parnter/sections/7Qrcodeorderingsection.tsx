@@ -78,15 +78,7 @@
                     className="mt-5 max-w-md space-y-2"
                 >
                     {steps.map((step) => (
-                    <li key={step} className="flex items-center gap-3 text-[15px] font-medium" style={{ color: INK }}>
-                        <span
-                        className="grid h-5 w-5 place-items-center rounded-full text-[10px] font-bold text-white"
-                        style={{ background: `linear-gradient(135deg, ${MAROON}, ${MAROON_BRIGHT})` }}
-                        >
-                        &#10003;
-                        </span>
-                        {step}
-                    </li>
+                    <li key={step} className="mt-3 gap-2 flex max-w-md text-[15px] leading-relaxed" style={{ color: `${INK}99` }}> <span className="grid h-5 w-5 place-items-center rounded-full text-[10px] font-bold text-white" style={{ background: `linear-gradient(135deg, ${MAROON}, ${MAROON_BRIGHT})` }} > ✓ </span> {step} </li>
                     ))}
                 </motion.ul>
 

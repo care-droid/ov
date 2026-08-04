@@ -1,14 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Calendar } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+const fadeUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
 };
 
-const container = {
+const container: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
@@ -16,9 +26,17 @@ const container = {
 export default function PrivacyPolicy() {
   return (
     <section className="w-full bg-white">
-      {/* Hero Section */}
-      <div className="relative w-full h-[40vh] sm:h-[45vh] md:h-[50vh] overflow-hidden bg-gradient-to-br from-[#4A0E1A] to-[#741A34]">
+      {/* Hero Section with Image */}
+      <div className="relative w-full h-[40vh] sm:h-[45vh] md:h-[50vh] overflow-hidden">
+        {/* Background Image */}
+        <img
+          src="/contactUs/contact.webp"
+          alt="Privacy Policy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#4A0E1A]/80 via-[#4A0E1A]/20 to-black/30" />
+        
         <div className="relative z-10 flex h-full items-center justify-center px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -31,7 +49,7 @@ export default function PrivacyPolicy() {
         </div>
       </div>
 
-      {/* Content */}
+      {/* Content - Remains exactly the same */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20">
         <motion.div
           variants={container}
@@ -137,11 +155,6 @@ export default function PrivacyPolicy() {
                 </div>
               </div>
             </div>
-          </motion.div>
-
-          {/* Footer */}
-          <motion.div variants={fadeUp} className="pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
-            <p>&copy; {new Date().getFullYear()} OVENTRA. All rights reserved.</p>
           </motion.div>
         </motion.div>
       </div>

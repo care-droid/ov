@@ -134,8 +134,8 @@ export default function Contact() {
             variants={fadeUp}
             className="border-l-2 border-[#A82242]/60 pl-4 sm:pl-5 text-[#4a4a4a] text-sm sm:text-base md:text-lg max-w-md mx-auto lg:mx-0 mb-6 sm:mb-8"
           >
-            Have a project in mind or need expert guidance? Our team is ready to answer your questions, discuss your requirements, and help you find the right solution. Let&apos;s connect and bring your ideas to life.
-          </motion.p>
+           Have questions about OVENTRA? Fill out the form, and our experts will assist you with the right solution.
+           </motion.p>
         </motion.div>
 
         {/* ------------------------------------------------------ */}
@@ -149,16 +149,17 @@ export default function Contact() {
           className="rounded-2xl border border-[#741A34]/10 shadow-[0_20px_60px_-15px_rgba(116,26,52,0.18)] overflow-hidden bg-white lg:sticky lg:top-8 order-1 lg:order-2 w-full"
         >
           <div className="p-4 sm:p-6 md:p-8">
-            <div className="flex items-start gap-3 pb-4 sm:pb-5 mb-4 sm:mb-5 border-b border-[#741A34]/10">
-              <span className="w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 rounded-full bg-[#741A34]/10 flex items-center justify-center">
-                <FileText size={13} className="sm:w-[15px] sm:h-[15px] text-[#741A34]" />
-              </span>
-              <div>
-                <div className="text-xs sm:text-sm font-extrabold tracking-wide text-[#1c1c1c]">
-                  CONTACT DETAILS
-                </div>
-              </div>
-            </div>
+           <div className="flex items-center gap-3 pb-4 sm:pb-5 mb-4 sm:mb-5 border-b border-[#741A34]/10">
+  <span className="w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 rounded-full bg-[#741A34]/10 flex items-center justify-center">
+    <FileText size={13} className="sm:w-[15px] sm:h-[15px] text-[#741A34]" />
+  </span>
+
+  <div className="flex items-center h-7 sm:h-8">
+    <div className="text-xs sm:text-sm font-extrabold tracking-wide text-[#1c1c1c] leading-none">
+      CONTACT DETAILS
+    </div>
+  </div>
+</div>
 
             <div className="space-y-3 sm:space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -218,7 +219,6 @@ export default function Contact() {
                 onClick={handleSubmit}
                 className="w-full flex items-center justify-center gap-2 bg-[#741A34] hover:bg-[#5c1428] text-white text-xs sm:text-sm font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-md transition-colors"
               >
-                <MessageCircle size={15} className="sm:w-4 sm:h-4" />
                 Submit 
                 <ArrowRight size={14} className="sm:w-[15px] sm:h-[15px]" />
               </motion.button>

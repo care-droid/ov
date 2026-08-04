@@ -44,7 +44,7 @@ const COLUMNS: FooterColumn[] = [
     links: [
       { label: "FAQs", href: "/faq" },
       // { label: "Contact Support", href: "/support/contact" },
-      { label: "Demo Request", href: "/contact/demo-request" },
+      { label: "Demo Request", href: "/contactus" },
       // {
       //   label: "WhatsApp",
       //   href: "https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA.",
@@ -114,7 +114,7 @@ export default function Footer() {
             <motion.div variants={column} className="min-w-0">
               <Link href="/" className="flex shrink-0 items-center gap-2 focus-visible:outline-none" aria-label="OVENTRA home">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.94 }} transition={{ type: "spring", stiffness: 300, damping: 18 }}>
-            <Image src="/OVENTRA.png" alt="OVENTRA" width={140} height={48} className="h-10 w-auto sm:h-11" priority />
+            <Image src="/oventra.png" alt="OVENTRA" width={140} height={48} className="h-10 w-auto sm:h-11" priority />
           </motion.div>
         </Link>
               <p className="mt-4 max-w-[220px] text-[13px] leading-relaxed text-white/70">

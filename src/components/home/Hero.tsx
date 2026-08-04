@@ -186,7 +186,7 @@ export default function Hero() {
           <div className="relative aspect-[1.35/1] w-full overflow-visible">
             <div className="absolute inset-x-0 top-[7%] h-[76%] rounded-2xl border border-white/10 bg-[#1B0B0F] p-4">
   <Image
-    src="/home/Dashboard1.png"
+    src="/Home/Dashboard1.png"
     alt="Dashboard"
     fill
     className="object-contain"

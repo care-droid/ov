@@ -95,7 +95,7 @@ export function OriginSection() {
           }`}
         >
           <Image
-            src="/about/About2.png"
+            src="/About/About2.png"
             alt="Sales team meeting"
             fill
             className="object-cover"

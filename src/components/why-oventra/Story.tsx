@@ -69,7 +69,7 @@ export const Story = () => {
         >
           <SwingTag>Our Story</SwingTag>
           <h2
-            className={`font-display mb-8 text-[#0A0A0A] ${sectionHeadingClass}`}
+          className={`mt-8 font-display max-w-[640px] text-[#0A0A0A] ${sectionHeadingClass}`}
           >
             Built from Real Industry Challenges. Refined Through Real Business
             Experience.

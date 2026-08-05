@@ -17,24 +17,24 @@ const ACCENT = "#0d387f";
 const steps = [
   {
     id: 1,
-    title: "Create the Partner Meet",
-    description: "Configure event details, participating distributors, sales representatives, product catalogue, pricing, and schemes.",
+    title: "Begin Your Ordering Journey",
+    description: "Browse products and track performance from a single dashboard.",
     bullets: ["Event details", "Sales representatives", "Product catalogue", "Pricing & Schemes"],
-    image: "/partnermeet/new/Partner1.png",
+    image: "/partnermeet/new/Partner1.jpeg",
   },
   {
     id: 2,
-    title: "Upload Product Catalogue",
-    description: "Display every footwear style with full technical specifications and high-resolution imagery.",
-    bullets: ["Article numbers", "Available sizes", "Color variants", "Digital cataloging"],
-    image: "/partnermeet/new/Partner2.png",
+   title: "Browse Categories",
+    description: "Easily navigate product categories to quickly find the items you need.",
+     bullets: ["Article numbers", "Available sizes", "Color variants", "Digital cataloging"],
+    image: "/partnermeet/new/Partner2.jpeg",
   },
   {
     id: 3,
-    title: "Browse Categories",
-    description: "Easily navigate product categories to quickly find the items you need.",
+    title: "Explore Every Product Variant",
+    description: "Browse product specifications, compare color and size options, check pricing, and choose the perfect variants before placing your order",
     bullets: ["Instant scanning", "Unique IDs", "Quick lookups", "Offline ready"],
-    image: "/partnermeet/new/Partner3.png",
+    image: "/partnermeet/new/Partner3.jpeg",
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ const steps = [
     title: "Place Orders",
     description: "Finalize selections and submit orders instantly. Syncs automatically once back online.",
     bullets: ["Size-wise quantity", "Instant submission", "Order summary", "Auto-syncing"],
-    image: "/partnermeet/new/Partner5.png", // Updated to follow naming convention
+    image: "/partnermeet/new/Partner5.jpeg", // Updated to follow naming convention
   },
 ];
 
@@ -173,7 +173,7 @@ export default function PartnerAppShowcase() {
                         alt={step.title}
                         fill
                         priority={isActive}
-                        className="object-cover transition-transform duration-700 hover:scale-105"
+                        className="object-content transition-transform duration-700 hover:scale-105"
                         sizes="(max-width: 768px) 280px, 400px"
                       />
                     </div>

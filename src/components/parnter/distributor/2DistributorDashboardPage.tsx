@@ -83,15 +83,17 @@ function DistributorDashboardHero() {
               and more professional ordering experience.
             </m.p>
 
-            <m.div variants={item} className="mt-8">
-              <m.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="rounded-md bg-[#1b5399] px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-black"
-              >
-                Book A Demo
-              </m.button>
-            </m.div>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href="https://wa.me/919716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="group relative px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-white text-sm sm:text-base bg-[#1b5399] transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_40px_-8px_#1b5399] active:scale-[0.98]">
+                    Book a Demo
+                  </button>
+                </a>
+              </div>
           </m.div>
 
           <div className="relative w-full lg:w-[58%]">

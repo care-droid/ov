@@ -35,7 +35,7 @@ const COLUMNS: FooterColumn[] = [
     links: [
       { label: "About Us", href: "/about" },
       // { label: "Our Story", href: "/why-oventra/our-story" },
-      { label: "Why We Built OVENTRA", href: "/why-oventra/why-we-built-OVENTRA" },
+      { label: "Why We Built OVENTRA", href: "/why-oventra" },
       // { label: "Career", href: "/contact/career" },
     ],
   },

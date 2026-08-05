@@ -268,15 +268,6 @@ export default function BlogPage() {
             distributor networks — for the footwear industry.
           </p>
 
-          <div className="mt-9 max-w-md mx-auto relative">
-            <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search articles..."
-              className="w-full rounded-full bg-white text-slate-800 placeholder:text-slate-400 pl-11 pr-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white/60"
-            />
-          </div>
         </div>
       </header>
 

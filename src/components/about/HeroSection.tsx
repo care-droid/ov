@@ -280,7 +280,7 @@ export function HeroSection() {
             </div>
             <div className="hero-card-float flex-1 lg:flex-none p-5 sm:p-6 rounded-2xl bg-white/[0.07] backdrop-blur-xl border border-white/15 shadow-2xl hover:bg-white/[0.11] transition-colors duration-500">
               <p className="font-data text-2xl sm:text-3xl text-[#E8B4BE] font-medium">
-                <CountUp end={8} suffix="+" trigger={visible} />
+                <CountUp end={10} suffix="+" trigger={visible} />
               </p>
               <p className="mt-1 text-[11px] sm:text-xs uppercase tracking-[0.2em] text-white/60 font-data">
                 Industries

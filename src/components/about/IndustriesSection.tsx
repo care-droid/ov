@@ -21,6 +21,7 @@ const industries = [
   { name: "Electricals", icon: Zap },
   { name: "Consumer Durables", icon: Package },
   { name: "Manufacturing", icon: Factory },
+  { name: "FMCG", icon: Package },
 ];
 
 // Fires once when the element scrolls into view, then disconnects.

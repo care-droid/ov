@@ -22,7 +22,7 @@ export default function WhyOVENTRAPage() {
       <MissionVision />
       <Trust />
       <CoreValues />
-      <FinalCTA />
+      {/* <FinalCTA /> */}
     </div>
   );
 };

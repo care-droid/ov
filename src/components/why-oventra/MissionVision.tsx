@@ -15,7 +15,11 @@ export const MissionVision = () => (
       transition={{ duration: 0.5 }}
       className="bg-white p-10 md:p-14 border-r border-[#e9e2dd]"
     >
-      <SwingTag>Our Mission</SwingTag>
+      <div className="inline-flex mb-5 items-center rounded-full border border-white/20 bg-[#6D1025] px-5 py-2">
+  <span className="font-semibold uppercase tracking-[0.28em] text-white text-xs sm:text-sm">
+    Our Mission
+  </span>
+</div>
 
       <h3 className={`mb-6 font-display ${subHeadingClass}`}>
         To Simplify B2B Ordering for Every Growing Business

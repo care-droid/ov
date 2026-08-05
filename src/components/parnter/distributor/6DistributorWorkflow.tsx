@@ -17,45 +17,39 @@ const ACCENT = "#0d387f";
 const steps = [
   {
     id: 1,
-    title: "Product Catalogue Publishing",
-    description: "The manufacturer uploads or updates the latest products, pricing, collections, and promotional schemes.",
-    bullets: ["Upload catalogue", "Update pricing", "Manage collections", "Promotional schemes"],
-        image: "/DistributorDealor/new/distributorDealor1.png",
-  },
-  {
-    id: 2,
     title: "Distributor Login",
-    description: "Distributors securely log into OVENTRA using their assigned credentials for role-based access.",
+    description: "Access your personalized distributor dashboard to explore products, place orders instantly, and stay updated on order progress in real time.",
     bullets: ["Secure authentication", "Role-based access", "Multi-device support", "Quick login"],
     image: "/DistributorDealor/new/distributorDealor2.png",
   },
+  {
+    id: 2,
+    title: "Browse Categories",
+    description: "Easily navigate product categories to quickly find the items you need.",
+    bullets: ["Upload catalogue", "Update pricing", "Manage collections", "Promotional schemes"],
+        image: "/DistributorDealor/new/distributorDealor1.jpeg",
+  },
+  
   {
     id: 3,
     title: "Browse & Select Products",
     description: "Browse the digital catalogue and choose products based on category, size, colour, or article number.",
     bullets: ["Category browsing", "Size selection", "Colour selection", "Article search"],
-    image: "/DistributorDealor/new/distributorDealor3.png",
+    image: "/DistributorDealor/new/distributorDealor3.jpeg",
   },
   {
     id: 4,
     title: "Place Order",
     description: "Review the shopping cart, verify quantities, and submit the order instantly to the manufacturer.",
     bullets: ["Cart review", "Quantity verification", "Instant submission", "Order confirmation"],
-    image: "/DistributorDealor/new/distributorDealor4.png",
+    image: "/DistributorDealor/new/distributorDealor4.jpeg",
   },
   {
     id: 5,
-    title: "Browse Products",
-    description: "Browse the complete product catalogue with images, pricing, and variants to quickly find and select the right products.",
-    bullets: ["Sales team review", "Order approval", "Processing", "Fulfilment planning"],
-    image: "/DistributorDealor/new/distributorDealor5.png",
-  },
-  {
-    id: 6,
     title: "Track Order",
     description: "Distributors can monitor the order status in real-time from confirmation to dispatch and delivery.",
     bullets: ["Order confirmation", "Dispatch updates", "Delivery tracking", "Real-time status"],
-    image: "/DistributorDealor/new/distributorDealor6.png",
+    image: "/DistributorDealor/new/distributorDealor5.png",
   },
 ];
 

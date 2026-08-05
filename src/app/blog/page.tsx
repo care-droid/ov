@@ -5,38 +5,25 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   Search,
   Calendar,
-  Clock,
   User,
   ArrowRight,
   ArrowLeft,
   Tag as TagIcon,
 } from "lucide-react";
 import type { Category, Post } from "@/types/blog";
-
-// Adjust this import to wherever blog-data.tsx actually lives in your project
-// e.g. "@/data/blog-data" or "../blog-data"
-import { posts, categories, categoryIcon, allTags } from "@/lib/blog-data";
-
-// NOTE: add `image?: string;` to the Post interface in @/types/blog.ts
-// so posts (like id 101) can carry a real photo. Posts without an
-// `image` keep using their existing gradient + icon, unchanged.
+import { posts, allTags } from "@/lib/blog-data";
 
 /* ============================================================
    OVENTRA BLOG — page.tsx
    ------------------------------------------------------------
    - Every word of post.content from blog-data.tsx is rendered,
-     nothing is trimmed, summarized, or truncated. renderContent()
-     only decides HOW a paragraph/list/heading is *styled* — the
-     text itself always passes straight through.
-   - Uses the existing `icon` + `gradient` fields from your data
-     for the visual header of each card/article (no data added
-     or removed, only re-skinned).
-   - Clicking a card opens the full article in-page, so it always
-     "opens" regardless of routing setup. If you already have a
-     real route per post (e.g. /blog/[slug]), swap `onOpen` for a
-     Next.js <Link> instead.
-   - Theme: white background, maroon (#7A1128) as the single accent.
+     nothing is trimmed, summarized, or truncated.
+   - Category badge and read-time display removed.
+   - Gradient backgrounds removed — plain solid color fallback
+     is used instead when a post has no image.
    ============================================================ */
+
+const FALLBACK_BG = "#7A1128";
 
 /* ---------- content renderer: word-for-word, styling only ---------- */
 
@@ -56,7 +43,6 @@ function renderContent(content: string) {
 
     const listLines = lines.filter(isListLine);
 
-    // Pure list block — every line is a bullet/step
     if (listLines.length > 0 && listLines.length === lines.length) {
       return (
         <ul key={i} className="list-disc pl-5 space-y-1.5 mb-5 text-slate-600">
@@ -67,7 +53,6 @@ function renderContent(content: string) {
       );
     }
 
-    // Short single line, no ending punctuation — treat as a subheading
     if (
       lines.length === 1 &&
       lines[0].length < 90 &&
@@ -81,7 +66,6 @@ function renderContent(content: string) {
       );
     }
 
-    // Everything else — render verbatim, preserving internal line breaks
     return (
       <p key={i} className="text-slate-600 leading-relaxed mb-4 whitespace-pre-line">
         {lines.join("\n")}
@@ -111,7 +95,7 @@ function ArticleView({ post, onClose }: { post: Post; onClose: () => void }) {
 
         <div
           className="relative rounded-2xl overflow-hidden mb-8 h-56 sm:h-72 flex items-center justify-center text-white"
-          style={!post.image ? { background: post.gradient } : undefined}
+          style={!post.image ? { background: FALLBACK_BG } : undefined}
         >
           {post.image ? (
             <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
@@ -121,10 +105,6 @@ function ArticleView({ post, onClose }: { post: Post; onClose: () => void }) {
           {post.image && (
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
           )}
-          <span className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/90 text-[#7A1128] inline-flex items-center gap-1.5">
-            {categoryIcon[post.category]}
-            {post.category}
-          </span>
           {post.featured && (
             <span className="absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs font-semibold bg-[#7A1128] text-white">
               Featured
@@ -138,9 +118,6 @@ function ArticleView({ post, onClose }: { post: Post; onClose: () => void }) {
           </span>
           <span className="inline-flex items-center gap-1.5">
             <Calendar size={14} /> {post.date}
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <Clock size={14} /> {post.readTime}
           </span>
         </div>
 
@@ -169,7 +146,7 @@ function ArticleView({ post, onClose }: { post: Post; onClose: () => void }) {
             </p>
           </div>
           <a
-            href="https://www.oventra.in"
+          href="https://www.oventra.in"
             target="_blank"
             rel="noreferrer"
             className="shrink-0 inline-flex items-center gap-2 bg-white text-[#7A1128] font-semibold px-5 py-2.5 rounded-full hover:bg-white/90 transition-colors"
@@ -208,7 +185,7 @@ function PostRow({
     >
       <div
         className="relative rounded-3xl overflow-hidden h-56 sm:h-72 md:h-80 flex items-center justify-center text-white shadow-[0_20px_40px_-20px_rgba(122,17,40,0.35)] transition-transform duration-500 group-hover:scale-[1.02]"
-        style={!post.image ? { background: post.gradient } : undefined}
+        style={!post.image ? { background: FALLBACK_BG } : undefined}
       >
         {post.image ? (
           <img
@@ -220,20 +197,13 @@ function PostRow({
           <div className="opacity-90 scale-[2]">{post.icon}</div>
         )}
         {post.image && (
-          <div className="absolute inset-0 bg-gradient-to-t from-[#7A1128]/40 via-transparent to-transparent" />
+          <div className="absolute inset-0" />
         )}
-        <span className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-[#7A1128] shadow-sm inline-flex items-center gap-1.5">
-          {categoryIcon[post.category]}
-          {post.category}
-        </span>
         {post.featured && (
           <span className="absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs font-semibold bg-black/25 backdrop-blur-sm">
             Featured
           </span>
         )}
-        <span className="absolute bottom-4 right-4 px-3 py-1.5 rounded-full text-xs font-medium bg-black/25 backdrop-blur-sm inline-flex items-center gap-1.5">
-          <Clock size={12} /> {post.readTime}
-        </span>
       </div>
 
       <div>
@@ -266,24 +236,20 @@ function PostRow({
 /* ---------- page ---------- */
 
 export default function BlogPage() {
-  const [activeCategory, setActiveCategory] = useState<Category | "All">("All");
-  const [activeTag, setActiveTag] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [openPost, setOpenPost] = useState<Post | null>(null);
 
   const filtered = useMemo(() => {
     return posts.filter((p) => {
-      const matchesCategory = activeCategory === "All" || p.category === activeCategory;
-      const matchesTag = !activeTag || p.tags.includes(activeTag);
       const q = query.trim().toLowerCase();
-      const matchesQuery =
+      return (
         q === "" ||
         p.title.toLowerCase().includes(q) ||
         p.excerpt.toLowerCase().includes(q) ||
-        p.tags.some((t) => t.toLowerCase().includes(q));
-      return matchesCategory && matchesTag && matchesQuery;
+        p.tags.some((t) => t.toLowerCase().includes(q))
+      );
     });
-  }, [activeCategory, activeTag, query]);
+  }, [query]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -313,8 +279,6 @@ export default function BlogPage() {
           </div>
         </div>
       </header>
-
-     
 
       {/* POST LIST */}
       <main className="max-w-4xl mx-auto px-5 sm:px-8 py-14">

@@ -259,16 +259,15 @@ export const Hero = () => {
 
       {/* floating credential chip — reads over the image, bottom right */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.5 }}
-        className="absolute z-20 bottom-24 right-6 md:right-16 md:bottom-16"
-      >
-        <div className="px-5 py-3 rounded-full backdrop-blur-md bg-white/10 border border-white/25 text-white text-[10px] md:text-[11px] tracking-[0.25em] uppercase font-semibold">
-          Track · Book · Verify
-        </div>
-      </motion.div>
-
+  initial={{ opacity: 0, y: 16 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: 0.5 }}
+  className="absolute z-20 bottom-6 left-1/2 -translate-x-1/2 sm:bottom-8 md:bottom-12 md:left-auto md:right-8 md:translate-x-0 lg:right-16 lg:bottom-16"
+>
+  <div className="rounded-full border border-white/25 bg-white/10 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.15em] text-white backdrop-blur-md sm:px-4 sm:py-2.5 sm:text-[10px] sm:tracking-[0.2em] md:px-5 md:py-3 md:text-[11px] md:tracking-[0.25em]">
+    Track · Book · Verify
+  </div>
+</motion.div>
 
       {/* Scroll indicator — matching first component */}
       <div

@@ -17,7 +17,7 @@ export const Story = () => {
   return (
     <div className="font-sans bg-[#FCFCFC]">
       {/* --- SECTION 1: WHY OVENTRA (Split Layout) --- */}
-      <section className="py-24 md:py-32  max-w-7xl mx-auto">
+      <section className="lg:py-16 py-6  px-5 sm:px-4 lg:px-0 max-w-7xl mx-auto">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -29,10 +29,10 @@ export const Story = () => {
           <div className="lg:col-span-5">
             <motion.div variants={fadeUp}>
             </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className={`mt-8 font-display text-[#0A0A0A] ${sectionHeadingClass} leading-tight`}
-            >
+           <motion.h2
+  variants={fadeUp}
+  className=" font-display text-[38px] leading-[1.08] tracking-[-0.02em] text-[#0A0A0A] sm:text-[48px] lg:text-[64px]"
+>
               Digitizing the Future of <br />
               <span style={{ color: COLORS.maroon }}>B2B Ordering</span>
             </motion.h2>
@@ -97,9 +97,7 @@ export const Story = () => {
       viewport={{ once: true }}
       className="mb-20 text-center"
     >
-      <span className="inline-flex rounded-full bg-[#F8F1F3]  py-1 text-sm font-medium text-[#7A1F3D]">
-        Our Story
-      </span>
+    
 
       <h1
         className={`mt-6 font-display text-[#5c0011] ${heroHeadingClass} max-w-4xl mx-auto`}

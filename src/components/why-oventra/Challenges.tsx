@@ -100,7 +100,7 @@ export const Challenges = () => (
         </p>
 
        <div className="pt-8 text-center">
-  <h3 className="font-display text-[28px] font-semibold leading-tight tracking-[-0.02em] text-[#161616] sm:text-[36px]">
+  <h3 className="font-display text-[28px] font-semibold leading-tight tracking-[-0.02em] text-[#5c0011] sm:text-[36px]">
     Our goal was simple
   </h3>
 
@@ -122,7 +122,7 @@ export const Challenges = () => (
             variants={fadeUp}
             className="flex items-start gap-3 p-5 rounded-2xl border border-[#214E8A]/10 bg-white hover:bg-[#214E8A]/5 hover:border-[#214E8A]/25 transition-colors duration-200 shadow-sm"
           >
-            <CheckCircle size={22} className="mt-0.5 shrink-0" style={{ color: COLORS.blue }} />
+            <CheckCircle size={22} className="mt-0.5 shrink-0" style={{ color: "5c0011" }} />
             <p className={`text-gray-700 leading-snug ${bodyLgClass}`}>{line}</p>
           </motion.div>
         ))}

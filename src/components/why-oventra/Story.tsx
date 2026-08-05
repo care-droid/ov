@@ -52,7 +52,7 @@ export const Story = () => {
               </p>
               
               <div className="pl-6 border-l-2 border-[#E5E5E5] py-2 italic font-medium" style={{ color: COLORS.maroon }}>
-                "At OVENTRA, we believe technology should remove these barriers—not create them."
+                &ldquo;At OVENTRA, we believe technology should remove these barriers—not create them.&rdquo;
               </div>
 
               
@@ -127,7 +127,7 @@ export const Story = () => {
             variants={fadeUp}
             className="font-display text-2xl font-semibold text-[#161616]"
           >
-            OVENTRA wasn't created inside a boardroom—it was built in the field.
+            OVENTRA wasn&apos;t created inside a boardroom—it was built in the field.
           </motion.p>
 
           <motion.p variants={fadeUp} className="text-[#5B5B5B]">
@@ -181,7 +181,7 @@ export const Story = () => {
           variants={fadeUp}
           className="mt-6 text-[17px] leading-8 text-white/85"
         >
-          Working alongside India's leading brands, we developed a digital
+          Working alongside India&apos;s leading brands, we developed a digital
           platform that solved these real-world challenges. What began as a
           custom solution evolved into <strong>OVENTRA</strong>.
         </motion.p>

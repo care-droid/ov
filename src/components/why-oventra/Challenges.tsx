@@ -1,7 +1,13 @@
 "use client";
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
-import { COLORS, fadeUp, stagger, SwingTag, bodyLgClass, heroHeadingClass } from './Shared';
+import {
+  COLORS,
+  fadeUp,
+  stagger,
+  bodyLgClass,
+  heroHeadingClass,
+} from "./Shared";
 
 const challenges = [
   'Orders coming through WhatsApp, phone calls, emails, and spreadsheets—with no single source of truth.',
@@ -79,15 +85,16 @@ export const Challenges = () => (
         className="w-[100%] mx-auto text-center mt-16 space-y-4"
       >
         <p className={`text-gray-600 ${bodyLgClass}`}>
-          These weren't isolated problems — they were recurring challenges
-          across the industries we served.
-        </p>
-        <p className={`text-gray-600 ${bodyLgClass}`}>
-          We realized that businesses didn't need another order-taking
-          application — they needed a complete digital ordering ecosystem
-          that connects manufacturers, distributors, and dealers on one
-          platform.
-        </p>
+  These weren&apos;t isolated problems — they were recurring challenges
+  across the industries we served.
+</p>
+
+<p className={`text-gray-600 ${bodyLgClass}`}>
+  We realized that businesses didn&apos;t need another order-taking
+  application — they needed a complete digital ordering ecosystem
+  that connects manufacturers, distributors, and dealers on one
+  platform.
+</p>
         <p style={{ color: COLORS.blue }} className="font-semibold text-lg pt-2">
           That vision became OVENTRA.
         </p>

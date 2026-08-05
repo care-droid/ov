@@ -20,7 +20,7 @@ const steps = [
     title: "Dealer Login",
     description: "Each dealer receives secure credentials linked to their assigned distributor for a personalized experience.",
     bullets: ["Secure authentication", "Assigned distributor sync", "Personalized dashboard"],
-    image: "/DistributorDealor/new/distributorDealor2.png",
+    image: "/DistributorDealor/new/distributorDealor2.jpeg",
   },
   {
     id: 2,

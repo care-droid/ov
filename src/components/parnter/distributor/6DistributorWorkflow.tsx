@@ -20,7 +20,7 @@ const steps = [
     title: "Distributor Login",
     description: "Access your personalized distributor dashboard to explore products, place orders instantly, and stay updated on order progress in real time.",
     bullets: ["Secure authentication", "Role-based access", "Multi-device support", "Quick login"],
-    image: "/DistributorDealor/new/distributorDealor2.png",
+    image: "/DistributorDealor/new/distributorDealor2.jpeg",
   },
   {
     id: 2,

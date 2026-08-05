@@ -254,22 +254,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* HEADER */}
-      <header className="relative overflow-hidden bg-[#7A1128] text-white">
-        <div className="absolute inset-0 opacity-15 [background:radial-gradient(circle_at_20%_20%,white,transparent_45%),radial-gradient(circle_at_80%_60%,white,transparent_40%)]" />
-        <div className="relative max-w-6xl mx-auto px-5 sm:px-8 py-20 sm:py-28 text-center">
-          <span className="text-white/70 font-semibold tracking-[0.3em] text-[11px] uppercase">
-            Oventra Insights
-          </span>
-          <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-            Blogs &amp; Updates
-          </h1>
-          <p className="mt-5 text-white/75 text-base sm:text-lg max-w-2xl mx-auto">
-            Practical guidance on digital B2B ordering, partner meets, and
-            distributor networks — for the footwear industry.
-          </p>
-
-        </div>
-      </header>
+    
 
       {/* POST LIST */}
       <main className="max-w-4xl mx-auto px-5 sm:px-8 py-14">

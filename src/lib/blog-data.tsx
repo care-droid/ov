@@ -2882,7 +2882,7 @@
       title: "How Digital Ordering Helps Footwear Brands Scale Faster Without Increasing Operational Costs",
       excerpt:
         "Learn how digital B2B ordering helps footwear manufacturers and distributors scale faster, reduce operational costs, improve order accuracy, and streamline operations.",
-      date: "11 June 2026",
+      date: "1 June 2026",
       author: "OVENTRA Team",
       category: "B2B Ordering",
       tags: ["Digital Transformation in Footwear"],

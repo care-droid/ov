@@ -227,32 +227,42 @@ export default function FAQPage() {
             </motion.div>
 
             {/* Footer CTA */}
-            <motion.div
-              variants={fadeIn}
-              initial="hidden"
-              animate="show"
-              className="mt-12 sm:mt-16"
-            >
-              <div className="bg-[#1b5399]/5 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl border border-[#1b5399]/15 shadow-sm">
-                <p className="text-slate-600 mb-3 text-sm sm:text-base">
-                  Still have questions?
-                </p>
-                <a
-                  href="https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-[#1b5399] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-medium shadow-lg shadow-[#1b5399]/20 hover:bg-[#164378] hover:shadow-xl hover:shadow-[#1b5399]/30 transition-all duration-300 flex items-center gap-2 text-sm sm:text-base"
-                  >
-                    Contact Support
-                  </motion.button>
-                </a>
-              </div>
-            </motion.div>
+           <motion.div
+  variants={fadeIn}
+  initial="hidden"
+  animate="show"
+  className="mt-10"
+>
+  <div className="flex flex-col sm:flex-row items-center justify-between gap-5 rounded-[24px] border border-[#1b5399]/20 bg-[#EAF2FF] px-5 sm:px-7 py-5">
+    
+    {/* Left */}
+    <div className="text-center sm:text-left">
+      <h3 className="text-lg sm:text-2xl font-bold text-[#1b5399]">
+        Still have questions?
+      </h3>
+
+      <p className="mt-1 text-sm sm:text-base text-slate-600">
+        Our team is here to help you
+      </p>
+    </div>
+
+    {/* Right */}
+    <a
+      href="https://wa.me/9716016012?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20OVENTRA."
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <motion.button
+        whileHover={{ scale: 1.04 }}
+        whileTap={{ scale: 0.96 }}
+        className="rounded-full bg-[#1b5399] px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#164378]"
+      >
+        Contact Support
+      </motion.button>
+    </a>
+
+  </div>
+</motion.div>
           </div>
         </div>
 

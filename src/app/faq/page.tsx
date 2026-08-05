@@ -118,18 +118,18 @@ export default function FAQPage() {
               className="mb-10 sm:mb-12"
             >
               <motion.div
-                className="inline-flex items-center gap-2 bg-[#1b5399]/10 px-4 sm:px-5 py-1.5 rounded-full border border-[#1b5399]/20 mb-4 sm:mb-6"
+                className="inline-flex items-center gap-2 bg-[#5c0011]/10 px-4 sm:px-5 py-1.5 rounded-full border border-[#5c0011]/20 mb-4 sm:mb-6"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <span className="text-[#1b5399] text-xs sm:text-sm font-semibold tracking-wider">
+                <span className="text-[#5c0011] text-xs sm:text-sm font-semibold tracking-wider">
                   FAQ
                 </span>
               </motion.div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight">
                 Frequently Asked
-                <span className="block text-[#1b5399]">Questions</span>
+                <span className="block text-[#5c0011]">Questions</span>
               </h1>
               <p className="text-slate-500 text-base sm:text-lg">
                 Everything you need to know about OVENTRA
@@ -148,8 +148,8 @@ export default function FAQPage() {
                   <div
                     className={`bg-white rounded-2xl border transition-all duration-300 shadow-sm ${
                       activeIndex === index
-                        ? "border-[#1b5399] shadow-lg shadow-[#1b5399]/10 ring-1 ring-[#1b5399]/20"
-                        : "border-slate-200 hover:border-[#1b5399]/40 hover:shadow-md"
+                        ? "border-[#5c0011] shadow-lg shadow-[#5c0011]/10 ring-1 ring-[#5c0011]/20"
+                        : "border-slate-200 hover:border-[#5c0011]/40 hover:shadow-md"
                     }`}
                   >
                     <button
@@ -160,8 +160,8 @@ export default function FAQPage() {
                         <motion.div
                           className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-colors duration-300 mt-0.5 sm:mt-0 ${
                             activeIndex === index
-                              ? "bg-[#1b5399]"
-                              : "bg-slate-100 group-hover:bg-[#1b5399]/10"
+                              ? "bg-[#5c0011]"
+                              : "bg-slate-100 group-hover:bg-[#5c0011]/10"
                           }`}
                           whileHover={{ rotate: 90 }}
                           transition={{ duration: 0.3 }}
@@ -170,15 +170,15 @@ export default function FAQPage() {
                             className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors duration-300 ${
                               activeIndex === index
                                 ? "text-white"
-                                : "text-slate-400 group-hover:text-[#1b5399]"
+                                : "text-slate-400 group-hover:text-[#5c0011]"
                             }`}
                           />
                         </motion.div>
                         <span
                           className={`font-medium text-sm sm:text-base lg:text-lg transition-colors duration-300 ${
                             activeIndex === index
-                              ? "text-[#1b5399]"
-                              : "text-slate-700 group-hover:text-[#1b5399]"
+                              ? "text-[#5c0011]"
+                              : "text-slate-700 group-hover:text-[#5c0011]"
                           }`}
                         >
                           {faq.question}
@@ -191,7 +191,7 @@ export default function FAQPage() {
                       >
                         <ChevronDown
                           className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300 ${
-                            activeIndex === index ? "text-[#1b5399]" : "text-slate-400"
+                            activeIndex === index ? "text-[#5c0011]" : "text-slate-400"
                           }`}
                         />
                       </motion.div>
@@ -211,7 +211,7 @@ export default function FAQPage() {
                               initial={{ y: -10, opacity: 0 }}
                               animate={{ y: 0, opacity: 1 }}
                               transition={{ delay: 0.1, duration: 0.3 }}
-                              className="pl-10 sm:pl-12 border-l-2 border-[#1b5399]/25"
+                              className="pl-10 sm:pl-12 border-l-2 border-[#5c0011]/25"
                             >
                               <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
                                 {faq.answer}
@@ -233,11 +233,11 @@ export default function FAQPage() {
   animate="show"
   className="mt-10"
 >
-  <div className="flex flex-col sm:flex-row items-center justify-between gap-5 rounded-[24px] border border-[#1b5399]/20 bg-[#EAF2FF] px-5 sm:px-7 py-5">
+  <div className="flex flex-col sm:flex-row items-center justify-between gap-5 rounded-[24px] border border-[#5c0011]/20 bg-[#EAF2FF] px-5 sm:px-7 py-5">
     
     {/* Left */}
     <div className="text-center sm:text-left">
-      <h3 className="text-lg sm:text-2xl font-bold text-[#1b5399]">
+      <h3 className="text-lg sm:text-2xl font-bold text-[#5c0011]">
         Still have questions?
       </h3>
 
@@ -255,7 +255,7 @@ export default function FAQPage() {
       <motion.button
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.96 }}
-        className="rounded-full bg-[#1b5399] px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#164378]"
+        className="rounded-full bg-[#5c0011] px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#164378]"
       >
         Contact Support
       </motion.button>
@@ -274,7 +274,7 @@ export default function FAQPage() {
               alt="FAQ Visual"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1b5399]/20 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#5c0011]/20 via-transparent to-transparent" />
           </div>
         </div>
       </div>

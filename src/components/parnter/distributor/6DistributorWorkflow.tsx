@@ -174,12 +174,12 @@ export default function DistributorWorkflow() {
                     }}
                     className="absolute"
                   >
-                    <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] bg-white shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] ring-4 ring-white">
+                    <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] ">
                       <Image
                         src={step.image}
                         alt={step.title}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                         priority={isActive}
                         sizes="400px"
                       />
